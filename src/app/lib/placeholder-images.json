@@ -1,0 +1,41 @@
+
+{
+  "placeholderImages": [
+    {
+      "id": "hero-bg",
+      "description": "Luxury bespoke tailoring close-up with gold thread and dark fabric",
+      "imageUrl": "https://picsum.photos/seed/mfk-hero/1920/1080",
+      "imageHint": "luxury tailoring"
+    },
+    {
+      "id": "collection-suit-1",
+      "description": "Elegant charcoal grey three-piece suit on a mannequin",
+      "imageUrl": "https://picsum.photos/seed/mfk-suit1/800/1000",
+      "imageHint": "bespoke suit"
+    },
+    {
+      "id": "collection-blazer-1",
+      "description": "Navy velvet designer blazer with gold accents",
+      "imageUrl": "https://picsum.photos/seed/mfk-blazer1/800/1000",
+      "imageHint": "velvet blazer"
+    },
+    {
+      "id": "collection-sherwani-1",
+      "description": "Regal ivory sherwani with intricate embroidery",
+      "imageUrl": "https://picsum.photos/seed/mfk-sherwani1/800/1000",
+      "imageHint": "indian sherwani"
+    },
+    {
+      "id": "collection-tuxedo-1",
+      "description": "Classic midnight blue tuxedo with silk lapels",
+      "imageUrl": "https://picsum.photos/seed/mfk-tux1/800/1000",
+      "imageHint": "classic tuxedo"
+    },
+    {
+      "id": "about-craft",
+      "description": "Tailor measuring premium fabric with a vintage tape measure",
+      "imageUrl": "https://picsum.photos/seed/mfk-craft/1200/800",
+      "imageHint": "tailoring craft"
+    }
+  ]
+}
