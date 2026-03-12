@@ -4,6 +4,8 @@ import { Footer } from '@/components/navigation/Footer';
 import { Hero } from '@/components/sections/Hero';
 import { CollectionsPreview } from '@/components/sections/CollectionsPreview';
 import { ProcessSteps } from '@/components/sections/ProcessSteps';
+import { Craftsmanship } from '@/components/sections/Craftsmanship';
+import { FinalCTA } from '@/components/sections/FinalCTA';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
@@ -16,35 +18,30 @@ export default function Home() {
         
         <CollectionsPreview />
 
-        {/* Brand Philosophy */}
-        <section className="py-24 px-6 md:px-12 bg-background">
-          <div className="max-w-4xl mx-auto text-center space-y-8">
-            <h2 className="text-3xl md:text-5xl font-headline font-semibold gold-text italic">
-              "A suit should be a piece of armor for the modern gentleman."
+        {/* Brand Philosophy / Quote */}
+        <section className="py-32 px-6 md:px-12 bg-[#0F0E13]">
+          <div className="max-w-5xl mx-auto text-center space-y-10">
+            <div className="w-20 h-px bg-accent/50 mx-auto mb-12"></div>
+            <h2 className="text-3xl md:text-6xl font-headline font-bold gold-text italic leading-tight">
+              "A MFKhan suit is not just attire; it is a declaration of presence and a testament to heritage."
             </h2>
-            <p className="text-xl text-muted-foreground leading-relaxed">
-              At MFK International, we believe tailoring is more than just clothing; it's a statement of identity. Our garments are engineered to instill confidence, reflect character, and provide an unparalleled standard of luxury.
-            </p>
-            <Button asChild variant="link" className="text-accent uppercase tracking-widest hover:text-white transition-colors">
-              <Link href="/about">Read Our Story</Link>
-            </Button>
+            <div className="space-y-6 max-w-3xl mx-auto">
+              <p className="text-xl text-muted-foreground leading-relaxed">
+                We believe that true luxury lies in the unseen details—the internal canvas, the hand-stitched silk, and the perfect mathematical balance of the silhouette.
+              </p>
+              <Button asChild variant="link" className="text-accent uppercase tracking-[0.3em] font-bold hover:text-white transition-colors text-sm">
+                <Link href="/about">Discover Our Heritage</Link>
+              </Button>
+            </div>
+            <div className="w-20 h-px bg-accent/50 mx-auto mt-12"></div>
           </div>
         </section>
 
+        <Craftsmanship />
+
         <ProcessSteps />
 
-        {/* Advisor CTA */}
-        <section className="py-24 px-6 md:px-12 violet-gradient">
-           <div className="max-w-5xl mx-auto text-center space-y-8">
-             <h2 className="text-4xl md:text-6xl font-headline font-bold text-white">Unsure of Your Style?</h2>
-             <p className="text-xl text-white/80 max-w-2xl mx-auto">
-               Try our Generative Style Advisor. Powered by AI, designed by master tailors to find your perfect look.
-             </p>
-             <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-white transition-all h-14 px-10 text-lg rounded-none">
-               <Link href="/advisor">Launch Advisor</Link>
-             </Button>
-           </div>
-        </section>
+        <FinalCTA />
 
       </main>
       <Footer />

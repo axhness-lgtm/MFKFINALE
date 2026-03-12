@@ -39,7 +39,7 @@ export function Header() {
           <div className="w-10 h-10 rounded-full violet-gradient flex items-center justify-center border border-accent/20 group-hover:border-accent transition-colors">
              <Scissors className="w-5 h-5 text-accent" />
           </div>
-          <span className="font-headline text-2xl tracking-tighter gold-text uppercase">MFK <span className="text-foreground">International</span></span>
+          <span className="font-headline text-2xl tracking-tighter gold-text uppercase">MFKhan <span className="text-foreground">International</span></span>
         </Link>
 
         {/* Desktop Nav */}
@@ -53,7 +53,7 @@ export function Header() {
               {link.name}
             </Link>
           ))}
-          <Button asChild variant="default" className="violet-gradient hover:opacity-90">
+          <Button asChild variant="default" className="violet-gradient hover:opacity-90 rounded-none">
             <Link href="/contact">Inquiry</Link>
           </Button>
         </nav>
@@ -80,7 +80,7 @@ export function Header() {
               {link.name}
             </Link>
           ))}
-          <Button asChild className="w-full violet-gradient" onClick={() => setMobileMenuOpen(false)}>
+          <Button asChild className="w-full violet-gradient rounded-none" onClick={() => setMobileMenuOpen(false)}>
             <Link href="/contact">Book Consultation</Link>
           </Button>
         </div>
