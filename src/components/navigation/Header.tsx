@@ -28,18 +28,19 @@ export function Header() {
   ];
 
   return (
-    <header
-      className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-700 px-6 py-6 md:px-12',
-        isScrolled ? 'bg-background/80 backdrop-blur-md py-4 border-b border-border/20' : 'bg-transparent'
-      )}
-    >
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none pt-6 px-6 md:px-12">
+      <div 
+        className={cn(
+          'mx-auto max-w-7xl w-full transition-all duration-700 pointer-events-auto flex items-center justify-between',
+          'bg-background/40 backdrop-blur-xl border border-border/10',
+          isScrolled ? 'py-3 px-6 md:px-10 shadow-lg translate-y-[-0.5rem]' : 'py-6 px-8 md:px-12'
+        )}
+      >
         <Link href="/" className="flex items-center gap-4 group">
-          <BrandLogo size={42} className="transition-all duration-700 group-hover:opacity-70" />
+          <BrandLogo size={38} className="transition-all duration-700 group-hover:opacity-70" />
           <div className="flex flex-col">
-            <span className="font-headline text-xl tracking-[0.2em] text-foreground uppercase leading-none font-normal">MFKhan</span>
-            <span className="text-[8px] uppercase tracking-[0.5em] text-muted-foreground font-bold">International</span>
+            <span className="font-headline text-lg tracking-[0.2em] text-foreground uppercase leading-none font-light">MFKhan</span>
+            <span className="text-[7px] uppercase tracking-[0.5em] text-muted-foreground font-bold">International</span>
           </div>
         </Link>
 
@@ -49,14 +50,14 @@ export function Header() {
             <Link
               key={link.name}
               href={link.href}
-              className="text-[10px] uppercase tracking-[0.3em] font-bold text-foreground/60 hover:text-accent transition-colors duration-300"
+              className="text-[9px] uppercase tracking-[0.3em] font-bold text-foreground/50 hover:text-accent transition-colors duration-300"
             >
               {link.name}
             </Link>
           ))}
           <Link 
             href="/contact" 
-            className="text-[10px] uppercase tracking-[0.3em] font-bold border-b border-foreground/20 pb-1 hover:border-accent hover:text-accent transition-all duration-300"
+            className="text-[9px] uppercase tracking-[0.3em] font-bold border-b border-foreground/10 pb-0.5 hover:border-accent hover:text-accent transition-all duration-300"
           >
             Inquiry
           </Link>
@@ -67,26 +68,34 @@ export function Header() {
           className="md:hidden p-2 text-foreground"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
-          {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-background border-t border-border/10 animate-fade-in p-12 space-y-8 shadow-2xl h-screen">
+        <div className="md:hidden fixed inset-0 z-[-1] bg-background/95 backdrop-blur-2xl animate-fade-in pointer-events-auto p-12 flex flex-col justify-center gap-8">
+          <button 
+            className="absolute top-10 right-10 p-2"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            <X className="w-6 h-6" />
+          </button>
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="block text-3xl font-headline py-4 border-b border-border/5 text-center font-light tracking-widest"
+              className="block text-4xl font-headline py-4 border-b border-border/5 text-center font-light tracking-widest text-foreground/80 hover:text-accent transition-colors"
             >
               {link.name}
             </Link>
           ))}
-          <Button asChild variant="outline" className="w-full rounded-none h-14 uppercase tracking-[0.4em] text-[10px] font-bold border-accent text-accent" onClick={() => setMobileMenuOpen(false)}>
-            <Link href="/contact">Book Consultation</Link>
-          </Button>
+          <div className="pt-8">
+            <Button asChild variant="outline" className="w-full rounded-none h-16 uppercase tracking-[0.4em] text-[10px] font-bold border-accent text-accent" onClick={() => setMobileMenuOpen(false)}>
+              <Link href="/contact">Book Consultation</Link>
+            </Button>
+          </div>
         </div>
       )}
     </header>
