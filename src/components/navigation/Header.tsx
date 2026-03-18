@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from 'next/link';
@@ -32,25 +31,31 @@ export function Header() {
       <div 
         className={cn(
           'mx-auto max-w-7xl w-full transition-all duration-700 pointer-events-auto flex items-center justify-between',
-          'bg-background/40 backdrop-blur-xl border border-border/10',
-          isScrolled ? 'py-3 px-6 md:px-10 shadow-lg translate-y-[-0.5rem]' : 'py-6 px-8 md:px-12'
+          isScrolled 
+            ? 'bg-background/60 backdrop-blur-2xl border border-border/20 py-3 px-6 md:px-10 shadow-2xl translate-y-[-0.25rem] rounded-full' 
+            : 'bg-transparent border-transparent py-6 px-8 md:px-12'
         )}
       >
         <Link href="/" className="flex items-center gap-4 group">
-          <BrandLogo size={38} className="transition-all duration-700 group-hover:opacity-70" />
-          <div className="flex flex-col">
-            <span className="font-headline text-lg tracking-[0.2em] text-foreground uppercase leading-none font-light">MFKhan</span>
-            <span className="text-[7px] uppercase tracking-[0.5em] text-muted-foreground font-bold">International</span>
+          <BrandLogo size={isScrolled ? 34 : 42} className="transition-all duration-700 group-hover:opacity-70" />
+          <div className="flex flex-col transition-all duration-700">
+            <span className={cn(
+              "font-headline tracking-[0.2em] text-foreground uppercase leading-none font-light",
+              isScrolled ? "text-base" : "text-lg"
+            )}>MFKhan</span>
+            {!isScrolled && (
+              <span className="text-[7px] uppercase tracking-[0.5em] text-muted-foreground font-bold animate-fade-in">International</span>
+            )}
           </div>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-12">
+        <nav className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="text-[9px] uppercase tracking-[0.3em] font-bold text-foreground/50 hover:text-accent transition-colors duration-300"
+              className="text-[9px] uppercase tracking-[0.3em] font-bold text-foreground/60 hover:text-accent transition-colors duration-300"
             >
               {link.name}
             </Link>
@@ -74,7 +79,7 @@ export function Header() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 z-[-1] bg-background/95 backdrop-blur-2xl animate-fade-in pointer-events-auto p-12 flex flex-col justify-center gap-8">
+        <div className="md:hidden fixed inset-0 z-[-1] bg-background/95 backdrop-blur-3xl animate-fade-in pointer-events-auto p-12 flex flex-col justify-center gap-8">
           <button 
             className="absolute top-10 right-10 p-2"
             onClick={() => setMobileMenuOpen(false)}
