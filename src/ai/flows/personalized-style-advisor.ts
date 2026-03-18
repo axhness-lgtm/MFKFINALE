@@ -1,4 +1,3 @@
-
 'use server';
 /**
  * @fileOverview An AI-powered tool that provides personalized style inspirations and fabric combination
@@ -21,7 +20,7 @@ const PersonalizedStyleAdvisorInputSchema = z.object({
   aestheticPreferences: z
     .string()
     .describe(
-      'The client\'s preferred aesthetic or style (e.g., classic, modern, avant-garde, minimalist, bohemian).' 
+      "The client's preferred aesthetic or style (e.g., classic, modern, avant-garde, minimalist, bohemian)." 
     ),
   garmentChoice: z
     .string()
@@ -54,6 +53,9 @@ const PersonalizedStyleAdvisorOutputSchema = z.object({
     .describe(
       'A personalized message explaining the recommendations and offering styling tips.'
     ),
+  images: z
+    .array(z.string())
+    .describe('An array of data URIs for generated images representing the style recommendations.'),
 });
 export type PersonalizedStyleAdvisorOutput = z.infer<
   typeof PersonalizedStyleAdvisorOutputSchema
@@ -68,8 +70,8 @@ export async function personalizedStyleAdvisor(
 const personalizedStyleAdvisorPrompt = ai.definePrompt({
   name: 'personalizedStyleAdvisorPrompt',
   input: { schema: PersonalizedStyleAdvisorInputSchema },
-  output: { schema: PersonalizedStyleAdvisorOutputSchema },
-  prompt: `You are an expert style advisor for MFK International, a luxury hand-crafted tailoring house. Your goal is to provide personalized recommendations for suit styles, color palettes, and fabric combinations based on a client's specific needs.
+  output: { schema: PersonalizedStyleAdvisorOutputSchema.omit({ images: true }) },
+  prompt: `You are an expert style advisor for MFKhan International, a luxury hand-crafted tailoring house. Your goal is to provide personalized recommendations for suit styles, color palettes, and fabric combinations based on a client's specific needs.
 
 The client is planning for a "{{{eventType}}}" event.
 Their aesthetic preference is "{{{aestheticPreferences}}}".
@@ -91,7 +93,35 @@ const personalizedStyleAdvisorFlow = ai.defineFlow(
     outputSchema: PersonalizedStyleAdvisorOutputSchema,
   },
   async (input) => {
-    const { output } = await personalizedStyleAdvisorPrompt(input);
-    return output!;
+    // 1. Generate text recommendations
+    const { output: textOutput } = await personalizedStyleAdvisorPrompt(input);
+    
+    if (!textOutput) {
+      throw new Error('Failed to generate style recommendations.');
+    }
+
+    // 2. Generate 2 visual inspirations based on the text output
+    // We use Imagen 4 for high-quality fashion imagery.
+    const imagePrompts = [
+      `High-end luxury editorial photography of a bespoke ${input.garmentChoice} in a ${textOutput.colorPalette} palette. Style: ${textOutput.suitStyle}. Professional studio lighting, minimalist cream background, 8k resolution, cinematic composition.`,
+      `Macro close-up detail shot of artisanal hand-crafted tailoring for a ${input.garmentChoice}. Showing ${textOutput.fabricCombinations}. Soft natural light, luxury textures, sharp focus, fashion magazine style.`
+    ];
+
+    const imageGenerationTasks = imagePrompts.map(promptText => 
+      ai.generate({
+        model: 'googleai/imagen-4.0-fast-generate-001',
+        prompt: promptText,
+      })
+    );
+
+    const imageResponses = await Promise.all(imageGenerationTasks);
+    const imageUrls = imageResponses
+      .map(resp => resp.media?.url)
+      .filter((url): url is string => !!url);
+
+    return {
+      ...textOutput,
+      images: imageUrls,
+    };
   }
 );
