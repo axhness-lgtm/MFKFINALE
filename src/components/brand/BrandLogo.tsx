@@ -1,4 +1,3 @@
-
 "use client";
 
 import { cn } from "@/lib/utils";
@@ -8,7 +7,7 @@ interface BrandLogoProps {
   size?: number;
 }
 
-export function BrandLogo({ className, size = 40 }: BrandLogoProps) {
+export function BrandLogo({ className, size = 100 }: BrandLogoProps) {
   return (
     <svg
       width={size}
@@ -18,73 +17,101 @@ export function BrandLogo({ className, size = 40 }: BrandLogoProps) {
       xmlns="http://www.w3.org/2000/svg"
       className={cn("text-accent", className)}
     >
-      {/* Outer Circle */}
+      {/* Outer Circular Frame */}
       <circle
         cx="50"
         cy="50"
-        r="47"
+        r="48"
         stroke="currentColor"
-        strokeWidth="1.5"
+        strokeWidth="1.2"
       />
-      <circle
-        cx="50"
-        cy="50"
-        r="44"
-        stroke="currentColor"
-        strokeWidth="0.5"
-        strokeDasharray="1 2"
-      />
-
+      
       {/* Stylized MFK */}
-      <path
-        d="M25 65V35L35 45L45 35V65"
-        stroke="currentColor"
-        strokeWidth="3.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M52 35V65M52 35H62M52 50H60"
-        stroke="currentColor"
-        strokeWidth="3.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M70 35L80 50L70 65M80 50H68"
-        stroke="currentColor"
-        strokeWidth="3.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+      <g transform="translate(18, 22) scale(0.9)">
+        {/* Stylized M with Peaks */}
+        <path
+          d="M0 45V15L10 25L20 15V45"
+          stroke="currentColor"
+          strokeWidth="3"
+          strokeLinecap="butt"
+          strokeLinejoin="bevel"
+        />
+        {/* M's Crown-like peaks */}
+        <path
+          d="M0 15L4 5L10 12L16 5L20 15"
+          fill="currentColor"
+        />
+        
+        {/* Stylized F */}
+        <path
+          d="M32 15V45M32 15H42M32 30H40"
+          stroke="currentColor"
+          strokeWidth="3"
+          strokeLinecap="butt"
+        />
+        
+        {/* Stylized K */}
+        <path
+          d="M52 15V45M65 15L52 30L65 45"
+          stroke="currentColor"
+          strokeWidth="3"
+          strokeLinecap="butt"
+          strokeLinejoin="bevel"
+        />
+      </g>
 
-      {/* Decorative Separator */}
-      <path
-        d="M35 72H65"
-        stroke="currentColor"
-        strokeWidth="0.5"
-        opacity="0.5"
-      />
-      <rect
-        x="47"
-        y="70"
-        width="6"
-        height="4"
-        transform="rotate(45 50 72)"
-        fill="currentColor"
-        opacity="0.8"
-      />
+      {/* Decorative Separator with Diamond Center */}
+      <g transform="translate(20, 68)">
+        <line x1="0" y1="0" x2="25" y2="0" stroke="currentColor" strokeWidth="0.5" />
+        <line x1="35" y1="0" x2="60" y2="0" stroke="currentColor" strokeWidth="0.5" />
+        
+        {/* Diamond Lattice Pattern */}
+        <path
+          d="M26 0L30 -3L34 0L30 3Z"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="0.5"
+        />
+        <path
+          d="M30 -3L34 -6L38 -3L34 0Z"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="0.5"
+          opacity="0.5"
+        />
+        <path
+          d="M30 3L34 6L38 3L34 0Z"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="0.5"
+          opacity="0.5"
+        />
+        <path
+          d="M22 -3L26 0L30 -3L26 -6Z"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="0.5"
+          opacity="0.5"
+        />
+        <path
+          d="M22 3L26 0L30 3L26 6Z"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="0.5"
+          opacity="0.5"
+        />
+      </g>
 
-      {/* INTERNATIONAL text placeholder in SVG */}
+      {/* INTERNATIONAL text */}
       <text
         x="50"
-        y="88"
+        y="84"
         textAnchor="middle"
         fill="currentColor"
-        fontSize="7"
-        fontFamily="Playfair Display"
-        letterSpacing="0.2em"
-        className="font-bold"
+        fontSize="8"
+        fontFamily="Playfair Display, serif"
+        letterSpacing="0.15em"
+        className="font-semibold"
       >
         INTERNATIONAL
       </text>
