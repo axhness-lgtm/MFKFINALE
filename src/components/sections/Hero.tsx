@@ -29,7 +29,7 @@ export function Hero() {
           <h1 className="text-5xl md:text-8xl font-headline font-bold leading-tight">
             Bespoke Tailoring. <br />
             Wedding Elegance. <br />
-            <span className="gold-text italic">Crafted to Perfection.</span>
+            <span className="gold-text font-citadel lowercase">Crafted to Perfection.</span>
           </h1>
           <p className="text-lg md:text-2xl text-muted-foreground font-body max-w-3xl mx-auto leading-relaxed">
             Welcome to MFKhan International, a premium bespoke tailoring house dedicated to the art of individual style and timeless elegance.

@@ -11,8 +11,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['PT Sans', 'sans-serif'],
-        headline: ['Playfair Display', 'serif'],
+        body: ['Times New Roman', 'Times', 'serif'],
+        headline: ['Times New Roman', 'Times', 'serif'],
+        script: ['Pinyon Script', 'cursive'],
         code: ['monospace'],
       },
       colors: {

@@ -15,7 +15,7 @@ export function FinalCTA() {
       <div className="max-w-4xl mx-auto text-center space-y-12 relative z-10">
         <div className="space-y-4">
           <span className="gold-text font-bold tracking-[0.5em] uppercase text-sm">Your Bespoke Journey Awaits</span>
-          <h2 className="text-4xl md:text-7xl font-headline font-bold">Dress Like <br />The <span className="italic gold-text">Best Version</span> of You</h2>
+          <h2 className="text-4xl md:text-7xl font-headline font-bold">Dress Like <br />The <span className="font-citadel lowercase text-5xl md:text-8xl">Best Version</span> of You</h2>
         </div>
         
         <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-2xl mx-auto font-body">

@@ -23,7 +23,7 @@ export function Craftsmanship() {
           <div className="space-y-10">
             <div className="space-y-4">
               <span className="gold-text font-bold tracking-[0.4em] uppercase text-sm">A Legacy of Detail</span>
-              <h2 className="text-5xl md:text-7xl font-headline font-bold leading-tight">Mastery in <br /><span className="italic">Every Stitch</span></h2>
+              <h2 className="text-5xl md:text-7xl font-headline font-bold leading-tight">Mastery in <br /><span className="font-citadel lowercase text-6xl md:text-8xl">Every Stitch</span></h2>
             </div>
             
             <p className="text-xl text-muted-foreground leading-relaxed font-body">
