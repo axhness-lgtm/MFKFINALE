@@ -24,7 +24,7 @@ export default function AboutPage() {
                     Every garment that leaves our atelier is a testament to the thousands of hours of collective experience possessed by our master tailors. We don't just measure bodies; we measure movements, postures, and personalities.
                   </p>
                   <p className="text-lg leading-relaxed">
-                    Today, MFK International stands as a global beacon for bespoke excellence, serving heads of state, captains of industry, and individuals who appreciate the silent power of a perfectly fitted suit.
+                    Today, MFK International stands as a global beacon for made-to-measure excellence, serving heads of state, captains of industry, and individuals who appreciate the silent power of a perfectly fitted suit.
                   </p>
                 </div>
              </div>
@@ -45,7 +45,7 @@ export default function AboutPage() {
              </div>
              <div className="text-center space-y-4">
                <h3 className="text-5xl font-headline gold-text font-bold">15k</h3>
-               <p className="uppercase tracking-widest text-sm font-medium">Bespoke Pieces Delivered</p>
+               <p className="uppercase tracking-widest text-sm font-medium">Artisanal Pieces Delivered</p>
              </div>
              <div className="text-center space-y-4">
                <h3 className="text-5xl font-headline gold-text font-bold">48</h3>

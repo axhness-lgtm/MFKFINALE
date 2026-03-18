@@ -39,7 +39,7 @@ export function AdvisorTool() {
         <div className="lg:col-span-5 space-y-8">
           <div className="space-y-4">
             <h2 className="text-3xl font-headline font-bold gold-text">AI Style Intelligence</h2>
-            <p className="text-muted-foreground">Input your preferences and let our generative tailoring advisor craft a vision for your next bespoke piece.</p>
+            <p className="text-muted-foreground">Input your preferences and let our generative tailoring advisor craft a vision for your next custom-tailored piece.</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6 luxury-card p-8 bg-card/50">

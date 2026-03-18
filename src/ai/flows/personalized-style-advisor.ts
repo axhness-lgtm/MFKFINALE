@@ -1,3 +1,4 @@
+
 'use server';
 /**
  * @fileOverview An AI-powered tool that provides personalized style inspirations and fabric combination
@@ -68,13 +69,13 @@ const personalizedStyleAdvisorPrompt = ai.definePrompt({
   name: 'personalizedStyleAdvisorPrompt',
   input: { schema: PersonalizedStyleAdvisorInputSchema },
   output: { schema: PersonalizedStyleAdvisorOutputSchema },
-  prompt: `You are an expert style advisor for MFK International, a luxury bespoke tailoring house. Your goal is to provide personalized recommendations for suit styles, color palettes, and fabric combinations based on a client's specific needs.
+  prompt: `You are an expert style advisor for MFK International, a luxury hand-crafted tailoring house. Your goal is to provide personalized recommendations for suit styles, color palettes, and fabric combinations based on a client's specific needs.
 
 The client is planning for a "{{{eventType}}}" event.
 Their aesthetic preference is "{{{aestheticPreferences}}}".
 They are interested in a "{{{garmentChoice}}}".
 
-Based on this information, provide comprehensive and sophisticated recommendations. Ensure your suggestions align with luxury bespoke tailoring standards.
+Based on this information, provide comprehensive and sophisticated recommendations. Ensure your suggestions align with luxury artisanal tailoring standards.
 
 Output your recommendations in a JSON object with the following fields:
 - suitStyle: A detailed description of the recommended suit style.

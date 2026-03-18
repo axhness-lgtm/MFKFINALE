@@ -5,7 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { LoadingScreen } from "@/components/navigation/LoadingScreen";
 
 export const metadata: Metadata = {
-  title: 'MFK International | Bespoke Luxury Tailoring',
+  title: 'MFK International | Custom Luxury Tailoring',
   description: 'Experience the pinnacle of sartorial excellence with MFK International. Custom suits, tuxedos, and sherwanis crafted for the discerning gentleman.',
 };
 

@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import { Instagram, Facebook, Mail, MapPin, Phone } from 'lucide-react';
 import { BrandLogo } from '../brand/BrandLogo';
@@ -26,7 +27,7 @@ export function Footer() {
         <div>
           <h4 className="text-[10px] font-bold mb-10 gold-text uppercase tracking-[0.4em]">Collections</h4>
           <ul className="space-y-4 text-[10px] uppercase tracking-[0.2em] font-bold text-muted-foreground">
-            <li><Link href="/collections" className="hover:text-foreground transition-colors">Bespoke Suits</Link></li>
+            <li><Link href="/collections" className="hover:text-foreground transition-colors">Custom Suits</Link></li>
             <li><Link href="/collections" className="hover:text-foreground transition-colors">Sherwanis</Link></li>
             <li><Link href="/collections" className="hover:text-foreground transition-colors">Tuxedos</Link></li>
             <li><Link href="/collections" className="hover:text-foreground transition-colors">Blazers</Link></li>
@@ -38,7 +39,7 @@ export function Footer() {
           <h4 className="text-[10px] font-bold mb-10 gold-text uppercase tracking-[0.4em]">Atelier</h4>
           <ul className="space-y-4 text-[10px] uppercase tracking-[0.2em] font-bold text-muted-foreground">
             <li><Link href="/about" className="hover:text-foreground transition-colors">The Brand</Link></li>
-            <li><Link href="/bespoke" className="hover:text-foreground transition-colors">Process</Link></li>
+            <li><Link href="/hand-crafted" className="hover:text-foreground transition-colors">Process</Link></li>
             <li><Link href="/advisor" className="hover:text-foreground transition-colors">AI Advisor</Link></li>
             <li><Link href="/contact" className="hover:text-foreground transition-colors">Contact</Link></li>
           </ul>
@@ -50,7 +51,7 @@ export function Footer() {
           <ul className="space-y-6 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
             <li className="leading-relaxed">123 Tailor Street, Mayfair,<br />London, W1S 2XL</li>
             <li>+44 20 7123 4567</li>
-            <li>bespoke@mfkhan.com</li>
+            <li>concierge@mfkhan.com</li>
           </ul>
         </div>
       </div>

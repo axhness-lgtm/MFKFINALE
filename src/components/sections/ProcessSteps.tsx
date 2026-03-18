@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from 'react';
@@ -39,7 +40,7 @@ export function ProcessSteps() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center space-y-6 mb-32">
           <span className="gold-text font-bold tracking-[0.6em] uppercase text-[10px]">The Journey</span>
-          <h2 className="text-3xl md:text-5xl font-headline font-light">Bespoke Process</h2>
+          <h2 className="text-3xl md:text-5xl font-headline font-light">Hand-Crafted Process</h2>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
