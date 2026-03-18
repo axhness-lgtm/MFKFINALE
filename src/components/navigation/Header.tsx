@@ -55,14 +55,14 @@ export function Header() {
             <Link
               key={link.name}
               href={link.href}
-              className="text-[9px] uppercase tracking-[0.3em] font-bold text-foreground/60 hover:text-accent transition-colors duration-300"
+              className="text-[9px] uppercase tracking-[0.3em] font-medium text-foreground/60 hover:text-accent transition-colors duration-300 nav-underline"
             >
               {link.name}
             </Link>
           ))}
           <Link 
             href="/contact" 
-            className="text-[9px] uppercase tracking-[0.3em] font-bold border-b border-foreground/10 pb-0.5 hover:border-accent hover:text-accent transition-all duration-300"
+            className="text-[9px] uppercase tracking-[0.3em] font-medium text-foreground/60 hover:text-accent transition-all duration-300 nav-underline"
           >
             Inquiry
           </Link>
