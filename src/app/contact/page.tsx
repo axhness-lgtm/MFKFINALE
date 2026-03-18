@@ -10,6 +10,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Scissors, Mail, Phone, MapPin } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { useState } from 'react';
+import { FadeIn } from '@/components/animations/FadeIn';
 
 export default function ContactPage() {
   const { toast } = useToast();
@@ -23,7 +24,7 @@ export default function ContactPage() {
       setLoading(false);
       toast({
         title: "Inquiry Submitted",
-        description: "A member of our bespoke team will contact you shortly to schedule your fitting.",
+        description: "A member of our artisanal team will contact you shortly to schedule your fitting.",
       });
       (e.target as HTMLFormElement).reset();
     }, 1500);
@@ -35,18 +36,18 @@ export default function ContactPage() {
       <main className="flex-grow pt-32 pb-24 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
-            <div className="space-y-12">
+            <FadeIn className="space-y-12">
               <div className="space-y-6">
                 <span className="gold-text font-medium tracking-[0.3em] uppercase text-sm">Join the Elite</span>
                 <h1 className="text-5xl md:text-7xl font-headline font-bold">Book Your <br /><span className="italic gold-text">Consultation</span></h1>
                 <p className="text-xl text-muted-foreground leading-relaxed">
-                  Ready to begin your bespoke journey? Fill out the inquiry form and our concierge team will curate a fitting experience for you.
+                  Ready to begin your custom-tailored journey? Fill out the inquiry form and our concierge team will curate a fitting experience for you.
                 </p>
               </div>
 
               <div className="space-y-8">
                 <div className="flex gap-6 items-start">
-                  <div className="w-12 h-12 rounded-full violet-gradient flex items-center justify-center shrink-0">
+                  <div className="w-12 h-12 rounded-full brown-gradient flex items-center justify-center shrink-0">
                     <MapPin className="text-white w-6 h-6" />
                   </div>
                   <div>
@@ -55,7 +56,7 @@ export default function ContactPage() {
                   </div>
                 </div>
                 <div className="flex gap-6 items-start">
-                  <div className="w-12 h-12 rounded-full violet-gradient flex items-center justify-center shrink-0">
+                  <div className="w-12 h-12 rounded-full brown-gradient flex items-center justify-center shrink-0">
                     <Phone className="text-white w-6 h-6" />
                   </div>
                   <div>
@@ -64,45 +65,47 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
-            </div>
+            </FadeIn>
 
-            <div className="luxury-card p-10 bg-card/40 relative overflow-hidden">
-               <div className="absolute top-0 right-0 p-8 opacity-5">
-                 <Scissors className="w-48 h-48 rotate-45" />
-               </div>
-               
-               <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
-                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                   <div className="space-y-2">
-                     <Label htmlFor="firstName">First Name</Label>
-                     <Input id="firstName" name="firstName" required className="bg-background border-border" />
-                   </div>
-                   <div className="space-y-2">
-                     <Label htmlFor="lastName">Last Name</Label>
-                     <Input id="lastName" name="lastName" required className="bg-background border-border" />
-                   </div>
-                 </div>
+            <FadeIn delay={200}>
+              <div className="luxury-card p-10 bg-card/40 relative overflow-hidden">
+                <div className="absolute top-0 right-0 p-8 opacity-5">
+                  <Scissors className="w-48 h-48 rotate-45" />
+                </div>
+                
+                <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <Label htmlFor="firstName">First Name</Label>
+                      <Input id="firstName" name="firstName" required className="bg-background border-border" />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="lastName">Last Name</Label>
+                      <Input id="lastName" name="lastName" required className="bg-background border-border" />
+                    </div>
+                  </div>
 
-                 <div className="space-y-2">
-                   <Label htmlFor="email">Email Address</Label>
-                   <Input id="email" type="email" name="email" required className="bg-background border-border" />
-                 </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Email Address</Label>
+                    <Input id="email" type="email" name="email" required className="bg-background border-border" />
+                  </div>
 
-                 <div className="space-y-2">
-                   <Label htmlFor="interest">Garment Interest</Label>
-                   <Input id="interest" name="interest" placeholder="e.g., Wedding Suit, Tuxedo" className="bg-background border-border" />
-                 </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="interest">Garment Interest</Label>
+                    <Input id="interest" name="interest" placeholder="e.g., Wedding Suit, Tuxedo" className="bg-background border-border" />
+                  </div>
 
-                 <div className="space-y-2">
-                   <Label htmlFor="message">Message / Details</Label>
-                   <Textarea id="message" name="message" rows={5} placeholder="Tell us about the occasion or any specific requirements..." className="bg-background border-border" />
-                 </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="message">Message / Details</Label>
+                    <Textarea id="message" name="message" rows={5} placeholder="Tell us about the occasion or any specific requirements..." className="bg-background border-border" />
+                  </div>
 
-                 <Button type="submit" disabled={loading} className="w-full violet-gradient h-14 text-xl font-headline font-bold rounded-none">
-                    {loading ? "Sending..." : "Submit Inquiry"}
-                 </Button>
-               </form>
-            </div>
+                  <Button type="submit" disabled={loading} className="w-full brown-gradient h-14 text-xl font-headline font-bold rounded-none">
+                      {loading ? "Sending..." : "Submit Inquiry"}
+                  </Button>
+                </form>
+              </div>
+            </FadeIn>
           </div>
         </div>
       </main>

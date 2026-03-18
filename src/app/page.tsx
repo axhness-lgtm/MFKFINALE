@@ -7,6 +7,7 @@ import { ProcessSteps } from '@/components/sections/ProcessSteps';
 import { Craftsmanship } from '@/components/sections/Craftsmanship';
 import { FinalCTA } from '@/components/sections/FinalCTA';
 import { Button } from '@/components/ui/button';
+import { FadeIn } from '@/components/animations/FadeIn';
 import Link from 'next/link';
 
 export default function Home() {
@@ -16,11 +17,13 @@ export default function Home() {
       <main className="flex-grow">
         <Hero />
         
-        <CollectionsPreview />
+        <FadeIn>
+          <CollectionsPreview />
+        </FadeIn>
 
         {/* Brand Philosophy / Quote */}
         <section className="py-32 px-6 md:px-12 bg-[#0F0E13]">
-          <div className="max-w-5xl mx-auto text-center space-y-10">
+          <FadeIn className="max-w-5xl mx-auto text-center space-y-10">
             <div className="w-20 h-px bg-accent/50 mx-auto mb-12"></div>
             <h2 className="text-3xl md:text-6xl font-headline font-bold gold-text leading-tight">
               "<span className="font-citadel lowercase text-4xl md:text-7xl">A MFKhan suit</span> is not just attire; it is a declaration of presence and a testament to heritage."
@@ -34,14 +37,20 @@ export default function Home() {
               </Button>
             </div>
             <div className="w-20 h-px bg-accent/50 mx-auto mt-12"></div>
-          </div>
+          </FadeIn>
         </section>
 
-        <Craftsmanship />
+        <FadeIn>
+          <Craftsmanship />
+        </FadeIn>
 
-        <ProcessSteps />
+        <FadeIn>
+          <ProcessSteps />
+        </FadeIn>
 
-        <FinalCTA />
+        <FadeIn>
+          <FinalCTA />
+        </FadeIn>
 
       </main>
       <Footer />
