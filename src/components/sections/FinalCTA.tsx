@@ -1,33 +1,28 @@
-
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Scissors } from 'lucide-react';
 
 export function FinalCTA() {
   return (
-    <section className="py-32 px-6 md:px-12 bg-[#1A1820] relative overflow-hidden">
-      {/* Decorative Elements */}
-      <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
-        <Scissors className="w-96 h-96 -rotate-45 absolute -top-20 -left-20" />
-        <Scissors className="w-96 h-96 rotate-45 absolute -bottom-20 -right-20" />
-      </div>
-
-      <div className="max-w-4xl mx-auto text-center space-y-12 relative z-10">
-        <div className="space-y-4">
-          <span className="gold-text font-bold tracking-[0.5em] uppercase text-sm">Your Bespoke Journey Awaits</span>
-          <h2 className="text-4xl md:text-7xl font-headline font-bold">Dress Like <br />The <span className="font-citadel lowercase text-5xl md:text-8xl">Best Version</span> of You</h2>
+    <section className="py-48 px-6 md:px-12 bg-[#3E2723] relative overflow-hidden text-[#FAF9F6]">
+      <div className="max-w-4xl mx-auto text-center space-y-16 relative z-10">
+        <div className="space-y-6">
+          <span className="text-accent font-bold tracking-[0.6em] uppercase text-[10px]">Your Journey</span>
+          <h2 className="text-4xl md:text-7xl font-headline font-light leading-tight">
+            Dress Like <br />
+            The <span className="font-citadel italic text-5xl md:text-8xl">Best Version</span> of You
+          </h2>
         </div>
         
-        <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-2xl mx-auto font-body">
-          Experience the unparalleled confidence of a garment made exclusively for you. Book your private consultation at our Mayfair atelier today.
+        <p className="text-base md:text-lg text-[#FAF9F6]/60 leading-relaxed max-w-xl mx-auto font-light tracking-wide">
+          Experience the unparalleled confidence of a garment made exclusively for you. Book your private consultation today.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-4">
-          <Button asChild size="lg" className="violet-gradient h-16 px-12 text-xl rounded-none hover:opacity-90 transition-all duration-300 w-full sm:w-auto">
-            <Link href="/contact">Schedule My Consultation</Link>
+        <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
+          <Button asChild size="lg" className="bg-[#FAF9F6] text-[#3E2723] h-16 px-16 text-[10px] uppercase tracking-[0.4em] rounded-none hover:bg-accent hover:text-[#FAF9F6] transition-all duration-500 font-bold w-full sm:w-auto">
+            <Link href="/contact">Schedule Consultation</Link>
           </Button>
-          <Button asChild variant="outline" size="lg" className="h-16 px-12 text-xl rounded-none border-accent text-accent hover:bg-accent/10 transition-all duration-300 w-full sm:w-auto">
-            <Link href="/advisor">AI Style Advisor</Link>
+          <Button asChild variant="ghost" size="lg" className="h-16 px-16 text-[10px] uppercase tracking-[0.4em] rounded-none text-[#FAF9F6] border-b border-[#FAF9F6]/20 hover:border-accent hover:text-accent transition-all duration-500 font-bold w-full sm:w-auto">
+            <Link href="/advisor">Style Advisor</Link>
           </Button>
         </div>
       </div>

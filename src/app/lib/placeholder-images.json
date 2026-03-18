@@ -1,41 +1,46 @@
-
 {
   "placeholderImages": [
     {
       "id": "hero-bg",
-      "description": "Luxury bespoke tailoring close-up with gold thread and dark fabric",
-      "imageUrl": "https://picsum.photos/seed/mfk-hero/1920/1080",
-      "imageHint": "luxury tailoring"
+      "description": "Minimal luxury interior of a bespoke tailor atelier with natural light",
+      "imageUrl": "https://picsum.photos/seed/mfk-hero-minimal/1920/1080",
+      "imageHint": "luxury atelier"
     },
     {
       "id": "collection-suit-1",
-      "description": "Elegant charcoal grey three-piece suit on a mannequin",
-      "imageUrl": "https://picsum.photos/seed/mfk-suit1/800/1000",
+      "description": "Light grey bespoke wool suit hanging on a minimal wooden rack",
+      "imageUrl": "https://picsum.photos/seed/mfk-suit-min/800/1000",
       "imageHint": "bespoke suit"
     },
     {
-      "id": "collection-blazer-1",
-      "description": "Navy velvet designer blazer with gold accents",
-      "imageUrl": "https://picsum.photos/seed/mfk-blazer1/800/1000",
-      "imageHint": "velvet blazer"
-    },
-    {
       "id": "collection-sherwani-1",
-      "description": "Regal ivory sherwani with intricate embroidery",
-      "imageUrl": "https://picsum.photos/seed/mfk-sherwani1/800/1000",
-      "imageHint": "indian sherwani"
+      "description": "Minimal ivory sherwani with subtle embroidery detail",
+      "imageUrl": "https://picsum.photos/seed/mfk-sherwani-min/800/1000",
+      "imageHint": "ivory sherwani"
     },
     {
       "id": "collection-tuxedo-1",
-      "description": "Classic midnight blue tuxedo with silk lapels",
-      "imageUrl": "https://picsum.photos/seed/mfk-tux1/800/1000",
-      "imageHint": "classic tuxedo"
+      "description": "Sharp black tuxedo with silk lapel against a cream background",
+      "imageUrl": "https://picsum.photos/seed/mfk-tux-min/800/1000",
+      "imageHint": "black tuxedo"
+    },
+    {
+      "id": "collection-blazer-1",
+      "description": "Textured tan linen blazer close up detail",
+      "imageUrl": "https://picsum.photos/seed/mfk-blazer-min/800/1000",
+      "imageHint": "linen blazer"
     },
     {
       "id": "about-craft",
-      "description": "Tailor measuring premium fabric with a vintage tape measure",
-      "imageUrl": "https://picsum.photos/seed/mfk-craft/1200/800",
-      "imageHint": "tailoring craft"
+      "description": "Macro shot of a needle and thread on high quality brown fabric",
+      "imageUrl": "https://picsum.photos/seed/mfk-craft-min/1200/800",
+      "imageHint": "tailoring detail"
+    },
+    {
+      "id": "fabric-swatches",
+      "description": "Earthy tone luxury fabric swatches arranged minimally",
+      "imageUrl": "https://picsum.photos/seed/mfk-fabrics/800/600",
+      "imageHint": "fabric swatches"
     }
   ]
 }
