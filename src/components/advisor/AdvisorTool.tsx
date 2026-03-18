@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from 'react';
@@ -76,33 +75,23 @@ export function AdvisorTool() {
 
             <div className="space-y-2">
               <Label htmlFor="aesthetic" className="text-[10px] uppercase tracking-[0.3em] font-bold text-muted-foreground">Aesthetic Preference</Label>
-              <Select name="aesthetic" defaultValue="classic">
-                <SelectTrigger className="bg-background border-border rounded-none">
-                  <SelectValue placeholder="Select an aesthetic" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="classic">Classic Sartorial</SelectItem>
-                  <SelectItem value="modern">Modern Minimalist</SelectItem>
-                  <SelectItem value="avant-garde">Avant-Garde Designer</SelectItem>
-                  <SelectItem value="bohemian">Luxe Bohemian</SelectItem>
-                  <SelectItem value="minimalist">Stealth Wealth</SelectItem>
-                </SelectContent>
-              </Select>
+              <select name="aesthetic" defaultValue="classic" className="w-full bg-background border border-border p-2 rounded-none outline-none focus:ring-1 focus:ring-accent">
+                <option value="classic">Classic Sartorial</option>
+                <option value="modern">Modern Minimalist</option>
+                <option value="avant-garde">Avant-Garde Designer</option>
+                <option value="bohemian">Luxe Bohemian</option>
+                <option value="minimalist">Stealth Wealth</option>
+              </select>
             </div>
 
             <div className="space-y-2">
               <Label htmlFor="garment" className="text-[10px] uppercase tracking-[0.3em] font-bold text-muted-foreground">Desired Garment</Label>
-              <Select name="garment" defaultValue="suit">
-                <SelectTrigger className="bg-background border-border rounded-none">
-                  <SelectValue placeholder="Select garment" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="suit">Three-Piece Suit</SelectItem>
-                  <SelectItem value="tuxedo">Black Tie Tuxedo</SelectItem>
-                  <SelectItem value="sherwani">Royal Sherwani</SelectItem>
-                  <SelectItem value="blazer">Double-Breasted Blazer</SelectItem>
-                </SelectContent>
-              </Select>
+              <select name="garment" defaultValue="suit" className="w-full bg-background border border-border p-2 rounded-none outline-none focus:ring-1 focus:ring-accent">
+                <option value="suit">Three-Piece Suit</option>
+                <option value="tuxedo">Black Tie Tuxedo</option>
+                <option value="sherwani">Royal Sherwani</option>
+                <option value="blazer">Double-Breasted Blazer</option>
+              </select>
             </div>
 
             <Button type="submit" disabled={loading} className="w-full brown-gradient h-14 gap-3 text-xs uppercase tracking-[0.2em] font-bold rounded-none">
@@ -115,22 +104,36 @@ export function AdvisorTool() {
         <div className="lg:col-span-8 h-full">
           {result ? (
             <div className="space-y-12 animate-fade-in">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {result.images.map((img, i) => (
-                  <div key={i} className="relative aspect-[4/5] overflow-hidden luxury-card group">
-                    <Image 
-                      src={img} 
-                      alt={`Generated style inspiration ${i + 1}`} 
-                      fill 
-                      unoptimized
-                      className="object-cover transition-transform duration-1000 group-hover:scale-105" 
-                    />
-                    <div className="absolute top-4 left-4 bg-black/40 backdrop-blur-md px-3 py-1 text-[8px] uppercase tracking-widest text-white font-bold">
-                      Visual Vision 0{i+1}
+              {result.images && result.images.length > 0 ? (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {result.images.map((img, i) => (
+                    <div key={i} className="relative aspect-[4/5] overflow-hidden luxury-card group">
+                      <Image 
+                        src={img} 
+                        alt={`Generated style inspiration ${i + 1}`} 
+                        fill 
+                        unoptimized
+                        className="object-cover transition-transform duration-1000 group-hover:scale-105" 
+                      />
+                      <div className="absolute top-4 left-4 bg-black/40 backdrop-blur-md px-3 py-1 text-[8px] uppercase tracking-widest text-white font-bold">
+                        Visual Vision 0{i+1}
+                      </div>
                     </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="luxury-card p-12 bg-accent/5 flex flex-col items-center justify-center text-center space-y-6 border-dashed border-accent/20">
+                  <ImageIcon className="w-12 h-12 text-accent/30" />
+                  <div className="space-y-2">
+                    <h3 className="text-xl font-headline font-bold uppercase tracking-widest text-accent/60">Visual Generation Restricted</h3>
+                    <p className="text-xs text-muted-foreground max-w-sm mx-auto uppercase tracking-tighter leading-relaxed">
+                      Our Artisanal AI has drafted your unique sartorial narrative below. 
+                      <br /><br />
+                      <span className="text-accent/80">Notice:</span> High-fidelity visual renderings require a paid tier in the Google Cloud/Firebase console. To enable visual inspirations, please review your project's billing plan.
+                    </p>
                   </div>
-                ))}
-              </div>
+                </div>
+              )}
 
               <Card className="luxury-card bg-transparent border-accent/20 rounded-none overflow-hidden">
                 <CardHeader className="border-b border-border/50 bg-accent/5">

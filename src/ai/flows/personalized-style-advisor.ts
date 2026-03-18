@@ -101,7 +101,6 @@ const personalizedStyleAdvisorFlow = ai.defineFlow(
     }
 
     // 2. Generate 2 visual inspirations based on the text output
-    // We use Imagen 4 for high-quality fashion imagery.
     const imagePrompts = [
       `High-end luxury editorial photography of a bespoke ${input.garmentChoice} in a ${textOutput.colorPalette} palette. Style: ${textOutput.suitStyle}. Professional studio lighting, minimalist cream background, 8k resolution, cinematic composition.`,
       `Macro close-up detail shot of artisanal hand-crafted tailoring for a ${input.garmentChoice}. Showing ${textOutput.fabricCombinations}. Soft natural light, luxury textures, sharp focus, fashion magazine style.`
@@ -114,14 +113,24 @@ const personalizedStyleAdvisorFlow = ai.defineFlow(
       })
     );
 
-    const imageResponses = await Promise.all(imageGenerationTasks);
-    const imageUrls = imageResponses
-      .map(resp => resp.media?.url)
-      .filter((url): url is string => !!url);
+    try {
+      const imageResponses = await Promise.all(imageGenerationTasks);
+      const imageUrls = imageResponses
+        .map(resp => resp.media?.url)
+        .filter((url): url is string => !!url);
 
-    return {
-      ...textOutput,
-      images: imageUrls,
-    };
+      return {
+        ...textOutput,
+        images: imageUrls,
+      };
+    } catch (e) {
+      // Gracefully handle image generation failure (often due to plan restrictions)
+      // We still return the text output so the user gets their recommendation.
+      console.error('AI Image generation failed (likely plan restriction):', e);
+      return {
+        ...textOutput,
+        images: [],
+      };
+    }
   }
 );
