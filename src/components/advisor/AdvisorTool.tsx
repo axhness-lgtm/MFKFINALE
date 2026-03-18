@@ -1,22 +1,31 @@
+
 "use client";
 
-import { useState } from 'react';
-import { Sparkles, Loader2, Shirt, Palette, Quote, Layers, Image as ImageIcon } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Sparkles, Loader2, Shirt, Palette, Quote, Layers, Image as ImageIcon, AlertCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { personalizedStyleAdvisor, type PersonalizedStyleAdvisorOutput } from '@/ai/flows/personalized-style-advisor';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import Image from 'next/image';
 
 export function AdvisorTool() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<PersonalizedStyleAdvisorOutput | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
+    setError(null);
     const formData = new FormData(e.currentTarget);
     
     try {
@@ -26,12 +35,15 @@ export function AdvisorTool() {
         garmentChoice: formData.get('garment') as string,
       });
       setResult(data);
-    } catch (error) {
-      console.error(error);
+    } catch (err: any) {
+      console.error(err);
+      setError("Our artisanal AI encountered a momentary pause. Please attempt your consultation again.");
     } finally {
       setLoading(false);
     }
   }
+
+  if (!mounted) return null;
 
   return (
     <div className="max-w-7xl mx-auto">
@@ -43,6 +55,14 @@ export function AdvisorTool() {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6 luxury-card p-8 bg-card/50">
+            {error && (
+              <Alert variant="destructive" className="rounded-none border-destructive/50 bg-destructive/5">
+                <AlertCircle className="h-4 w-4" />
+                <AlertTitle className="text-[10px] uppercase tracking-widest font-bold">Consultation Error</AlertTitle>
+                <AlertDescription className="text-xs">{error}</AlertDescription>
+              </Alert>
+            )}
+
             <div className="space-y-2">
               <Label htmlFor="eventType" className="text-[10px] uppercase tracking-[0.3em] font-bold text-muted-foreground">Event Type</Label>
               <Input 
@@ -102,6 +122,7 @@ export function AdvisorTool() {
                       src={img} 
                       alt={`Generated style inspiration ${i + 1}`} 
                       fill 
+                      unoptimized
                       className="object-cover transition-transform duration-1000 group-hover:scale-105" 
                     />
                     <div className="absolute top-4 left-4 bg-black/40 backdrop-blur-md px-3 py-1 text-[8px] uppercase tracking-widest text-white font-bold">
@@ -152,14 +173,25 @@ export function AdvisorTool() {
           ) : (
             <div className="h-full min-h-[500px] border border-dashed border-border rounded-none flex flex-col items-center justify-center text-muted-foreground p-12 text-center bg-card/20">
               <div className="relative">
-                <Sparkles className="w-16 h-16 mb-6 opacity-20 text-accent" />
-                <div className="absolute -top-2 -right-2">
-                  <ImageIcon className="w-6 h-6 opacity-10" />
-                </div>
+                {loading ? (
+                  <div className="space-y-8 flex flex-col items-center">
+                    <Loader2 className="w-16 h-16 animate-spin text-accent/40" />
+                    <p className="max-w-xs text-[10px] uppercase tracking-[0.3em] font-bold animate-pulse">
+                      Curating fabrics and drafting silhouettes...
+                    </p>
+                  </div>
+                ) : (
+                  <>
+                    <Sparkles className="w-16 h-16 mb-6 opacity-20 text-accent" />
+                    <div className="absolute -top-2 -right-2">
+                      <ImageIcon className="w-6 h-6 opacity-10" />
+                    </div>
+                    <p className="max-w-xs text-sm uppercase tracking-[0.2em] font-bold">
+                      Your personalized artisanal vision will appear here once generated.
+                    </p>
+                  </>
+                )}
               </div>
-              <p className="max-w-xs text-sm uppercase tracking-[0.2em] font-bold">
-                Your personalized artisanal vision will appear here once generated.
-              </p>
             </div>
           )}
         </div>

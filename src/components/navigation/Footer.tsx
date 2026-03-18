@@ -1,10 +1,17 @@
 
+"use client";
+
 import Link from 'next/link';
 import { Instagram, Facebook, Mail, MapPin, Phone } from 'lucide-react';
 import { BrandLogo } from '../brand/BrandLogo';
+import { useState, useEffect } from 'react';
 
 export function Footer() {
-  const currentYear = new Date().getFullYear();
+  const [year, setYear] = useState<number | null>(null);
+
+  useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
 
   return (
     <footer className="bg-background border-t border-border/10 pt-32 pb-16 px-6 md:px-12">
@@ -57,7 +64,7 @@ export function Footer() {
       </div>
 
       <div className="max-w-7xl mx-auto mt-32 pt-10 border-t border-border/10 flex flex-col md:flex-row justify-between items-center gap-8 text-[8px] text-muted-foreground uppercase tracking-[0.5em] font-bold">
-        <p>© {currentYear} MFKhan International.</p>
+        <p>© {year || 2024} MFKhan International.</p>
         <div className="flex gap-12">
           <Link href="/privacy" className="hover:text-accent transition-colors">Privacy</Link>
           <Link href="/terms" className="hover:text-accent transition-colors">Terms</Link>
