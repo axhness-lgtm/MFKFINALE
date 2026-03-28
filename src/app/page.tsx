@@ -1,10 +1,10 @@
-
 import { Header } from '@/components/navigation/Header';
 import { Footer } from '@/components/navigation/Footer';
 import { Hero } from '@/components/sections/Hero';
 import { CollectionsPreview } from '@/components/sections/CollectionsPreview';
 import { ProcessSteps } from '@/components/sections/ProcessSteps';
 import { Craftsmanship } from '@/components/sections/Craftsmanship';
+import { Testimonials } from '@/components/sections/Testimonials';
 import { FinalCTA } from '@/components/sections/FinalCTA';
 import { Button } from '@/components/ui/button';
 import { FadeIn } from '@/components/animations/FadeIn';
@@ -46,6 +46,10 @@ export default function Home() {
 
         <FadeIn>
           <ProcessSteps />
+        </FadeIn>
+
+        <FadeIn>
+          <Testimonials />
         </FadeIn>
 
         <FadeIn>

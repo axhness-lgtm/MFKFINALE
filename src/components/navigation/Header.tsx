@@ -32,16 +32,16 @@ export function Header() {
         className={cn(
           'mx-auto max-w-7xl w-full transition-all duration-700 pointer-events-auto flex items-center justify-between',
           isScrolled 
-            ? 'bg-background/60 backdrop-blur-2xl border border-border/20 py-3 px-6 md:px-10 shadow-2xl translate-y-[-0.25rem] rounded-full' 
+            ? 'bg-background/60 backdrop-blur-2xl border border-border/20 py-2.5 px-8 md:px-10 shadow-2xl translate-y-[-0.25rem] rounded-full' 
             : 'bg-transparent border-transparent py-6 px-8 md:px-12'
         )}
       >
         <Link href="/" className="flex items-center gap-4 group">
-          <BrandLogo size={isScrolled ? 34 : 42} className="transition-all duration-700 group-hover:opacity-70" />
+          <BrandLogo size={isScrolled ? 32 : 40} className="transition-all duration-700 group-hover:opacity-70" />
           <div className="flex flex-col transition-all duration-700">
             <span className={cn(
               "font-headline tracking-[0.2em] text-foreground uppercase leading-none font-light",
-              isScrolled ? "text-base" : "text-lg"
+              isScrolled ? "text-sm" : "text-lg"
             )}>MFKhan</span>
             {!isScrolled && (
               <span className="text-[7px] uppercase tracking-[0.5em] text-muted-foreground font-bold animate-fade-in">International</span>
@@ -50,7 +50,7 @@ export function Header() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-10">
+        <nav className="hidden md:flex items-center gap-12">
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -60,9 +60,10 @@ export function Header() {
               {link.name}
             </Link>
           ))}
+          <div className="w-px h-3 bg-border/20 mx-2"></div>
           <Link 
             href="/advisor" 
-            className="text-[9px] uppercase tracking-[0.3em] font-medium text-foreground/60 hover:text-accent transition-all duration-300 nav-underline"
+            className="text-[9px] uppercase tracking-[0.3em] font-medium text-accent hover:text-foreground transition-all duration-300 nav-underline"
           >
             Advisor
           </Link>
