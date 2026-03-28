@@ -20,10 +20,10 @@ export function Header() {
   }, []);
 
   const navLinks = [
+    { name: 'Heritage', href: '/about' },
     { name: 'Collections', href: '/collections' },
-    { name: 'Artisanal', href: '/hand-crafted' },
-    { name: 'Style Advisor', href: '/advisor' },
-    { name: 'About', href: '/about' },
+    { name: 'Artisanal Process', href: '/hand-crafted' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   return (
@@ -61,10 +61,10 @@ export function Header() {
             </Link>
           ))}
           <Link 
-            href="/contact" 
+            href="/advisor" 
             className="text-[9px] uppercase tracking-[0.3em] font-medium text-foreground/60 hover:text-accent transition-all duration-300 nav-underline"
           >
-            Inquiry
+            Advisor
           </Link>
         </nav>
 
@@ -86,6 +86,13 @@ export function Header() {
           >
             <X className="w-6 h-6" />
           </button>
+          <Link
+            href="/"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block text-4xl font-headline py-4 border-b border-border/5 text-center font-light tracking-widest text-foreground/80 hover:text-accent transition-colors"
+          >
+            Home
+          </Link>
           {navLinks.map((link) => (
             <Link
               key={link.name}

@@ -1,10 +1,10 @@
-
 import { Header } from '@/components/navigation/Header';
 import { Footer } from '@/components/navigation/Footer';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { FadeIn } from '@/components/animations/FadeIn';
 
-export default function AboutPage() {
+export default function HeritagePage() {
   const craftImg = PlaceHolderImages.find(i => i.id === 'about-craft');
 
   return (
@@ -12,19 +12,19 @@ export default function AboutPage() {
       <Header />
       <main className="flex-grow pt-32 pb-24 px-6 md:px-12">
         <div className="max-w-7xl mx-auto space-y-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <FadeIn className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
              <div className="space-y-8">
-                <span className="gold-text uppercase tracking-widest font-bold">Our Heritage</span>
-                <h1 className="text-5xl md:text-7xl font-headline font-bold leading-tight">Heritage <span className="italic">Meets</span> Innovation</h1>
-                <p className="text-xl text-muted-foreground leading-relaxed">
-                  Founded in 1995, MFK International began with a simple mission: to restore the dignity of the handmade suit. In an era of fast fashion, we chose the path of meticulous patience.
+                <span className="gold-text uppercase tracking-widest font-bold text-[10px]">The Heritage</span>
+                <h1 className="text-5xl md:text-7xl font-headline font-light leading-tight">Tradition <span className="italic font-citadel text-6xl md:text-8xl lowercase">meets</span> Precision</h1>
+                <p className="text-xl text-muted-foreground leading-relaxed font-light">
+                  Founded in 1995, MFKhan International began with a simple mission: to preserve the dignity of the artisanal suit. In an era of disposable fashion, we chose the path of meticulous patience.
                 </p>
                 <div className="space-y-4">
-                  <p className="text-lg leading-relaxed">
-                    Every garment that leaves our atelier is a testament to the thousands of hours of collective experience possessed by our master tailors. We don't just measure bodies; we measure movements, postures, and personalities.
+                  <p className="text-lg leading-relaxed font-light">
+                    Every garment that leaves our atelier is a testament to the collective mastery of our artisans. We don't just measure dimensions; we capture the essence of movement and character.
                   </p>
-                  <p className="text-lg leading-relaxed">
-                    Today, MFK International stands as a global beacon for made-to-measure excellence, serving heads of state, captains of industry, and individuals who appreciate the silent power of a perfectly fitted suit.
+                  <p className="text-lg leading-relaxed font-light">
+                    Today, MFKhan International stands as a global sanctuary for hand-crafted excellence, serving individuals who appreciate the silent power of a perfectly realized silhouette.
                   </p>
                 </div>
              </div>
@@ -33,25 +33,25 @@ export default function AboutPage() {
                   src={craftImg?.imageUrl || "https://picsum.photos/seed/mfk-craft/1200/800"} 
                   alt="Tailoring craft"
                   fill
-                  className="object-cover"
+                  className="object-cover grayscale"
                 />
              </div>
-          </div>
+          </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 py-12 border-y border-border/50">
+          <FadeIn delay={200} className="grid grid-cols-1 md:grid-cols-3 gap-12 py-24 border-y border-border/10">
              <div className="text-center space-y-4">
-               <h3 className="text-5xl font-headline gold-text font-bold">25+</h3>
-               <p className="uppercase tracking-widest text-sm font-medium">Years of Excellence</p>
+               <h3 className="text-5xl font-headline gold-text font-light">25+</h3>
+               <p className="uppercase tracking-[0.4em] text-[10px] font-bold text-muted-foreground">Years of Heritage</p>
              </div>
              <div className="text-center space-y-4">
-               <h3 className="text-5xl font-headline gold-text font-bold">15k</h3>
-               <p className="uppercase tracking-widest text-sm font-medium">Artisanal Pieces Delivered</p>
+               <h3 className="text-5xl font-headline gold-text font-light">15k</h3>
+               <p className="uppercase tracking-[0.4em] text-[10px] font-bold text-muted-foreground">Hand-Crafted Pieces</p>
              </div>
              <div className="text-center space-y-4">
-               <h3 className="text-5xl font-headline gold-text font-bold">48</h3>
-               <p className="uppercase tracking-widest text-sm font-medium">Master Artisans</p>
+               <h3 className="text-5xl font-headline gold-text font-light">48</h3>
+               <p className="uppercase tracking-[0.4em] text-[10px] font-bold text-muted-foreground">Master Artisans</p>
              </div>
-          </div>
+          </FadeIn>
         </div>
       </main>
       <Footer />
