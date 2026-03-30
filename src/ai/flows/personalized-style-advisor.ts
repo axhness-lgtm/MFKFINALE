@@ -77,7 +77,7 @@ The client is planning for a "{{{eventType}}}" event.
 Their aesthetic preference is "{{{aestheticPreferences}}}".
 They are interested in a "{{{garmentChoice}}}".
 
-Based on this information, provide comprehensive and sophisticated recommendations. Ensure your suggestions align with luxury artisanal tailoring standards.
+Based on this information, provide comprehensive and sophisticated recommendations. Ensure your suggestions align with luxury artisanal tailoring standards. Never use the term "Bespoke". Use "Hand-crafted", "Custom-tailored", or "Made-to-measure".
 
 Output your recommendations in a JSON object with the following fields:
 - suitStyle: A detailed description of the recommended suit style.
@@ -100,10 +100,10 @@ const personalizedStyleAdvisorFlow = ai.defineFlow(
       throw new Error('Failed to generate style recommendations.');
     }
 
-    // 2. Generate 2 visual inspirations based on the text output
+    // 2. Generate visual inspirations based on the text output
     const imagePrompts = [
-      `High-end luxury editorial photography of an artisanal ${input.garmentChoice} in a ${textOutput.colorPalette} palette. Style: ${textOutput.suitStyle}. Professional studio lighting, minimalist cream background, 8k resolution, cinematic composition.`,
-      `Macro close-up detail shot of artisanal hand-crafted tailoring for a ${input.garmentChoice}. Showing ${textOutput.fabricCombinations}. Soft natural light, luxury textures, sharp focus, fashion magazine style.`
+      `High-end luxury editorial photography of an artisanal ${input.garmentChoice} in a ${textOutput.colorPalette} palette. Style: ${textOutput.suitStyle}. Professional studio lighting, minimalist cream background, 8k resolution, cinematic composition. No text.`,
+      `Macro close-up detail shot of artisanal hand-crafted tailoring for a ${input.garmentChoice}. Showing ${textOutput.fabricCombinations}. Soft natural light, luxury textures, sharp focus, fashion magazine style. No text.`
     ];
 
     const imageGenerationTasks = imagePrompts.map(promptText => 
@@ -124,8 +124,7 @@ const personalizedStyleAdvisorFlow = ai.defineFlow(
         images: imageUrls,
       };
     } catch (e) {
-      // Gracefully handle image generation failure (often due to plan restrictions)
-      console.error('AI Image generation failed:', e);
+      console.error('AI Image generation failed (likely due to billing plan):', e);
       return {
         ...textOutput,
         images: [],

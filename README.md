@@ -22,7 +22,7 @@ This document contains the core prompt and configuration details required to rep
 ## Key Components
 1. **Intro Loader:** A full-screen cream overlay with a pulsing SVG brand logo and a minimal gold loading bar.
 2. **Scroll Reveals:** All sections use an Intersection Observer to "Fade In" (translate-y + opacity) as the user scrolls.
-3. **SVG Brand Logo:** A circular frame containing a stylized "MFK" with crown-like peaks on the 'M', a decorative diamond-lattice separator, and "INTERNATIONAL" in serif caps.
+3. **SVG Brand Logo:** A circular frame containing a stylized "MFK" monogram. Centered and minimal.
 
 ## Technical Specifications
 - **Framework:** Next.js 15 (App Router), TypeScript.
@@ -33,12 +33,12 @@ This document contains the core prompt and configuration details required to rep
 ## Page Structure
 1. **Home:** Immersive storytelling through Hero, Collections, Craftsmanship, and Testimonial sections.
 2. **Heritage:** (About) Deep dive into the 25-year history and artisanal stats.
-3. **Collections:** A minimal visual showcase of suits, sherwanis, and formal wear.
+3. **Collections:** A minimal visual showcase of suits, sherwanis, and formal wear. Specialty focus on Blazers and Suits.
 4. **Hand-Crafted Process:** A step-by-step interactive journey from consultation to final fitting.
 5. **Contact:** A clean, luxury inquiry form for private consultations.
 6. **AI Style Advisor:** A generative tool providing personalized sartorial narratives and visual renderings.
 
-## Replicating the Style Advisor Logic
+## Style Advisor Logic
 The Advisor is a Genkit flow that accepts `eventType`, `aestheticPreferences`, and `garmentChoice`. It returns:
 - A detailed "Suit Style" description.
 - A "Color Palette" recommendation.

@@ -22,22 +22,22 @@ export function Header() {
   const navLinks = [
     { name: 'Heritage', href: '/about' },
     { name: 'Collections', href: '/collections' },
-    { name: 'Artisanal Process', href: '/hand-crafted' },
+    { name: 'Hand-Crafted Process', href: '/hand-crafted' },
     { name: 'Contact', href: '/contact' },
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none pt-6 px-6 md:px-12">
+    <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none pt-8 px-6 md:px-12">
       <div 
         className={cn(
-          'mx-auto max-w-7xl w-full transition-all duration-700 pointer-events-auto flex items-center justify-between',
+          'mx-auto max-w-5xl w-full transition-all duration-700 pointer-events-auto flex items-center justify-between',
           isScrolled 
-            ? 'bg-background/60 backdrop-blur-2xl border border-border/20 py-2.5 px-8 md:px-10 shadow-2xl translate-y-[-0.25rem] rounded-full' 
-            : 'bg-transparent border-transparent py-6 px-8 md:px-12'
+            ? 'bg-background/60 backdrop-blur-2xl border border-primary/20 py-3 px-8 shadow-2xl translate-y-[-0.25rem] rounded-full' 
+            : 'bg-transparent border-transparent py-6 px-4'
         )}
       >
         <Link href="/" className="flex items-center gap-4 group">
-          <BrandLogo size={isScrolled ? 32 : 40} className="transition-all duration-700 group-hover:opacity-70" />
+          <BrandLogo size={isScrolled ? 32 : 44} className="transition-all duration-700 group-hover:opacity-70" />
           <div className="flex flex-col transition-all duration-700">
             <span className={cn(
               "font-headline tracking-[0.2em] text-foreground uppercase leading-none font-light",
@@ -50,7 +50,7 @@ export function Header() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-12">
+        <nav className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -60,7 +60,7 @@ export function Header() {
               {link.name}
             </Link>
           ))}
-          <div className="w-px h-3 bg-border/20 mx-2"></div>
+          <div className="w-px h-3 bg-border/20 mx-1"></div>
           <Link 
             href="/advisor" 
             className="text-[9px] uppercase tracking-[0.3em] font-medium text-accent hover:text-foreground transition-all duration-300 nav-underline"
@@ -74,18 +74,18 @@ export function Header() {
           className="md:hidden p-2 text-foreground"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
-          {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+          {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 z-[-1] bg-background/95 backdrop-blur-3xl animate-fade-in pointer-events-auto p-12 flex flex-col justify-center gap-8">
+        <div className="md:hidden fixed inset-0 z-[-1] bg-background/98 backdrop-blur-3xl animate-fade-in pointer-events-auto p-12 flex flex-col justify-center gap-8">
           <button 
             className="absolute top-10 right-10 p-2"
             onClick={() => setMobileMenuOpen(false)}
           >
-            <X className="w-6 h-6" />
+            <X className="w-8 h-8" />
           </button>
           <Link
             href="/"

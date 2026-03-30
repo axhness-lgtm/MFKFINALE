@@ -21,7 +21,6 @@ export default function Home() {
           <CollectionsPreview />
         </FadeIn>
 
-        {/* Brand Philosophy / Quote */}
         <section className="py-32 px-6 md:px-12 bg-[#0F0E13]">
           <FadeIn className="max-w-5xl mx-auto text-center space-y-10">
             <div className="w-20 h-px bg-accent/50 mx-auto mb-12"></div>
@@ -55,7 +54,6 @@ export default function Home() {
         <FadeIn>
           <FinalCTA />
         </FadeIn>
-
       </main>
       <Footer />
     </div>
