@@ -25,148 +25,124 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a09]/80 via-transparent to-[#0a0a09]/30" />
       </div>
 
-      {/* ── Main Grid ── */}
-      <div className="relative z-10 h-full grid grid-cols-12 items-center">
+      {/* ── Main Layout ── */}
+      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 animate-fade-in pt-20">
 
-        {/* Left text block — occupies 55% */}
-        <div
-          className="col-span-12 md:col-span-7 flex flex-col justify-center px-10 md:px-20 animate-fade-in"
-          style={{ paddingTop: '120px' }}
+        {/* Garment label tag */}
+        <span
+          className="uppercase text-accent mb-6 block"
+          style={{
+            fontSize: '11px',
+            letterSpacing: '0.35em',
+            fontFamily: '"Cormorant Garamond", serif',
+            fontWeight: 300,
+          }}
         >
+          Artisanal Specialization
+        </span>
 
-          {/* Vertical gold editorial rule */}
-          <div
-            className="hidden md:block absolute left-[4.5rem] h-20 w-px bg-accent/40 mb-10"
-            style={{ top: '38%' }}
-          />
-
-          {/* Garment label tag */}
-          <span
-            className="uppercase text-accent mb-10 block"
-            style={{
-              fontSize: '11px',
-              letterSpacing: '0.35em',
-              fontFamily: '"Cormorant Garamond", serif',
-              fontWeight: 300,
-            }}
-          >
-            Artisanal Specialization
-          </span>
-
-          {/* Display Headline — left-aligned, high contrast weight rhythm */}
-          <h1 className="mb-0" style={{ lineHeight: 1.02 }}>
-            {/* Line 1 */}
-            <span className="block" style={{ fontFamily: '"Cormorant Garamond", serif' }}>
-              <span
-                style={{
-                  fontSize: 'clamp(52px, 7vw, 110px)',
-                  fontWeight: 600,
-                  letterSpacing: '-0.03em',
-                  color: '#E8E0D0',
-                  display: 'inline',
-                }}
-              >
-                Artisanal{' '}
-              </span>
-              <span
-                style={{
-                  fontSize: 'clamp(58px, 8vw, 120px)',
-                  fontWeight: 300,
-                  letterSpacing: '-0.03em',
-                  color: '#E8E0D0',
-                  display: 'inline',
-                }}
-              >
-                Blazers.
-              </span>
-            </span>
-
-            {/* Line 2 */}
-            <span className="block" style={{ fontFamily: '"Cormorant Garamond", serif' }}>
-              <span
-                style={{
-                  fontSize: 'clamp(52px, 7vw, 110px)',
-                  fontWeight: 600,
-                  letterSpacing: '-0.03em',
-                  color: '#E8E0D0',
-                  display: 'inline',
-                }}
-              >
-                Custom–Tailored{' '}
-              </span>
-              <span
-                style={{
-                  fontSize: 'clamp(58px, 8vw, 120px)',
-                  fontWeight: 300,
-                  letterSpacing: '-0.03em',
-                  color: '#E8E0D0',
-                  display: 'inline',
-                }}
-              >
-                Suits.
-              </span>
-            </span>
-          </h1>
-
-          {/* Script line — offset to right of its own block, like a tailor's signature */}
-          <div
-            className="mt-10 flex flex-col items-end"
-            style={{ maxWidth: '600px' }}
-          >
-            <div
-              className="bg-accent/50 mb-3"
-              style={{ width: '35%', height: '0.5px' }}
-            />
+        {/* Display Headline — centered */}
+        <h1 className="mb-0" style={{ lineHeight: 1.05 }}>
+          <span className="block" style={{ fontFamily: '"Cormorant Garamond", serif' }}>
             <span
-              className="font-citadel gold-text italic"
               style={{
-                fontSize: 'clamp(36px, 4.5vw, 68px)',
-                letterSpacing: '0.01em',
-                lineHeight: 1.3,
+                fontSize: 'clamp(42px, 6vw, 90px)',
+                fontWeight: 600,
+                letterSpacing: '-0.02em',
+                color: '#E8E0D0',
               }}
             >
-              Crafted to Perfection.
+              Artisanal{' '}
             </span>
-          </div>
+            <span
+              style={{
+                fontSize: 'clamp(48px, 7vw, 100px)',
+                fontWeight: 300,
+                letterSpacing: '-0.02em',
+                color: '#E8E0D0',
+              }}
+            >
+              Blazers.
+            </span>
+          </span>
 
-          {/* Body copy — left max 380px, warm off-white, breathed line-height */}
-          <p
-            className="mt-12 font-body"
+          <span className="block" style={{ fontFamily: '"Cormorant Garamond", serif' }}>
+            <span
+              style={{
+                fontSize: 'clamp(42px, 6vw, 90px)',
+                fontWeight: 600,
+                letterSpacing: '-0.02em',
+                color: '#E8E0D0',
+              }}
+            >
+              Custom–Tailored{' '}
+            </span>
+            <span
+              style={{
+                fontSize: 'clamp(48px, 7vw, 100px)',
+                fontWeight: 300,
+                letterSpacing: '-0.02em',
+                color: '#E8E0D0',
+              }}
+            >
+              Suits.
+            </span>
+          </span>
+        </h1>
+
+        {/* Script line — centered */}
+        <div className="mt-8 flex flex-col items-center">
+          <div
+            className="bg-accent/50 mb-4"
+            style={{ width: '40px', height: '1px' }}
+          />
+          <span
+            className="gold-text italic"
             style={{
-              maxWidth: '380px',
-              color: '#E8E0D0',
-              fontSize: '15px',
-              lineHeight: 1.9,
-              fontWeight: 300,
-              letterSpacing: '0.01em',
+              fontFamily: '"Cormorant Garamond", serif',
+              fontSize: 'clamp(28px, 3vw, 50px)',
+              letterSpacing: '0.02em',
+              fontWeight: 400,
             }}
           >
-            MFKhan International specializes in the precision of the tailored silhouette.
-            From master-crafted blazers to hand-stitched wedding suits, we define the
-            standard of artisanal elegance.
-          </p>
-
-          {/* CTA stack — left-aligned, sequenced vertically */}
-          <div className="mt-10 flex flex-col items-start gap-6">
-            <Link href="/contact" className="hero-btn-primary">
-              Book a Consultation
-            </Link>
-            <Link href="/collections" className="hero-btn-secondary">
-              View Collections
-            </Link>
-          </div>
+            Crafted to Perfection.
+          </span>
         </div>
 
-        {/* Right side — pure visual negative space, fabric breathes */}
-        <div className="hidden md:block md:col-span-5 h-full" />
+        {/* Body copy — centered */}
+        <p
+          className="mt-8 font-body mx-auto"
+          style={{
+            maxWidth: '500px',
+            color: '#E8E0D0',
+            fontSize: '16px',
+            lineHeight: 1.8,
+            fontWeight: 300,
+            letterSpacing: '0.01em',
+          }}
+        >
+          MFKhan International specializes in the precision of the tailored silhouette.
+          From master-crafted blazers to hand-stitched wedding suits, we define the
+          standard of artisanal elegance.
+        </p>
+
+        {/* CTA stack — centered horizontally */}
+        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
+          <Link href="/contact" className="hero-btn-primary">
+            Book a Consultation
+          </Link>
+          <Link href="/collections" className="hero-btn-secondary">
+            View Collections
+          </Link>
+        </div>
       </div>
 
-      {/* Scroll indicator — gold thread dropping */}
-      <div className="absolute bottom-10 left-[4.5rem] md:left-20 flex flex-col items-center gap-2 opacity-40">
+      {/* Scroll indicator — centered at bottom */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
         <span
           style={{
-            fontSize: '9px',
-            letterSpacing: '0.4em',
+            fontSize: '10px',
+            letterSpacing: '0.3em',
             color: '#E8E0D0',
             fontFamily: '"Cormorant Garamond", serif',
             textTransform: 'uppercase',
@@ -175,7 +151,7 @@ export function Hero() {
         >
           Scroll
         </span>
-        <div className="w-px h-16 bg-accent/60" />
+        <div className="w-px h-12 bg-accent/60" />
       </div>
     </section>
   );
