@@ -102,7 +102,7 @@ const personalizedStyleAdvisorFlow = ai.defineFlow(
 
     // 2. Generate 2 visual inspirations based on the text output
     const imagePrompts = [
-      `High-end luxury editorial photography of a bespoke ${input.garmentChoice} in a ${textOutput.colorPalette} palette. Style: ${textOutput.suitStyle}. Professional studio lighting, minimalist cream background, 8k resolution, cinematic composition.`,
+      `High-end luxury editorial photography of an artisanal ${input.garmentChoice} in a ${textOutput.colorPalette} palette. Style: ${textOutput.suitStyle}. Professional studio lighting, minimalist cream background, 8k resolution, cinematic composition.`,
       `Macro close-up detail shot of artisanal hand-crafted tailoring for a ${input.garmentChoice}. Showing ${textOutput.fabricCombinations}. Soft natural light, luxury textures, sharp focus, fashion magazine style.`
     ];
 
@@ -125,8 +125,7 @@ const personalizedStyleAdvisorFlow = ai.defineFlow(
       };
     } catch (e) {
       // Gracefully handle image generation failure (often due to plan restrictions)
-      // We still return the text output so the user gets their recommendation.
-      console.error('AI Image generation failed (likely plan restriction):', e);
+      console.error('AI Image generation failed:', e);
       return {
         ...textOutput,
         images: [],

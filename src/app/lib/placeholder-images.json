@@ -2,19 +2,19 @@
   "placeholderImages": [
     {
       "id": "hero-bg",
-      "description": "Minimal luxury interior of a bespoke tailor atelier with natural light",
+      "description": "Minimal luxury interior of an artisanal tailoring atelier with natural light",
       "imageUrl": "https://picsum.photos/seed/mfk-hero-minimal/1920/1080",
       "imageHint": "luxury atelier"
     },
     {
       "id": "collection-suit-1",
-      "description": "Light grey bespoke wool suit hanging on a minimal wooden rack",
+      "description": "Light grey hand-crafted wool suit hanging on a minimal wooden rack",
       "imageUrl": "https://picsum.photos/seed/mfk-suit-min/800/1000",
-      "imageHint": "bespoke suit"
+      "imageHint": "artisanal suit"
     },
     {
       "id": "collection-sherwani-1",
-      "description": "Minimal ivory sherwani with subtle embroidery detail",
+      "description": "Minimal ivory sherwani with subtle hand-embroidery detail",
       "imageUrl": "https://picsum.photos/seed/mfk-sherwani-min/800/1000",
       "imageHint": "ivory sherwani"
     },
