@@ -99,3 +99,89 @@
 .animate-pulse-slow {
   animation: pulseSlow 4s ease-in-out infinite;
 }
+
+.text-stroke {
+  -webkit-text-stroke: 1px var(--foreground);
+  text-stroke: 1px var(--foreground);
+}
+
+.text-stroke-accent {
+  -webkit-text-stroke: 1px hsl(var(--accent));
+  text-stroke: 1px hsl(var(--accent));
+}
+
+.text-stroke-white {
+  -webkit-text-stroke: 1px rgba(255,255,255,0.7);
+  text-stroke: 1px rgba(255,255,255,0.7);
+}
+
+/* Hero editorial button - text only, animated gold underline */
+.hero-btn-primary {
+  position: relative;
+  display: inline-block;
+  color: #E8E0D0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 4px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.hero-btn-primary::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: hsl(var(--accent));
+  transition: width 0.4s ease;
+}
+
+.hero-btn-primary:hover::after {
+  width: 100%;
+}
+
+/* Hero editorial button - fine gold border, fill from bottom */
+.hero-btn-secondary {
+  position: relative;
+  display: inline-block;
+  color: hsl(var(--accent));
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 18px 48px;
+  border: 0.5px solid hsl(var(--accent));
+  overflow: hidden;
+  transition: color 0.5s ease;
+  cursor: pointer;
+}
+
+.hero-btn-secondary::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background: hsl(var(--accent));
+  transition: height 0.5s ease;
+  z-index: -1;
+}
+
+.hero-btn-secondary:hover::before {
+  height: 100%;
+}
+
+.hero-btn-secondary:hover {
+  color: #0a0a09;
+}
