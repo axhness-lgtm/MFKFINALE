@@ -1,3 +1,4 @@
+
 import { Header } from '@/components/navigation/Header';
 import { Footer } from '@/components/navigation/Footer';
 import Image from 'next/image';
