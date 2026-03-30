@@ -1,16 +1,15 @@
-
 import { Header } from '@/components/navigation/Header';
 import { Footer } from '@/components/navigation/Footer';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const collections = [
-  { id: 'collection-suit-1', name: 'The Savile Row Selection', cat: 'Suits', desc: 'Crafted from Super 150s wool.' },
-  { id: 'collection-blazer-1', name: 'The Amalfi Coast Blazer', cat: 'Blazers', desc: 'Linen-silk blend for casual elegance.' },
-  { id: 'collection-sherwani-1', name: 'The Imperial Sherwani', cat: 'Wedding', desc: 'Zardosi embroidery with silk velvet.' },
-  { id: 'collection-tuxedo-1', name: 'Midnight Opera Tuxedo', cat: 'Formal', desc: 'Barathea wool with grosgrain silk.' },
-  { id: 'collection-suit-2', name: 'The Mayfair Check', cat: 'Suits', desc: 'Subtle windowpane check for business.' },
-  { id: 'collection-blazer-2', name: 'Double-Breasted Admiral', cat: 'Blazers', desc: 'Classic navy with polished brass buttons.' },
+  { id: 'collection-blazer-1', name: 'The Signature Double-Breasted', cat: 'Artisanal Blazers', desc: 'Our specialty blazer in Super 130s wool with hand-polished brass buttons.' },
+  { id: 'collection-suit-1', name: 'The Mayfair Executive', cat: 'Custom-Tailored Suits', desc: 'A masterclass in silhouette, crafted from charcoal English wool.' },
+  { id: 'collection-suit-2', name: 'The Sartorial Check', cat: 'Custom-Tailored Suits', desc: 'Elegant windowpane patterns for the modern gentleman.' },
+  { id: 'collection-blazer-2', name: 'The Amalfi Linen', cat: 'Artisanal Blazers', desc: 'Hand-crafted linen-silk blend for effortless seasonal elegance.' },
+  { id: 'collection-sherwani-1', name: 'The Imperial Sherwani', cat: 'Ceremonial', desc: 'Intricate tonal embroidery on ivory silk, defining royal presence.' },
+  { id: 'collection-tuxedo-1', name: 'Midnight Gala Tuxedo', cat: 'Formal Wear', desc: 'Barathea wool with grosgrain silk lapels for the ultimate evening statement.' },
 ];
 
 export default function CollectionsPage() {
@@ -20,8 +19,9 @@ export default function CollectionsPage() {
       <main className="flex-grow pt-32 pb-24">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="space-y-6 mb-16 text-center">
-            <h1 className="text-5xl md:text-7xl font-headline font-bold">The <span className="gold-text">Collections</span></h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">A visual showcase of our master craftsmanship and sartorial philosophy.</p>
+            <span className="gold-text font-bold tracking-[0.4em] uppercase text-[10px]">The Showcase</span>
+            <h1 className="text-5xl md:text-7xl font-headline font-light">The <span className="gold-text italic">Collections</span></h1>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">Focusing on our specialty: hand-crafted blazers and custom-tailored suits that define the MFKhan silhouette.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
@@ -43,8 +43,8 @@ export default function CollectionsPage() {
                     <div className="flex items-center justify-between">
                       <span className="text-xs uppercase tracking-[0.2em] text-accent font-bold">{item.cat}</span>
                     </div>
-                    <h3 className="text-2xl font-headline font-semibold">{item.name}</h3>
-                    <p className="text-muted-foreground">{item.desc}</p>
+                    <h3 className="text-2xl font-headline font-normal tracking-wide">{item.name}</h3>
+                    <p className="text-muted-foreground font-light leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
               );

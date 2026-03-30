@@ -2,44 +2,56 @@
   "placeholderImages": [
     {
       "id": "hero-bg",
-      "description": "Minimal luxury interior of an artisanal tailoring atelier with natural light",
+      "description": "Minimal luxury interior of an artisanal tailoring atelier with natural light and sharp architectural lines",
       "imageUrl": "https://picsum.photos/seed/mfk-hero-minimal/1920/1080",
       "imageHint": "luxury atelier"
     },
     {
       "id": "collection-suit-1",
-      "description": "Light grey hand-crafted wool suit hanging on a minimal wooden rack",
-      "imageUrl": "https://picsum.photos/seed/mfk-suit-min/800/1000",
-      "imageHint": "artisanal suit"
-    },
-    {
-      "id": "collection-sherwani-1",
-      "description": "Minimal ivory sherwani with subtle hand-embroidery detail",
-      "imageUrl": "https://picsum.photos/seed/mfk-sherwani-min/800/1000",
-      "imageHint": "ivory sherwani"
-    },
-    {
-      "id": "collection-tuxedo-1",
-      "description": "Sharp black tuxedo with silk lapel against a cream background",
-      "imageUrl": "https://picsum.photos/seed/mfk-tux-min/800/1000",
-      "imageHint": "black tuxedo"
+      "description": "Ultra-realistic charcoal hand-crafted wool suit hanging on a minimal wooden rack, showing master tailoring",
+      "imageUrl": "https://picsum.photos/seed/mfk-suit-charcoal/800/1000",
+      "imageHint": "charcoal suit"
     },
     {
       "id": "collection-blazer-1",
-      "description": "Textured tan linen blazer close up detail",
-      "imageUrl": "https://picsum.photos/seed/mfk-blazer-min/800/1000",
+      "description": "Sophisticated double-breasted navy blazer with gold artisanal buttons and sharp peak lapels",
+      "imageUrl": "https://picsum.photos/seed/mfk-blazer-navy/800/1000",
+      "imageHint": "navy blazer"
+    },
+    {
+      "id": "collection-sherwani-1",
+      "description": "Elegant ivory sherwani with subtle tonal hand-embroidery and a regal silhouette",
+      "imageUrl": "https://picsum.photos/seed/mfk-sherwani-regal/800/1000",
+      "imageHint": "regal sherwani"
+    },
+    {
+      "id": "collection-tuxedo-1",
+      "description": "Sharp midnight blue tuxedo with silk satin lapels and hand-finished buttonholes",
+      "imageUrl": "https://picsum.photos/seed/mfk-tuxedo-midnight/800/1000",
+      "imageHint": "luxury tuxedo"
+    },
+    {
+      "id": "collection-suit-2",
+      "description": "Three-piece windowpane check suit in earth tones, highlighting the precision of the cut",
+      "imageUrl": "https://picsum.photos/seed/mfk-suit-check/800/1000",
+      "imageHint": "check suit"
+    },
+    {
+      "id": "collection-blazer-2",
+      "description": "Textured tan linen-silk blazer close-up showing the artisanal weave and hand-stitching",
+      "imageUrl": "https://picsum.photos/seed/mfk-blazer-tan/800/1000",
       "imageHint": "linen blazer"
     },
     {
       "id": "about-craft",
-      "description": "Macro shot of a needle and thread on high quality brown fabric",
-      "imageUrl": "https://picsum.photos/seed/mfk-craft-min/1200/800",
-      "imageHint": "tailoring detail"
+      "description": "Macro editorial shot of a tailor's hand performing a silent stitch on a luxury fabric",
+      "imageUrl": "https://picsum.photos/seed/mfk-craft-detail/1200/800",
+      "imageHint": "tailoring stitch"
     },
     {
       "id": "fabric-swatches",
-      "description": "Earthy tone luxury fabric swatches arranged minimally",
-      "imageUrl": "https://picsum.photos/seed/mfk-fabrics/800/600",
+      "description": "Luxury cashmere and wool swatches arranged in a minimal, high-editorial composition",
+      "imageUrl": "https://picsum.photos/seed/mfk-fabric-luxury/800/600",
       "imageHint": "fabric swatches"
     }
   ]
