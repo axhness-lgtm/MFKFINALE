@@ -38,10 +38,33 @@ This document contains the core prompt and configuration details required to rep
 5. **Contact:** A clean, luxury inquiry form for private consultations.
 6. **AI Style Advisor:** A generative tool providing personalized sartorial narratives and visual renderings.
 
+## Deployment & GitHub Push Instructions
+To push this project to your repository at `https://github.com/axhness-lgtm/MFKFINALE`, run the following commands in your terminal:
+
+```bash
+# Initialize git (if not already done)
+git init
+
+# Add the remote repository
+git remote add origin https://github.com/axhness-lgtm/MFKFINALE.git
+
+# Stage all files
+git add .
+
+# Create an initial commit
+git commit -m "Initial commit: MFKhan International Artisanal Tailoring"
+
+# Rename branch to main
+git branch -M main
+
+# Push to GitHub
+git push -u origin main
+```
+
 ## Style Advisor Logic
 The Advisor is a Genkit flow that accepts `eventType`, `aestheticPreferences`, and `garmentChoice`. It returns:
 - A detailed "Suit Style" description.
 - A "Color Palette" recommendation.
 - "Fabric Combinations".
-- An "Inspiration Message".
+- "Inspiration Message".
 - Two Imagen 4 generated images: One editorial shot of the garment and one macro detail shot of the textures.
