@@ -28,26 +28,16 @@ export function Hero() {
       {/* ── Main Layout ── */}
       <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 animate-fade-in pt-20">
 
-        {/* Garment label tag */}
-        <span
-          className="uppercase text-accent mb-6 block"
-          style={{
-            fontSize: '11px',
-            letterSpacing: '0.35em',
-            fontFamily: '"Cormorant Garamond", serif',
-            fontWeight: 300,
-          }}
-        >
-          Artisanal Specialization
-        </span>
+        {/* Garment label tag removed */}
 
         {/* Display Headline — centered */}
         <h1 className="mb-0" style={{ lineHeight: 1.05 }}>
-          <span className="block" style={{ fontFamily: '"Cormorant Garamond", serif' }}>
+          <span className="block">
             <span
               style={{
+                fontFamily: 'Helvetica, Arial, sans-serif',
                 fontSize: 'clamp(42px, 6vw, 90px)',
-                fontWeight: 600,
+                fontWeight: 'regular',
                 letterSpacing: '-0.02em',
                 color: '#E8E0D0',
               }}
@@ -56,7 +46,8 @@ export function Hero() {
             </span>
             <span
               style={{
-                fontSize: 'clamp(48px, 7vw, 100px)',
+                fontFamily: '"Playfair Display", serif',
+                fontSize: 'clamp(48px, 7vw, 85px)',
                 fontWeight: 300,
                 letterSpacing: '-0.02em',
                 color: '#E8E0D0',
@@ -66,11 +57,12 @@ export function Hero() {
             </span>
           </span>
 
-          <span className="block" style={{ fontFamily: '"Cormorant Garamond", serif' }}>
+          <span className="block">
             <span
               style={{
+                fontFamily: 'Helvetica, Arial, sans-serif',
                 fontSize: 'clamp(42px, 6vw, 90px)',
-                fontWeight: 600,
+                fontWeight: 'regular',
                 letterSpacing: '-0.02em',
                 color: '#E8E0D0',
               }}
@@ -79,7 +71,8 @@ export function Hero() {
             </span>
             <span
               style={{
-                fontSize: 'clamp(48px, 7vw, 100px)',
+                fontFamily: '"Playfair Display", serif',
+                fontSize: 'clamp(48px, 7vw, 85px)',
                 fontWeight: 300,
                 letterSpacing: '-0.02em',
                 color: '#E8E0D0',
@@ -93,38 +86,23 @@ export function Hero() {
         {/* Script line — centered */}
         <div className="mt-8 flex flex-col items-center">
           <div
-            className="bg-accent/50 mb-4"
-            style={{ width: '40px', height: '1px' }}
+            className="bg-accent/50 mb-12"
+            style={{ width: '55px', height: '1px' }}
           />
           <span
             className="gold-text italic"
             style={{
-              fontFamily: '"Cormorant Garamond", serif',
-              fontSize: 'clamp(28px, 3vw, 50px)',
+              fontFamily: '"Ballet", cursive',
+              fontSize: 'clamp(36px, 3vw, 50px)',
               letterSpacing: '0.02em',
               fontWeight: 400,
             }}
           >
-            Crafted to Perfection.
+            A  Legacy of Tailoring, Since 1940
           </span>
         </div>
 
-        {/* Body copy — centered */}
-        <p
-          className="mt-8 font-body mx-auto"
-          style={{
-            maxWidth: '500px',
-            color: '#E8E0D0',
-            fontSize: '16px',
-            lineHeight: 1.8,
-            fontWeight: 300,
-            letterSpacing: '0.01em',
-          }}
-        >
-          MFKhan International specializes in the precision of the tailored silhouette.
-          From master-crafted blazers to hand-stitched wedding suits, we define the
-          standard of artisanal elegance.
-        </p>
+        {/* Body copy removed */}
 
         {/* CTA stack — centered horizontally */}
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
@@ -137,22 +115,7 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator — centered at bottom */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
-        <span
-          style={{
-            fontSize: '10px',
-            letterSpacing: '0.3em',
-            color: '#E8E0D0',
-            fontFamily: '"Cormorant Garamond", serif',
-            textTransform: 'uppercase',
-            writingMode: 'vertical-rl',
-          }}
-        >
-          Scroll
-        </span>
-        <div className="w-px h-12 bg-accent/60" />
-      </div>
+      {/* Scroll indicator removed */}
     </section>
   );
 }

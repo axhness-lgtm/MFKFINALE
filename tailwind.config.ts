@@ -11,9 +11,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['Helvetica', 'Arial', 'sans-serif'],
-        headline: ['"Playfair Display"', 'serif'],
-        display: ['"Cormorant Garamond"', 'serif'],
+        body: ['"Josefin Slab"', '"Josephine Slab"', 'serif'],
+        headline: ['"Mansion Condensed"', '"Manison Condensed"', 'sans-serif'],
+        display: ['"Mansion Condensed"', '"Manison Condensed"', 'sans-serif'],
         script: ['Pinyon Script', 'cursive'],
         code: ['monospace'],
       },

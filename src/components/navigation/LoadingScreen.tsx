@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { BrandLogo } from "../brand/BrandLogo";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 /**
@@ -15,7 +15,7 @@ export function LoadingScreen() {
 
   useEffect(() => {
     // Check session storage to prevent re-playing the animation on every page refresh
-    const hasLoaded = sessionStorage.getItem("mfk_loaded");
+    const hasLoaded = sessionStorage.getItem("mfk_loaded_v2");
     
     if (hasLoaded) {
       setLoading(false);
@@ -26,7 +26,7 @@ export function LoadingScreen() {
       setFadeOut(true);
       setTimeout(() => {
         setLoading(false);
-        sessionStorage.setItem("mfk_loaded", "true");
+        sessionStorage.setItem("mfk_loaded_v2", "true");
       }, 1000); // Wait for fade transition
     }, 2800); // Duration of the brand reveal
 
@@ -45,7 +45,7 @@ export function LoadingScreen() {
       <div className="relative flex flex-col items-center gap-12">
         {/* The pulsating logo */}
         <div className="animate-pulse-slow">
-          <BrandLogo size={180} className="text-accent" />
+          <Image src="/loading-logo.png" alt="Loading" width={180} height={180} className="object-contain text-accent" />
         </div>
         
         {/* Minimal Gold Loading Bar */}

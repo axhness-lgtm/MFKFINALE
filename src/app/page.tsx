@@ -3,7 +3,6 @@ import { Footer } from '@/components/navigation/Footer';
 import { Hero } from '@/components/sections/Hero';
 import { CollectionsPreview } from '@/components/sections/CollectionsPreview';
 import { ProcessSteps } from '@/components/sections/ProcessSteps';
-import { Craftsmanship } from '@/components/sections/Craftsmanship';
 import { Testimonials } from '@/components/sections/Testimonials';
 import { FinalCTA } from '@/components/sections/FinalCTA';
 import { Button } from '@/components/ui/button';
@@ -16,32 +15,101 @@ export default function Home() {
       <Header />
       <main className="flex-grow">
         <Hero />
-        
+
         <FadeIn>
           <CollectionsPreview />
         </FadeIn>
 
-        <section className="py-32 px-6 md:px-12 bg-[#0F0E13]">
-          <FadeIn className="max-w-5xl mx-auto text-center space-y-10">
-            <div className="w-20 h-px bg-accent/50 mx-auto mb-12"></div>
-            <h2 className="text-4xl md:text-7xl font-headline font-bold gold-text leading-tight">
-              "<span className="font-citadel lowercase text-5xl md:text-8xl">A MFKhan suit</span> is not just attire; it is a declaration of presence and a testament to heritage."
-            </h2>
-            <div className="space-y-6 max-w-3xl mx-auto">
-              <p className="text-2xl text-muted-foreground leading-relaxed font-body">
-                We believe that true luxury lies in the unseen details—the internal canvas, the hand-stitched silk, and the perfect mathematical balance of the silhouette.
-              </p>
-              <Button asChild variant="link" className="text-accent uppercase tracking-[0.3em] font-bold hover:text-white transition-colors text-base">
-                <Link href="/about">Discover Our Heritage</Link>
-              </Button>
+        <section className="pt-32 pb-16 px-6 md:px-12 bg-[#0a0a09]">
+          <FadeIn className="max-w-7xl mx-auto space-y-32">
+
+            {/* Header Area */}
+            <div className="text-center flex flex-col items-center">
+              <div className="w-16 h-px bg-accent/50 mb-8"></div>
+              <h2
+                className="gold-text italic"
+                style={{
+                  fontFamily: '"Ballet", cursive',
+                  fontSize: 'clamp(36px, 4vw, 65px)',
+                  letterSpacing: '0.02em',
+                  fontWeight: 400,
+                }}
+              >
+                A reputation built over generations.
+              </h2>
             </div>
-            <div className="w-20 h-px bg-accent/50 mx-auto mt-12"></div>
+
+            {/* Content Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-10 max-w-5xl mx-auto">
+
+              {/* Item 1 */}
+              <div className="space-y-6">
+                <h3
+                  className="text-3xl text-white font-light leading-snug"
+                  style={{ fontFamily: '"Playfair Display", serif' }}
+                >
+                  Craftsmanship <span className="block italic text-accent" style={{ fontFamily: '"Ballet", cursive', fontSize: '1.4em', lineHeight: '0.8', marginLeft: '10%' }}>That Endures</span>
+                </h3>
+                <p
+                  className="text-[#E8E0D0]/70 leading-relaxed text-base tracking-wide"
+                  style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 'regular' }}
+                >
+                  Every garment is individually cut and tailored with attention to detail refined over decades.
+                </p>
+              </div>
+
+              {/* Item 2 */}
+              <div className="space-y-6">
+                <h3
+                  className="text-3xl text-white font-light leading-snug"
+                  style={{ fontFamily: '"Playfair Display", serif' }}
+                >
+                  A Name <span className="block italic text-accent" style={{ fontFamily: '"Ballet", cursive', fontSize: '1.4em', lineHeight: '0.8', marginLeft: '10%' }}>the City Trusts</span>
+                </h3>
+                <p
+                  className="text-[#E8E0D0]/70 leading-relaxed text-base tracking-wide"
+                  style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 'regular' }}
+                >
+                  Known across Visakhapatnam for reliability, consistency, and long-standing client relationships.
+                </p>
+              </div>
+
+              {/* Item 3 */}
+              <div className="space-y-6">
+                <h3
+                  className="text-3xl text-white font-light leading-snug"
+                  style={{ fontFamily: '"Playfair Display", serif' }}
+                >
+                  A Personalized <span className="block italic text-accent" style={{ fontFamily: '"Ballet", cursive', fontSize: '1.4em', lineHeight: '0.8', marginLeft: '10%' }}>Experience</span>
+                </h3>
+                <p
+                  className="text-[#E8E0D0]/70 leading-relaxed text-base tracking-wide"
+                  style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 'regular' }}
+                >
+                  Each client is guided through a one-on-one consultation, ensuring the final garment reflects both fit and intent.
+                </p>
+              </div>
+
+              {/* Item 4 */}
+              <div className="space-y-6">
+                <h3
+                  className="text-3xl text-white font-light leading-snug"
+                  style={{ fontFamily: '"Playfair Display", serif' }}
+                >
+                  Recommended <span className="block italic text-accent" style={{ fontFamily: '"Ballet", cursive', fontSize: '1.4em', lineHeight: '0.8', marginLeft: '10%' }}>by Clients</span>
+                </h3>
+                <p
+                  className="text-[#E8E0D0]/70 leading-relaxed text-base tracking-wide"
+                  style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 'regular' }}
+                >
+                  Much of our work comes through returning clients and word-of-mouth — a reflection of trust, not marketing.
+                </p>
+              </div>
+
+            </div>
           </FadeIn>
         </section>
 
-        <FadeIn>
-          <Craftsmanship />
-        </FadeIn>
 
         <FadeIn>
           <ProcessSteps />

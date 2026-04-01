@@ -36,17 +36,22 @@ export function ProcessSteps() {
   const [activeStep, setActiveStep] = useState(0);
 
   return (
-    <section className="py-40 px-6 md:px-12 bg-background">
+    <section className="pt-24 pb-16 px-6 md:px-12 bg-background">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center space-y-6 mb-32">
-          <span className="gold-text font-bold tracking-[0.6em] uppercase text-sm">The Journey</span>
+        <div className="text-center space-y-6 mb-24">
+          <span
+            className="gold-text italic"
+            style={{ fontFamily: '"Ballet", cursive', fontSize: 'clamp(36px, 4vw, 55px)', fontWeight: 400 }}
+          >
+            The Journey
+          </span>
           <h2 className="text-4xl md:text-6xl font-headline font-light">Hand-Crafted Process</h2>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
           <div className="lg:col-span-5 space-y-6">
             {steps.map((step, idx) => (
-              <button 
+              <button
                 key={idx}
                 onMouseEnter={() => setActiveStep(idx)}
                 className={cn(
@@ -54,8 +59,8 @@ export function ProcessSteps() {
                   activeStep === idx ? "border-accent opacity-100 translate-x-4" : "border-border/10 opacity-30 hover:opacity-50"
                 )}
               >
-                <span className="text-xs font-bold uppercase tracking-[0.4em] mb-2 block text-accent">Step 0{idx + 1}</span>
-                <h3 className="text-3xl font-headline font-normal tracking-wide">{step.title}</h3>
+                <span className="text-xs uppercase tracking-[0.2em] mb-2 block text-accent" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 400 }}>Step 0{idx + 1}</span>
+                <h3 className="text-3xl font-light tracking-wide" style={{ fontFamily: '"Playfair Display", serif' }}>{step.title}</h3>
               </button>
             ))}
           </div>

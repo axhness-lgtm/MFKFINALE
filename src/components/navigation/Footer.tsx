@@ -13,16 +13,12 @@ export function Footer() {
   }, []);
 
   return (
-    <footer className="bg-background border-t border-border/10 pt-32 pb-16 px-6 md:px-12">
+    <footer className="bg-[#0A1128] border-t border-border/10 pt-32 pb-16 px-6 md:px-12">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-20">
         {/* Brand Column */}
         <div className="space-y-10">
           <Link href="/" className="flex flex-col items-start gap-4">
-            <BrandLogo size={52} />
-            <div className="flex flex-col">
-              <span className="font-headline text-xl text-foreground uppercase tracking-widest leading-none font-normal">MFKhan</span>
-              <span className="text-[8px] uppercase tracking-[0.5em] text-muted-foreground font-bold">International</span>
-            </div>
+            <BrandLogo size={90} />
           </Link>
           <p className="text-muted-foreground text-xs leading-relaxed max-w-xs italic font-light">
             "Every stitch tells a story of craftsmanship, precision, and timeless elegance."
@@ -34,7 +30,7 @@ export function Footer() {
           <h4 className="text-[10px] font-bold mb-10 gold-text uppercase tracking-[0.4em]">Navigation</h4>
           <ul className="space-y-4 text-[10px] uppercase tracking-[0.2em] font-bold text-muted-foreground">
             <li><Link href="/" className="hover:text-foreground transition-colors">Home</Link></li>
-            <li><Link href="/about" className="hover:text-foreground transition-colors">Heritage</Link></li>
+            <li><Link href="/heritage" className="hover:text-foreground transition-colors">Heritage</Link></li>
             <li><Link href="/collections" className="hover:text-foreground transition-colors">Collections</Link></li>
             <li><Link href="/hand-crafted" className="hover:text-foreground transition-colors">Hand-Crafted Process</Link></li>
             <li><Link href="/contact" className="hover:text-foreground transition-colors">Contact</Link></li>

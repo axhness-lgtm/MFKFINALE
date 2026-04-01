@@ -15,7 +15,7 @@ export function BrandLogo({ className, size = 100 }: BrandLogoProps) {
       style={{ width: size, height: size }}
     >
       <Image
-        src="/MFK.svg"
+        src="/logo.png"
         alt="MFK Logo"
         fill
         className="object-contain"
