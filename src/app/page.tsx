@@ -29,7 +29,7 @@ export default function Home() {
               <h2
                 className="gold-text italic"
                 style={{
-                  fontFamily: '"Ballet", cursive',
+                  fontFamily: '"Gwendolyn", cursive',
                   fontSize: 'clamp(36px, 4vw, 65px)',
                   letterSpacing: '0.02em',
                   fontWeight: 400,
@@ -48,7 +48,7 @@ export default function Home() {
                   className="text-3xl text-white font-light leading-snug"
                   style={{ fontFamily: '"Playfair Display", serif' }}
                 >
-                  Craftsmanship <span className="block italic text-accent" style={{ fontFamily: '"Ballet", cursive', fontSize: '1.4em', lineHeight: '0.8', marginLeft: '10%' }}>That Endures</span>
+                  Craftsmanship <span className="block italic text-accent" style={{ fontFamily: '"Gwendolyn", cursive', fontSize: '1.4em', lineHeight: '0.8', marginLeft: '10%' }}>That Endures</span>
                 </h3>
                 <p
                   className="text-[#E8E0D0]/70 leading-relaxed text-base tracking-wide"
@@ -64,7 +64,7 @@ export default function Home() {
                   className="text-3xl text-white font-light leading-snug"
                   style={{ fontFamily: '"Playfair Display", serif' }}
                 >
-                  A Name <span className="block italic text-accent" style={{ fontFamily: '"Ballet", cursive', fontSize: '1.4em', lineHeight: '0.8', marginLeft: '10%' }}>the City Trusts</span>
+                  A Name <span className="block italic text-accent" style={{ fontFamily: '"Gwendolyn", cursive', fontSize: '1.4em', lineHeight: '0.8', marginLeft: '10%' }}>the City Trusts</span>
                 </h3>
                 <p
                   className="text-[#E8E0D0]/70 leading-relaxed text-base tracking-wide"
@@ -80,7 +80,7 @@ export default function Home() {
                   className="text-3xl text-white font-light leading-snug"
                   style={{ fontFamily: '"Playfair Display", serif' }}
                 >
-                  A Personalized <span className="block italic text-accent" style={{ fontFamily: '"Ballet", cursive', fontSize: '1.4em', lineHeight: '0.8', marginLeft: '10%' }}>Experience</span>
+                  A Personalized <span className="block italic text-accent" style={{ fontFamily: '"Gwendolyn", cursive', fontSize: '1.4em', lineHeight: '0.8', marginLeft: '10%' }}>Experience</span>
                 </h3>
                 <p
                   className="text-[#E8E0D0]/70 leading-relaxed text-base tracking-wide"
@@ -96,7 +96,7 @@ export default function Home() {
                   className="text-3xl text-white font-light leading-snug"
                   style={{ fontFamily: '"Playfair Display", serif' }}
                 >
-                  Recommended <span className="block italic text-accent" style={{ fontFamily: '"Ballet", cursive', fontSize: '1.4em', lineHeight: '0.8', marginLeft: '10%' }}>by Clients</span>
+                  Recommended <span className="block italic text-accent" style={{ fontFamily: '"Gwendolyn", cursive', fontSize: '1.4em', lineHeight: '0.8', marginLeft: '10%' }}>by Clients</span>
                 </h3>
                 <p
                   className="text-[#E8E0D0]/70 leading-relaxed text-base tracking-wide"

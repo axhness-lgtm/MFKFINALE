@@ -22,13 +22,11 @@ export function Header() {
   const leftLinks = [
     { name: 'Home', href: '/' },
     { name: 'Our Heritage', href: '/heritage' },
-    { name: 'Meet the Designer', href: '/hand-crafted' },
   ];
 
   const rightLinks = [
     { name: 'Collections', href: '/collections' },
-    { name: 'Tailor on Wheels', href: '/advisor' },
-    { name: 'Gift Card', href: '/contact' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   const allLinks = [...leftLinks, ...rightLinks];
@@ -39,7 +37,7 @@ export function Header() {
         className={cn(
           'mx-auto w-full transition-all duration-700 pointer-events-auto flex items-center justify-between',
           isScrolled
-            ? 'max-w-[1000px] bg-black/80 backdrop-blur-2xl border border-white/10 py-1.5 px-6 shadow-2xl translate-y-[-0.25rem] rounded-full'
+            ? 'max-w-[660px] bg-black/80 backdrop-blur-2xl border border-white/10 py-1.5 px-6 shadow-2xl translate-y-[-0.25rem] rounded-full'
             : 'max-w-6xl bg-transparent border-transparent py-2 px-4'
         )}
       >

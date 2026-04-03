@@ -41,7 +41,7 @@ export function ProcessSteps() {
         <div className="text-center space-y-6 mb-24">
           <span
             className="gold-text italic"
-            style={{ fontFamily: '"Ballet", cursive', fontSize: 'clamp(36px, 4vw, 55px)', fontWeight: 400 }}
+            style={{ fontFamily: '"Gwendolyn", cursive', fontSize: 'clamp(36px, 4vw, 55px)', fontWeight: 400 }}
           >
             The Journey
           </span>

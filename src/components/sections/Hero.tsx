@@ -92,7 +92,7 @@ export function Hero() {
           <span
             className="gold-text italic"
             style={{
-              fontFamily: '"Ballet", cursive',
+              fontFamily: '"Gwendolyn", cursive',
               fontSize: 'clamp(36px, 3vw, 50px)',
               letterSpacing: '0.02em',
               fontWeight: 400,
