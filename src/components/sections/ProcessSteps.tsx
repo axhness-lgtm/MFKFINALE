@@ -45,7 +45,7 @@ export function ProcessSteps() {
           >
             The Journey
           </span>
-          <h2 className="text-4xl md:text-6xl font-headline font-light">Hand-Crafted Process</h2>
+          <h2 className="text-4xl md:text-6xl font-serif font-light">Hand-Crafted Process</h2>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
@@ -67,8 +67,8 @@ export function ProcessSteps() {
 
           <div className="lg:col-span-7 relative h-[500px] flex flex-col justify-center items-center text-center px-12 bg-card/50">
             <div key={activeStep} className="animate-fade-in space-y-10">
-              <span className="text-accent text-9xl font-headline opacity-5 font-bold block">0{activeStep + 1}</span>
-              <p className="text-4xl md:text-6xl font-headline font-light leading-relaxed italic text-foreground max-w-lg">
+              <span className="text-accent text-9xl font-serif opacity-5 font-bold block">0{activeStep + 1}</span>
+              <p className="text-4xl md:text-6xl font-serif font-light leading-relaxed italic text-foreground max-w-lg">
                 "{steps[activeStep].detail}"
               </p>
               <p className="text-base uppercase tracking-[0.3em] text-muted-foreground font-bold">
@@ -81,3 +81,4 @@ export function ProcessSteps() {
     </section>
   );
 }
+

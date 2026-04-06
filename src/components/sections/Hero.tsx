@@ -1,6 +1,6 @@
-
 import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { FadeIn } from '@/components/animations/FadeIn';
 
 export function Hero() {
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-bg');
@@ -26,93 +26,118 @@ export function Hero() {
       </div>
 
       {/* ── Main Layout ── */}
-      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 animate-fade-in pt-20">
-
-        {/* Garment label tag removed */}
-
-        {/* Display Headline — centered */}
+      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-20">
         <h1 className="mb-0" style={{ lineHeight: 1.05 }}>
-          <span className="block">
-            <span
-              style={{
-                fontFamily: 'Helvetica, Arial, sans-serif',
-                fontSize: 'clamp(42px, 6vw, 90px)',
-                fontWeight: 'regular',
-                letterSpacing: '-0.02em',
-                color: '#E8E0D0',
-              }}
-            >
-              Artisanal{' '}
+          <FadeIn delay={200}>
+            <span className="block">
+              <span
+                style={{
+                  fontFamily: 'Helvetica, Arial, sans-serif',
+                  fontSize: 'clamp(42px, 6vw, 90px)',
+                  fontWeight: 'regular',
+                  letterSpacing: '-0.02em',
+                  color: '#E8E0D0',
+                }}
+              >
+                {' '}
+              </span>
+              <span
+                style={{
+                  fontFamily: '"Playfair Display", serif',
+                  fontSize: 'clamp(48px, 7vw, 85px)',
+                  fontWeight: 100,
+                  letterSpacing: '-0.02em',
+                  color: '#E8E0D0',
+                }}
+              >
+                Our Signature Craft
+              </span>
             </span>
-            <span
-              style={{
-                fontFamily: '"Playfair Display", serif',
-                fontSize: 'clamp(48px, 7vw, 85px)',
-                fontWeight: 300,
-                letterSpacing: '-0.02em',
-                color: '#E8E0D0',
-              }}
-            >
-              Blazers.
-            </span>
-          </span>
+          </FadeIn>
 
-          <span className="block">
-            <span
-              style={{
-                fontFamily: 'Helvetica, Arial, sans-serif',
-                fontSize: 'clamp(42px, 6vw, 90px)',
-                fontWeight: 'regular',
-                letterSpacing: '-0.02em',
-                color: '#E8E0D0',
-              }}
-            >
-              Custom–Tailored{' '}
-            </span>
-            <span
-              style={{
-                fontFamily: '"Playfair Display", serif',
-                fontSize: 'clamp(48px, 7vw, 85px)',
-                fontWeight: 300,
-                letterSpacing: '-0.02em',
-                color: '#E8E0D0',
-              }}
-            >
-              Suits.
-            </span>
+          <span className="block mt-2">
+            <FadeIn delay={400} className="inline-block">
+              <span
+                style={{
+                  fontFamily: '"Times New Roman", serif',
+                  fontSize: 'clamp(42px, 6vw, 90px)',
+                  fontWeight: 'normal',
+                  letterSpacing: '-0.02em',
+                  color: '#E8E0D0',
+                }}
+              >
+                Designed {' '}
+              </span>
+            </FadeIn>
+
+            <FadeIn delay={1200} className="inline-block mx-4" direction="none">
+              <span
+                style={{
+                  fontFamily: '"Times New Roman", serif',
+                  fontSize: 'clamp(48px, 7vw, 85px)',
+                  fontWeight: 'regular',
+                  fontStyle: 'italic',
+                  letterSpacing: '-0.02em',
+                  color: 'hsl(var(--accent))',
+                }}
+              >
+                just
+              </span>
+            </FadeIn>
+
+            <FadeIn delay={400} className="inline-block">
+              <span
+                style={{
+                  fontFamily: '"Times New Roman", serif',
+                  fontSize: 'clamp(48px, 7vw, 85px)',
+                  fontWeight: 'normal',
+                  letterSpacing: '-0.02em',
+                  color: '#E8E0D0',
+                }}
+              >
+                for you
+              </span>
+            </FadeIn>
           </span>
         </h1>
 
-        {/* Script line — centered */}
-        <div className="mt-8 flex flex-col items-center">
-          <div
-            className="bg-accent/50 mb-12"
-            style={{ width: '55px', height: '1px' }}
-          />
-          <span
-            className="gold-text italic"
-            style={{
-              fontFamily: '"Gwendolyn", cursive',
-              fontSize: 'clamp(36px, 3vw, 50px)',
-              letterSpacing: '0.02em',
-              fontWeight: 400,
-            }}
-          >
-            A  Legacy of Tailoring, Since 1940
-          </span>
-        </div>
+        <FadeIn delay={1600}>
+          <div className="mt-4 flex flex-col items-center">
+            <div
+              className="bg-accent/30 mb-8"
+              style={{ width: '40px', height: '1px' }}
+            />
+            <span
+              style={{
+                fontFamily: 'monospace',
+                fontSize: 'clamp(18px, 1.5vw, 24px)',
+                letterSpacing: '0.1em',
+                fontWeight: 300,
+                textTransform: 'uppercase',
+                color: 'hsl(var(--accent))',
+              }}
+            >
+              A  Legacy of Tailoring, Since 1940
+            </span>
+            <span
+              className="mt-3 text-[#E8E0D0]/50 tracking-[0.1em] text-[10px] md:text-xs uppercase font-light"
+              style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
+            >
+              Experience finished garments in-store or have them tailored to you.
+            </span>
+          </div>
+        </FadeIn>
 
-        {/* Body copy removed */}
-
-        {/* CTA stack — centered horizontally */}
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
-          <Link href="/contact" className="hero-btn-primary">
-            Book a Consultation
-          </Link>
-          <Link href="/collections" className="hero-btn-secondary">
-            View Collections
-          </Link>
-        </div>
+        <FadeIn delay={2000}>
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-6">
+            <Link href="/contact" className="hero-btn-primary">
+              Book a Consultation
+            </Link>
+            <Link href="/collections" className="hero-btn-secondary">
+              View Collections
+            </Link>
+          </div>
+        </FadeIn>
       </div>
 
       {/* Scroll indicator removed */}

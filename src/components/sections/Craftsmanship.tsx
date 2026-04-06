@@ -21,7 +21,7 @@ export function Craftsmanship() {
           <div className="space-y-12">
             <div className="space-y-6">
               <span className="gold-text font-bold tracking-[0.5em] uppercase text-[10px]">The Atelier</span>
-              <h2 className="text-4xl md:text-6xl font-headline font-light leading-tight">Mastery in <br /><span className="font-citadel italic text-5xl md:text-7xl">Every Stitch</span></h2>
+              <h2 className="text-4xl md:text-6xl font-serif font-light leading-tight">Mastery in <br /><span className="font-citadel italic text-5xl md:text-7xl">Every Stitch</span></h2>
             </div>
             
             <p className="text-base text-muted-foreground leading-relaxed font-light tracking-wide max-w-xl">
@@ -52,3 +52,4 @@ export function Craftsmanship() {
     </section>
   );
 }
+

@@ -22,6 +22,7 @@ export function Header() {
   const leftLinks = [
     { name: 'Home', href: '/' },
     { name: 'Our Heritage', href: '/heritage' },
+    { name: 'The Groom', href: '/groom' },
   ];
 
   const rightLinks = [
@@ -47,8 +48,8 @@ export function Header() {
             <Link
               key={link.name}
               href={link.href}
-              className="text-sm uppercase tracking-[0.1em] font-medium text-white/90 hover:text-accent transition-colors duration-300 nav-underline"
-              style={{ fontFamily: '"Playfair Display", serif' }}
+              className="text-sm uppercase tracking-[0.1em] font-light text-white/90 hover:text-accent transition-colors duration-300 nav-underline"
+              style={{ fontFamily: '"Times New Roman", serif' }}
             >
               {link.name}
             </Link>
@@ -67,7 +68,7 @@ export function Header() {
               key={link.name}
               href={link.href}
               className="text-sm uppercase tracking-[0.1em] font-medium text-white/90 hover:text-accent transition-colors duration-300 nav-underline"
-              style={{ fontFamily: '"Playfair Display", serif' }}
+              style={{ fontFamily: '"Times New Roman", serif' }}
             >
               {link.name}
             </Link>
@@ -99,7 +100,7 @@ export function Header() {
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
               className="block text-3xl py-4 border-b border-white/10 text-center font-light tracking-widest text-white/90 hover:text-accent transition-colors"
-              style={{ fontFamily: '"Playfair Display", serif' }}
+              style={{ fontFamily: '"Times New Roman", serif' }}
             >
               {link.name}
             </Link>
@@ -114,3 +115,4 @@ export function Header() {
     </header>
   );
 }
+

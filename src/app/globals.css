@@ -36,7 +36,7 @@
     @apply bg-background text-foreground font-body font-light;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-headline font-light tracking-tight;
+    @apply font-serif font-light tracking-tight;
   }
 }
 
@@ -45,7 +45,7 @@
 }
 
 .font-citadel {
-  @apply font-script;
+  @apply font-cursive;
   text-transform: none;
   letter-spacing: normal;
   font-weight: 400;
@@ -120,9 +120,9 @@
   position: relative;
   display: inline-block;
   color: #E8E0D0;
-  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-family: 'Times New Roman', serif;
   font-size: 13px;
-  font-weight: bold;
+  font-weight: normal;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   text-decoration: none;
@@ -153,9 +153,9 @@
   position: relative;
   display: inline-block;
   color: hsl(var(--accent));
-  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-family: 'Times New Roman', serif;
   font-size: 12px;
-  font-weight: bold;
+  font-weight: normal;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   text-decoration: none;

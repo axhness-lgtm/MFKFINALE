@@ -103,3 +103,4 @@ export function ProcessedLogo({ className, size = 100 }: ProcessedLogoProps) {
     </div>
   );
 }
+

@@ -24,3 +24,4 @@ export function BrandLogo({ className, size = 100 }: BrandLogoProps) {
     </div>
   );
 }
+

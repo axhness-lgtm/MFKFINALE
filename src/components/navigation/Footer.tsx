@@ -31,6 +31,7 @@ export function Footer() {
           <ul className="space-y-4 text-[10px] uppercase tracking-[0.2em] text-white/70" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 400 }}>
             <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
             <li><Link href="/heritage" className="hover:text-white transition-colors">Heritage</Link></li>
+            <li><Link href="/groom" className="hover:text-white transition-colors">The Groom</Link></li>
             <li><Link href="/collections" className="hover:text-white transition-colors">Collections</Link></li>
             <li><Link href="/hand-crafted" className="hover:text-white transition-colors">Hand-Crafted Process</Link></li>
             <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
@@ -59,7 +60,14 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto mt-32 pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8 text-[8px] text-white/50 uppercase tracking-[0.5em]" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 400 }}>
+      {/* SEO Footer */}
+      <div className="max-w-7xl mx-auto mt-24 pt-10 border-t border-white/5">
+        <p className="text-[#E8E0D0]/40 text-xs leading-relaxed max-w-4xl" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+          MFKhan International is one of Visakhapatnam’s most trusted destinations for wedding suits, sherwanis, and custom tailoring. Located on Old Jail Road, our 9,000 sq. ft. showroom offers a complete experience of selection and precision tailoring.
+        </p>
+      </div>
+
+      <div className="max-w-7xl mx-auto mt-12 pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8 text-[8px] text-white/50 uppercase tracking-[0.5em]" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 400 }}>
         <p>© {year || 2024} MFKhan International.</p>
         <div className="flex gap-12">
           <Link href="/privacy" className="hover:text-accent transition-colors">Privacy Policy</Link>
@@ -69,3 +77,4 @@ export function Footer() {
     </footer>
   );
 }
+

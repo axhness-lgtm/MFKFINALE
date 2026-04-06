@@ -49,7 +49,7 @@ export function AdvisorTool() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         <div className="lg:col-span-4 space-y-8">
           <div className="space-y-4">
-            <h2 className="text-3xl font-headline font-bold gold-text">AI Style Intelligence</h2>
+            <h2 className="text-3xl font-serif font-bold gold-text">AI Style Intelligence</h2>
             <p className="text-muted-foreground">Input your preferences and let our generative tailoring advisor craft a vision for your next custom-tailored piece.</p>
           </div>
 
@@ -125,7 +125,7 @@ export function AdvisorTool() {
                 <div className="luxury-card p-12 bg-accent/5 flex flex-col items-center justify-center text-center space-y-6 border-dashed border-accent/20">
                   <ImageIcon className="w-12 h-12 text-accent/30" />
                   <div className="space-y-2">
-                    <h3 className="text-xl font-headline font-bold uppercase tracking-widest text-accent/60">Visual Generation Restricted</h3>
+                    <h3 className="text-xl font-serif font-bold uppercase tracking-widest text-accent/60">Visual Generation Restricted</h3>
                     <p className="text-xs text-muted-foreground max-w-sm mx-auto uppercase tracking-tighter leading-relaxed">
                       Our Artisanal AI has drafted your unique sartorial narrative below. 
                       <br /><br />
@@ -137,7 +137,7 @@ export function AdvisorTool() {
 
               <Card className="luxury-card bg-transparent border-accent/20 rounded-none overflow-hidden">
                 <CardHeader className="border-b border-border/50 bg-accent/5">
-                  <CardTitle className="font-headline text-2xl flex items-center gap-4">
+                  <CardTitle className="font-serif text-2xl flex items-center gap-4">
                     <Quote className="text-accent w-6 h-6" />
                     Sartorial Narrative
                   </CardTitle>
@@ -148,13 +148,13 @@ export function AdvisorTool() {
                        <div className="flex items-center gap-2 text-accent uppercase text-[9px] tracking-[0.3em] font-bold">
                          <Shirt className="w-4 h-4" /> Recommended Style
                        </div>
-                       <p className="text-xl font-headline leading-relaxed italic">{result.suitStyle}</p>
+                       <p className="text-xl font-serif leading-relaxed italic">{result.suitStyle}</p>
                     </div>
                     <div className="space-y-4">
                        <div className="flex items-center gap-2 text-accent uppercase text-[9px] tracking-[0.3em] font-bold">
                          <Palette className="w-4 h-4" /> Color Palette
                        </div>
-                       <p className="text-xl font-headline leading-relaxed italic">{result.colorPalette}</p>
+                       <p className="text-xl font-serif leading-relaxed italic">{result.colorPalette}</p>
                     </div>
                   </div>
 
@@ -162,7 +162,7 @@ export function AdvisorTool() {
                      <div className="flex items-center gap-2 text-accent uppercase text-[9px] tracking-[0.3em] font-bold">
                        <Layers className="w-4 h-4" /> Fabric Combinations
                      </div>
-                     <p className="text-xl font-headline leading-relaxed italic">{result.fabricCombinations}</p>
+                     <p className="text-xl font-serif leading-relaxed italic">{result.fabricCombinations}</p>
                   </div>
 
                   <div className="pt-10 border-t border-border/50">

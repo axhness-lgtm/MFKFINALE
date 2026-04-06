@@ -12,7 +12,7 @@ export function FinalCTA() {
           >
             Your Journey
           </span>
-          <h2 className="text-4xl md:text-7xl font-headline font-light leading-tight">
+          <h2 className="text-4xl md:text-7xl font-serif font-light leading-tight">
             Dress Like <br />
             The <span className="font-citadel italic text-5xl md:text-8xl">Best Version</span> of You
           </h2>
@@ -31,3 +31,4 @@ export function FinalCTA() {
     </section>
   );
 }
+

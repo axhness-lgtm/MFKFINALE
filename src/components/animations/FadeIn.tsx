@@ -23,9 +23,9 @@ export function FadeIn({ children, className, delay = 0, direction = 'up' }: Fad
           observer.unobserve(entry.target);
         }
       });
-    }, { 
+    }, {
       threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px' 
+      rootMargin: '0px 0px -50px 0px'
     });
 
     const current = domRef.current;
@@ -60,3 +60,4 @@ export function FadeIn({ children, className, delay = 0, direction = 'up' }: Fad
     </div>
   );
 }
+
