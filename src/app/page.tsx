@@ -1,5 +1,3 @@
-import { Header } from '@/components/navigation/Header';
-import { Footer } from '@/components/navigation/Footer';
 import { Hero } from '@/components/sections/Hero';
 import { CollectionsPreview } from '@/components/sections/CollectionsPreview';
 import { ProcessSteps } from '@/components/sections/ProcessSteps';
@@ -12,16 +10,14 @@ import Image from 'next/image';
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      <main className="flex-grow">
+    <div className="flex flex-col">
         <Hero />
 
         <FadeIn>
           <CollectionsPreview />
         </FadeIn>
 
-        <section className="bg-[#0a0a09] py-8 px-6 md:px-12 relative overflow-hidden">
+        <section className="bg-[#0a0a09] pt-32 pb-24 px-6 md:px-12 relative overflow-hidden mt-20">
           <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-20">
             <video
               autoPlay
@@ -89,18 +85,17 @@ export default function Home() {
           </FadeIn>
         </section>
 
-        <section className="pt-32 pb-16 px-6 md:px-12 bg-[#0a0a09]">
+        <section className="pt-24 pb-32 px-6 md:px-12 bg-[#0a0a09]">
           <FadeIn className="max-w-7xl mx-auto space-y-32">
 
             {/* Reputation Section Header */}
-            <div className="text-center flex flex-col items-center mb-16">
-              <div className="w-16 h-px bg-accent/50 mb-8"></div>
+            <div className="text-center flex flex-col items-center mb-6">
               <h2
                 className="gold-text italic"
                 style={{
-                  fontFamily: '"Gwendolyn", cursive',
+                  fontFamily: '"Times New Roman", serif',
                   fontSize: 'clamp(36px, 4vw, 65px)',
-                  letterSpacing: '0.02em',
+                  letterSpacing: '0.0005em',
                   fontWeight: 400,
                 }}
               >
@@ -117,7 +112,7 @@ export default function Home() {
                   className="text-3xl text-white font-light leading-snug"
                   style={{ fontFamily: '"Playfair Display", serif' }}
                 >
-                  Craftsmanship <span className="block italic text-accent" style={{ fontFamily: '"Gwendolyn", cursive', fontSize: '1.4em', lineHeight: '0.8', marginLeft: '10%' }}>That Endures</span>
+                  Craftsmanship <span className="block italic text-accent" style={{ fontFamily: '"Times New Roman", serif', fontSize: '1.4em', lineHeight: '0.8', marginLeft: '10%' }}>That Endures</span>
                 </h3>
                 <p
                   className="text-[#E8E0D0]/70 leading-relaxed text-base tracking-wide"
@@ -133,7 +128,7 @@ export default function Home() {
                   className="text-3xl text-white font-light leading-snug"
                   style={{ fontFamily: '"Playfair Display", serif' }}
                 >
-                  A Name <span className="block italic text-accent" style={{ fontFamily: '"Gwendolyn", cursive', fontSize: '1.4em', lineHeight: '0.8', marginLeft: '10%' }}>the City Trusts</span>
+                  A Name <span className="block italic text-accent" style={{ fontFamily: '"Times New Roman", serif', fontSize: '1.4em', lineHeight: '0.8', marginLeft: '10%' }}>the City Trusts</span>
                 </h3>
                 <p
                   className="text-[#E8E0D0]/70 leading-relaxed text-base tracking-wide"
@@ -149,7 +144,7 @@ export default function Home() {
                   className="text-3xl text-white font-light leading-snug"
                   style={{ fontFamily: '"Playfair Display", serif' }}
                 >
-                  A Personalized <span className="block italic text-accent" style={{ fontFamily: '"Gwendolyn", cursive', fontSize: '1.4em', lineHeight: '0.8', marginLeft: '10%' }}>Experience</span>
+                  A Personalized <span className="block italic text-accent" style={{ fontFamily: '"Times New Roman", serif', fontSize: '1.4em', lineHeight: '0.8', marginLeft: '10%' }}>Experience</span>
                 </h3>
                 <p
                   className="text-[#E8E0D0]/70 leading-relaxed text-base tracking-wide"
@@ -165,7 +160,7 @@ export default function Home() {
                   className="text-3xl text-white font-light leading-snug"
                   style={{ fontFamily: '"Playfair Display", serif' }}
                 >
-                  Recommended <span className="block italic text-accent" style={{ fontFamily: '"Gwendolyn", cursive', fontSize: '1.4em', lineHeight: '0.8', marginLeft: '10%' }}>by Clients</span>
+                  Recommended <span className="block italic text-accent" style={{ fontFamily: '"Times New Roman", serif', fontSize: '1.4em', lineHeight: '0.8', marginLeft: '10%' }}>by Clients</span>
                 </h3>
                 <p
                   className="text-[#E8E0D0]/70 leading-relaxed text-base tracking-wide"
@@ -191,8 +186,6 @@ export default function Home() {
         <FadeIn>
           <FinalCTA />
         </FadeIn>
-      </main>
-      <Footer />
     </div>
   );
 }

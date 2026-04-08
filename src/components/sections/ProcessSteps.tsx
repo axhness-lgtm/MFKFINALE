@@ -26,6 +26,11 @@ const steps = [
     detail: "Thousands of hand-applied stitches form the internal memory."
   },
   {
+    title: "Trial Fitting",
+    desc: "An initial refinement of the garment's structure.",
+    detail: "Assessing the preliminary canvas to ensure perfect alignment and drape."
+  },
+  {
     title: "Final Fitting",
     desc: "Perfecting every detail before the reveal.",
     detail: "Ensuring drape, break, and balance are absolute perfection."
@@ -41,7 +46,7 @@ export function ProcessSteps() {
         <div className="text-center space-y-6 mb-24">
           <span
             className="gold-text italic"
-            style={{ fontFamily: '"Gwendolyn", cursive', fontSize: 'clamp(36px, 4vw, 55px)', fontWeight: 400 }}
+            style={{ fontFamily: '"Times New Roman", serif', fontSize: 'clamp(36px, 4vw, 55px)', fontWeight: 400 }}
           >
             The Journey
           </span>
@@ -69,7 +74,7 @@ export function ProcessSteps() {
             <div key={activeStep} className="animate-fade-in space-y-10">
               <span className="text-accent text-9xl font-serif opacity-5 font-bold block">0{activeStep + 1}</span>
               <p className="text-4xl md:text-6xl font-serif font-light leading-relaxed italic text-foreground max-w-lg">
-                "{steps[activeStep].detail}"
+                {steps[activeStep].detail}
               </p>
               <p className="text-base uppercase tracking-[0.3em] text-muted-foreground font-bold">
                 {steps[activeStep].desc}

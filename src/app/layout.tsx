@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   description: 'Experience the pinnacle of sartorial excellence with MFK International. Custom suits, tuxedos, and sherwanis crafted for the discerning gentleman.',
 };
 
+import { Header } from '@/components/navigation/Header';
+import { Footer } from '@/components/navigation/Footer';
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -23,7 +26,13 @@ export default function RootLayout({
       </head>
       <body className="font-body antialiased bg-background text-foreground selection:bg-primary selection:text-white">
         <LoadingScreen />
-        {children}
+        <div className="flex flex-col min-h-screen">
+          <Header />
+          <main className="flex-grow">
+            {children}
+          </main>
+          <Footer />
+        </div>
         <Toaster />
       </body>
     </html>

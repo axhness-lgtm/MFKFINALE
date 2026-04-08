@@ -8,7 +8,7 @@ export function FinalCTA() {
         <div className="space-y-6">
           <span
             className="gold-text italic block"
-            style={{ fontFamily: '"Gwendolyn", cursive', fontSize: 'clamp(36px, 4vw, 55px)', fontWeight: 400 }}
+            style={{ fontFamily: '"Times New Roman", serif', fontSize: 'clamp(36px, 4vw, 55px)', fontWeight: 400 }}
           >
             Your Journey
           </span>

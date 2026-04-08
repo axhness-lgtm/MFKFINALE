@@ -16,35 +16,35 @@ export function CollectionsPreview() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-5xl mx-auto">
-          {/* THE GROOM */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {/* WEDDING */}
           <Link
-            href="/groom"
+            href="/collections/wedding-wear"
             className="group relative block aspect-[4/5] transition-transform duration-700 ease-out hover:scale-[1.02] bg-background"
           >
             <div className="absolute inset-0 rounded-t-[200px] overflow-hidden border border-white/5">
               <Image
                 src="/images/groom-dark.png"
-                alt="The Groom"
+                alt="Wedding"
                 fill
                 className="object-cover transition-transform duration-1000 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-700" />
               <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#0a0a09] via-transparent to-transparent" />
-              
-              <div className="absolute inset-0 p-12 flex flex-col justify-end items-center text-center">
-                <span className="text-accent text-[10px] uppercase tracking-[0.4em] mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-700 font-bold">Wedding Collections</span>
-                <h3 className="text-3xl md:text-5xl font-serif text-[#E8E0D0] mb-4 transition-transform duration-700 group-hover:-translate-y-2">
-                  The Groom
+
+              <div className="absolute inset-0 p-8 flex flex-col justify-end items-center text-center">
+                <span className="text-accent text-[10px] uppercase tracking-[0.4em] mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-700 font-bold">Sherwanis & More</span>
+                <h3 className="text-3xl md:text-4xl font-serif text-[#E8E0D0] mb-4 transition-transform duration-700 group-hover:-translate-y-2">
+                  Wedding
                 </h3>
                 <p className="text-[10px] text-white/50 uppercase tracking-[0.3em] font-medium border-t border-accent/30 pt-4 px-6 scale-x-0 group-hover:scale-x-100 transition-transform duration-700">
-                  See the Sherwani Gallery
+                  See the Gallery
                 </p>
               </div>
             </div>
           </Link>
 
-          {/* THE EXECUTIVE */}
+          {/* CUSTOM TAILORING */}
           <Link
             href="/collections/suits"
             className="group relative block aspect-[4/5] transition-transform duration-700 ease-out hover:scale-[1.02] bg-background"
@@ -52,20 +52,47 @@ export function CollectionsPreview() {
             <div className="absolute inset-0 rounded-t-[200px] overflow-hidden border border-white/5">
               <Image
                 src="/images/executive-charcoal.png"
-                alt="The Executive"
+                alt="Custom Tailoring"
                 fill
                 className="object-cover transition-transform duration-1000 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-700" />
               <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#0a0a09] via-transparent to-transparent" />
-              
-              <div className="absolute inset-0 p-12 flex flex-col justify-end items-center text-center">
-                <span className="text-accent text-[10px] uppercase tracking-[0.4em] mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-700 font-bold">Tailored Blazers & Suits</span>
-                <h3 className="text-3xl md:text-5xl font-serif text-[#E8E0D0] mb-4 transition-transform duration-700 group-hover:-translate-y-2">
-                  The Executive
+
+              <div className="absolute inset-0 p-8 flex flex-col justify-end items-center text-center">
+                <span className="text-accent text-[10px] uppercase tracking-[0.4em] mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-700 font-bold">Bespoke Fit</span>
+                <h3 className="text-3xl md:text-4xl font-serif text-[#E8E0D0] mb-4 transition-transform duration-700 group-hover:-translate-y-2">
+                  Custom Tailoring
                 </h3>
                 <p className="text-[10px] text-white/50 uppercase tracking-[0.3em] font-medium border-t border-accent/30 pt-4 px-6 scale-x-0 group-hover:scale-x-100 transition-transform duration-700">
-                  Explore Custom Suits
+                  Explore Suits
+                </p>
+              </div>
+            </div>
+          </Link>
+
+          {/* FORMALS */}
+          <Link
+            href="/collections/tuxedos"
+            className="group relative block aspect-[4/5] transition-transform duration-700 ease-out hover:scale-[1.02] bg-background"
+          >
+            <div className="absolute inset-0 rounded-t-[200px] overflow-hidden border border-white/5">
+              <Image
+                src="https://images.unsplash.com/photo-1594932224828-b4b059b6f6f9?auto=format&fit=crop&q=80&w=800"
+                alt="Formals"
+                fill
+                className="object-cover transition-transform duration-1000 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-700" />
+              <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#0a0a09] via-transparent to-transparent" />
+
+              <div className="absolute inset-0 p-8 flex flex-col justify-end items-center text-center">
+                <span className="text-accent text-[10px] uppercase tracking-[0.4em] mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-700 font-bold">Evening Elegance</span>
+                <h3 className="text-3xl md:text-4xl font-serif text-[#E8E0D0] mb-4 transition-transform duration-700 group-hover:-translate-y-2">
+                  Formals
+                </h3>
+                <p className="text-[10px] text-white/50 uppercase tracking-[0.3em] font-medium border-t border-accent/30 pt-4 px-6 scale-x-0 group-hover:scale-x-100 transition-transform duration-700">
+                  View Collection
                 </p>
               </div>
             </div>
