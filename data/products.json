@@ -59,12 +59,15 @@
       "id": "1006",
       "categoryId": "wedding/designer-suits",
       "name": "Wedding Designer Suit No. 6",
-      "desc": "Signature Detail Collection 2026",
+      "desc": "TRIAL STORE SUIT 1",
       "image": "/images/wedding-jodhpuri.jpg",
       "createdAt": "2026-04-08T07:47:53.020Z",
       "images": [
-        "/images/wedding-jodhpuri.jpg"
-      ]
+        "/uploads/1775749561992-491436015.jpeg",
+        "/uploads/1775749562549-509115892.jpeg",
+        "/uploads/1775749563057-450829947.jpeg"
+      ],
+      "updatedAt": "2026-04-09T15:46:19.512Z"
     },
     {
       "id": "1007",
@@ -2695,6 +2698,17 @@
       "id": "1026",
       "image": "/images/wedding-jodhpuri.jpg",
       "createdAt": "2026-04-08T13:21:08.367Z"
+    },
+    {
+      "name": "BS EXP",
+      "categoryId": "formals/business-suits",
+      "desc": "EXP 1",
+      "images": [
+        "/uploads/1775749663770-821882982.jpeg"
+      ],
+      "id": "2025",
+      "image": "/uploads/1775749663770-821882982.jpeg",
+      "createdAt": "2026-04-09T15:47:49.202Z"
     }
   ]
 }
