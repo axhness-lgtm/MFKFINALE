@@ -20,8 +20,8 @@ export function Footer() {
           <Link href="/" className="flex flex-col items-start gap-4">
             <img src="/footer-logo.png" alt="MFK International" className="w-[120px] h-auto object-contain opacity-90 hover:opacity-100 transition-opacity" />
           </Link>
-          <p className="text-white/70 text-xs leading-relaxed max-w-xs italic" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 400 }}>
-            "Every stitch tells a story of craftsmanship, precision, and timeless elegance."
+          <p className="text-white/60 text-[10px] uppercase tracking-[0.2em] max-w-xs leading-relaxed font-serif">
+            A <span className="text-accent italic">Legacy</span> of Tailoring, Since <span className="text-accent">1940</span>
           </p>
         </div>
 
@@ -31,9 +31,6 @@ export function Footer() {
           <ul className="space-y-4 text-[10px] uppercase tracking-[0.2em] text-white/70" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 400 }}>
             <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
             <li><Link href="/heritage" className="hover:text-white transition-colors">Heritage</Link></li>
-            <li><Link href="/groom" className="hover:text-white transition-colors">The Groom</Link></li>
-            <li><Link href="/collections" className="hover:text-white transition-colors">Collections</Link></li>
-            <li><Link href="/hand-crafted" className="hover:text-white transition-colors">Hand-Crafted Process</Link></li>
             <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
           </ul>
         </div>
@@ -42,10 +39,9 @@ export function Footer() {
         <div>
           <h4 className="text-sm mb-10 gold-text uppercase tracking-[0.2em]" style={{ fontFamily: '"Playfair Display", serif', fontWeight: 400 }}>Experience</h4>
           <ul className="space-y-4 text-[10px] uppercase tracking-[0.2em] text-white/70" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 400 }}>
-            <li><Link href="/advisor" className="hover:text-white transition-colors">AI Style Advisor</Link></li>
-            <li><Link href="/collections?cat=wedding" className="hover:text-white transition-colors">Wedding Suits</Link></li>
-            <li><Link href="/collections?cat=tuxedo" className="hover:text-white transition-colors">Evening Wear</Link></li>
-            <li><Link href="/collections?cat=sherwani" className="hover:text-white transition-colors">Royal Sherwanis</Link></li>
+            <li><Link href="/wedding" className="hover:text-white transition-colors">Wedding</Link></li>
+            <li><Link href="/formals" className="hover:text-white transition-colors">Formals</Link></li>
+            <li><Link href="/custom-tailoring" className="hover:text-white transition-colors">Custom Tailoring</Link></li>
           </ul>
         </div>
 

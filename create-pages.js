@@ -29,7 +29,7 @@ export default function WeddingPage() {
 
         <FadeIn delay={200} className="max-w-3xl mx-auto text-center space-y-8 mb-32">
           <p className="text-lg leading-relaxed text-white/80 font-light" style={{ fontFamily: '"Times New Roman", serif' }}>
-            A wedding demands more than just a suit; it requires a statement of legacy. Whether orchestrating an opulent traditional ceremony or a modern reception, we begin with understanding your vision. Experience our dedicated showroom gallery to try on finished masterpieces, or opt for a complete bespoke creation refined by our master tailors.
+            A wedding demands more than just a suit; it requires a statement of legacy. Whether orchestrating an opulent traditional ceremony or a modern reception, we begin with understanding your vision. Experience our dedicated showroom gallery to try on finished masterpieces, or opt for a complete Signature creation refined by our master tailors.
           </p>
         </FadeIn>
 
@@ -63,7 +63,7 @@ export default function WeddingPage() {
 
 const weddingSubpages = [
   { slug: 'designer-suits', h1: 'Wedding Designer Suits in Visakhapatnam', intro: 'Impeccable modern tailoring for the contemporary groom.', tech: 'Super 150s wool, reinforced canvas structure, and a sharp tailored silhouette designed to elongate and elevate.' },
-  { slug: 'indo-western', h1: 'Indo-Western Wedding Wear', intro: 'A masterful fusion of cultural heritage and modern tailoring lines.', tech: 'Structured cuts blending traditional embroidery with the precision of a bespoke suit. Jacquard and silk blends.' },
+  { slug: 'indo-western', h1: 'Indo-Western Wedding Wear', intro: 'A masterful fusion of cultural heritage and modern tailoring lines.', tech: 'Structured cuts blending traditional embroidery with the precision of a tailored suit. Jacquard and silk blends.' },
   { slug: 'sherwani', h1: 'Wedding Sherwanis in Visakhapatnam', intro: 'The pinnacle of traditional elegance.', tech: 'Heavy silks, velvet accents, structured shoulder lines, and intricate hand-embroidery built on a tailored foundation.' },
   { slug: 'designer-shirts', h1: 'Designer Wedding Shirts', intro: 'The fundamental layer of luxury.', tech: 'Egyptian cottons, concealed plackets, wing collar mastery, and French cuffs designed for the perfect break.' }
 ];
@@ -93,7 +93,7 @@ export default function Wedding\${p.slug.replace(/-/g, '')}Page() {
           <section className="space-y-4">
             <h2 className="text-xs uppercase tracking-[0.3em] text-accent font-bold">The Experience</h2>
             <p className="text-base text-white/70 leading-relaxed font-light tracking-wide" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-              Explore our showroom gallery to try on completed silhouettes, allowing you to gauge the exact drape and fit. Alternatively, start from an unstitched length of fabric and experience our comprehensive bespoke process from the ground up.
+              Explore our showroom gallery to try on completed silhouettes, allowing you to gauge the exact drape and fit. Alternatively, start from an unstitched length of fabric and experience our comprehensive Artisanal process from the ground up.
             </p>
           </section>
 
@@ -176,7 +176,7 @@ export default function FormalsPage() {
 const formalSubpages = [
   { slug: 'business-suits', h1: 'Business Suits in Visakhapatnam', intro: 'Designed for the boardroom. Engineered for confidence.', tech: 'Half-canvas and full-canvas construction options depending on the drape required. We source breathable wools (Super 120s to Super 180s) to guarantee resilience.', fit: 'Available in modern Tailored Fit for a sharp outline, or Classic Fit for traditional corporate environments. We actively adjust for shoulder slopes and posture.' },
   { slug: 'blazers', h1: 'Tailored Blazers', intro: 'Bridging the definitive line between smart and casual.', tech: 'Unstructured or lightly padded shoulders, patch pockets, and textured fabrics such as hopsack, linen blends, and lightweight tweed.', fit: 'Engineered for a Slim or Tailored silhouette that pairs effortlessly with odd trousers or denim.' },
-  { slug: 'shirts', h1: 'Bespoke Formal Shirts', intro: 'The invisible armor of the modern executive.', tech: 'Two-ply cotton, genuine mother-of-pearl buttons, and structured fused or unfused collars depending on your neckwear preference.', fit: 'Drafted specifically to your torso. We ensure the armhole sits high for mobility and the waist is darted to eliminate excess fabric.' }
+  { slug: 'shirts', h1: 'Signature formal shirts', intro: 'The invisible armor of the modern executive.', tech: 'Two-ply cotton, genuine mother-of-pearl buttons, and structured fused or unfused collars depending on your neckwear preference.', fit: 'Drafted specifically to your torso. We ensure the armhole sits high for mobility and the waist is darted to eliminate excess fabric.' }
 ];
 
 formalSubpages.forEach(p => {

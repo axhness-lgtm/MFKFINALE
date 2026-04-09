@@ -27,7 +27,7 @@ export default function WeddingIndoWesternPage() {
 
         <FadeIn delay={100} className="border-t border-white/10 pt-8 mb-16 text-center max-w-3xl mx-auto">
           <p className="text-sm text-white/50 leading-relaxed font-light tracking-wide" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-            Structured cuts blending traditional embroidery with the precision of a bespoke suit.
+            Structured cuts blending traditional embroidery with the precision of a tailored suit.
           </p>
         </FadeIn>
 

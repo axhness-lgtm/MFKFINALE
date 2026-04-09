@@ -18,49 +18,60 @@ export default function CustomTailoringFittingsPage() {
   }, []);
 
   return (
-    <div className="min-h-screen pt-40 pb-24 bg-[#0a0a09] relative">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <FadeIn className="text-center space-y-6 mb-16 max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-serif font-light text-[#E8E0D0] uppercase tracking-widest">The Fitting Process</h1>
-          <p className="text-lg text-accent font-serif italic">Precision is iterative. Welcome to the art of the trial.</p>
-        </FadeIn>
+    <div className="min-h-screen pt-32 pb-24 bg-[#0a0a09] text-white overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative">
+        
+        {/* Technical Grid Overlay */}
+        <div className="absolute top-0 right-12 w-px h-full bg-white/5 hidden lg:block" />
+        <div className="absolute top-0 left-12 w-px h-full bg-white/5 hidden lg:block" />
 
-        <FadeIn delay={100} className="border-t border-white/10 pt-8 mb-16 text-center max-w-3xl mx-auto">
-          <p className="text-sm text-white/50 leading-relaxed font-light tracking-wide" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-            Your first visit maps the framework. The basted fitting allows you to trial the skeleton.
-          </p>
-        </FadeIn>
+        <div className="relative z-10">
+          <FadeIn className="mb-24">
+            <h1 className="text-6xl md:text-9xl font-serif text-[#E8E0D0] leading-none tracking-tighter mix-blend-difference">
+              Scientific <br/> <span className="text-accent italic">Precision</span>
+            </h1>
+            <div className="mt-8 flex items-center gap-6">
+               <div className="h-px w-24 bg-accent" />
+               <p className="text-[10px] uppercase tracking-[0.6em] font-bold text-white/40">The Master Measurement Sequence</p>
+            </div>
+          </FadeIn>
 
-        {loading ? (
-           <div className="flex justify-center items-center h-64">
-              <p className="text-accent text-sm tracking-widest uppercase animate-pulse">Loading Collection...</p>
-           </div>
-        ) : (
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-4 md:gap-x-8 gap-y-12">
-            {items.map((item, idx) => (
-              <FadeIn key={item.id} delay={(idx % 4) * 100}>
-                <Link 
-                  href={`/collection/${item.id}?name=${encodeURIComponent(item.name)}&image=${encodeURIComponent(item.image)}&desc=${encodeURIComponent(item.desc)}`} 
-                  className="flex flex-col group cursor-pointer"
-                >
-                  <div className="relative w-full aspect-[3/4] overflow-hidden bg-[#111] mb-4">
-                    <Image src={item.image} alt={item.name} fill className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <span className="text-white border border-white/50 bg-black/40 backdrop-blur-sm px-6 py-2 text-xs uppercase tracking-[0.2em]">View Details</span>
+          {loading ? (
+             <div className="flex justify-center items-center h-64 border-y border-white/5">
+                <p className="text-accent text-[10px] tracking-[1em] uppercase animate-pulse">Analyzing Proportions...</p>
+             </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5 border border-white/5">
+              {items.map((item, idx) => (
+                <FadeIn key={item.id} delay={idx * 100} className="bg-[#0a0a09] p-8 lg:p-16 flex flex-col group">
+                  <Link 
+                    href={`/collection/${item.id}?name=${encodeURIComponent(item.name)}&image=${encodeURIComponent(item.image)}&desc=${encodeURIComponent(item.desc)}`} 
+                    className="flex flex-col h-full"
+                  >
+                    <div className="relative w-full aspect-[4/5] overflow-hidden bg-[#111] mb-12 shadow-2xl grayscale group-hover:grayscale-0 transition-all duration-700">
+                      <Image src={item.image} alt={item.name} fill className="object-cover opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000" />
+                      
+                      {/* Vertical Measurement Line */}
+                      <div className="absolute left-1/2 top-4 bottom-4 w-px bg-white/10 group-hover:bg-accent/30 transition-colors" />
+                      <div className="absolute top-1/2 left-4 right-4 h-px bg-white/10 group-hover:bg-accent/30 transition-colors" />
                     </div>
-                  </div>
-                  <div className="flex flex-col items-center text-center space-y-1.5 px-2">
-                    <h3 className="text-sm md:text-base text-[#E8E0D0] font-light" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>{item.name}</h3>
-                    <p className="text-[10px] uppercase tracking-widest text-white/40">Style Code: MFK-{item.id}</p>
-                  </div>
-                </Link>
-              </FadeIn>
-            ))}
-            {items.length === 0 && (
-               <p className="col-span-full text-center text-white/40 py-20 uppercase tracking-widest text-sm">No active pieces in this category.</p>
-            )}
-          </div>
-        )}
+
+                    <div className="flex justify-between items-end">
+                       <div className="space-y-4">
+                          <span className="text-[10px] tracking-[0.4em] text-accent font-bold uppercase">Phase {idx + 1}</span>
+                          <h3 className="text-2xl md:text-3xl font-serif text-white/90 group-hover:text-accent font-light transition-colors">{item.name}</h3>
+                          <p className="text-xs text-white/40 font-light leading-relaxed max-w-sm normal-case">{item.desc}</p>
+                       </div>
+                       <div className="text-4xl font-serif italic text-white/5 group-hover:text-white/10 transition-colors">
+                          0{idx + 1}
+                       </div>
+                    </div>
+                  </Link>
+                </FadeIn>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

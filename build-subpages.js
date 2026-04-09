@@ -25,7 +25,7 @@ const pagesData = {
   'wedding/indo-western': {
     h1: 'Indo-Western Wedding Wear',
     intro: 'A masterful fusion of cultural heritage and modern tailoring lines.',
-    tech: 'Structured cuts blending traditional embroidery with the precision of a bespoke suit. Jacquard and silk blends.',
+    tech: 'Structured cuts blending traditional embroidery with the precision of a tailored suit. Jacquard and silk blends.',
     cards: [
       { name: 'Asymmetric Cuts', desc: 'Modern draped silhouettes', image: 'https://images.unsplash.com/photo-1582236166419-4820dc71f844?auto=format&fit=crop&q=80&w=800' },
       { name: 'Floral Jacquards', desc: 'Subtle woven patterns', image: 'https://images.unsplash.com/photo-1594938291221-94f18cbb5660?auto=format&fit=crop&q=80&w=800' },
@@ -73,7 +73,7 @@ const pagesData = {
     ]
   },
   'formals/shirts': {
-    h1: 'Bespoke Formal Shirts',
+    h1: 'Signature formal shirts',
     intro: 'The invisible armor of the modern executive.',
     tech: 'Two-ply cotton, genuine mother-of-pearl buttons, and structured fused or unfused collars.',
     cards: [
@@ -108,7 +108,7 @@ const pagesData = {
     tech: 'The rolling of the lapel, the attachment of the collar, and the finishing of the buttonholes are executed by hand.',
     cards: [
       { name: 'Hand-Rolled Lapels', desc: 'A soft, natural curve', image: 'https://images.unsplash.com/photo-1592878904946-b3cd8ae24097?auto=format&fit=crop&q=80&w=800' },
-      { name: 'Bespoke Buttonholes', desc: 'Meticulous silk thread finishing', image: 'https://images.unsplash.com/photo-1594938291221-94f18cbb5660?auto=format&fit=crop&q=80&w=800' },
+      { name: 'Signature Buttonholes', desc: 'Meticulous silk thread finishing', image: 'https://images.unsplash.com/photo-1594938291221-94f18cbb5660?auto=format&fit=crop&q=80&w=800' },
       { name: 'Invisible Stitching', desc: 'Internal canvas memory', image: 'https://images.unsplash.com/photo-1605221980313-2775f0f35368?auto=format&fit=crop&q=80&w=800' }
     ]
   }

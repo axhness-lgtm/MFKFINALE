@@ -3,8 +3,8 @@
 ## Core Features:
 
 - High-Resolution Collections Display: Showcase a curated gallery of designer blazers, wedding suits, sherwanis, and tuxedos with high-resolution imagery and detailed descriptions, organized by collection for effortless browsing.
-- Interactive Bespoke Process Guide: Illustrate the detailed custom tailoring journey, from initial consultation to final fitting, through an engaging, step-by-step visual and textual guide.
-- Personalized Consultation Inquiry Form: Provide a secure, user-friendly form for visitors to submit detailed inquiries for bespoke services, including specific garment preferences and contact information, ensuring direct client communication.
+- Interactive Artisanal process Guide: Illustrate the detailed custom tailoring journey, from initial consultation to final fitting, through an engaging, step-by-step visual and textual guide.
+- Personalized Consultation Inquiry Form: Provide a secure, user-friendly form for visitors to submit detailed inquiries for tailored services, including specific garment preferences and contact information, ensuring direct client communication.
 - Generative Style Advisor Tool: An AI-powered tool that offers personalized style inspirations and fabric combination suggestions based on the client's event type, aesthetic preferences, and garment choices.
 - Comprehensive Content Pages: Dedicated sections for 'About Us,' 'Blog,' 'Privacy Policy,' and 'Terms' to establish brand authority, share industry insights, and provide essential visitor information.
 - Responsive & Fluid Navigation: Implement a seamless mobile-first layout with intuitive, elegant navigation menus and smooth transitions for an optimal viewing experience across all devices.

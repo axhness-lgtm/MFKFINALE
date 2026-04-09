@@ -22,7 +22,7 @@ export default function CollectionsPage() {
           { 
             letter: 'F', 
             title: 'CUSTOM TAILORING', 
-            sub: 'Bespoke Suits',
+            sub: 'Hand-crafted Suits',
             image: '/images/suits-main.png', 
             link: '/collections/suits' 
           },

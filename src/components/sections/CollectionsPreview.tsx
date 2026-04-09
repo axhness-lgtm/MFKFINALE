@@ -60,7 +60,7 @@ export function CollectionsPreview() {
               <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#0a0a09] via-transparent to-transparent" />
 
               <div className="absolute inset-0 p-8 flex flex-col justify-end items-center text-center">
-                <span className="text-accent text-[10px] uppercase tracking-[0.4em] mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-700 font-bold">Bespoke Fit</span>
+                <span className="text-accent text-[10px] uppercase tracking-[0.4em] mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-700 font-bold">Precision fit</span>
                 <h3 className="text-3xl md:text-4xl font-serif text-[#E8E0D0] mb-4 transition-transform duration-700 group-hover:-translate-y-2">
                   Custom Tailoring
                 </h3>

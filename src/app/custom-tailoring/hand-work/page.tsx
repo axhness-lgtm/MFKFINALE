@@ -18,47 +18,61 @@ export default function CustomTailoringHandWorkPage() {
   }, []);
 
   return (
-    <div className="min-h-screen pt-40 pb-24 bg-[#0a0a09] relative">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <FadeIn className="text-center space-y-6 mb-16 max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-serif font-light text-[#E8E0D0] uppercase tracking-widest">Master Hand Work</h1>
-          <p className="text-lg text-accent font-serif italic">Machines provide speed; hands provide soul.</p>
-        </FadeIn>
-
-        <FadeIn delay={100} className="border-t border-white/10 pt-8 mb-16 text-center max-w-3xl mx-auto">
-          <p className="text-sm text-white/50 leading-relaxed font-light tracking-wide" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-            The rolling of the lapel, the attachment of the collar, executed entirely by hand.
-          </p>
-        </FadeIn>
+    <div className="min-h-screen pt-48 pb-32 bg-[#050505] text-[#E8E0D0]">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-12">
+        
+        {/* Artistic Header */}
+        <div className="flex flex-col items-center text-center mb-40">
+           <FadeIn>
+              <span className="text-xs uppercase tracking-[0.8em] font-bold text-accent mb-6 block">The Artisanal Soul</span>
+              <h1 className="text-6xl md:text-8xl font-serif font-light mb-8">
+                Master Hand <span className="font-gwendolyn text-accent italic lowercase text-7xl md:text-9xl">Work</span>
+              </h1>
+              <p className="max-w-2xl mx-auto text-lg text-white/50 font-serif italic leading-relaxed">
+                Every stitch is a signature. Every fold is a poem. We celebrate the imperfection of the human hand over the cold precision of the machine.
+              </p>
+           </FadeIn>
+        </div>
 
         {loading ? (
            <div className="flex justify-center items-center h-64">
-              <p className="text-accent text-sm tracking-widest uppercase animate-pulse">Loading Collection...</p>
+              <p className="font-gwendolyn text-4xl text-accent animate-pulse">Crafting in progress...</p>
            </div>
         ) : (
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-4 md:gap-x-8 gap-y-12">
+          <div className="columns-1 md:columns-2 lg:columns-3 gap-12 space-y-12">
             {items.map((item, idx) => (
-              <FadeIn key={item.id} delay={(idx % 4) * 100}>
+              <FadeIn key={item.id} delay={idx * 50} className="break-inside-avoid">
                 <Link 
                   href={`/collection/${item.id}?name=${encodeURIComponent(item.name)}&image=${encodeURIComponent(item.image)}&desc=${encodeURIComponent(item.desc)}`} 
-                  className="flex flex-col group cursor-pointer"
+                  className="flex flex-col group relative bg-white/[0.02] border border-white/5 p-4 hover:border-accent/40 transition-all duration-700 hover:shadow-[0_0_50px_rgba(232,224,208,0.05)]"
                 >
-                  <div className="relative w-full aspect-[3/4] overflow-hidden bg-[#111] mb-4">
-                    <Image src={item.image} alt={item.name} fill className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <span className="text-white border border-white/50 bg-black/40 backdrop-blur-sm px-6 py-2 text-xs uppercase tracking-[0.2em]">View Details</span>
-                    </div>
+                  <div className="relative w-full aspect-auto min-h-[400px] overflow-hidden bg-black mb-8">
+                    <Image 
+                      src={item.image} 
+                      alt={item.name} 
+                      fill 
+                      className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-transform duration-[3000ms]" 
+                    />
+                    
+                    {/* Artistic Bloom Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-tr from-black/60 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
                   </div>
-                  <div className="flex flex-col items-center text-center space-y-1.5 px-2">
-                    <h3 className="text-sm md:text-base text-[#E8E0D0] font-light" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>{item.name}</h3>
-                    <p className="text-[10px] uppercase tracking-widest text-white/40">Style Code: MFK-{item.id}</p>
+
+                  <div className="px-4 pb-4">
+                     <span className="text-[10px] uppercase tracking-[0.5em] text-accent/50 mb-3 block">Detail Sequence</span>
+                     <h3 className="text-2xl font-serif mb-3 group-hover:text-accent transition-colors">{item.name}</h3>
+                     <p className="text-sm text-white/40 leading-relaxed italic font-serif opacity-0 group-hover:opacity-100 transition-all duration-700 translate-y-4 group-hover:translate-y-0">
+                        {item.desc}
+                     </p>
+                  </div>
+
+                  {/* Aesthetic Numbering */}
+                  <div className="absolute -top-6 -right-6 font-gwendolyn text-8xl text-white/[0.03] group-hover:text-accent/[0.08] transition-colors -z-10">
+                     {idx + 1}
                   </div>
                 </Link>
               </FadeIn>
             ))}
-            {items.length === 0 && (
-               <p className="col-span-full text-center text-white/40 py-20 uppercase tracking-widest text-sm">No active pieces in this category.</p>
-            )}
           </div>
         )}
       </div>

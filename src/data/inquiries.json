@@ -4,7 +4,7 @@
     "firstName": "John",
     "lastName": "Doe",
     "email": "john@example.com",
-    "interest": "Bespoke Suit",
+    "interest": "Hand-crafted Suit",
     "message": "Testing the inquiry form submission.",
     "timestamp": "2026-04-05T17:28:50.942Z"
   },
@@ -13,7 +13,7 @@
     "firstName": "John",
     "lastName": "Doe",
     "email": "john@example.com",
-    "interest": "Bespoke Suit",
+    "interest": "Hand-crafted Suit",
     "message": "Testing inquiry.\n",
     "timestamp": "2026-04-05T17:29:31.421Z"
   },
@@ -22,7 +22,7 @@
     "firstName": "John",
     "lastName": "Doe",
     "email": "john@example.com",
-    "interest": "Bespoke Suit",
+    "interest": "Hand-crafted Suit",
     "message": "Test.",
     "timestamp": "2026-04-05T17:30:28.960Z"
   },
@@ -31,7 +31,7 @@
     "firstName": "John",
     "lastName": "Doe",
     "email": "john@example.com",
-    "interest": "Bespoke Suit",
+    "interest": "Hand-crafted Suit",
     "message": "Testing.",
     "timestamp": "2026-04-05T17:31:33.215Z"
   },

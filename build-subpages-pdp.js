@@ -24,12 +24,12 @@ const images = [
 
 const pagesData = {
   'wedding/designer-suits': { h1: 'Wedding Designer Suits', intro: 'Impeccable modern tailoring for the contemporary groom.', tech: 'Super 150s wool, reinforced canvas structure, and a sharp tailored silhouette designed to elongate and elevate.', idPrefix: '10' },
-  'wedding/indo-western': { h1: 'Indo-Western Wear', intro: 'A masterful fusion of cultural heritage and modern tailoring lines.', tech: 'Structured cuts blending traditional embroidery with the precision of a bespoke suit.', idPrefix: '11' },
+  'wedding/indo-western': { h1: 'Indo-Western Wear', intro: 'A masterful fusion of cultural heritage and modern tailoring lines.', tech: 'Structured cuts blending traditional embroidery with the precision of a tailored suit.', idPrefix: '11' },
   'wedding/sherwani': { h1: 'Wedding Sherwanis', intro: 'The pinnacle of traditional elegance.', tech: 'Heavy silks, velvet accents, structured shoulder lines, and intricate hand-embroidery.', idPrefix: '12' },
   'wedding/designer-shirts': { h1: 'Designer Shirts', intro: 'The fundamental layer of luxury.', tech: 'Egyptian cottons, concealed plackets, wing collar mastery.', idPrefix: '13' },
   'formals/business-suits': { h1: 'Business Suits', intro: 'Designed for the boardroom. Engineered for confidence.', tech: 'Half-canvas and full-canvas construction options depending on the drape required.', idPrefix: '20' },
   'formals/blazers': { h1: 'Tailored Blazers', intro: 'Bridging the definitive line between smart and casual.', tech: 'Unstructured or lightly padded shoulders, patch pockets.', idPrefix: '21' },
-  'formals/shirts': { h1: 'Bespoke Formal Shirts', intro: 'The invisible armor of the modern executive.', tech: 'Two-ply cotton, genuine mother-of-pearl buttons.', idPrefix: '22' },
+  'formals/shirts': { h1: 'Signature formal shirts', intro: 'The invisible armor of the modern executive.', tech: 'Two-ply cotton, genuine mother-of-pearl buttons.', idPrefix: '22' },
   'custom-tailoring/international-fabrics': { h1: 'International Fabrics', intro: 'A deep dive into our extensive global mill archive.', tech: 'We import Super 120s – Super 180s wools from the finest mills across Italy and the UK.', idPrefix: '30' },
   'custom-tailoring/fittings': { h1: 'The Fitting Process', intro: 'Precision is iterative. Welcome to the art of the trial.', tech: 'Your first visit maps the framework. The basted fitting allows you to trial the skeleton.', idPrefix: '31' },
   'custom-tailoring/hand-work': { h1: 'Master Hand Work', intro: 'Machines provide speed; hands provide soul.', tech: 'The rolling of the lapel, the attachment of the collar, executed entirely by hand.', idPrefix: '32' }
@@ -50,7 +50,7 @@ Object.entries(pagesData).forEach(([route, data]) => {
     "  const items = Array.from({ length: 24 }).map((_, i) => ({",
     "    id: `" + data.idPrefix + "${String(i + 1).padStart(2, '0')}`,",
     "    name: `${'" + data.h1 + "'.replace(/s$/, '')} No. ${i + 1}`,",
-    "    desc: `Bespoke Detail Collection ${new Date().getFullYear()}`,",
+    "    desc: `Signature Detail Collection ${new Date().getFullYear()}`,",
     "    image: images[i % images.length]",
     "  }));",
     "",

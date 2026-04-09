@@ -2,7 +2,7 @@ import { CollectionPageTemplate, CollectionPageData } from '@/components/section
 
 export const metadata = {
   title: "Women's Custom Tailoring in Visakhapatnam | MF Khan",
-  description: "Tailored garments for women, designed with attention to fit, comfort, and occasion-specific styling. Bespoke women's wear in Visakhapatnam.",
+  description: "Tailored garments for women, designed with attention to fit, comfort, and occasion-specific styling. Custom women's wear in Visakhapatnam.",
 };
 
 const data: CollectionPageData = {

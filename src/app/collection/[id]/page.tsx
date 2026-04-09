@@ -8,6 +8,7 @@ import { FadeIn } from '@/components/animations/FadeIn';
 import { useWishlist } from '@/context/WishlistContext';
 import { Heart } from 'lucide-react';
 import { WishlistButton } from '@/components/ui/WishlistButton';
+import { cn } from "@/lib/utils";
 
 export default function ProductDetails() {
   const params = useParams();
@@ -16,6 +17,7 @@ export default function ProductDetails() {
   const [product, setProduct] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [activeImage, setActiveImage] = useState<string>('');
+  const [selectedFitting, setSelectedFitting] = useState<string>('');
   const { toggleItem, isInWishlist } = useWishlist();
 
   useEffect(() => {
@@ -59,20 +61,20 @@ export default function ProductDetails() {
       : [product.image];
 
   return (
-    <div className="min-h-screen pt-32 pb-24 bg-[#0a0a09] text-white">
+    <div className="min-h-screen pt-24 pb-12 bg-[#0a0a09] text-white">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
         
         {/* Breadcrumbs */}
-        <div className="text-[10px] uppercase tracking-widest text-white/50 mb-8 border-b border-white/10 pb-4">
+        <div className="text-[10px] uppercase tracking-widest text-white/50 mb-6 border-b border-white/10 pb-3">
           <Link href="/" className="hover:text-white transition-colors">Home</Link> &nbsp;/&nbsp; 
           <span className="capitalize">{product.categoryId?.split('/')[0]}</span> &nbsp;/&nbsp; 
           <span className="text-accent">{name}</span>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
           
           {/* Thumbnails (Left - Desktop) */}
-          <div className="hidden lg:flex lg:col-span-1 flex-col gap-4">
+          <div className="hidden lg:flex lg:col-span-1 flex-col gap-3">
             {derivedThumbnails.map((thumb: string, idx: number) => (
               <button 
                 key={idx} 
@@ -85,7 +87,7 @@ export default function ProductDetails() {
           </div>
 
           {/* Main Image */}
-          <div className="lg:col-span-5 relative aspect-[3/4] bg-[#111] overflow-hidden group">
+          <div className="lg:col-span-11 xl:col-span-5 relative aspect-[3/4] bg-[#111] overflow-hidden group shadow-2xl">
             {activeImage && (
               <>
                 <Image 
@@ -103,14 +105,14 @@ export default function ProductDetails() {
                     title: name, 
                     category: product.categoryId?.split('/')[0] || 'Garment' 
                   }} 
-                  className="opacity-100 md:opacity-100 bg-black/50 scale-110 top-6 right-6 hover:scale-[1.2]" 
+                  className="opacity-100 md:opacity-100 bg-black/50 scale-125 top-6 right-6 hover:scale-[1.4] transition-transform" 
                 />
               </>
             )}
           </div>
 
           {/* Thumbnails (Mobile Below Main Image) */}
-          <div className="flex lg:hidden overflow-x-auto gap-4 snap-x hide-scrollbar">
+          <div className="flex lg:hidden overflow-x-auto gap-4 snap-x hide-scrollbar mb-6">
             {derivedThumbnails.map((thumb: string, idx: number) => (
               <button 
                 key={idx} 
@@ -123,78 +125,76 @@ export default function ProductDetails() {
           </div>
 
           {/* Product Details (Right) */}
-          <div className="lg:col-span-6 flex flex-col space-y-8 lg:pl-8">
+          <div className="lg:col-span-11 xl:col-span-6 flex flex-col space-y-4 lg:pl-12">
             
-            <div className="border-b border-white/10 pb-6">
-              <h1 className="text-3xl md:text-4xl font-serif text-[#E8E0D0] mb-3 leading-tight">{name}</h1>
-              <p className="text-xs uppercase tracking-widest text-white/50 mb-4">Style Code: MFK-{id}</p>
-              <p className="text-sm text-white/70 leading-relaxed font-light">{product.desc}</p>
+            <div className="border-b border-white/10 pb-4">
+              <h1 className="text-2xl md:text-4xl font-serif text-[#E8E0D0] mb-2 leading-tight uppercase tracking-wide">{name}</h1>
+              <p className="text-[10px] uppercase tracking-[0.2em] text-white/30 mb-3 font-medium">Style Code: MFK-{id}</p>
+              <p className="text-sm text-white/60 leading-relaxed font-light normal-case max-w-xl">{product.desc}</p>
               
-              <div className="flex items-center gap-4 text-sm mt-6">
-                 <span className="bg-white/5 px-4 py-2 border border-white/10 text-white/70">Made to Measure</span>
-                 <span className="text-accent text-xs uppercase tracking-widest">40 to 45 Working Days</span>
+              <div className={cn(
+                "flex items-center gap-4 text-sm mt-4 transition-all duration-500 overflow-hidden",
+                selectedFitting === 'Custom Measurements' ? "max-h-20 opacity-100 translate-y-0" : "max-h-0 opacity-0 -translate-y-4"
+              )}>
+                 <span className="bg-accent/10 py-1.5 px-4 border border-accent/20 text-accent font-medium uppercase tracking-widest text-[9px]">Made to Measure</span>
+                 <span className="text-white/60 text-[10px] uppercase tracking-widest font-bold">15-25 Working Days</span>
               </div>
             </div>
 
             {/* Form Variations */}
-            <div className="space-y-6">
+            <div className="space-y-4">
               <div>
-                <label className="text-xs uppercase tracking-widest text-white/50 block mb-3">Service Required *</label>
-                <div className="flex gap-4">
-                  <button className="flex-1 py-3 border border-white/20 text-sm hover:border-white transition-colors bg-white/5">Unstitched (Fabric)</button>
-                  <button className="flex-1 py-3 border border-accent text-accent text-sm hover:bg-accent hover:text-black transition-colors">Stitched / Commission</button>
+                <label className="text-[9px] uppercase tracking-[0.2em] text-white/20 block mb-2 font-bold">Service Required *</label>
+                <div className="flex gap-3">
+                  <button className="flex-1 py-3 border border-white/10 text-[10px] tracking-widest uppercase hover:border-white/30 transition-all bg-white/5 opacity-60 hover:opacity-100">Unstitched</button>
+                  <button className="flex-1 py-3 border border-accent text-accent text-[10px] tracking-widest uppercase bg-accent/5 hover:bg-accent hover:text-black transition-all font-bold">Stitched</button>
                 </div>
               </div>
 
               <div>
-                <label className="text-xs uppercase tracking-widest text-white/50 block mb-3">Size / Fitting *</label>
-                <select className="w-full bg-[#0a0a09] border border-white/20 text-white text-sm py-3 px-4 outline-none focus:border-accent">
-                  <option>-- Select Option --</option>
-                  <option>Standard Sizing (S/M/L/XL)</option>
-                  <option>Bespoke / Custom Measurements</option>
-                  <option>Consultation Required</option>
+                <label className="text-[9px] uppercase tracking-[0.2em] text-white/20 block mb-2 font-bold">Size / Fitting *</label>
+                <select 
+                  className="w-full bg-[#0d0d0c] border border-white/10 text-white text-xs py-3 px-4 outline-none focus:border-accent transition-colors cursor-pointer"
+                  value={selectedFitting}
+                  onChange={(e) => setSelectedFitting(e.target.value)}
+                >
+                  <option value="">-- Select Fitting Option --</option>
+                  <option value="Standard Sizing">Standard Sizing (S/M/L/XL)</option>
+                  <option value="Custom Measurements">Custom Measurements</option>
+                  <option value="Consultation Required">Consultation Required</option>
                 </select>
-              </div>
-
-              <div>
-                 <label className="text-xs uppercase tracking-widest text-white/50 block mb-3">Add Custom Requirements / Comments</label>
-                 <textarea 
-                   rows={3} 
-                   className="w-full bg-[#0a0a09] border border-white/20 text-white text-sm py-3 px-4 outline-none focus:border-accent resize-none"
-                   placeholder="Add your comments here (e.g. fabric preference, timeline)..."
-                 />
               </div>
             </div>
 
-            {/* SEND QUERY CTA */}
-            <div className="pt-2">
-              <div className="bg-white/5 border border-white/10 p-4 flex items-start gap-4 mb-6">
-                 <span className="text-xl">✈️</span>
-                 <p className="text-[11px] text-white/60 uppercase tracking-wider leading-relaxed">
-                   We provide consultation & shipping worldwide. Our tailoring experts will reach out to you within 24 hours of your inquiry to discuss fabric, measurements, and exact pricing.
-                 </p>
-              </div>
+            {/* CTAs (Moved above comments) */}
+            <div className="pt-4 flex flex-wrap gap-3">
+              <Link 
+                href={`/contact?inquire=${encodeURIComponent(name)}&id=${encodeURIComponent(id as string)}`}
+                className="flex-[2] min-w-[200px] text-center bg-[#E8E0D0] text-black py-3.5 uppercase tracking-[0.2em] text-[10px] font-bold hover:bg-white transition-all transform hover:scale-[1.01] shadow-lg"
+              >
+                SEND A QUERY / BOOK CONSULTATION
+              </Link>
               
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link 
-                  href={`/contact?inquire=${encodeURIComponent(name)}&id=${encodeURIComponent(id as string)}`}
-                  className="flex-1 block text-center bg-[#E8E0D0] text-black py-4 uppercase tracking-[0.2em] text-sm font-bold hover:bg-white transition-colors"
-                >
-                  SEND A QUERY
-                </Link>
-                
-                <button 
-                  onClick={() => toggleItem({ id: String(id), image: activeImage, title: name, category: product.categoryId?.split('/')[0] || 'Garment' })}
-                  className={`flex items-center justify-center gap-3 px-8 border transition-all duration-300 py-4 uppercase tracking-[0.2em] text-sm font-bold ${
-                    isInWishlist(String(id)) 
-                      ? 'border-accent text-accent bg-accent/10 hover:bg-accent/20' 
-                      : 'border-white/20 text-white hover:border-white hover:bg-white/5'
-                  }`}
-                >
-                  <Heart className={`w-4 h-4 ${isInWishlist(String(id)) ? 'fill-accent' : ''}`} />
-                  {isInWishlist(String(id)) ? 'SAVED' : 'WISHLIST'}
-                </button>
-              </div>
+              <button 
+                onClick={() => toggleItem({ id: String(id), image: activeImage, title: name, category: product.categoryId?.split('/')[0] || 'Garment' })}
+                className={`flex-1 min-w-[160px] flex items-center justify-center gap-3 py-3.5 uppercase tracking-[0.2em] text-[10px] font-bold transition-all border ${
+                  isInWishlist(String(id)) 
+                    ? 'border-accent text-accent bg-accent/10' 
+                    : 'border-white/10 text-white hover:border-white/30 hover:bg-white/5'
+                }`}
+              >
+                <Heart className={`w-3.5 h-3.5 transition-transform duration-500 ${isInWishlist(String(id)) ? 'fill-accent scale-110' : ''}`} />
+                {isInWishlist(String(id)) ? 'SAVED' : 'WISHLIST'}
+              </button>
+            </div>
+
+            <div className="pt-4 pb-4">
+               <label className="text-xs uppercase tracking-[0.2em] text-white/30 block mb-4 font-bold">Add Custom Requirements / Comments</label>
+               <textarea 
+                 rows={4} 
+                 className="w-full bg-[#0d0d0c] border border-white/10 text-white text-sm py-4 px-5 outline-none focus:border-accent resize-none placeholder:text-white/10"
+                 placeholder="Describe your measurement preferences, fabric choices, or specific deadline requests..."
+               />
             </div>
 
           </div>

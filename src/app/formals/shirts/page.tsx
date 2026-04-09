@@ -21,7 +21,7 @@ export default function FormalsShirtsPage() {
     <div className="min-h-screen pt-40 pb-24 bg-[#0a0a09] relative">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <FadeIn className="text-center space-y-6 mb-16 max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-serif font-light text-[#E8E0D0] uppercase tracking-widest">Bespoke Formal Shirts</h1>
+          <h1 className="text-4xl md:text-5xl font-serif font-light text-[#E8E0D0] uppercase tracking-widest">Signature formal shirts</h1>
           <p className="text-lg text-accent font-serif italic">The invisible armor of the modern executive.</p>
         </FadeIn>
 

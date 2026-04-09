@@ -38,7 +38,7 @@ const pagesData = {
   'wedding/indo-western': {
     h1: 'Indo-Western Wedding Wear',
     intro: 'A masterful fusion of cultural heritage and modern tailoring lines.',
-    tech: 'Structured cuts blending traditional embroidery with the precision of a bespoke suit.',
+    tech: 'Structured cuts blending traditional embroidery with the precision of a tailored suit.',
     sections: [
       {
         title: 'Asymmetric Cuts',
@@ -142,7 +142,7 @@ const pagesData = {
     ]
   },
   'formals/shirts': {
-    h1: 'Bespoke Formal Shirts',
+    h1: 'Signature formal shirts',
     intro: 'The invisible armor of the modern executive.',
     tech: 'Two-ply cotton, genuine mother-of-pearl buttons.',
     sections: [
