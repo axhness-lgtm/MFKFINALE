@@ -18,7 +18,7 @@ export function Footer() {
         {/* Brand Column */}
         <div className="space-y-10">
           <Link href="/" className="flex flex-col items-start gap-4">
-            <BrandLogo size={90} />
+            <img src="/footer-logo.png" alt="MFK International" className="w-[120px] h-auto object-contain opacity-90 hover:opacity-100 transition-opacity" />
           </Link>
           <p className="text-white/70 text-xs leading-relaxed max-w-xs italic" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 400 }}>
             "Every stitch tells a story of craftsmanship, precision, and timeless elegance."

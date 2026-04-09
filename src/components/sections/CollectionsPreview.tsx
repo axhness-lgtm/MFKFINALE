@@ -19,12 +19,12 @@ export function CollectionsPreview() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {/* WEDDING */}
           <Link
-            href="/collections/wedding-wear"
+            href="/wedding"
             className="group relative block aspect-[4/5] transition-transform duration-700 ease-out hover:scale-[1.02] bg-background"
           >
             <div className="absolute inset-0 rounded-t-[200px] overflow-hidden border border-white/5">
               <Image
-                src="/images/groom-dark.png"
+                src="/images/collections-wedding.jpg"
                 alt="Wedding"
                 fill
                 className="object-cover transition-transform duration-1000 group-hover:scale-110"
@@ -46,12 +46,12 @@ export function CollectionsPreview() {
 
           {/* CUSTOM TAILORING */}
           <Link
-            href="/collections/suits"
+            href="/custom-tailoring"
             className="group relative block aspect-[4/5] transition-transform duration-700 ease-out hover:scale-[1.02] bg-background"
           >
             <div className="absolute inset-0 rounded-t-[200px] overflow-hidden border border-white/5">
               <Image
-                src="/images/executive-charcoal.png"
+                src="/images/collections-custom-tailoring.jpg"
                 alt="Custom Tailoring"
                 fill
                 className="object-cover transition-transform duration-1000 group-hover:scale-110"
@@ -73,12 +73,12 @@ export function CollectionsPreview() {
 
           {/* FORMALS */}
           <Link
-            href="/collections/tuxedos"
+            href="/formals"
             className="group relative block aspect-[4/5] transition-transform duration-700 ease-out hover:scale-[1.02] bg-background"
           >
             <div className="absolute inset-0 rounded-t-[200px] overflow-hidden border border-white/5">
               <Image
-                src="https://images.unsplash.com/photo-1594932224828-b4b059b6f6f9?auto=format&fit=crop&q=80&w=800"
+                src="/images/collections-formals.jpg"
                 alt="Formals"
                 fill
                 className="object-cover transition-transform duration-1000 group-hover:scale-110"

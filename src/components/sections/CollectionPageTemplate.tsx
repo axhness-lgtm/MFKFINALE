@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Header } from '@/components/navigation/Header';
 import { Footer } from '@/components/navigation/Footer';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
+import { WishlistButton } from '@/components/ui/WishlistButton';
 
 export interface CollectionPageData {
   seoHero: {
@@ -126,6 +127,7 @@ export function CollectionPageTemplate({ data }: { data: CollectionPageData }) {
                 className="object-cover transition-transform duration-1000 group-hover:scale-110 opacity-80 group-hover:opacity-100" 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a09]/90 to-transparent" />
+              <WishlistButton item={{ id: use.image, image: use.image, title: use.label, category: data.seoHero.title }} />
               <div className="absolute bottom-8 left-8">
                 <span className="text-xs tracking-[0.3em] font-bold uppercase gold-text block mb-2">Occasion</span>
                 <h3 className="text-2xl font-light">{use.label}</h3>
@@ -168,6 +170,7 @@ export function CollectionPageTemplate({ data }: { data: CollectionPageData }) {
                 fill 
                 className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-90 group-hover:opacity-100" 
               />
+              <WishlistButton item={{ id: img, image: img, title: `Gallery Piece ${idx + 1}`, category: data.seoHero.title }} />
             </div>
           ))}
         </div>

@@ -15,7 +15,7 @@ export function Hero() {
           loop
           muted
           playsInline
-          className="object-cover w-full h-full opacity-75"
+          className="object-cover w-full h-full opacity-75 scale-110"
           poster={heroImage?.imageUrl || "https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?q=80&w=2000"}
         >
           <source src="/hero-video.mp4" type="video/mp4" />

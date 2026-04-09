@@ -12,51 +12,109 @@ import { cn } from "@/lib/utils";
 export function LoadingScreen() {
   const [loading, setLoading] = useState(true);
   const [fadeOut, setFadeOut] = useState(false);
+  const [progress, setProgress] = useState(1);
+  const [showLogo, setShowLogo] = useState(false);
 
   useEffect(() => {
-    // Check session storage to prevent re-playing the animation on every page refresh
-    const hasLoaded = sessionStorage.getItem("mfk_loaded_v2");
-    
+    const hasLoaded = sessionStorage.getItem("mfk_loaded_v4");
     if (hasLoaded) {
       setLoading(false);
       return;
     }
 
-    const timer = setTimeout(() => {
-      setFadeOut(true);
-      setTimeout(() => {
-        setLoading(false);
-        sessionStorage.setItem("mfk_loaded_v2", "true");
-      }, 1000); // Wait for fade transition
-    }, 2800); // Duration of the brand reveal
+    // Stepped counter sequence (Sophisticated pacing)
+    const sequenceSteps = [1, 26, 40, 100];
+    let currentStep = 0;
 
-    return () => clearTimeout(timer);
+    const runCounter = () => {
+      if (currentStep < sequenceSteps.length) {
+        setProgress(sequenceSteps[currentStep]);
+        currentStep++;
+
+        if (currentStep < sequenceSteps.length) {
+          setTimeout(runCounter, 900); // Much slower pacing as requested
+        } else {
+          // Completed steps
+          setTimeout(() => {
+            setShowLogo(true);
+            setTimeout(() => {
+              setFadeOut(true);
+              setTimeout(() => {
+                setLoading(false);
+                sessionStorage.setItem("mfk_loaded_v4", "true");
+              }, 1000);
+            }, 2000); // Allow more time to appreciate the full-sized logo
+          }, 600);
+        }
+      }
+    };
+
+    const startTimer = setTimeout(runCounter, 650);
+
+    return () => clearTimeout(startTimer);
   }, []);
 
   if (!loading) return null;
 
+  const radius = 90;
+  const circumference = 2 * Math.PI * radius;
+  const strokeDashoffset = circumference - (progress / 100) * circumference;
+
   return (
     <div
       className={cn(
-        "fixed inset-0 z-[9999] bg-background flex flex-col items-center justify-center transition-opacity duration-1000 ease-in-out",
+        "fixed inset-0 z-[9999] bg-black flex flex-col items-center justify-center transition-opacity duration-1000 ease-in-out font-serif",
         fadeOut ? "opacity-0 pointer-events-none" : "opacity-100"
       )}
     >
-      <div className="relative flex flex-col items-center gap-12">
-        {/* The pulsating logo */}
-        <div className="animate-pulse-slow">
-          <Image src="/loading-logo.png" alt="Loading" width={180} height={180} className="object-contain text-accent" />
+      <div className="relative flex flex-col items-center justify-center w-80 h-80">
+        {/* Circular Progress SVG */}
+        <svg className="absolute inset-0 w-full h-full -rotate-90">
+          <circle
+            cx="160"
+            cy="160"
+            r={radius}
+            stroke="currentColor"
+            strokeWidth="1"
+            fill="transparent"
+            className="text-white/5"
+          />
+          <circle
+            cx="160"
+            cy="160"
+            r={radius}
+            stroke="currentColor"
+            strokeWidth="1.5"
+            fill="transparent"
+            strokeDasharray={circumference}
+            style={{
+              strokeDashoffset,
+              transition: "stroke-dashoffset 0.8s ease-in-out", // Smoother stroke movement
+              color: "#E8E0D0"
+            }}
+          />
+        </svg>
+
+        {/* Counter Numbers */}
+        <div className={cn(
+          "text-6xl font-light tracking-tighter text-[#E8E0D0] transition-all duration-1000 absolute",
+          showLogo ? "opacity-0 scale-90 blur-sm" : "opacity-100 scale-100 blur-0"
+        )}>
+          {Math.floor(progress)}
         </div>
-        
-        {/* Minimal Gold Loading Bar */}
-        <div className="w-48 h-[1px] bg-border/20 overflow-hidden relative">
-          <div className="absolute top-0 left-0 h-full bg-accent animate-loading-bar w-full"></div>
+
+        {/* Brand Logo Fade In - Scaled up to fill circle */}
+        <div className={cn(
+          "absolute transition-all duration-1000 transform",
+          showLogo ? "opacity-100 scale-100" : "opacity-0 scale-110"
+        )}>
+          <Image src="/loading-logo.png" alt="MFK" width={175} height={175} className="object-contain" />
         </div>
-        
-        {/* Brand Tagline */}
-        <div className="text-accent/60 uppercase tracking-[0.6em] text-[10px] font-bold animate-fade-in">
-          Excellence in Every Stitch
-        </div>
+      </div>
+
+      {/* Brand Tagline at bottom */}
+      <div className="absolute bottom-24 font-serif text-[11px] tracking-[0.2em] text-white/60 animate-fade-in uppercase">
+        A <span className="text-accent italic">Legacy</span> of Tailoring, Since <span className="text-accent">1940</span>
       </div>
     </div>
   );

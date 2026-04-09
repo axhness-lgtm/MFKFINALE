@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 
 import { Header } from '@/components/navigation/Header';
 import { Footer } from '@/components/navigation/Footer';
+import { WishlistProvider } from '@/context/WishlistContext';
 
 export default function RootLayout({
   children,
@@ -27,11 +28,13 @@ export default function RootLayout({
       <body className="font-body antialiased bg-background text-foreground selection:bg-primary selection:text-white">
         <LoadingScreen />
         <div className="flex flex-col min-h-screen">
-          <Header />
-          <main className="flex-grow">
-            {children}
-          </main>
-          <Footer />
+          <WishlistProvider>
+            <Header />
+            <main className="flex-grow">
+              {children}
+            </main>
+            <Footer />
+          </WishlistProvider>
         </div>
         <Toaster />
       </body>

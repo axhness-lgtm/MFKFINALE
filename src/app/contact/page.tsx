@@ -80,7 +80,7 @@ export default function ContactPage() {
             <FadeIn className="space-y-12">
               <div className="space-y-6">
                 <span className="gold-text font-medium tracking-[0.3em] uppercase text-sm">Join the Elite</span>
-                <h1 className="text-5xl md:text-7xl font-serif font-bold text-white drop-shadow-2xl">Book Your <br /><span className="italic gold-text">Consultation</span></h1>
+                <h1 className="text-5xl md:text-7xl font-serif font-light text-white drop-shadow-2xl">Book Your <br /><span className="italic gold-text">Consultation</span></h1>
                 <p className="text-xl text-[#E8E0D0]/80 leading-relaxed font-light">
                   Ready to begin your custom-tailored journey? Fill out the inquiry form and our concierge team will curate a fitting experience for you.
                 </p>
@@ -93,7 +93,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="font-serif text-xl font-bold mb-1 text-white">Visit Our Atelier</h4>
-                    <p className="text-[#E8E0D0]/60 font-light">123 Tailor Street, Mayfair, London, W1S 2XL</p>
+                    <p className="text-[#E8E0D0]/60 font-light">10-12-1, Jail Road, Rednam Gardens, Visakhapatnam, Andhra Pradesh, 530002</p>
                   </div>
                 </div>
                 <div className="flex gap-6 items-start group">
@@ -102,7 +102,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="font-serif text-xl font-bold mb-1 text-white">Direct Line</h4>
-                    <p className="text-[#E8E0D0]/60 font-light">+44 20 7123 4567</p>
+                    <p className="text-[#E8E0D0]/60 font-light">+91 91821 67662</p>
                   </div>
                 </div>
               </div>

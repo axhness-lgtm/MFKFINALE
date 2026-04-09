@@ -1,31 +1,62 @@
 "use client";
 
-import { useSearchParams, useParams } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState, Suspense } from 'react';
+import { useState, useEffect } from 'react';
 import { FadeIn } from '@/components/animations/FadeIn';
+import { useWishlist } from '@/context/WishlistContext';
+import { Heart } from 'lucide-react';
+import { WishlistButton } from '@/components/ui/WishlistButton';
 
-function ProductDetails() {
-  const searchParams = useSearchParams();
+export default function ProductDetails() {
   const params = useParams();
+  const id = params?.id as string;
   
-  const id = params?.id || '001';
-  const name = searchParams?.get('name') || 'Bespoke Garment Collection';
-  const desc = searchParams?.get('desc') || 'Masterfully crafted tailoring tailored to perfection.';
-  let mainImage = searchParams?.get('image') || '/images/groom-dark.png';
+  const [product, setProduct] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  const [activeImage, setActiveImage] = useState<string>('');
+  const { toggleItem, isInWishlist } = useWishlist();
 
-  // Make sure it handles empty string
-  if (!mainImage) mainImage = '/images/groom-dark.png';
+  useEffect(() => {
+    // Fetch product details entirely from the new API
+    if (!id) return;
+    
+    fetch('/api/products')
+      .then(res => res.json())
+      .then(data => {
+        const found = data.find((p: any) => p.id === id);
+        if (found) {
+          setProduct(found);
+          const firstImage = (found.images && found.images.length > 0) ? found.images[0] : found.image;
+          setActiveImage(firstImage);
+        }
+        setLoading(false);
+      })
+      .catch(() => setLoading(false));
+  }, [id]);
 
-  const thumbnails = [
-    mainImage,
-    'https://images.unsplash.com/photo-1594938291221-94f18cbb5660?auto=format&fit=crop&q=80&w=800',
-    'https://images.unsplash.com/photo-1593032465175-481ac7f401a0?auto=format&fit=crop&q=80&w=800',
-    'https://images.unsplash.com/photo-1592878904946-b3cd8ae24097?auto=format&fit=crop&q=80&w=800'
-  ];
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-[#0a0a09] flex items-center justify-center">
+        <p className="text-accent tracking-widest uppercase text-sm animate-pulse">Loading Garment Details...</p>
+      </div>
+    );
+  }
 
-  const [activeImage, setActiveImage] = useState(mainImage);
+  if (!product) {
+    return (
+      <div className="min-h-screen bg-[#0a0a09] flex flex-col items-center justify-center space-y-6">
+        <p className="text-white text-2xl font-serif">Piece Not Found</p>
+        <Link href="/collections" className="text-accent uppercase tracking-widest text-xs border-b border-accent pb-1">Return to Collections</Link>
+      </div>
+    );
+  }
+
+  const name = product.name;
+  const derivedThumbnails = product.images && product.images.length > 0 
+      ? product.images 
+      : [product.image];
 
   return (
     <div className="min-h-screen pt-32 pb-24 bg-[#0a0a09] text-white">
@@ -34,7 +65,7 @@ function ProductDetails() {
         {/* Breadcrumbs */}
         <div className="text-[10px] uppercase tracking-widest text-white/50 mb-8 border-b border-white/10 pb-4">
           <Link href="/" className="hover:text-white transition-colors">Home</Link> &nbsp;/&nbsp; 
-          <Link href="/collections" className="hover:text-white transition-colors">Collections</Link> &nbsp;/&nbsp; 
+          <span className="capitalize">{product.categoryId?.split('/')[0]}</span> &nbsp;/&nbsp; 
           <span className="text-accent">{name}</span>
         </div>
 
@@ -42,7 +73,7 @@ function ProductDetails() {
           
           {/* Thumbnails (Left - Desktop) */}
           <div className="hidden lg:flex lg:col-span-1 flex-col gap-4">
-            {thumbnails.map((thumb, idx) => (
+            {derivedThumbnails.map((thumb: string, idx: number) => (
               <button 
                 key={idx} 
                 onClick={() => setActiveImage(thumb)}
@@ -55,17 +86,32 @@ function ProductDetails() {
 
           {/* Main Image */}
           <div className="lg:col-span-5 relative aspect-[3/4] bg-[#111] overflow-hidden group">
-            <Image 
-              src={activeImage} 
-              alt={name} 
-              fill 
-              className="object-cover transition-transform duration-1000 group-hover:scale-110" 
-            />
+            {activeImage && (
+              <>
+                <Image 
+                  src={activeImage} 
+                  alt={name} 
+                  fill 
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover transition-transform duration-1000 group-hover:scale-110 opacity-90 group-hover:opacity-100" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+                <WishlistButton 
+                  item={{ 
+                    id: String(id), 
+                    image: activeImage, 
+                    title: name, 
+                    category: product.categoryId?.split('/')[0] || 'Garment' 
+                  }} 
+                  className="opacity-100 md:opacity-100 bg-black/50 scale-110 top-6 right-6 hover:scale-[1.2]" 
+                />
+              </>
+            )}
           </div>
 
           {/* Thumbnails (Mobile Below Main Image) */}
           <div className="flex lg:hidden overflow-x-auto gap-4 snap-x hide-scrollbar">
-            {thumbnails.map((thumb, idx) => (
+            {derivedThumbnails.map((thumb: string, idx: number) => (
               <button 
                 key={idx} 
                 onClick={() => setActiveImage(thumb)}
@@ -81,7 +127,8 @@ function ProductDetails() {
             
             <div className="border-b border-white/10 pb-6">
               <h1 className="text-3xl md:text-4xl font-serif text-[#E8E0D0] mb-3 leading-tight">{name}</h1>
-              <p className="text-xs uppercase tracking-widest text-white/50 mb-4">Style Code: MFK-{(id as string).padStart(4, '0')}</p>
+              <p className="text-xs uppercase tracking-widest text-white/50 mb-4">Style Code: MFK-{id}</p>
+              <p className="text-sm text-white/70 leading-relaxed font-light">{product.desc}</p>
               
               <div className="flex items-center gap-4 text-sm mt-6">
                  <span className="bg-white/5 px-4 py-2 border border-white/10 text-white/70">Made to Measure</span>
@@ -128,20 +175,26 @@ function ProductDetails() {
                  </p>
               </div>
               
-              <Link 
-                href={`/contact?inquire=${encodeURIComponent(name)}&id=${encodeURIComponent(id as string)}`}
-                className="w-full block text-center bg-[#E8E0D0] text-black py-4 uppercase tracking-[0.2em] text-sm font-bold hover:bg-white transition-colors"
-              >
-                SEND A QUERY
-              </Link>
-            </div>
-
-            {/* Quick Links */}
-            <div className="pt-8 border-t border-white/10 text-xs text-white/40 uppercase tracking-widest flex flex-wrap gap-4">
-              <span className="hover:text-accent cursor-pointer transition-colors">FAQs</span> | 
-              <span className="hover:text-accent cursor-pointer transition-colors">Terms & Conditions</span> | 
-              <span className="hover:text-accent cursor-pointer transition-colors">Shipping Policies</span> | 
-              <span className="hover:text-accent cursor-pointer transition-colors">Fabric Care</span>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link 
+                  href={`/contact?inquire=${encodeURIComponent(name)}&id=${encodeURIComponent(id as string)}`}
+                  className="flex-1 block text-center bg-[#E8E0D0] text-black py-4 uppercase tracking-[0.2em] text-sm font-bold hover:bg-white transition-colors"
+                >
+                  SEND A QUERY
+                </Link>
+                
+                <button 
+                  onClick={() => toggleItem({ id: String(id), image: activeImage, title: name, category: product.categoryId?.split('/')[0] || 'Garment' })}
+                  className={`flex items-center justify-center gap-3 px-8 border transition-all duration-300 py-4 uppercase tracking-[0.2em] text-sm font-bold ${
+                    isInWishlist(String(id)) 
+                      ? 'border-accent text-accent bg-accent/10 hover:bg-accent/20' 
+                      : 'border-white/20 text-white hover:border-white hover:bg-white/5'
+                  }`}
+                >
+                  <Heart className={`w-4 h-4 ${isInWishlist(String(id)) ? 'fill-accent' : ''}`} />
+                  {isInWishlist(String(id)) ? 'SAVED' : 'WISHLIST'}
+                </button>
+              </div>
             </div>
 
           </div>
@@ -150,12 +203,4 @@ function ProductDetails() {
       </div>
     </div>
   );
-}
-
-export default function Page() {
-  return (
-    <Suspense fallback={<div className="min-h-screen bg-[#0a0a09] flex items-center justify-center text-accent tracking-widest uppercase text-sm">Loading Garment...</div>}>
-      <ProductDetails />
-    </Suspense>
-  )
 }

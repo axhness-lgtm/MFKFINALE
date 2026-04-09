@@ -75,7 +75,7 @@ function HorizontalScrollSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative bg-[#4c0013] pt-8 pb-32 overflow-hidden">
+    <section ref={sectionRef} className="relative bg-[#0a0a09] pt-8 pb-32 overflow-hidden">
       {/* Section Header */}
       <FadeIn className="text-center mb-16 px-6">
         <span className="gold-text uppercase tracking-[0.4em] text-[10px]" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>Technical Mastery</span>
@@ -144,7 +144,7 @@ function HorizontalScrollSection() {
 
 function TimelineSection() {
   return (
-    <section className="bg-[#4c0013] py-32 px-6 md:px-12 overflow-hidden">
+    <section className="bg-[#0a0a09] py-32 px-6 md:px-12 overflow-hidden">
       <FadeIn className="text-center mb-24">
         <span className="gold-text uppercase tracking-[0.4em] text-[10px]" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>Generational Mastery</span>
         <h2 className="text-4xl md:text-6xl text-white font-light mt-4" style={{ fontFamily: '"Playfair Display", serif' }}>
@@ -172,7 +172,7 @@ function TimelineSection() {
 
               {/* Year marker */}
               <div className="flex-shrink-0 flex flex-col items-center">
-                <div className="w-3 h-3 rounded-full border border-accent bg-[#4c0013] z-10" />
+                <div className="w-3 h-3 rounded-full border border-accent bg-[#0a0a09] z-10" />
                 <span className="gold-text text-xs mt-3 tracking-[0.2em]" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>{event.year}</span>
               </div>
 
@@ -198,7 +198,7 @@ function TestimonialStrip() {
   const doubled = [...testimonials, ...testimonials];
 
   return (
-    <section className="bg-[#4c0013] py-24 overflow-hidden border-y border-white/5">
+    <section className="bg-[#0a0a09] py-24 overflow-hidden border-y border-white/5">
       <FadeIn className="text-center mb-16 px-6">
         <span className="gold-text uppercase tracking-[0.4em] text-[10px]" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>Local Authority</span>
         <h2 className="text-4xl md:text-5xl text-white font-light mt-4" style={{ fontFamily: '"Playfair Display", serif' }}>
@@ -240,14 +240,14 @@ function TestimonialStrip() {
 
 export default function HeritagePage() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#4c0013]">
+    <div className="min-h-screen flex flex-col bg-[#0a0a09]">
       <Header />
 
       <main className="flex-grow">
 
         {/* ── SECTION 1: HERO ── */}
         <section className="h-screen flex items-center justify-center relative overflow-hidden">
-                    <Image src="/images/heritage-rolls-bg.jpg" alt="Heritage background" fill quality={100} className="object-cover" priority />
+          <Image src="/images/heritage-hero-new.jpg" alt="Heritage background" fill quality={100} className="object-cover" priority />
           {/* Grain texture */}
           <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\'/%3E%3C/svg%3E")', backgroundSize: '200px' }} />
           {/* Vignette */}
@@ -257,8 +257,8 @@ export default function HeritagePage() {
 
           <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
             <FadeIn>
-                            <h1 className="text-white italic" style={{ fontFamily: '"Times New Roman", serif', fontSize: 'clamp(28px, 3.5vw, 52px)', letterSpacing: '0.06em', fontWeight: 400 }}>
-                Heritage Of Mfkhan
+              <h1 className="text-white drop-shadow-2xl" style={{ fontFamily: '"Playfair Display", serif', fontSize: 'clamp(36px, 5vw, 72px)', letterSpacing: '0.02em', fontWeight: 500 }}>
+                Heritage of <span className="gold-text text-accent font-light">MFKhan</span>
               </h1>
             </FadeIn>
             <FadeIn delay={300}>
@@ -289,7 +289,7 @@ export default function HeritagePage() {
         </section>
 
         {/* ── SECTION 2: ORIGIN ── */}
-        <section className="bg-[#4c0013] py-32 px-6 md:px-12 overflow-hidden">
+        <section className="bg-[#0a0a09] py-32 px-6 md:px-12 overflow-hidden">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
             {/* Left: image */}
             <FadeIn direction="up" className="relative">
@@ -298,7 +298,7 @@ export default function HeritagePage() {
                 1940
               </div>
               <div className="relative aspect-[4/5] overflow-hidden z-10">
-                <Image src="https://picsum.photos/seed/mfk-origin/900/1200" alt="Origin craft" fill className="object-cover grayscale hover:grayscale-0 transition-all duration-1000" />
+                <Image src="/images/heritage-origin.jpg" alt="Origin craft" fill className="object-cover grayscale hover:grayscale-0 transition-all duration-1000" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a09] via-transparent to-transparent" />
               </div>
             </FadeIn>
@@ -342,7 +342,7 @@ export default function HeritagePage() {
         <TimelineSection />
 
         {/* ── SECTION 5: HUMAN ELEMENT ── */}
-        <section className="relative bg-[#4c0013] py-48 px-6 md:px-12 overflow-hidden">
+        <section className="relative bg-[#0a0a09] py-48 px-6 md:px-12 overflow-hidden">
           <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.9\' numOctaves=\'4\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\'/%3E%3C/svg%3E")', backgroundSize: '200px' }} />
           <div className="max-w-3xl mx-auto text-center space-y-16 relative z-10">
             <FadeIn>
@@ -387,7 +387,7 @@ export default function HeritagePage() {
         <TestimonialStrip />
 
         {/* ── SECTION 7: MODERN CONTINUITY ── */}
-        <section className="bg-[#4c0013] py-32 px-6 md:px-12">
+        <section className="bg-[#0a0a09] py-32 px-6 md:px-12">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
             <div className="space-y-10">
               <FadeIn>
@@ -424,7 +424,7 @@ export default function HeritagePage() {
             </div>
 
             <FadeIn delay={200} className="relative aspect-[4/5] overflow-hidden">
-              <Image src="https://picsum.photos/seed/mfk-modern/900/1200" alt="Modern tailoring" fill className="object-cover" />
+              <Image src="/images/heritage-modern.jpg" alt="Modern tailoring" fill className="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a09] via-transparent to-transparent" />
               <div className="absolute bottom-8 left-8 right-8 border-t border-white/10 pt-6">
                 <p className="text-white/50 text-xs uppercase tracking-[0.3em] italic" style={{ fontFamily: '"Playfair Display", serif' }}>
@@ -436,39 +436,39 @@ export default function HeritagePage() {
         </section>
 
         {/* ── SECTION 8: A DESTINATION FOR TAILORING (NEW) ── */}
-        <section className="bg-[#4c0013] py-32 px-6 md:px-12 border-t border-white/5">
+        <section className="bg-[#0a0a09] py-32 px-6 md:px-12 border-t border-white/5">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-20">
-             <div className="flex-1 space-y-8">
-                <FadeIn>
-                  <span className="gold-text uppercase tracking-[0.4em] text-[10px]" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>Scale & Authority</span>
-                  <h2 className="text-4xl md:text-5xl text-white font-light mt-4" style={{ fontFamily: '"Playfair Display", serif' }}>
-                    A Destination for Tailoring
-                  </h2>
-                </FadeIn>
-                <FadeIn delay={200}>
-                  <p className="text-white/70 text-lg leading-relaxed max-w-2xl" style={{ fontFamily: '"Playfair Display", serif' }}>
-                    Built on a legacy that began in 1940, MFKhan International today operates from a 9,000 sq. ft. space in Visakhapatnam — bringing together design, selection, and in-house tailoring under one roof.
-                  </p>
-                </FadeIn>
-                <FadeIn delay={400}>
-                  <div className="pt-6">
-                    <Link href="/contact" className="hero-btn-secondary">Visit the Showroom</Link>
-                  </div>
-                </FadeIn>
-             </div>
-             <div className="flex-1 relative aspect-video overflow-hidden">
-                <Image 
-                  src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&q=80&w=1200" 
-                  alt="MFKhan Experience" 
-                  fill 
-                  className="object-cover"
-                />
-             </div>
+            <div className="flex-1 space-y-8">
+              <FadeIn>
+                <span className="gold-text uppercase tracking-[0.4em] text-[10px]" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>Scale & Authority</span>
+                <h2 className="text-4xl md:text-5xl text-white font-light mt-4" style={{ fontFamily: '"Playfair Display", serif' }}>
+                  A Destination for Tailoring
+                </h2>
+              </FadeIn>
+              <FadeIn delay={200}>
+                <p className="text-white/70 text-lg leading-relaxed max-w-2xl" style={{ fontFamily: '"Playfair Display", serif' }}>
+                  Built on a legacy that began in 1940, MFKhan International today operates from a 9,000 sq. ft. space in Visakhapatnam — bringing together design, selection, and in-house tailoring under one roof.
+                </p>
+              </FadeIn>
+              <FadeIn delay={400}>
+                <div className="pt-6">
+                  <Link href="/contact" className="hero-btn-secondary">Visit the Showroom</Link>
+                </div>
+              </FadeIn>
+            </div>
+            <div className="flex-1 relative aspect-video overflow-hidden border border-white/5 shadow-2xl">
+              <Image
+                src="/images/heritage-destination.jpg"
+                alt="MFKhan Experience"
+                fill
+                className="object-cover"
+              />
+            </div>
           </div>
         </section>
 
         {/* ── SECTION 9: CLOSING STATEMENT ── */}
-        <section className="bg-[#4c0013] py-40 px-6 md:px-12 border-t border-white/5">
+        <section className="bg-[#0a0a09] py-40 px-6 md:px-12 border-t border-white/5">
           <div className="max-w-4xl mx-auto text-center space-y-16">
             <FadeIn>
               <span className="text-white/20 uppercase tracking-[0.6em] text-[9px]" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>A Standard Built Over Time</span>
@@ -537,7 +537,6 @@ export default function HeritagePage() {
         .scrollbar-hide::-webkit-scrollbar { display: none; }
       `}</style>
 
-      <Footer />
     </div>
   );
 }
