@@ -19,6 +19,8 @@ export function LoadingScreen() {
     const hasLoaded = sessionStorage.getItem("mfk_loaded_v4");
     if (hasLoaded) {
       setLoading(false);
+      // Still dispatch for components that might be listening
+      window.dispatchEvent(new Event('loadingComplete'));
       return;
     }
 
@@ -32,7 +34,7 @@ export function LoadingScreen() {
         currentStep++;
 
         if (currentStep < sequenceSteps.length) {
-          setTimeout(runCounter, 900); // Much slower pacing as requested
+          setTimeout(runCounter, 500); // Slightly slower pacing
         } else {
           // Completed steps
           setTimeout(() => {
@@ -42,14 +44,16 @@ export function LoadingScreen() {
               setTimeout(() => {
                 setLoading(false);
                 sessionStorage.setItem("mfk_loaded_v4", "true");
-              }, 1000);
-            }, 2000); // Allow more time to appreciate the full-sized logo
-          }, 600);
+                // Dispatch event to notify that loading is complete
+                window.dispatchEvent(new Event('loadingComplete'));
+              }, 800);
+            }, 800); // Faster logo display
+          }, 300);
         }
       }
     };
 
-    const startTimer = setTimeout(runCounter, 650);
+    const startTimer = setTimeout(runCounter, 500);
 
     return () => clearTimeout(startTimer);
   }, []);
@@ -63,7 +67,7 @@ export function LoadingScreen() {
   return (
     <div
       className={cn(
-        "fixed inset-0 z-[9999] bg-black flex flex-col items-center justify-center transition-opacity duration-1000 ease-in-out font-serif",
+        "fixed inset-0 z-[9999] bg-black flex flex-col items-center justify-center transition-opacity duration-800 ease-in-out font-serif",
         fadeOut ? "opacity-0 pointer-events-none" : "opacity-100"
       )}
     >

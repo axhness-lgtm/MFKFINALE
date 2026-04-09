@@ -1,8 +1,8 @@
 "use client";
 
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown, Heart } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
+import { Menu, X, ChevronDown, Heart, Search } from 'lucide-react';
 import { useWishlist } from '@/context/WishlistContext';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -11,16 +11,59 @@ import { usePathname } from 'next/navigation';
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [products, setProducts] = useState<any[]>([]);
+  const [isVisible, setIsVisible] = useState(false);
+  const autoCloseTimer = useRef<NodeJS.Timeout | null>(null);
+
   const pathname = usePathname();
   const { items } = useWishlist();
+
+  // Reset auto-close timer
+  const resetAutoClose = () => {
+    if (autoCloseTimer.current) clearTimeout(autoCloseTimer.current);
+    if (isSearchOpen && searchQuery === "") {
+      autoCloseTimer.current = setTimeout(() => {
+        setIsSearchOpen(false);
+      }, 1500);
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    const handleLoadingComplete = () => {
+      // Nav bar comes in after the tagline
+      setTimeout(() => setIsVisible(true), 1500);
+    };
+
+    window.addEventListener('loadingComplete', handleLoadingComplete);
+
+    // Initial check if already loaded
+    if (sessionStorage.getItem("mfk_loaded_v4")) {
+      setIsVisible(true);
+    }
+
+    // Fetch products for ID searching
+    fetch('/api/products')
+      .then(res => res.json())
+      .then(data => setProducts(data))
+      .catch(() => {});
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('loadingComplete', handleLoadingComplete);
+      if (autoCloseTimer.current) clearTimeout(autoCloseTimer.current);
+    };
   }, []);
+
+  useEffect(() => {
+    resetAutoClose();
+  }, [isSearchOpen, searchQuery]);
 
   const leftLinks = [
     { name: 'Home', href: '/' },
@@ -62,7 +105,10 @@ export function Header() {
   const allLinks = [...leftLinks, ...rightLinks];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none pt-2 px-6 md:px-12">
+    <header className={cn(
+      "fixed top-0 left-0 right-0 z-50 pointer-events-none pt-2 px-6 md:px-12 transition-all duration-1000 ease-in-out",
+      isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
+    )}>
       <div
         className={cn(
           'mx-auto w-full transition-all duration-700 pointer-events-auto flex items-center justify-between',
@@ -163,6 +209,89 @@ export function Header() {
             ))}
 
             <div className="flex items-center gap-6 ml-4 mt-[1px]">
+              {/* Expandable Search Option - now pushes other items */}
+              <div
+                className="flex items-center bg-transparent relative group/search"
+                onMouseMove={resetAutoClose}
+              >
+                <div
+                  className={cn(
+                    "flex flex-col transition-all duration-500 ease-in-out border-b overflow-visible",
+                    isSearchOpen ? "w-[160px] border-accent opacity-100 mr-2" : "w-0 border-transparent opacity-0 pointer-events-none"
+                  )}
+                >
+                  <input
+                    type="text"
+                    placeholder="STYLE / UNIQUE ID..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="bg-transparent border-none outline-none text-[10px] tracking-[0.2em] text-white w-full py-1 placeholder:text-white/30 font-medium whitespace-nowrap"
+                    style={{ fontFamily: '"Times New Roman", serif' }}
+                    onFocus={() => {
+                      setIsSearchOpen(true);
+                      resetAutoClose();
+                    }}
+                    autoFocus={isSearchOpen}
+                  />
+
+                  {/* Search Results Dropdown */}
+                  {isSearchOpen && searchQuery.length > 1 && (
+                    <div className="absolute top-full left-0 w-full bg-black/95 backdrop-blur-xl border border-white/10 mt-2 p-2 shadow-2xl z-[60] max-h-64 overflow-y-auto min-w-[200px]">
+                      {/* Nav Links Results */}
+                      {allLinks
+                        .flatMap(l => [l, ...(l.dropdown || [])])
+                        .filter(l => l.name.toLowerCase().includes(searchQuery.toLowerCase()))
+                        .map((result, idx) => (
+                          <Link
+                            key={`link-${idx}`}
+                            href={result.href}
+                            onClick={() => {
+                              setIsSearchOpen(false);
+                              setSearchQuery("");
+                            }}
+                            className="block px-3 py-2 text-[10px] uppercase tracking-[0.1em] text-white hover:text-accent hover:bg-white/5 transition-all border-b border-white/5"
+                            style={{ fontFamily: '"Times New Roman", serif' }}
+                          >
+                            {result.name}
+                            <span className="block text-[8px] opacity-40">Navigate to Page</span>
+                          </Link>
+                        ))}
+
+                      {/* Product ID Results */}
+                      {products
+                        .filter(p =>
+                          p.id.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                          `mfk-${p.id}`.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                          p.name.toLowerCase().includes(searchQuery.toLowerCase())
+                        )
+                        .map((product, idx) => (
+                          <Link
+                            key={`prod-${idx}`}
+                            href={`/collection/${product.id}`}
+                            onClick={() => {
+                              setIsSearchOpen(false);
+                              setSearchQuery("");
+                            }}
+                            className="block px-3 py-2 text-[10px] uppercase tracking-[0.1em] text-white hover:text-accent hover:bg-white/5 transition-all border-b border-white/5"
+                            style={{ fontFamily: '"Times New Roman", serif' }}
+                          >
+                            <span className="gold-text">MFK-{product.id}</span>
+                            <span className="block text-[9px] opacity-80">{product.name}</span>
+                          </Link>
+                        ))}
+                    </div>
+                  )}
+                </div>
+                <button
+                  onClick={() => setIsSearchOpen(!isSearchOpen)}
+                  onMouseEnter={() => setIsSearchOpen(true)}
+                  className="text-white hover:text-accent transition-colors duration-300 p-2"
+                  title="Search"
+                >
+                  <Search className="w-4 h-4" />
+                </button>
+              </div>
+
               <a href="https://wa.me/919182167662" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#25D366] transition-colors duration-300 pointer-events-auto" title="Chat on WhatsApp">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />

@@ -35,7 +35,7 @@ export function Testimonials() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 lg:gap-16">
           {testimonials.map((t, idx) => (
             <FadeIn key={idx} delay={idx * 200} className="space-y-10 relative">
-              <div className="absolute -top-4 -left-3 text-accent text-6xl font-normal select-none" style={{ fontFamily: '"Times New Roman", serif' }}>"</div>
+              <div className="absolute -top-4 -left-3 text-accent text-6xl select-none" style={{ fontFamily: '"Times New Roman", serif', fontWeight: 100 }}>"</div>
               <p className="text-xl font-light leading-relaxed italic text-white/80 relative z-10" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 400 }}>
                 {t.quote}
               </p>

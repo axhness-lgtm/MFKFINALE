@@ -38,49 +38,38 @@ const steps = [
 ];
 
 export function ProcessSteps() {
-  const [activeStep, setActiveStep] = useState(0);
-
   return (
-    <section className="pt-24 pb-16 px-6 md:px-12 bg-background">
+    <section className="py-24 px-6 md:px-12 bg-background border-y border-border/5">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center space-y-6 mb-24">
+        <div className="text-center mb-20">
           <span
-            className="gold-text italic"
-            style={{ fontFamily: '"Times New Roman", serif', fontSize: 'clamp(36px, 4vw, 55px)', fontWeight: 400 }}
+            className="gold-text italic block mb-4"
+            style={{ fontFamily: '"Times New Roman", serif', fontSize: 'clamp(32px, 3vw, 45px)', fontWeight: 400 }}
           >
             The Journey
           </span>
-          <h2 className="text-4xl md:text-6xl font-serif font-light">Hand-Crafted Process</h2>
+          <h2 className="text-4xl md:text-5xl font-serif font-light tracking-tight">The Art of Hand-Crafted Tailoring</h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
-          <div className="lg:col-span-5 space-y-6">
-            {steps.map((step, idx) => (
-              <button
-                key={idx}
-                onMouseEnter={() => setActiveStep(idx)}
-                className={cn(
-                  "w-full text-left p-6 transition-all duration-700 border-b",
-                  activeStep === idx ? "border-accent opacity-100 translate-x-4" : "border-border/10 opacity-30 hover:opacity-50"
-                )}
-              >
-                <span className="text-xs uppercase tracking-[0.2em] mb-2 block text-accent" style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 400 }}>Step 0{idx + 1}</span>
-                <h3 className="text-3xl font-light tracking-wide" style={{ fontFamily: '"Playfair Display", serif' }}>{step.title}</h3>
-              </button>
-            ))}
-          </div>
-
-          <div className="lg:col-span-7 relative h-[500px] flex flex-col justify-center items-center text-center px-12 bg-card/50">
-            <div key={activeStep} className="animate-fade-in space-y-10">
-              <span className="text-accent text-9xl font-serif opacity-5 font-bold block">0{activeStep + 1}</span>
-              <p className="text-4xl md:text-6xl font-serif font-light leading-relaxed italic text-foreground max-w-lg">
-                {steps[activeStep].detail}
-              </p>
-              <p className="text-base uppercase tracking-[0.3em] text-muted-foreground font-bold">
-                {steps[activeStep].desc}
-              </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
+          {steps.map((step, idx) => (
+            <div key={idx} className="group space-y-4">
+              <div className="flex items-baseline gap-4">
+                <span className="text-accent/40 font-serif text-3xl font-light">0{idx + 1}</span>
+                <h3 className="text-2xl font-light tracking-wide text-foreground group-hover:text-accent transition-colors duration-500" style={{ fontFamily: '"Playfair Display", serif' }}>
+                  {step.title}
+                </h3>
+              </div>
+              <div className="pl-12 space-y-3">
+                <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground/80 font-medium" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+                  {step.desc}
+                </p>
+                <p className="text-[#E8E0D0]/60 text-sm leading-relaxed font-light italic" style={{ fontFamily: '"Times New Roman", serif' }}>
+                  {step.detail}
+                </p>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
