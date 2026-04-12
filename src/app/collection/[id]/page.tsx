@@ -87,7 +87,7 @@ export default function ProductDetails() {
           </div>
 
           {/* Main Image */}
-          <div className="lg:col-span-11 xl:col-span-5 relative aspect-[3/4] bg-[#111] overflow-hidden group shadow-2xl">
+          <div className="lg:col-span-6 relative aspect-[3/4] bg-[#111] overflow-hidden group shadow-2xl">
             {activeImage && (
               <>
                 <Image
@@ -125,7 +125,7 @@ export default function ProductDetails() {
           </div>
 
           {/* Product Details (Right) */}
-          <div className="lg:col-span-11 xl:col-span-6 flex flex-col space-y-4 lg:pl-12">
+          <div className="lg:col-span-5 flex flex-col space-y-4 lg:pl-12">
 
             <div className="border-b border-white/10 pb-4">
               <h1 className="text-2xl md:text-4xl font-serif text-[#E8E0D0] mb-2 leading-tight uppercase tracking-wide">{name}</h1>

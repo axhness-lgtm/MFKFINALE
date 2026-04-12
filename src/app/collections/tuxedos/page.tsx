@@ -1,7 +1,7 @@
 import { CollectionPageTemplate, CollectionPageData } from '@/components/sections/CollectionPageTemplate';
 
 export const metadata = {
-  title: 'Tuxedos & Evening Wear in Visakhapatnam | MF Khan',
+  title: 'Tuxedos & Evening Wear in Visakhapatnam',
   description: 'Refined tailoring for formal occasions. Sharp silhouettes, satin lapels, and understated elegance — crafted for black-tie events in Visakhapatnam.',
 };
 

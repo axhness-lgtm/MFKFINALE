@@ -1,7 +1,7 @@
 import { CollectionPageTemplate, CollectionPageData } from '@/components/sections/CollectionPageTemplate';
 
 export const metadata = {
-  title: 'Wedding Sherwanis in Visakhapatnam | MF Khan',
+  title: 'Wedding Sherwanis in Visakhapatnam',
   description: 'Crafted for weddings and traditional occasions, each sherwani is designed with attention to proportion, detailing, and overall presence.',
 };
 

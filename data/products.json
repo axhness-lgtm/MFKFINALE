@@ -2709,6 +2709,39 @@
       "id": "2025",
       "image": "/uploads/1775749663770-821882982.jpeg",
       "createdAt": "2026-04-09T15:47:49.202Z"
+    },
+    {
+      "id": "1401",
+      "categoryId": "wedding/pattu-dhoti",
+      "name": "Classic Gold Zari Pattu-Dhoti",
+      "desc": "Traditional South Indian silk dhoti with authentic gold zari border.",
+      "image": "/images/pattu-dhoti-1.png",
+      "createdAt": "2026-04-10T17:53:00.000Z",
+      "images": [
+        "/images/pattu-dhoti-1.png"
+      ]
+    },
+    {
+      "id": "1402",
+      "categoryId": "wedding/pattu-dhoti",
+      "name": "Hand-Woven Silk Pattu-Dhoti",
+      "desc": "Premium hand-woven silk dhoti for wedding ceremonies.",
+      "image": "/images/pattu-dhoti-2.png",
+      "createdAt": "2026-04-10T17:53:00.000Z",
+      "images": [
+        "/images/pattu-dhoti-2.png"
+      ]
+    },
+    {
+      "name": "VK EXP 1",
+      "categoryId": "wedding/pattu-dhoti",
+      "desc": "EXP VK",
+      "images": [
+        "/uploads/1775915058704-764009379.jpeg"
+      ],
+      "id": "1403",
+      "image": "/uploads/1775915058704-764009379.jpeg",
+      "createdAt": "2026-04-11T13:44:25.747Z"
     }
   ]
 }

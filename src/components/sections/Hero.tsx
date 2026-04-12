@@ -48,7 +48,7 @@ export function Hero() {
       </div>
 
       {/* ── Main Layout ── */}
-      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-20">
+      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-16 md:pt-20">
         {isReady && (
           <>
             <h1 className="mb-0" style={{ lineHeight: 1.05 }}>

@@ -40,17 +40,17 @@ export function ProcessSteps() {
   return (
     <section className="py-24 px-6 md:px-12 bg-background border-y border-border/5">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-20">
+        <div className="text-center mb-12 md:mb-20">
           <span
-            className="gold-text italic block mb-4"
-            style={{ fontFamily: '"Times New Roman", serif', fontSize: 'clamp(32px, 3vw, 45px)', fontWeight: 400 }}
+            className="gold-text italic block mb-2 md:mb-4"
+            style={{ fontFamily: '"Times New Roman", serif', fontSize: 'clamp(28px, 3vw, 45px)', fontWeight: 400 }}
           >
             The Journey
           </span>
-          <h2 className="text-4xl md:text-5xl font-serif font-light tracking-tight">The Art of Hand-Crafted Tailoring</h2>
+          <h3 className="text-3xl md:text-5xl font-serif font-light tracking-tight max-w-2xl mx-auto leading-tight">The Art of Hand-Crafted Tailoring</h3>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12 md:gap-y-16">
           {steps.map((step, idx) => (
             <div key={idx} className="group space-y-4">
               <div className="flex items-baseline gap-4">
@@ -59,11 +59,11 @@ export function ProcessSteps() {
                   {step.title}
                 </h3>
               </div>
-              <div className="pl-12 space-y-3">
-                <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground/80 font-medium" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+              <div className="pl-10 md:pl-12 space-y-2">
+                <p className="text-[10px] md:text-sm uppercase tracking-[0.2em] text-muted-foreground/80 font-medium" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
                   {step.desc}
                 </p>
-                <p className="text-[#E8E0D0]/60 text-sm leading-relaxed font-light italic" style={{ fontFamily: '"Times New Roman", serif' }}>
+                <p className="text-[#E8E0D0]/60 text-xs md:text-sm leading-relaxed font-light italic" style={{ fontFamily: '"Times New Roman", serif' }}>
                   {step.detail}
                 </p>
               </div>

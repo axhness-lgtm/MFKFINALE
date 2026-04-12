@@ -5,8 +5,11 @@ import { Toaster } from "@/components/ui/toaster";
 import { LoadingScreen } from "@/components/navigation/LoadingScreen";
 
 export const metadata: Metadata = {
-  title: 'MFK International | Custom Luxury Tailoring',
-  description: 'Experience the pinnacle of sartorial excellence with MFK International. Custom suits, tuxedos, and sherwanis crafted for the discerning gentleman.',
+  title: {
+    default: 'MFKhan International - Wedding Suits for Men | MF Khan in Vizag Since 1940',
+    template: '%s | MFKhan International'
+  },
+  description: 'Experience the pinnacle of sartorial excellence with MFKhan International. Custom suits, tuxedos, and sherwanis crafted for the discerning gentleman in Visakhapatnam since 1940.',
 };
 
 import { Header } from '@/components/navigation/Header';

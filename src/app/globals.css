@@ -154,12 +154,18 @@
   display: inline-block;
   color: hsl(var(--accent));
   font-family: 'Times New Roman', serif;
-  font-size: 12px;
+  font-size: 11px;
+  @screen md {
+    font-size: 12px;
+  }
   font-weight: normal;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 18px 48px;
+  padding: 14px 32px;
+  @screen md {
+    padding: 18px 48px;
+  }
   border: 0.5px solid hsl(var(--accent));
   overflow: hidden;
   transition: color 0.5s ease;
@@ -184,4 +190,18 @@
 
 .hero-btn-secondary:hover {
   color: #ffffff;
+}
+
+@layer utilities {
+  .mobile-padding {
+    @apply px-5 md:px-12;
+  }
+  
+  .section-gap {
+    @apply mt-12 md:mt-32;
+  }
+
+  .text-balance-mobile {
+    text-wrap: balance;
+  }
 }

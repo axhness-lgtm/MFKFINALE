@@ -1,7 +1,7 @@
 import { CollectionPageTemplate, CollectionPageData } from '@/components/sections/CollectionPageTemplate';
 
 export const metadata = {
-  title: 'Complete Wedding Tailoring in Visakhapatnam | MF Khan',
+  title: 'Complete Wedding Tailoring in Visakhapatnam',
   description: 'A complete tailoring solution for grooms and families — ensuring consistency in style, fit, and presentation across every wedding outfit.',
 };
 

@@ -5,16 +5,16 @@ export function FinalCTA() {
   return (
     <section className="pt-16 pb-48 px-6 md:px-12 bg-[#0a0a09] relative overflow-hidden text-[#FAF9F6]">
       <div className="max-w-4xl mx-auto text-center space-y-16 relative z-10">
-        <div className="space-y-6">
+        <div className="space-y-4 md:space-y-6">
           <span
             className="gold-text italic block"
-            style={{ fontFamily: '"Times New Roman", serif', fontSize: 'clamp(36px, 4vw, 55px)', fontWeight: 400 }}
+            style={{ fontFamily: '"Times New Roman", serif', fontSize: 'clamp(28px, 4vw, 55px)', fontWeight: 400 }}
           >
             Your Journey
           </span>
-          <h2 className="text-4xl md:text-7xl font-serif font-light leading-tight">
+          <h2 className="text-3xl md:text-7xl font-serif font-light leading-tight">
             Dress Like <br />
-            The <span className="font-citadel italic text-5xl md:text-8xl">Best Version</span> of You
+            The <span className="font-citadel italic text-4xl md:text-8xl">Best Version</span> of You
           </h2>
         </div>
 

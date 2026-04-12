@@ -26,6 +26,7 @@ const pagesData = {
   'wedding/designer-suits': { h1: 'Wedding Designer Suits', intro: 'Impeccable modern tailoring for the contemporary groom.', tech: 'Super 150s wool, reinforced canvas structure, and a sharp tailored silhouette designed to elongate and elevate.' },
   'wedding/indo-western': { h1: 'Indo-Western Wear', intro: 'A masterful fusion of cultural heritage and modern tailoring lines.', tech: 'Structured cuts blending traditional embroidery with the precision of a tailored suit.' },
   'wedding/sherwani': { h1: 'Wedding Sherwanis', intro: 'The pinnacle of traditional elegance.', tech: 'Heavy silks, velvet accents, structured shoulder lines, and intricate hand-embroidery.' },
+  'wedding/pattu-dhoti': { h1: 'Pattu-Dhoti Collection', intro: 'Traditional Elegance Redefined.', tech: 'Pure silk, authentic gold zari borders, and meticulous hand-weaving.' },
   'wedding/designer-shirts': { h1: 'Designer Shirts', intro: 'The fundamental layer of luxury.', tech: 'Egyptian cottons, concealed plackets, wing collar mastery.' },
   'formals/business-suits': { h1: 'Business Suits', intro: 'Designed for the boardroom. Engineered for confidence.', tech: 'Half-canvas and full-canvas construction options depending on the drape required.' },
   'formals/blazers': { h1: 'Tailored Blazers', intro: 'Bridging the definitive line between smart and casual.', tech: 'Unstructured or lightly padded shoulders, patch pockets.' },

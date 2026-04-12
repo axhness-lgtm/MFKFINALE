@@ -18,7 +18,7 @@ export function Footer() {
         {/* Brand Column */}
         <div className="space-y-10">
           <Link href="/" className="flex flex-col items-start gap-4">
-            <img src="/footer-logo.png" alt="MFK International" className="w-[120px] h-auto object-contain opacity-90 hover:opacity-100 transition-opacity" />
+            <img src="/footer-logo.png" alt="MFKhan International" className="w-[120px] h-auto object-contain opacity-90 hover:opacity-100 transition-opacity" />
           </Link>
           <p className="text-white/60 text-[10px] uppercase tracking-[0.2em] max-w-xs leading-relaxed font-serif">
             A <span className="text-accent italic">Legacy</span> of Tailoring, Since <span className="text-accent">1940</span>

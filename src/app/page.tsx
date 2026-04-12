@@ -17,7 +17,7 @@ export default function Home() {
         <CollectionsPreview />
       </FadeIn>
 
-      <section className="bg-[#0a0a09] pt-28 pb-24 px-6 md:px-12 relative overflow-hidden mt-20">
+      <section className="bg-[#0a0a09] pt-16 md:pt-28 pb-16 md:pb-24 px-6 md:px-12 relative overflow-hidden mt-10 md:mt-20">
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-20">
           <video
             autoPlay
@@ -32,9 +32,9 @@ export default function Home() {
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-20 items-center">
             {/* Left: showroom / garment racks visual */}
-            <FadeIn className="relative aspect-[4/5] md:aspect-square overflow-hidden group">
+            <FadeIn className="relative aspect-square md:aspect-[4/5] overflow-hidden group">
               <Image
                 src="/images/vision-wardrobe.jpg"
                 alt="MFKhan Showroom"
@@ -85,21 +85,21 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="pt-24 pb-32 px-6 md:px-12 bg-[#0a0a09]">
-        <div className="max-w-7xl mx-auto space-y-32">
+      <section className="pt-16 md:pt-24 pb-20 md:pb-32 px-6 md:px-12 bg-[#0a0a09]">
+        <div className="max-w-7xl mx-auto space-y-16 md:space-y-32">
 
           {/* Reputation Section Header */}
-          <FadeIn className="text-center flex flex-col items-center mb-6">
+          <FadeIn className="text-center flex flex-col items-center mb-0 md:mb-6">
             <h2
               className="gold-text italic"
               style={{
                 fontFamily: '"Times New Roman", serif',
-                fontSize: 'clamp(36px, 4vw, 65px)',
+                fontSize: 'clamp(32px, 5vw, 65px)',
                 letterSpacing: '0.0005em',
                 fontWeight: 400,
               }}
             >
-              A reputation built over generations.
+              A reputation built<br className="md:hidden" /> over generations.
             </h2>
           </FadeIn>
 

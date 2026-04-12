@@ -21,6 +21,7 @@ const categoryPrefixes: Record<string, string> = {
   'wedding/designer-suits': '10',
   'wedding/indo-western': '11',
   'wedding/sherwani': '12',
+  'wedding/pattu-dhoti': '14',
   'wedding/designer-shirts': '13',
   'formals/business-suits': '20',
   'formals/blazers': '21',

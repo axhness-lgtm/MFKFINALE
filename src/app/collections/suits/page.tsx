@@ -1,7 +1,7 @@
 import { CollectionPageTemplate, CollectionPageData } from '@/components/sections/CollectionPageTemplate';
 
 export const metadata = {
-  title: 'Custom Tailored Suits in Visakhapatnam | MF Khan',
+  title: 'Custom Tailored Suits in Visakhapatnam',
   description: 'Designed for precision, structure, and long-term wear — tailored for professionals and formal occasions in Visakhapatnam.',
 };
 

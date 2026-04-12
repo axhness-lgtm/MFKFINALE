@@ -37,6 +37,7 @@ export default function AdminDashboard() {
     { id: 'wedding/designer-suits', label: 'Wedding > Designer Suits' },
     { id: 'wedding/indo-western', label: 'Wedding > Indo-Western' },
     { id: 'wedding/sherwani', label: 'Wedding > Sherwani' },
+    { id: 'wedding/pattu-dhoti', label: 'Wedding > Pattu-Dhoti' },
     { id: 'wedding/designer-shirts', label: 'Wedding > Designer Shirts' },
     { id: 'formals/business-suits', label: 'Formals > Business Suits' },
     { id: 'formals/blazers', label: 'Formals > Blazers' },
