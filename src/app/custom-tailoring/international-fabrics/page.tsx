@@ -18,7 +18,7 @@ export default function CustomTailoringInternationalFabricsPage() {
   }, []);
 
   return (
-    <div className="min-h-screen pt-32 pb-24 bg-[#0a0a09] text-[#E8E0D0] selection:bg-accent selection:text-black">
+    <div className="min-h-screen pt-52 pb-24 bg-[#0a0a09] text-[#E8E0D0] selection:bg-accent selection:text-black">
       <div className="max-w-[1600px] mx-auto px-6 md:px-12">
         
         {/* Header - Asymmetrical */}

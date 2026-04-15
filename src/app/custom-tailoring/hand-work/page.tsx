@@ -18,7 +18,7 @@ export default function CustomTailoringHandWorkPage() {
   }, []);
 
   return (
-    <div className="min-h-screen pt-48 pb-32 bg-[#050505] text-[#E8E0D0]">
+    <div className="min-h-screen pt-52 pb-32 bg-[#050505] text-[#E8E0D0]">
       <div className="max-w-[1600px] mx-auto px-6 md:px-12">
         
         {/* Artistic Header */}

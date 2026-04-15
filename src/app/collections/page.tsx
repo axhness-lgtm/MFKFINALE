@@ -4,10 +4,10 @@ import { Scissors, Ruler, Layers, Medal, ChevronRight } from 'lucide-react';
 
 export default function CollectionsPage() {
   return (
-    <div className="min-h-screen bg-[#0a0a09] text-[#E8E0D0] selection:bg-accent/30 font-body">
+    <div className="min-h-screen pt-60 pb-24 bg-[#0a0a09] text-[#E8E0D0] selection:bg-accent/30 font-body">
       
       {/* THE MFK MASSIVE TYPOGRAPHY HERO */}
-      <section className="h-[120vh] min-h-[900px] w-full flex flex-row bg-black pt-[80px]">
+      <section className="h-[120vh] min-h-[900px] w-full flex flex-row bg-black pt-[180px]">
         {[
           { 
             letter: 'M', 

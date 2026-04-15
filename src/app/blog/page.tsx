@@ -37,7 +37,7 @@ export default function BlogPage() {
     <div className="bg-[#0a0a09] min-h-screen text-[#E8E0D0]">
       <Header />
       
-      <section className="pt-48 pb-20 px-6 md:px-12">
+      <section className="pt-72 pb-32 px-6 md:px-12">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20 space-y-6">
             <span className="gold-text uppercase tracking-[0.5em] text-[10px] font-bold">The Library</span>

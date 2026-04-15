@@ -8,7 +8,7 @@ export default function WishlistPage() {
   const { items } = useWishlist();
 
   return (
-    <div className="min-h-screen bg-[#0a0a09] font-body flex flex-col pt-32 md:pt-40">
+    <div className="min-h-screen bg-[#0a0a09] font-body flex flex-col pt-44 md:pt-60">
       <main className="flex-grow pb-24 px-6 md:px-12 max-w-7xl mx-auto w-full">
         <h1 className="text-4xl md:text-5xl font-serif font-light mb-4 text-center text-white uppercase tracking-widest">YOUR WISHLIST</h1>
         <p className="text-center text-[#E8E0D0]/60 mb-20 tracking-widest text-xs uppercase">Curated pieces for your luxury collection</p>

@@ -3,7 +3,7 @@ import { FadeIn } from '@/components/animations/FadeIn';
 
 export default function ProcessPage() {
   return (
-    <div className="min-h-screen flex flex-col pt-24 md:pt-32">
+    <div className="min-h-screen flex flex-col pt-52 md:pt-60">
       <main className="flex-grow pb-24 space-y-32">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <FadeIn className="text-center space-y-6 max-w-3xl mx-auto">

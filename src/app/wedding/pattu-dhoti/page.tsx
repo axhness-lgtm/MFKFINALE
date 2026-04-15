@@ -18,7 +18,7 @@ export default function PattuDhotiPage() {
   }, []);
 
   return (
-    <div className="min-h-screen pt-40 pb-24 bg-[#0a0a09] relative">
+    <div className="min-h-screen pt-52 pb-24 bg-[#0a0a09] relative">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <FadeIn className="text-center space-y-6 mb-16 max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-serif font-light text-[#E8E0D0] uppercase tracking-widest">Pattu-Dhoti Collection</h1>

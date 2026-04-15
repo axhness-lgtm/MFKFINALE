@@ -130,6 +130,7 @@
 .hero-btn-primary {
   position: relative;
   display: inline-block;
+  white-space: nowrap;
   color: #E8E0D0;
   font-family: 'Times New Roman', serif;
   font-size: 13px;
@@ -163,6 +164,7 @@
 .hero-btn-secondary {
   position: relative;
   display: inline-block;
+  white-space: nowrap;
   color: hsl(var(--accent));
   font-family: 'Times New Roman', serif;
   font-size: 11px;
@@ -213,7 +215,7 @@
   }
 
   /* Mobile Spacing Reduction Utility */
-  .section-pt { @apply pt-12 md:pt-32; }
+  .section-pt { @apply pt-16 md:pt-52; }
   .section-pb { @apply pb-12 md:pb-32; }
   .section-py { @apply py-12 md:py-32; }
   

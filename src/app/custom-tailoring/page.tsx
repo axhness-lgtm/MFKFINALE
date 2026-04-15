@@ -45,7 +45,7 @@ const sections = [
 
 export default function CustomTailoringPage() {
   return (
-    <div className="min-h-screen pt-48 pb-24 bg-[#0a0a09]">
+    <div className="min-h-screen pt-60 pb-24 bg-[#0a0a09]">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
         <FadeIn className="text-center space-y-6 mb-32">
           <h1 className="text-5xl md:text-7xl font-serif font-light text-[#E8E0D0]">Custom Tailoring, Defined by Precision</h1>

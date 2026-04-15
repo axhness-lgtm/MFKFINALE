@@ -48,7 +48,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
     <div className="bg-[#0a0a09] min-h-screen text-[#E8E0D0]">
       <Header />
       
-      <article className="pt-48 pb-32 px-6">
+      <article className="pt-60 pb-32 px-6">
         <div className="max-w-4xl mx-auto">
           <FadeIn className="text-center mb-16 space-y-6">
             <div className="flex items-center justify-center gap-4 text-[10px] uppercase tracking-widest font-bold">

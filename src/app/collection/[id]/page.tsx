@@ -61,7 +61,7 @@ export default function ProductDetails() {
     : [product.image];
 
   return (
-    <div className="min-h-screen pt-24 pb-12 bg-[#0a0a09] text-white">
+    <div className="min-h-screen pt-52 pb-12 bg-[#0a0a09] text-white">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
 
         {/* Breadcrumbs */}

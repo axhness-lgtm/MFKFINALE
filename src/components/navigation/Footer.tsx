@@ -97,8 +97,7 @@ export function Footer() {
                     <span>+91 99883 93389</span>
                   </a>
                   <a href="https://wa.me/919988393389" target="_blank" className="flex items-center gap-3 text-[10px] uppercase tracking-widest text-white/70 hover:text-accent transition-colors transition-all duration-300 group font-mono">
-                    <MessageCircle size={12} className="text-accent opacity-50 group-hover:opacity-100" />
-                    <span>WhatsApp Inquiry</span>
+                    <span>CONTACT US</span>
                   </a>
                 </div>
               </div>

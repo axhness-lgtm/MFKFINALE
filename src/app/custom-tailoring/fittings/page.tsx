@@ -18,7 +18,7 @@ export default function CustomTailoringFittingsPage() {
   }, []);
 
   return (
-    <div className="min-h-screen pt-32 pb-24 bg-[#0a0a09] text-white overflow-hidden">
+    <div className="min-h-screen pt-52 pb-24 bg-[#0a0a09] text-white overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative">
         
         {/* Technical Grid Overlay */}

@@ -51,7 +51,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#0a0a09] pt-20">
+    <div className="min-h-screen flex flex-col bg-[#0a0a09] pt-52">
       <main className="flex-grow flex items-center justify-center py-20 px-6">
         <div className="max-w-xl w-full">
           <FadeIn className="text-center mb-8">
@@ -62,10 +62,9 @@ export default function ContactPage() {
               href="https://wa.me/919988393389" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#20ba59] text-white px-10 py-4 rounded-full transition-all hover:scale-105 shadow-xl shadow-green-600/20 mb-12"
+              className="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#20ba59] text-white px-10 py-4 rounded-full transition-all hover:scale-105 shadow-xl shadow-green-600/20 mb-12 whitespace-nowrap"
             >
-              <MessageSquare className="w-5 h-5 fill-current" />
-              <span className="font-bold tracking-widest uppercase text-xs">Chat on WhatsApp</span>
+              <span className="font-bold tracking-widest uppercase text-xs">CONTACT US</span>
             </a>
 
             <div className="h-px bg-white/10 w-24 mx-auto mb-10" />

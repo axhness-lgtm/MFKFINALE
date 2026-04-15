@@ -1,6 +1,8 @@
 "use client";
 import { useState, useEffect, useRef } from 'react';
 import { FadeIn } from '@/components/animations/FadeIn';
+import { storage } from '@/lib/firebase';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 export default function AdminDashboard() {
   const [products, setProducts] = useState<any[]>([]);
@@ -87,7 +89,7 @@ export default function AdminDashboard() {
 
   if (!isAuthorized) {
     return (
-      <div className="min-h-screen pt-40 pb-24 bg-[#0a0a09] flex items-center justify-center">
+      <div className="min-h-screen pt-52 pb-24 bg-[#0a0a09] flex items-center justify-center">
         <form onSubmit={handleLogin} className="bg-[#111] border border-white/10 p-12 text-center space-y-6 max-w-md w-full">
           <h1 className="text-2xl font-serif text-[#E8E0D0]">Admin Access</h1>
           <input 
@@ -194,17 +196,10 @@ export default function AdminDashboard() {
           continue;
         }
 
-        const formDataBody = new FormData();
-        formDataBody.append('file', file);
-
-        const res = await fetch('/api/upload', {
-          method: 'POST',
-          body: formDataBody,
-        });
-        
-        if (!res.ok) throw new Error('Upload failed');
-        const data = await res.json();
-        newUrls.push(data.url);
+        const storageRef = ref(storage, `products/${Date.now()}-${file.name}`);
+        const snapshot = await uploadBytes(storageRef, file);
+        const downloadUrl = await getDownloadURL(snapshot.ref);
+        newUrls.push(downloadUrl);
       }
       
       setFormData(prev => ({ ...prev, images: [...prev.images, ...newUrls] }));
@@ -223,7 +218,7 @@ export default function AdminDashboard() {
   );
 
   return (
-    <div className="min-h-screen pt-40 pb-24 bg-[#0a0a09]">
+    <div className="min-h-screen pt-52 pb-24 bg-[#0a0a09]">
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-6 border-b border-white/10 pb-6">
           <h1 className="text-4xl font-serif text-[#E8E0D0]">Admin Dashboard</h1>
