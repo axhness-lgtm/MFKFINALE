@@ -6,10 +6,11 @@ import { LoadingScreen } from "@/components/navigation/LoadingScreen";
 
 export const metadata: Metadata = {
   title: {
-    default: 'MFKhan International - Wedding Suits for Men | MF Khan in Vizag Since 1940',
+    default: 'Best Wedding Suits & Designer Suits in Visakhapatnam | MFKhan International - Vizag\'s Largest Tailoring Store',
     template: '%s | MFKhan International'
   },
-  description: 'Experience the pinnacle of sartorial excellence with MFKhan International. Custom suits, tuxedos, and sherwanis crafted for the discerning gentleman in Visakhapatnam since 1940.',
+  description: 'Vizag’s largest men’s wear tailoring destination. MFKhan since 1940, providing the best wedding suits and designer suits in Visakhapatnam. Experience 9,000 sq. ft. of sartorial excellence at Rednam Gardens.',
+  keywords: ['mf khan', 'mf khan vizag', 'mf khan visakhapatnam', 'Suits in Vizag', 'Best wedding suits Visakhapatnam', 'Designer suits Vizag', 'Largest tailoring store Visakhapatnam', 'MFKhan International', 'Men\'s wedding wear Vizag', 'Custom tailoring Visakhapatnam', ''],
 };
 
 import { Header } from '@/components/navigation/Header';
@@ -27,6 +28,37 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;1,300&family=Ballet&family=Gwendolyn:wght@400;700&display=swap" rel="stylesheet" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "ClothingStore",
+              "name": "MFKhan International",
+              "image": "https://www.mfkhaninternational.com/icon.png",
+              "url": "https://www.mfkhaninternational.com",
+              "telephone": "+91 99883 93389",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "10-12-1, Jail Road, Rednam Gardens",
+                "addressLocality": "Visakhapatnam",
+                "addressRegion": "AP",
+                "postalCode": "530002",
+                "addressCountry": "IN"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 17.7208,
+                "longitude": 83.3039
+              },
+              "description": "Vizag's largest men's wear tailoring store and proud descendant of the MFKhan Lineage. Best providers for Wedding Suits and Designer Suits in Visakhapatnam since 1940.",
+              "brand": {
+                "@type": "Brand",
+                "name": "MFKhan International"
+              }
+            })
+          }}
+        />
       </head>
       <body className="font-body antialiased bg-background text-foreground selection:bg-primary selection:text-white">
         <LoadingScreen />

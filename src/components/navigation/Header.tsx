@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
-import { Menu, X, ChevronDown, Heart, Search } from 'lucide-react';
+import { Menu, X, ChevronDown, Heart, Search, Plus, Minus, ArrowRight } from 'lucide-react';
 import { useWishlist } from '@/context/WishlistContext';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -12,6 +12,7 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [expandedLink, setExpandedLink] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [products, setProducts] = useState<any[]>([]);
   const [isVisible, setIsVisible] = useState(false);
@@ -37,8 +38,8 @@ export function Header() {
     window.addEventListener('scroll', handleScroll);
 
     const handleLoadingComplete = () => {
-      // Nav bar comes in after the tagline
-      setTimeout(() => setIsVisible(true), 1500);
+      // Nav bar comes in immediately after the minimal loader fades
+      setTimeout(() => setIsVisible(true), 200);
     };
 
     window.addEventListener('loadingComplete', handleLoadingComplete);
@@ -106,8 +107,20 @@ export function Header() {
   const allLinks = [...leftLinks, ...rightLinks];
 
   return (
+    <>
+      {/* Promotional Top Bar */}
+      <div className="fixed top-0 left-0 right-0 z-[60] bg-white text-black h-8 flex items-center justify-center overflow-hidden whitespace-nowrap px-4 select-none">
+         <div className="flex gap-12 animate-marquee text-[10px] uppercase tracking-[0.3em] font-bold">
+            <span>Free Worldwide Shipping on Luxury Tailoring</span>
+            <span>Crafting Excellence Since 1940</span>
+            <span>Uncompromising Quality in Every Stitch</span>
+            {/* Duplicate for seamless marquee if needed, or just static for now */}
+            <span className="hidden md:inline">Visit our 9,000 sq. ft. Flagship Showroom in Vizag</span>
+         </div>
+      </div>
+
     <header className={cn(
-      "fixed top-0 left-0 right-0 z-50 pointer-events-none pt-2 px-6 md:px-12 transition-all duration-1000 ease-in-out",
+      "fixed top-8 left-0 right-0 z-50 pointer-events-none pt-2 px-6 md:px-12 transition-all duration-1000 ease-in-out",
       isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
     )}>
       <div
@@ -168,7 +181,8 @@ export function Header() {
               loop
               muted
               playsInline
-              className="w-full h-full object-cover scale-125"
+              preload="auto"
+              className="w-full h-full object-cover scale-125 bg-black"
             />
           </div>
         </Link>
@@ -293,7 +307,7 @@ export function Header() {
                 </button>
               </div>
 
-              <a href="https://wa.me/919182167662" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#25D366] transition-colors duration-300 pointer-events-auto" title="Chat on WhatsApp">
+              <a href="https://wa.me/919988393389" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#25D366] transition-colors duration-300 pointer-events-auto" title="Chat on WhatsApp">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
                 </svg>
@@ -330,65 +344,140 @@ export function Header() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 z-[-1] bg-black/98 backdrop-blur-3xl animate-fade-in pointer-events-auto p-8 overflow-y-auto pt-32 pb-24">
-          <button
-            className="absolute top-8 right-8 p-3 text-white/60 hover:text-white"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            <X className="w-8 h-8" />
-          </button>
+      {/* Mobile Menu Sidebar */}
+      <div 
+        className={cn(
+          "md:hidden fixed inset-0 z-[100] transition-all duration-500 pointer-events-none",
+          mobileMenuOpen ? "opacity-100" : "opacity-0"
+        )}
+      >
+        {/* Overlay */}
+        <div 
+          className="absolute inset-0 bg-black/60 backdrop-blur-sm pointer-events-auto"
+          onClick={() => setMobileMenuOpen(false)}
+        />
+        
+        {/* Sidebar */}
+        <div 
+          className={cn(
+            "absolute top-0 left-0 bottom-0 w-[85%] max-w-sm bg-black border-r border-white/10 flex flex-col transition-transform duration-500 pointer-events-auto",
+            mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+          )}
+        >
+          {/* Sidebar Header */}
+          <div className="p-6 border-b border-white/5 bg-white/5 flex items-center justify-between">
+            <Link href="/contact" className="flex items-center gap-4 group">
+              <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center bg-white/5 group-hover:bg-accent/20 transition-colors">
+                 <ArrowRight className="w-4 h-4 text-accent" />
+              </div>
+              <div className="text-left">
+                 <p className="text-[10px] uppercase tracking-widest text-white/40 font-bold mb-0.5">Welcome</p>
+                 <p className="text-xs uppercase tracking-widest text-[#E8E0D0] font-bold">Book Consultation</p>
+              </div>
+            </Link>
+            <button 
+              onClick={() => setMobileMenuOpen(false)}
+              className="p-2 text-white/60 hover:text-white"
+            >
+              <X className="w-6 h-6" />
+            </button>
+          </div>
 
-          <div className="flex flex-col gap-6 text-center mt-6">
-            {[...leftLinks, ...rightLinks].map((link) => (
-              <div key={link.name} className="flex flex-col gap-2">
-                <Link
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="block text-xl tracking-[0.25em] text-[#E8E0D0] hover:text-accent transition-colors py-2 uppercase font-light"
-                  style={{ fontFamily: '"Times New Roman", serif' }}
-                >
-                  {link.name}
-                </Link>
-                {link.dropdown && link.dropdown.length > 0 && (
-                  <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 px-4 mb-4">
-                    {link.dropdown.map(sub => (
+          {/* Links Section */}
+          <div className="flex-grow overflow-y-auto px-6 py-8">
+            <div className="flex flex-col">
+              {allLinks.map((link) => {
+                const isExpanded = expandedLink === link.name;
+                const hasDropdown = link.dropdown && link.dropdown.length > 0;
+                
+                return (
+                  <div key={link.name} className="border-b border-white/5">
+                    <div className="flex items-center justify-between py-5">
                       <Link
-                        key={sub.name}
-                        href={sub.href}
-                        onClick={() => setMobileMenuOpen(false)}
-                        className="text-[10px] uppercase tracking-[0.2em] text-white/40 hover:text-accent font-medium"
+                        href={link.href}
+                        onClick={() => !hasDropdown && setMobileMenuOpen(false)}
+                        className="text-sm tracking-[0.2em] text-[#E8E0D0] uppercase font-medium hover:text-accent transition-colors"
+                        style={{ fontFamily: '"Times New Roman", serif' }}
                       >
-                        • {sub.name}
+                        {link.name}
                       </Link>
-                    ))}
+                      {hasDropdown && (
+                        <button 
+                          onClick={() => setExpandedLink(isExpanded ? null : link.name)}
+                          className="p-2 text-white/40"
+                        >
+                          {isExpanded ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
+                        </button>
+                      )}
+                    </div>
+                    
+                    {/* Collapsible Sub-menu */}
+                    {hasDropdown && (
+                      <div 
+                        className={cn(
+                          "overflow-hidden transition-all duration-300",
+                          isExpanded ? "max-h-[500px] pb-6 opacity-100" : "max-h-0 opacity-0"
+                        )}
+                      >
+                        <div className="flex flex-col gap-5 pl-4 border-l border-accent/20">
+                          {link.dropdown?.map(sub => (
+                            <Link
+                              key={sub.name}
+                              href={sub.href}
+                              onClick={() => setMobileMenuOpen(false)}
+                              className="text-[10px] uppercase tracking-[0.2em] text-white/60 hover:text-accent font-medium flex items-center gap-3"
+                            >
+                               <span className="w-1.5 h-1.5 rounded-full bg-accent/30" />
+                               {sub.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
-                )}
-                <div className="w-12 h-[1px] bg-white/5 mx-auto mt-2" />
-              </div>
-            ))}
-
-            <div className="pt-8 flex flex-col items-center gap-8">
-              <Button asChild variant="outline" className="w-full max-w-xs bg-transparent rounded-none h-14 uppercase tracking-[0.4em] text-[10px] font-bold border-accent/50 text-accent hover:bg-accent hover:text-white" onClick={() => setMobileMenuOpen(false)}>
-                <Link href="/contact">Book Consultation</Link>
-              </Button>
+                );
+              })}
               
-              <div className="flex gap-8 opacity-40">
-                 <a href="https://wa.me/919182167662" target="_blank" rel="noopener noreferrer" className="text-white hover:text-accent transition-colors">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
-                    </svg>
-                 </a>
-                 <Link href="/wishlist" className="text-white hover:text-accent transition-colors">
-                    <Heart className="w-4.5 h-4.5" />
-                 </Link>
-              </div>
+              <Link 
+                href="/wishlist" 
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-5 border-b border-white/5 flex items-center justify-between group"
+              >
+                <span className="text-sm tracking-[0.2em] text-[#E8E0D0] uppercase font-medium flex items-center gap-3">
+                  <Heart className="w-4 h-4 text-accent" />
+                  Wishlist
+                </span>
+                <span className="text-[10px] text-accent font-bold px-2 py-0.5 border border-accent/30 rounded-full">
+                  {items.length}
+                </span>
+              </Link>
             </div>
           </div>
+
+          {/* Sidebar Footer */}
+          <div className="p-6 border-t border-white/5 space-y-6">
+             {/* Inquiry Hotline */}
+             <div className="flex items-center gap-4">
+                <div className="w-8 h-8 rounded-full bg-[#25D366] flex items-center justify-center">
+                   <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
+                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+                   </svg>
+                </div>
+                <div>
+                  <p className="text-[8px] uppercase tracking-widest text-white/40 mb-0.5">WhatsApp Inquiry</p>
+                  <p className="text-[10px] text-white font-bold">+91 99883 93389</p>
+                </div>
+             </div>
+             
+             {/* Region Select Mockup */}
+             <div className="flex items-center justify-between p-4 bg-white/5 border border-white/10 text-white/60 text-[10px] uppercase font-bold tracking-widest">
+                <span>Ship To: INDIA</span>
+                <span>Currency: INR</span>
+             </div>
+          </div>
         </div>
-      )}
+      </div>
     </header>
+    </>
   );
 }
-

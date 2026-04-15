@@ -1,13 +1,10 @@
-import { Header } from '@/components/navigation/Header';
-import { Footer } from '@/components/navigation/Footer';
 import { ProcessSteps } from '@/components/sections/ProcessSteps';
 import { FadeIn } from '@/components/animations/FadeIn';
 
 export default function ProcessPage() {
   return (
-    <div className="min-h-screen flex flex-col">
-      <Header />
-      <main className="flex-grow pt-32 pb-24 space-y-32">
+    <div className="min-h-screen flex flex-col pt-24 md:pt-32">
+      <main className="flex-grow pb-24 space-y-32">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <FadeIn className="text-center space-y-6 max-w-3xl mx-auto">
             <span className="gold-text uppercase tracking-[0.4em] text-[10px] font-bold">Selection & Precision</span>
@@ -61,7 +58,6 @@ export default function ProcessPage() {
            </FadeIn>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }

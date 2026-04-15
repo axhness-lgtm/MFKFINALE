@@ -1,6 +1,4 @@
 "use client";
-import { Header } from '@/components/navigation/Header';
-import { Footer } from '@/components/navigation/Footer';
 import { useWishlist } from '@/context/WishlistContext';
 import { WishlistButton } from '@/components/ui/WishlistButton';
 import Image from 'next/image';
@@ -10,16 +8,15 @@ export default function WishlistPage() {
   const { items } = useWishlist();
 
   return (
-    <div className="min-h-screen bg-[#0a0a09] font-body flex flex-col">
-      <Header />
-      <main className="flex-grow pt-48 pb-24 px-6 md:px-12 max-w-7xl mx-auto w-full">
+    <div className="min-h-screen bg-[#0a0a09] font-body flex flex-col pt-32 md:pt-40">
+      <main className="flex-grow pb-24 px-6 md:px-12 max-w-7xl mx-auto w-full">
         <h1 className="text-4xl md:text-5xl font-serif font-light mb-4 text-center text-white uppercase tracking-widest">YOUR WISHLIST</h1>
         <p className="text-center text-[#E8E0D0]/60 mb-20 tracking-widest text-xs uppercase">Curated pieces for your luxury collection</p>
 
         {items.length === 0 ? (
           <div className="text-center py-32 border border-white/5 bg-white/[0.01]">
             <p className="text-[#E8E0D0]/50 mb-8 font-light">Your wishlist is currently empty.</p>
-            <Link href="/collections" className="text-accent hover:text-white uppercase tracking-widest text-xs border-b border-accent/30 pb-1 transition-colors">
+            <Link href="/#home-collections" className="text-accent hover:text-white uppercase tracking-widest text-xs border-b border-accent/30 pb-1 transition-colors">
               Explore Collections
             </Link>
           </div>
@@ -39,7 +36,6 @@ export default function WishlistPage() {
           </div>
         )}
       </main>
-      <Footer />
     </div>
   );
 }

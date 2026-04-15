@@ -1,7 +1,5 @@
 "use client";
 
-import { Header } from '@/components/navigation/Header';
-import { Footer } from '@/components/navigation/Footer';
 import { FadeIn } from '@/components/animations/FadeIn';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -9,9 +7,7 @@ import Link from 'next/link';
 export default function GroomPage() {
   return (
     <div className="min-h-screen flex flex-col bg-[#0a0a09]">
-      <Header />
-      
-      <main className="flex-grow pt-32">
+      <main className="flex-grow">
         {/* Hero Section */}
         <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
           <Image 
@@ -116,7 +112,6 @@ export default function GroomPage() {
         </section>
       </main>
 
-      <Footer />
     </div>
   );
 }

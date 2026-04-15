@@ -1,12 +1,8 @@
-
-import { Header } from '@/components/navigation/Header';
-import { Footer } from '@/components/navigation/Footer';
 import { AdvisorTool } from '@/components/advisor/AdvisorTool';
 
 export default function AdvisorPage() {
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
       <main className="flex-grow pt-32 pb-24 px-6 md:px-12">
         <div className="max-w-7xl mx-auto space-y-12">
           <div className="text-center space-y-4 max-w-3xl mx-auto">
@@ -17,7 +13,6 @@ export default function AdvisorPage() {
           <AdvisorTool />
         </div>
       </main>
-      <Footer />
     </div>
   );
 }

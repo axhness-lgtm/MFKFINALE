@@ -3,90 +3,30 @@ import { CollectionsPreview } from '@/components/sections/CollectionsPreview';
 import { ProcessSteps } from '@/components/sections/ProcessSteps';
 import { Testimonials } from '@/components/sections/Testimonials';
 import { FinalCTA } from '@/components/sections/FinalCTA';
-import { Button } from '@/components/ui/button';
 import { FadeIn } from '@/components/animations/FadeIn';
+import { MobileQuickNav } from '@/components/sections/MobileQuickNav';
 import Link from 'next/link';
 import Image from 'next/image';
 
+import { ExperienceSection } from '@/components/sections/ExperienceSection';
+
+import { BlogPreview } from '@/components/sections/BlogPreview';
+
 export default function Home() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-[#0a0a09]">
       <Hero />
+
+      <MobileQuickNav />
 
       <FadeIn>
         <CollectionsPreview />
       </FadeIn>
 
-      <section className="bg-[#0a0a09] pt-16 md:pt-28 pb-16 md:pb-24 px-6 md:px-12 relative overflow-hidden mt-10 md:mt-20">
-        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-20">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="object-cover w-full h-full grayscale brightness-50"
-          >
-            <source src="/showroom-video.mp4" type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-black/60" />
-        </div>
+      <ExperienceSection />
 
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-20 items-center">
-            {/* Left: showroom / garment racks visual */}
-            <FadeIn className="relative aspect-square md:aspect-[4/5] overflow-hidden group">
-              <Image
-                src="/images/vision-wardrobe.jpg"
-                alt="MFKhan Showroom"
-                fill
-                className="object-cover transition-transform duration-[3s] group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-1000" />
-              <div className="absolute bottom-8 left-8 border-l border-accent/60 pl-6">
-                <p className="text-[#E8E0D0] text-xs uppercase tracking-[0.4em] font-medium" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>The 9,000 SQ. FT. Experience</p>
-              </div>
-            </FadeIn>
-
-            {/* Right: text */}
-            <FadeIn delay={200} className="space-y-6">
-              <div>
-                <span className="gold-text uppercase tracking-[0.5em] text-[10px] block mb-2" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>The Best of Both Worlds</span>
-                <h2 className="text-4xl md:text-6xl text-[#E8E0D0] font-light leading-tight" style={{ fontFamily: '"Times New Roman", serif' }}>
-                  From Vision to Wardrobe—<br /><span className="italic">Without the Wait</span>
-                </h2>
-              </div>
-
-              <div className="space-y-1 text-[#E8E0D0]/70 text-base leading-relaxed font-light" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-                <p>
-                  Most tailoring begins with imagination. <span className="text-[#E8E0D0]">At MFKhan International, it begins with experience.</span>
-                </p>
-                <p>
-                  Step into our 9,000 sq. ft. showroom in Visakhapatnam and explore a curated Designer Gallery of finished suits, sherwanis, and Indo-Western ensembles.
-                </p>
-                <div className="flex flex-col gap-1 py-3 border-y border-white/10">
-                  <div className="flex items-center gap-4">
-                    <div className="w-1.5 h-1.5 rounded-full bg-accent" />
-                    <p>See complete looks. Understand the fit. Try them on.</p>
-                  </div>
-                </div>
-                <p>
-                  Or begin from fabric and have your garment tailored from the ground up — refined by our in-house master tailoring team.
-                </p>
-                <p className="gold-text italic text-lg" style={{ fontFamily: '"Times New Roman", serif' }}>
-                  Two approaches. One uncompromising standard.
-                </p>
-              </div>
-
-              <div className="pt-0.1">
-                <Link href="/collections" className="hero-btn-secondary">Explore the Gallery</Link>
-              </div>
-            </FadeIn>
-          </div>
-        </div>
-      </section>
-
-      <section className="pt-16 md:pt-24 pb-20 md:pb-32 px-6 md:px-12 bg-[#0a0a09]">
-        <div className="max-w-7xl mx-auto space-y-16 md:space-y-32">
+      <section className="pt-10 md:pt-20 pb-16 md:pb-32 px-6 md:px-12 bg-[#0a0a09]">
+        <div className="max-w-7xl mx-auto space-y-12 md:space-y-32">
 
           {/* Reputation Section Header */}
           <FadeIn className="text-center flex flex-col items-center mb-0 md:mb-6">
@@ -94,7 +34,7 @@ export default function Home() {
               className="gold-text italic"
               style={{
                 fontFamily: '"Times New Roman", serif',
-                fontSize: 'clamp(32px, 5vw, 65px)',
+                fontSize: 'clamp(28px, 5vw, 65px)',
                 letterSpacing: '0.0005em',
                 fontWeight: 400,
               }}
@@ -107,15 +47,15 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-10 max-w-5xl mx-auto">
 
             {/* Item 1 */}
-            <FadeIn delay={100} className="space-y-6">
+            <FadeIn delay={100} className="space-y-4 md:space-y-6">
               <h3
-                className="text-3xl text-white font-light leading-snug"
+                className="text-2xl md:text-3xl text-white font-light leading-snug"
                 style={{ fontFamily: '"Playfair Display", serif' }}
               >
-                Craftsmanship <span className="block italic text-accent" style={{ fontFamily: '"Times New Roman", serif', fontSize: '1.4em', lineHeight: '0.8', marginLeft: '10%' }}>That Endures</span>
+                Craftsmanship <span className="block italic text-accent" style={{ fontFamily: '"Times New Roman", serif', fontSize: '1.2em', lineHeight: '0.8', marginLeft: '5%' }}>That Endures</span>
               </h3>
               <p
-                className="text-[#E8E0D0]/70 leading-relaxed text-base tracking-wide"
+                className="text-[#E8E0D0]/60 leading-relaxed text-sm md:text-base tracking-wide"
                 style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 'regular' }}
               >
                 Every garment is individually cut and tailored with attention to detail refined over decades.
@@ -123,15 +63,15 @@ export default function Home() {
             </FadeIn>
 
             {/* Item 2 */}
-            <FadeIn delay={200} className="space-y-6">
+            <FadeIn delay={200} className="space-y-4 md:space-y-6">
               <h3
-                className="text-3xl text-white font-light leading-snug"
+                className="text-2xl md:text-3xl text-white font-light leading-snug"
                 style={{ fontFamily: '"Playfair Display", serif' }}
               >
-                A Name <span className="block italic text-accent" style={{ fontFamily: '"Times New Roman", serif', fontSize: '1.4em', lineHeight: '0.8', marginLeft: '10%' }}>the City Trusts</span>
+                A Name <span className="block italic text-accent" style={{ fontFamily: '"Times New Roman", serif', fontSize: '1.2em', lineHeight: '0.8', marginLeft: '5%' }}>the City Trusts</span>
               </h3>
               <p
-                className="text-[#E8E0D0]/70 leading-relaxed text-base tracking-wide"
+                className="text-[#E8E0D0]/60 leading-relaxed text-sm md:text-base tracking-wide"
                 style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 'regular' }}
               >
                 Known across Visakhapatnam for reliability, consistency, and long-standing client relationships.
@@ -139,15 +79,15 @@ export default function Home() {
             </FadeIn>
 
             {/* Item 3 */}
-            <FadeIn delay={300} className="space-y-6">
+            <FadeIn delay={300} className="space-y-4 md:space-y-6">
               <h3
-                className="text-3xl text-white font-light leading-snug"
+                className="text-2xl md:text-3xl text-white font-light leading-snug"
                 style={{ fontFamily: '"Playfair Display", serif' }}
               >
-                A Personalized <span className="block italic text-accent" style={{ fontFamily: '"Times New Roman", serif', fontSize: '1.4em', lineHeight: '0.8', marginLeft: '10%' }}>Experience</span>
+                A Personalized <span className="block italic text-accent" style={{ fontFamily: '"Times New Roman", serif', fontSize: '1.2em', lineHeight: '0.8', marginLeft: '5%' }}>Experience</span>
               </h3>
               <p
-                className="text-[#E8E0D0]/70 leading-relaxed text-base tracking-wide"
+                className="text-[#E8E0D0]/60 leading-relaxed text-sm md:text-base tracking-wide"
                 style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 'regular' }}
               >
                 Each client is guided through a one-on-one consultation, ensuring the final garment reflects both fit and intent.
@@ -155,15 +95,15 @@ export default function Home() {
             </FadeIn>
 
             {/* Item 4 */}
-            <FadeIn delay={400} className="space-y-6">
+            <FadeIn delay={400} className="space-y-4 md:space-y-6">
               <h3
-                className="text-3xl text-white font-light leading-snug"
+                className="text-2xl md:text-3xl text-white font-light leading-snug"
                 style={{ fontFamily: '"Playfair Display", serif' }}
               >
-                Recommended <span className="block italic text-accent" style={{ fontFamily: '"Times New Roman", serif', fontSize: '1.4em', lineHeight: '0.8', marginLeft: '10%' }}>by Clients</span>
+                Recommended <span className="block italic text-accent" style={{ fontFamily: '"Times New Roman", serif', fontSize: '1.2em', lineHeight: '0.8', marginLeft: '5%' }}>by Clients</span>
               </h3>
               <p
-                className="text-[#E8E0D0]/70 leading-relaxed text-base tracking-wide"
+                className="text-[#E8E0D0]/60 leading-relaxed text-sm md:text-base tracking-wide"
                 style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 'regular' }}
               >
                 Much of our work comes through returning clients and word-of-mouth — a reflection of trust, not marketing.
@@ -181,6 +121,10 @@ export default function Home() {
 
       <FadeIn>
         <Testimonials />
+      </FadeIn>
+
+      <FadeIn>
+        <BlogPreview />
       </FadeIn>
 
       <FadeIn>

@@ -79,7 +79,7 @@ export function CollectionPageTemplate({ data }: { data: CollectionPageData }) {
       </section>
 
       {/* 2. CATEGORY STORY */}
-      <section className="py-24 px-6 bg-[#0a0a09]">
+      <section className="py-12 md:py-24 px-6 bg-[#0a0a09]">
         <div className="max-w-2xl mx-auto text-center">
           <p className="text-xl md:text-2xl text-[#E8E0D0]/80 font-light leading-relaxed category-story">
             <span className="float-left text-7xl font-serif gold-text leading-[0.8] mr-4 text-accent">
@@ -87,6 +87,28 @@ export function CollectionPageTemplate({ data }: { data: CollectionPageData }) {
             </span>
             {data.categoryStory.text.slice(1)}
           </p>
+        </div>
+      </section>
+
+      {/* 2.5 SERVICE CATEGORIZATION (Task 11) */}
+      <section className="py-16 md:py-24 px-6 bg-[#0d0d0c] border-y border-white/5">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
+          <div className="space-y-6 p-8 border border-white/5 bg-white/[0.02]">
+            <span className="gold-text uppercase tracking-widest text-[10px] font-bold">Category 01</span>
+            <h3 className="text-2xl md:text-4xl font-serif italic text-white leading-tight">Readymade Excellence</h3>
+            <p className="text-white/50 text-base font-light leading-relaxed">
+              Explore our finished designer gallery. Perfect for those who seek immediate luxury without compromising on the MFKhan standard. Available for in-store trials and instant acquisition.
+            </p>
+            <Link href="#gallery" className="hero-btn-secondary w-fit inline-block">Browse Readymade</Link>
+          </div>
+          <div className="space-y-6 p-8 border border-white/5 bg-white/[0.02]">
+            <span className="gold-text uppercase tracking-widest text-[10px] font-bold">Category 02</span>
+            <h3 className="text-2xl md:text-4xl font-serif italic text-white leading-tight">Stitched to Precision</h3>
+            <p className="text-white/50 text-base font-light leading-relaxed">
+              Our hallmark service. Each garment is cut and stitched from your chosen fabric by our in-house master tailors. Refined over multiple fittings to ensure a perfect second-skin experience.
+            </p>
+            <a href="https://wa.me/919988393389" target="_blank" className="hero-btn-secondary w-fit inline-block">Book Custom Stitch</a>
+          </div>
         </div>
       </section>
 

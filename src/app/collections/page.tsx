@@ -1,5 +1,3 @@
-import { Header } from '@/components/navigation/Header';
-import { Footer } from '@/components/navigation/Footer';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Scissors, Ruler, Layers, Medal, ChevronRight } from 'lucide-react';
@@ -7,7 +5,6 @@ import { Scissors, Ruler, Layers, Medal, ChevronRight } from 'lucide-react';
 export default function CollectionsPage() {
   return (
     <div className="min-h-screen bg-[#0a0a09] text-[#E8E0D0] selection:bg-accent/30 font-body">
-      <Header />
       
       {/* THE MFK MASSIVE TYPOGRAPHY HERO */}
       <section className="h-[120vh] min-h-[900px] w-full flex flex-row bg-black pt-[80px]">
@@ -183,8 +180,6 @@ export default function CollectionsPage() {
           </button>
         </div>
       </section>
-
-      <Footer />
       
       {/* Utility style for hiding scrollbar on webkit */}
       <style dangerouslySetInnerHTML={{__html: `

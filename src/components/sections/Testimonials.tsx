@@ -1,66 +1,94 @@
 "use client";
 
 import { cn } from '@/lib/utils';
+import { Star } from 'lucide-react';
 
 interface Testimonial {
   quote: string;
   author: string;
-  role: string;
+  source: string;
+  rating: number;
 }
 
 const testimonials: Testimonial[] = [
   {
-    quote: "The attention to detail and craftsmanship at MFK International is absolutely unparalleled. I have never worn a suit that fit so perfectly directly after the first fitting.",
-    author: "Zain Khan",
-    role: "International Executive"
+    quote: "Absolutely outstanding experience! Got a bespoke suit stitched for a wedding, and the craftsmanship is top-class—perfect fit, premium fabric, and stunning design details. Worth every penny.",
+    author: "Vamsi Sai",
+    source: "Google Review",
+    rating: 5
   },
   {
-    quote: "A truly bespoke experience. From the initial consultation to the final fitting, every step felt like a journey into the heart of master tailoring.",
-    author: "Rahim Ahmed",
-    role: "Architect"
+    quote: "Fantastic experience! I am absolutely in love with my wedding dress, it’s stunning. The fit of the suit we had stitched is incredibly precise and perfect. Highly recommend them for your big day!",
+    author: "Kalyan Kona",
+    source: "Google Review",
+    rating: 5
+  },
+  {
+    quote: "Got my red suit customized from MF Khan, and I'm obsessed with how perfect it turned out! The fit, the fabric and the overall finish - everything was top notch. Loved the experience ❤️",
+    author: "Harshitha Nada",
+    source: "Google Review",
+    rating: 5
+  },
+  {
+    quote: "Great for getting suits made just how you like them. Akbar did an awesome job on a double-breasted suit for me... they fixed everything to my liking without any fuss.",
+    author: "Sampath Kumar",
+    source: "Google Review",
+    rating: 5
   }
 ];
 
 export function Testimonials() {
-  const testimonial = testimonials[0];
-
   return (
-    <section className="py-24 px-6 md:px-12 bg-black border-y border-white/5 overflow-hidden">
+    <section className="py-12 md:py-20 px-6 md:px-12 bg-[#0a0a09] border-y border-white/5 overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        {/* Section Heading consistent and centered */}
-        <div className="mb-16 md:mb-24 text-center">
-          <h2 className="text-3xl md:text-5xl font-serif font-light gold-text">Testimonials</h2>
+        <div className="mb-10 md:mb-16 text-center">
+          <span className="gold-text uppercase tracking-[0.4em] text-[10px] block mb-2 font-body" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>Client Appreciations</span>
+          <h2 className="text-3xl md:text-5xl font-serif font-light text-[#E8E0D0] italic" style={{ fontFamily: '"Playfair Display", serif' }}>Voices of Excellence</h2>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="relative group text-center flex flex-col items-center">
-            {/* Large Stylized Quote Mark */}
-            <span 
-              className="absolute -top-12 left-1/2 -translate-x-1/2 text-[120px] md:text-[180px] text-accent/5 pointer-events-none transition-all duration-700 group-hover:text-accent/10"
-              style={{ fontFamily: '"Playfair Display", serif', fontWeight: 100 }}
-            >
-              &ldquo;
-            </span>
-            
-            <div className="relative z-10 space-y-10 group mt-8">
-              <p 
-                className="text-2xl md:text-4xl font-light leading-relaxed text-[#E8E0D0] italic group-hover:text-white transition-colors duration-500 max-w-3xl mx-auto"
-                style={{ fontFamily: '"Times New Roman", serif' }}
-              >
-                {testimonial.quote}
-              </p>
-              
-              <div className="space-y-2">
-                <div className="w-12 h-[1px] bg-accent/30 mx-auto mb-6 transition-all duration-500 group-hover:w-20" />
-                <h4 className="text-sm font-bold tracking-[0.4em] uppercase text-accent font-sans">
-                  {testimonial.author}
-                </h4>
-                <p className="text-[10px] tracking-[0.2em] uppercase text-white/30 font-medium">
-                  {testimonial.role}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          {testimonials.map((t, idx) => (
+            <div key={idx} className="bg-white/[0.02] border border-white/5 p-6 md:p-8 transition-all duration-500 hover:border-accent/20 group">
+              <div className="flex justify-start gap-1 mb-4">
+                {[...Array(t.rating)].map((_, i) => (
+                  <Star key={i} className="w-2.5 h-2.5 fill-accent text-accent" />
+                ))}
+              </div>
+
+              <blockquote className="mb-6">
+                <p className="text-[#E8E0D0]/90 text-sm md:text-base leading-relaxed font-light font-serif italic" style={{ fontFamily: '"Playfair Display", serif' }}>
+                  "{t.quote}"
                 </p>
+              </blockquote>
+
+              <div className="flex items-center justify-between pt-4 border-t border-white/5">
+                <div>
+                  <h4 className="text-[11px] font-bold tracking-[0.2em] uppercase text-white font-body" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+                    {t.author}
+                  </h4>
+                  <p className="text-[9px] tracking-[0.1em] uppercase text-white/30 font-medium font-body" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+                    {t.source}
+                  </p>
+                </div>
+                {/* Google "G" Icon placeholder feel */}
+                <div className="w-6 h-6 flex items-center justify-center rounded-full bg-white/5">
+                  <svg viewBox="0 0 24 24" className="w-3 h-3 fill-white/20" xmlns="http://www.w3.org/2000/svg"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-2.21 5.39-7.84 5.39-4.84 0-8.77-4.04-8.77-8.99s3.93-8.99 8.77-8.99c2.76 0 4.61 1.14 5.67 2.14l2.58-2.48c-1.66-1.55-4.25-2.66-8.25-2.66-6.63 0-12 5.37-12 12s5.37 12 12 12c6.91 0 11.52-4.86 11.52-11.72 0-.79-.08-1.4-.24-2.11H12.48z" /></svg>
+                </div>
               </div>
             </div>
-          </div>
+          ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <a
+            href="https://www.google.com/search?q=MFKhan+International+Visakhapatnam+reviews"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[10px] uppercase tracking-[0.3em] text-white/40 hover:text-accent transition-colors font-body border-b border-white/10 pb-1"
+            style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
+          >
+            Verify all reviews on Google
+          </a>
         </div>
       </div>
     </section>

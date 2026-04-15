@@ -38,7 +38,7 @@ const steps = [
 
 export function ProcessSteps() {
   return (
-    <section className="py-24 px-6 md:px-12 bg-background border-y border-border/5">
+    <section className="pt-16 pb-24 px-6 md:px-12 bg-[#0a0a09] border-y border-white/5">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12 md:mb-20">
           <span
@@ -47,15 +47,15 @@ export function ProcessSteps() {
           >
             The Journey
           </span>
-          <h3 className="text-3xl md:text-5xl font-serif font-light tracking-tight max-w-2xl mx-auto leading-tight">The Art of Hand-Crafted Tailoring</h3>
+          <h3 className="text-3xl md:text-5xl font-serif font-light tracking-tight max-w-2xl mx-auto leading-tight text-[#E8E0D0]">The Art of Hand-Crafted Tailoring</h3>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12 md:gap-y-16">
           {steps.map((step, idx) => (
             <div key={idx} className="group space-y-4">
               <div className="flex items-baseline gap-4">
-                <span className="text-accent/40 font-serif text-3xl font-light">0{idx + 1}</span>
-                <h3 className="text-2xl font-light tracking-wide text-foreground group-hover:text-accent transition-colors duration-500" style={{ fontFamily: '"Playfair Display", serif' }}>
+                <span className="text-accent/60 font-serif text-3xl font-light">0{idx + 1}</span>
+                <h3 className="text-2xl font-light tracking-wide text-white group-hover:text-accent transition-colors duration-500" style={{ fontFamily: '"Playfair Display", serif' }}>
                   {step.title}
                 </h3>
               </div>
