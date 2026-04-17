@@ -345,20 +345,20 @@ export function Header() {
       {/* Mobile Menu Sidebar */}
       <div 
         className={cn(
-          "md:hidden fixed inset-0 z-[100] transition-all duration-500 pointer-events-none",
-          mobileMenuOpen ? "opacity-100" : "opacity-0"
+          "md:hidden fixed inset-0 z-[100] transition-all duration-500",
+          mobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         )}
       >
         {/* Overlay */}
         <div 
-          className="absolute inset-0 bg-black/60 backdrop-blur-sm pointer-events-auto"
+          className="absolute inset-0 bg-black/60 backdrop-blur-sm"
           onClick={() => setMobileMenuOpen(false)}
         />
         
         {/* Sidebar */}
         <div 
           className={cn(
-            "absolute top-0 left-0 bottom-0 w-[85%] max-w-sm bg-black border-r border-white/10 flex flex-col transition-transform duration-500 pointer-events-auto",
+            "absolute top-0 left-0 bottom-0 w-[85%] max-w-sm bg-black border-r border-white/10 flex flex-col transition-transform duration-500",
             mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
           )}
         >

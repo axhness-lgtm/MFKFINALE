@@ -5,12 +5,32 @@ import { Toaster } from "@/components/ui/toaster";
 import { LoadingScreen } from "@/components/navigation/LoadingScreen";
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.mfkhaninternational.com'),
   title: {
     default: 'Best Wedding Suits & Designer Suits in Visakhapatnam | MFKhan International - Vizag\'s Largest Tailoring Store',
     template: '%s | MFKhan International'
   },
   description: 'Vizag’s largest men’s wear tailoring destination. MFKhan since 1940, providing the best wedding suits and designer suits in Visakhapatnam. Experience 9,000 sq. ft. of sartorial excellence at Rednam Gardens.',
-  keywords: ['mf khan', 'mf khan vizag', 'mf khan visakhapatnam', 'Suits in Vizag', 'Best wedding suits Visakhapatnam', 'Designer suits Vizag', 'Largest tailoring store Visakhapatnam', 'MFKhan International', 'Men\'s wedding wear Vizag', 'Custom tailoring Visakhapatnam', ''],
+  keywords: ['mf khan', 'mf khan vizag', 'mf khan visakhapatnam', 'Suits in Vizag', 'Best wedding suits Visakhapatnam', 'Designer suits Vizag', 'Largest tailoring store Visakhapatnam', 'MFKhan International', 'Men\'s wedding wear Vizag', 'Custom tailoring Visakhapatnam'],
+  openGraph: {
+    title: 'MFKhan International | Best Wedding Suits in Vizag',
+    description: 'Vizag’s largest men’s wear tailoring destination. MFKhan since 1940, providing the best wedding suits in Visakhapatnam.',
+    url: 'https://www.mfkhaninternational.com',
+    siteName: 'MFKhan International',
+    locale: 'en_IN',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'MFKhan International',
+    description: 'Vizag’s largest men’s wear tailoring destination since 1940.',
+  },
+  verification: {
+    google: 'ADD_YOUR_GOOGLE_VERIFICATION_CODE_HERE',
+    other: {
+      'msvalidate.01': ['ADD_YOUR_BING_VERIFICATION_CODE_HERE'],
+    },
+  },
 };
 
 import { Header } from '@/components/navigation/Header';

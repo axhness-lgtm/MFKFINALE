@@ -1,44 +1,52 @@
 import { MetadataRoute } from 'next';
+import { db } from '@/lib/firebase';
+import { collection, getDocs } from 'firebase/firestore';
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://mfkhaninternational.com';
-  
-  return [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/wedding`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/formals`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/heritage`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/blog`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
-  ];
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const baseUrl = 'https://www.mfkhaninternational.com';
+
+  // Base routes
+  const routes = [
+    '',
+    '/heritage',
+    '/wedding',
+    '/wedding/designer-suits',
+    '/wedding/indo-western',
+    '/wedding/sherwani',
+    '/wedding/pattu-dhoti',
+    '/wedding/designer-shirts',
+    '/formals',
+    '/formals/business-suits',
+    '/formals/blazers',
+    '/formals/shirts',
+    '/custom-tailoring',
+    '/custom-tailoring/international-fabrics',
+    '/custom-tailoring/fittings',
+    '/custom-tailoring/hand-work',
+    '/contact',
+    '/wishlist'
+  ].map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: new Date().toISOString(),
+    changeFrequency: 'weekly' as const,
+    priority: route === '' ? 1 : 0.8,
+  }));
+
+  let productRoutes: any[] = [];
+  try {
+    const productsSnapshot = await getDocs(collection(db, 'products'));
+    productsSnapshot.forEach((doc) => {
+      const product = doc.data();
+      productRoutes.push({
+        url: `${baseUrl}/collection/${product.id}`,
+        lastModified: product.updatedAt ? new Date(product.updatedAt).toISOString() : new Date(product.createdAt || new Date()).toISOString(),
+        changeFrequency: 'monthly' as const,
+        priority: 0.6,
+      });
+    });
+  } catch (err) {
+    console.error("Sitemap Generation Error:", err);
+  }
+
+  return [...routes, ...productRoutes];
 }

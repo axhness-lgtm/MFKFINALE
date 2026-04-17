@@ -5,8 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/admin/', '/api/'],
     },
-    sitemap: 'https://mfkhaninternational.com/sitemap.xml',
+    sitemap: 'https://www.mfkhaninternational.com/sitemap.xml',
   };
 }
