@@ -24,8 +24,8 @@ export function CollectionsPreview() {
           >
             <div className="absolute inset-0 rounded-t-[100px] overflow-hidden border border-accent/40 shadow-[0_0_15px_rgba(196,172,94,0.1)] group-hover:border-accent transition-colors duration-500">
               <Image
-                src="/images/collections-wedding.jpg"
-                alt="Designer Suits"
+                src="/images/designer-suit-collections.jpg"
+                alt="Bespoke Designer Suits - MFKhan International Vizag"
                 fill
                 className="object-cover transition-transform duration-1000 group-hover:scale-110"
               />
@@ -48,8 +48,8 @@ export function CollectionsPreview() {
           >
             <div className="absolute inset-0 rounded-t-[100px] overflow-hidden border border-accent/40 shadow-[0_0_15px_rgba(196,172,94,0.1)] group-hover:border-accent transition-colors duration-500">
               <Image
-                src="/images/sherwani.jpg"
-                alt="Sherwani"
+                src="/images/sherwani-collections.jpg"
+                alt="Luxury Groom Sherwani - MFKhan International Visakhapatnam"
                 fill
                 className="object-cover transition-transform duration-1000 group-hover:scale-110"
               />

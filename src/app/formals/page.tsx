@@ -5,8 +5,8 @@ import Image from 'next/image';
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: 'Luxury Formals | Business Suits & Blazers in Visakhapatnam',
-  description: 'Elevate your professional wardrobe with MFKhan’s luxury formals. Bespoke business suits, tailored blazers, and premium shirts crafted for the modern executive in Vizag.',
+  title: 'Formals & Business Suits — Premium Tailoring in Visakhapatnam | MF Khan International',
+  description: 'The definitive destination for premium formal wear and business suits in Vizag. MF Khan International offers bespoke tailoring and luxury fabrics for the modern professional.',
   keywords: ['business suits vizag', 'formal wear visakhapatnam', 'mens blazers vizag', 'executive tailoring visakhapatnam'],
 };
 

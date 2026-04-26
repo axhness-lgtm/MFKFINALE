@@ -39,7 +39,7 @@ export function Hero() {
           muted
           playsInline
           className="object-cover w-full h-full opacity-75 scale-110"
-          poster="/images/hero-fallback.jpg"
+          poster="/images/designer-suit-collections.jpg"
         >
           <source src="/hero-video.mp4" type="video/mp4" />
         </video>

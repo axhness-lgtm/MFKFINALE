@@ -5,8 +5,8 @@ import Image from 'next/image';
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: 'Wedding Collection | Best Sherwanis & Wedding Suits in Vizag',
-  description: 'Explore MFKhan’s exclusive Wedding Collection. From bespoke designer suits and sherwanis to traditional Pattu-Dhotis, we provide the ultimate wedding attire for grooms in Visakhapatnam.',
+  title: 'Wedding Collection — Best Sherwanis & Designer Suits in Visakhapatnam | MF Khan International',
+  description: 'Explore MF Khan International\'s premier wedding collection in Vizag. From luxury sherwanis to designer wedding suits, experience 80 years of sartorial excellence since 1940.',
   keywords: ['wedding collection vizag', 'groom sherwani visakhapatnam', 'wedding suits shop vizag', 'reception wear for men vizag', 'indo western wedding wear vizag'],
 };
 
