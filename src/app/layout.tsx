@@ -6,11 +6,12 @@ import { LoadingScreen } from "@/components/navigation/LoadingScreen";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.mfkhaninternational.com'),
+  applicationName: 'MF Khan International',
   title: {
-    default: 'MF Khan | Mohammed Faizulla Khan — Luxury Menswear Heritage Since 1940, Visakhapatnam',
+    default: 'MF Khan International | Luxury Menswear Heritage Since 1940, Visakhapatnam',
     template: '%s | MF Khan International'
   },
-  description: 'Visit MFKhan International in Visakhapatnam—the city\'s definitive 9,000 sq. ft. destination for luxury wedding suits, designer sherwanis, and bespoke tailoring. Carrying the legacy of Mohammed Faizulla Khan since 1940.',
+  description: 'MF Khan International is Visakhapatnam\'s largest destination for luxury wedding suits, designer sherwanis, and bespoke tailoring. Continuing the legacy of Mohammed Faizulla Khan since 1940.',
   keywords: [
     'mf khan', 'mf khan vizag', 'mf khan visakhapatnam', 'wedding suits in vizag', 
     'best wedding suits visakhapatnam', 'designer suits vizag', 'bespoke tailoring vizag',
@@ -23,6 +24,10 @@ export const metadata: Metadata = {
     languages: {
       'en-IN': '/',
     },
+  },
+  icons: {
+    icon: '/footer-logo.png',
+    apple: '/footer-logo.png',
   },
   openGraph: {
     title: 'MF Khan International | Luxury Menswear Heritage Since 1940',
@@ -45,6 +50,10 @@ export const metadata: Metadata = {
     title: 'MF Khan International | Quality Conscious Since 1940',
     description: 'The definitive luxury menswear destination in Visakhapatnam with over 80 years of sartorial legacy.',
     images: ['/og-image.jpg'],
+  },
+  appleWebApp: {
+    title: 'MF Khan International',
+    statusBarStyle: 'black-translucent',
   },
   verification: {
     google: 'google71a23149669643c5', // Placeholder, user will replace

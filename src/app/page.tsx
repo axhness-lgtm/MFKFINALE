@@ -12,7 +12,7 @@ import { ExperienceSection } from '@/components/sections/ExperienceSection';
 import { BlogPreview } from '@/components/sections/BlogPreview';
 
 export const metadata: Metadata = {
-  title: 'MF Khan | Best Wedding Suits & Bespoke Tailoring in Visakhapatnam',
+  title: 'MF Khan International | Best Wedding Suits & Bespoke Tailoring in Visakhapatnam',
   description: 'Experience 85 years of tailoring excellence. Visit MFKhan International, Vizag’s premier destination for custom wedding suits, sherwanis, and luxury fabrics. quality conscious since 1940.',
   keywords: ['wedding suits vizag', 'bespoke tailoring visakhapatnam', 'sherwani shop vizag', 'custom suits visakhapatnam', 'best tailors in vizag'],
   openGraph: {
