@@ -8,10 +8,10 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.mfkhaninternational.com'),
   applicationName: 'MF Khan International',
   title: {
-    default: 'MF Khan International | Luxury Menswear Heritage Since 1940, Visakhapatnam',
+    default: 'Best Wedding Suits & Bespoke Tailoring in Visakhapatnam | MF Khan International',
     template: '%s | MF Khan International'
   },
-  description: 'MF Khan International is Visakhapatnam\'s largest destination for luxury wedding suits, designer sherwanis, and bespoke tailoring. Continuing the legacy of Mohammed Faizulla Khan since 1940.',
+  description: 'MF Khan International: Vizag\'s premier destination for luxury wedding suits, designer sherwanis, and bespoke tailoring. Experience 85 years of quality conscious heritage since 1940.',
   keywords: [
     'mf khan', 'mf khan vizag', 'mf khan visakhapatnam', 'wedding suits in vizag', 
     'best wedding suits visakhapatnam', 'designer suits vizag', 'bespoke tailoring vizag',
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     statusBarStyle: 'black-translucent',
   },
   verification: {
-    google: 'google71a23149669643c5', // Placeholder, user will replace
+    google: 'GF6Xc8Ie3fswK7EiIewhQ5yu-l_WZBlmk--ve0wRBHo',
   },
 };
 
@@ -72,6 +72,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
+        <meta name="google-site-verification" content="GF6Xc8Ie3fswK7EiIewhQ5yu-l_WZBlmk--ve0wRBHo" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Spectral:ital,wght@0,300;0,400;0,500&display=swap" rel="stylesheet" />
@@ -83,7 +84,7 @@ export default function RootLayout({
                 "@context": "https://schema.org",
                 "@type": "WebSite",
                 "name": "MF Khan International",
-                "alternateName": "MFKhan International",
+                "alternateName": ["MFKhan International", "M.F. Khan", "MF Khan"],
                 "url": "https://www.mfkhaninternational.com/"
               },
               {
