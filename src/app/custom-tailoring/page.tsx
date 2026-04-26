@@ -7,15 +7,15 @@ import { ArrowRight } from 'lucide-react';
 
 const sections = [
   {
-    title: "International Fabrics",
-    link: "/custom-tailoring/international-fabrics",
+    title: "Fabric Collections",
+    link: "/custom-tailoring/fabric-collections",
     caption: "The foundation of every masterpiece",
     desc: "Our library holds exclusive imported suiting fabrics directly from world-renowned mills. The fabric is chosen first; the design is built after.",
     items: [
-      { name: "Italian Wool", image: "/images/wedding-jodhpuri.jpg", desc: "Year-round drape" },
-      { name: "Crisp Linens", image: "/images/wedding-embroidery.jpg", desc: "Breathable elegance" },
-      { name: "Rich Velvets", image: "/images/wedding-sherwani.jpg", desc: "Luxurious depth" },
-      { name: "Pure Silks", image: "/images/wedding-navy-blazer.jpg", desc: "Refined luster" }
+      { name: "International Fabrics", image: "/images/wedding-jodhpuri.jpg", desc: "Global standards", link: "/custom-tailoring/fabric-collections#international" },
+      { name: "Ethnic Fabric", image: "/images/wedding-embroidery.jpg", desc: "Traditional roots", link: "/custom-tailoring/fabric-collections#ethnic" },
+      { name: "Suiting Fabric", image: "/images/wedding-sherwani.jpg", desc: "Structured weaves", link: "/custom-tailoring/fabric-collections#suiting" },
+      { name: "Shirting Fabric", image: "/images/wedding-navy-blazer.jpg", desc: "Crisp & breathable", link: "/custom-tailoring/fabric-collections#shirting" }
     ]
   },
   {
@@ -24,9 +24,9 @@ const sections = [
     caption: "Architecture for the individual",
     desc: "We do not believe in a one-size template. Whether you demand a razor-sharp slim fit, a balanced tailored fit, or a traditional classic fit, the garment is engineered around your frame.",
     items: [
-      { name: "Slim Fit", image: "/images/fitting-slim.jpg", desc: "Modern silhouette" },
-      { name: "Tailored Fit", image: "/images/fitting-tailored.jpg", desc: "Balanced structure" },
-      { name: "Classic Fit", image: "/images/fitting-classic.jpg", desc: "Maximum comfort" }
+      { name: "Slim Fit", image: "/images/fitting-slim.jpg", desc: "Modern silhouette", link: "/custom-tailoring/fittings#slim" },
+      { name: "Tailored Fit", image: "/images/fitting-tailored.jpg", desc: "Balanced structure", link: "/custom-tailoring/fittings#tailored" },
+      { name: "Classic Fit", image: "/images/fitting-classic.jpg", desc: "Maximum comfort", link: "/custom-tailoring/fittings#classic" }
     ]
   },
   {
@@ -35,10 +35,22 @@ const sections = [
     caption: "True luxury whispers",
     desc: "From the shape of the lapel to the final stitch of embroidery. Personalize every element to make your absolute mark in gold.",
     items: [
-      { name: "Lapel Styles", image: "/images/handwork-lapel1.jpg", desc: "Notch, Peak, or Shawl" },
-      { name: "Embroidery", image: "/images/handwork-lapel2.jpg", desc: "Intricate thread work" },
-      { name: "Monograms", image: "/images/handwork-button.jpg", desc: "Your initials woven" },
-      { name: "Finishing", image: "/images/handwork-notch.jpg", desc: "Horn & pearl accents" }
+      { name: "Lapel Styles", image: "/images/handwork-lapel1.jpg", desc: "Notch, Peak, or Shawl", link: "/custom-tailoring/hand-work#lapels" },
+      { name: "Embroidery", image: "/images/handwork-lapel2.jpg", desc: "Intricate thread work", link: "/custom-tailoring/hand-work#embroidery" },
+      { name: "Monograms", image: "/images/handwork-button.jpg", desc: "Your initials woven", link: "/custom-tailoring/hand-work#monograms" },
+      { name: "Finishing", image: "/images/handwork-notch.jpg", desc: "Horn & pearl accents", link: "/custom-tailoring/hand-work#finishing" }
+    ]
+  },
+  {
+    title: "Guide / Process",
+    link: "/custom-tailoring/process",
+    caption: "A standard built over time",
+    desc: "Every garment at MFKhan International follows a disciplined process from initial consultation to final fitting. No detail is rushed.",
+    items: [
+      { name: "Consultation", image: "/images/process-consultation.jpg", desc: "Understanding the intent", link: "/custom-tailoring/process#consultation" },
+      { name: "Pattern Drafting", image: "/images/process-pattern.jpg", desc: "Individualized structure", link: "/custom-tailoring/process#pattern" },
+      { name: "Baste Fitting", image: "/images/process-fitting.jpg", desc: "First structural check", link: "/custom-tailoring/process#baste" },
+      { name: "Final Polish", image: "/images/process-finish.jpg", desc: "Ready for the occasion", link: "/custom-tailoring/process#finish" }
     ]
   }
 ];
@@ -77,9 +89,10 @@ export default function CustomTailoringPage() {
               {/* Right Side: Interactive Flex Gallery */}
               <div className="lg:w-2/3 h-[500px] md:h-[600px] flex gap-2 w-full">
                 {section.items.map((item, itemIdx) => (
-                  <div 
+                  <Link 
+                    href={item.link || section.link}
                     key={itemIdx} 
-                    className="group relative flex-1 hover:flex-[2.5] transition-all duration-[1500ms] ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden bg-white/5 border border-white/10 cursor-pointer"
+                    className="group relative flex-1 hover:flex-[2.5] transition-all duration-[1500ms] ease-[cubic-bezier(0.25,1,0.5,1)] overflow-hidden bg-white/5 border border-white/10 cursor-pointer block"
                   >
                     <Image 
                       src={item.image} 
@@ -101,7 +114,7 @@ export default function CustomTailoringPage() {
                          <p className="text-[10px] uppercase tracking-[0.2em] text-accent mt-2">{item.desc}</p>
                        </div>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
 

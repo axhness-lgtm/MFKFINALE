@@ -29,6 +29,7 @@ export function Hero() {
 
   return (
     <section className="relative h-[100vh] w-full overflow-hidden bg-[#0a0a09]">
+      <h1 className="sr-only">MF Khan International, Visakhapatnam - Quality Conscious Men's Tailoring Since 1940</h1>
 
       {/* ── Background Video ── */}
       <div className="absolute inset-0 z-0">
@@ -38,7 +39,7 @@ export function Hero() {
           muted
           playsInline
           className="object-cover w-full h-full opacity-75 scale-110"
-          poster={heroImage?.imageUrl || "https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?q=80&w=2000"}
+          poster="/images/hero-fallback.jpg"
         >
           <source src="/hero-video.mp4" type="video/mp4" />
         </video>
@@ -51,12 +52,12 @@ export function Hero() {
       <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-32 md:pt-48">
         {isReady && (
           <>
-            <h1 className="mb-0" style={{ lineHeight: 1.05 }}>
+            <h2 className="mb-0" style={{ lineHeight: 1.05 }}>
               <FadeIn delay={0}>
                 <span className="block">
                   <span
                     style={{
-                      fontFamily: 'Helvetica, Arial, sans-serif',
+                      fontFamily: '"Spectral", serif',
                       fontSize: 'clamp(42px, 6vw, 90px)',
                       fontWeight: 'regular',
                       letterSpacing: '-0.02em',
@@ -67,7 +68,7 @@ export function Hero() {
                   </span>
                   <span
                     style={{
-                      fontFamily: '"Playfair Display", serif',
+                      fontFamily: '"Cormorant Garamond", serif',
                       fontSize: 'clamp(48px, 7vw, 85px)',
                       fontWeight: 100,
                       letterSpacing: '-0.02em',
@@ -83,7 +84,7 @@ export function Hero() {
                 <FadeIn delay={500} className="inline-block">
                   <span
                     style={{
-                      fontFamily: '"Times New Roman", serif',
+                      fontFamily: '"Cormorant Garamond", serif',
                       fontSize: 'clamp(42px, 6vw, 90px)',
                       fontWeight: 'normal',
                       letterSpacing: '-0.02em',
@@ -97,7 +98,7 @@ export function Hero() {
                 <FadeIn delay={1500} className="inline-block mx-4" direction="none">
                   <span
                     style={{
-                      fontFamily: '"Times New Roman", serif',
+                      fontFamily: '"Cormorant Garamond", serif',
                       fontSize: 'clamp(48px, 7vw, 85px)',
                       fontWeight: 'regular',
                       fontStyle: 'italic',
@@ -112,7 +113,7 @@ export function Hero() {
                 <FadeIn delay={500} className="inline-block">
                   <span
                     style={{
-                      fontFamily: '"Times New Roman", serif',
+                      fontFamily: '"Cormorant Garamond", serif',
                       fontSize: 'clamp(48px, 7vw, 85px)',
                       fontWeight: 'normal',
                       letterSpacing: '-0.02em',
@@ -123,7 +124,7 @@ export function Hero() {
                   </span>
                 </FadeIn>
               </span>
-            </h1>
+            </h2>
 
             <FadeIn delay={800}>
               <div className="mt-4 flex flex-col items-center">
@@ -133,19 +134,19 @@ export function Hero() {
                 />
                 <span
                   style={{
-                    fontFamily: 'monospace',
+                    fontFamily: '"Cinzel", serif',
                     fontSize: 'clamp(14px, 1.5vw, 24px)',
                     letterSpacing: '0.1em',
-                    fontWeight: 300,
+                    fontWeight: 400,
                     textTransform: 'uppercase',
                     color: 'hsl(var(--accent))',
                   }}
                 >
-                  A Legacy of Tailoring, Since 1940
+                  Quality Conscious Since 1940
                 </span>
                 <span
                   className="mt-2 text-[#E8E0D0]/50 tracking-[0.1em] text-[9px] md:text-xs uppercase font-light"
-                  style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
+                  style={{ fontFamily: '"Spectral", serif' }}
                 >
                   Experience finished garments in-store or have them tailored to you.
                 </span>
@@ -153,7 +154,7 @@ export function Hero() {
             </FadeIn>
 
             <FadeIn delay={1200}>
-              <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6">
+              <div className="mt-4 flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6">
                 <a 
                   href="https://wa.me/919988393389" 
                   target="_blank" 

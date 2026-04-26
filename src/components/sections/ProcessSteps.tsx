@@ -47,7 +47,13 @@ export function ProcessSteps() {
           >
             The Journey
           </span>
-          <h3 className="text-3xl md:text-5xl font-serif font-light tracking-tight max-w-2xl mx-auto leading-tight text-[#E8E0D0]">The Art of Hand-Crafted Tailoring</h3>
+          <h3 className="text-3xl md:text-5xl font-serif font-light tracking-tight max-w-2xl mx-auto leading-tight text-[#E8E0D0] mb-6">The Art of Hand-Crafted Tailoring</h3>
+          <p
+            className="text-[#E8E0D0]/60 leading-relaxed text-sm md:text-base tracking-wide max-w-2xl mx-auto font-light"
+            style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
+          >
+            At our Rednam Gardens Jail Road atelier in Visakhapatnam, the process of creating a garment for you begins long before the first cut.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12 md:gap-y-16">

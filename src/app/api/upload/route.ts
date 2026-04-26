@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
+import { storage } from '@/lib/firebase';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 export async function POST(request: Request) {
   try {
@@ -11,22 +11,19 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'No file uploaded' }, { status: 400 });
     }
 
-    const buffer = Buffer.from(await file.arrayBuffer());
-    const ext = path.extname(file.name) || '.jpg';
-    const filename = `${Date.now()}-${Math.round(Math.random() * 1e9)}${ext}`;
+    const buffer = await file.arrayBuffer();
+    const filename = `${Date.now()}-${file.name.replace(/[^a-zA-Z0-9.-]/g, '_')}`;
     
-    const uploadDir = path.join(process.cwd(), 'public', 'uploads');
+    const storageRef = ref(storage, `uploads/${filename}`);
+    const snapshot = await uploadBytes(storageRef, new Uint8Array(buffer), {
+      contentType: file.type || 'image/jpeg',
+    });
     
-    // Ensure directory exists
-    if (!fs.existsSync(uploadDir)) {
-      fs.mkdirSync(uploadDir, { recursive: true });
-    }
-
-    const filepath = path.join(uploadDir, filename);
-    fs.writeFileSync(filepath, buffer);
+    const downloadUrl = await getDownloadURL(snapshot.ref);
     
-    return NextResponse.json({ url: `/uploads/${filename}` });
+    return NextResponse.json({ url: downloadUrl });
   } catch (error) {
+    console.error("Upload error:", error);
     return NextResponse.json({ error: 'Failed to upload image' }, { status: 500 });
   }
 }

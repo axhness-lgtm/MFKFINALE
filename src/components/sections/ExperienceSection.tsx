@@ -6,11 +6,11 @@ import Link from 'next/link';
 
 export function ExperienceSection() {
   return (
-    <section className="bg-[#0a0a09] pt-12 md:pt-20 pb-16 md:pb-24 px-6 md:px-12 relative overflow-hidden">
+    <section className="bg-[#0a0a09] pt-8 md:pt-12 pb-8 md:pb-12 px-6 md:px-12 relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="text-center mb-12 md:mb-20">
+        <div className="text-center mb-8 md:mb-12">
           <span className="gold-text uppercase tracking-[0.5em] text-[10px] block mb-4">The MFKhan Experience</span>
-          <h2 className="text-3xl md:text-6xl text-[#E8E0D0] font-light leading-tight font-serif italic">
+          <h2 className="text-3xl md:text-5xl text-[#E8E0D0] font-light leading-tight font-serif italic">
             Best of Both Worlds
           </h2>
         </div>
@@ -50,14 +50,12 @@ export function ExperienceSection() {
               <p className="text-white/60 text-sm md:text-base mb-8 max-w-sm font-light">
                 Refined by our in-house masters. Tailored from the ground up to your precise metrics.
               </p>
-              <a 
-                href="https://wa.me/919988393389" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <Link 
+                href="/custom-tailoring" 
                 className="hero-btn-secondary w-fit flex items-center gap-2"
               >
                 Book Custom Cut
-              </a>
+              </Link>
             </div>
           </FadeIn>
         </div>

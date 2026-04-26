@@ -61,6 +61,14 @@ export default function WeddingSherwaniPage() {
             )}
           </div>
         )}
+
+        {/* Next Collection Link */}
+        <div className="mt-24 border-t border-white/5 pt-16 flex flex-col items-center">
+           <span className="text-white/40 uppercase tracking-[0.4em] text-[10px] mb-4">Continue Exploring</span>
+           <Link href="/wedding/indo-western" className="hero-btn-secondary">
+             View Indo-Western Collection
+           </Link>
+        </div>
       </div>
     </div>
   );

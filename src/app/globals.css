@@ -17,7 +17,7 @@
     --secondary-foreground: 11 37% 19%;
     --muted: 45 10% 90%;
     --muted-foreground: 20 10% 40%;
-    --accent: 46 65% 52%; /* #D4AF37 - Gold */
+    --accent: 46 46.4% 56.9%; /* #c4ac5e - Custom Gold */
     --accent-foreground: 45 20% 97%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
@@ -41,7 +41,26 @@
 }
 
 .gold-text {
-  color: hsl(var(--accent));
+  color: #c4ac5e !important;
+}
+
+/* Mass background override for #0d0606 request */
+.bg-\[\#0a0a09\] {
+  background-color: #0d0606 !important;
+}
+
+/* Mass typography override for Cormorant Garamond & Spectral */
+[style*="Playfair Display"] {
+  font-family: 'Cormorant Garamond', serif !important;
+}
+[style*="Times New Roman"] {
+  font-family: 'Cormorant Garamond', serif !important;
+}
+[style*="Helvetica"] {
+  font-family: 'Spectral', serif !important;
+}
+[style*="Gwendolyn"] {
+  font-family: 'Cormorant Garamond', serif !important;
 }
 
 .font-citadel {

@@ -11,9 +11,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['"Helvetica"', '"Arial"', 'sans-serif'],
-        serif: ['"Playfair Display"', 'serif'],
-        cursive: ['"Gwendolyn"', '"Ballet"', 'cursive'],
+        body: ['"Spectral"', 'serif'],
+        serif: ['"Cormorant Garamond"', 'serif'],
+        cursive: ['"Cormorant Garamond"', 'serif'],
         code: ['monospace'],
       },
       colors: {

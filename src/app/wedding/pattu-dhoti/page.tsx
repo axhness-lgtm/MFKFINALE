@@ -40,7 +40,7 @@ export default function PattuDhotiPage() {
             {items.map((item, idx) => (
               <FadeIn key={item.id} delay={(idx % 4) * 100}>
                 <Link 
-                  href={`/collection/${item.id}?name=${encodeURIComponent(item.name)}&image=${encodeURIComponent(item.image)}&desc=${encodeURIComponent(item.desc)}`} 
+                  href={`/collection/${item.id}?name=${encodeURIComponent(item.name || '')}&image=${encodeURIComponent(item.image || '')}&desc=${encodeURIComponent(item.desc || '')}`} 
                   className="flex flex-col group cursor-pointer"
                 >
                   <div className="relative w-full aspect-[3/4] overflow-hidden bg-[#111] mb-4">

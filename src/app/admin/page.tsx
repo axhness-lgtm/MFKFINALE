@@ -23,7 +23,21 @@ export default function AdminDashboard() {
   // Inquiries state
   const [inquiries, setInquiries] = useState<any[]>([]);
   const [loadingInquiries, setLoadingInquiries] = useState(false);
-  const [activeTab, setActiveTab] = useState<'inventory' | 'inquiries'>('inventory');
+  const [activeTab, setActiveTab] = useState<'inventory' | 'inquiries' | 'blogs'>('inventory');
+  
+  // Blogs state
+  const [blogs, setBlogs] = useState<any[]>([]);
+  const [loadingBlogs, setLoadingBlogs] = useState(false);
+  const [editingBlogId, setEditingBlogId] = useState<string | null>(null);
+  const [blogFormData, setBlogFormData] = useState({
+    title: '',
+    slug: '',
+    excerpt: '',
+    content: '',
+    category: 'Journal',
+    date: new Date().toISOString().split('T')[0],
+    image: ''
+  });
   
   const [formData, setFormData] = useState({
     name: '',
@@ -71,10 +85,22 @@ export default function AdminDashboard() {
     setLoadingInquiries(false);
   };
 
+  const fetchBlogs = async () => {
+    setLoadingBlogs(true);
+    try {
+      const res = await fetch('/api/blogs');
+      if (res.ok) setBlogs(await res.json());
+    } catch (e) {
+      console.error(e);
+    }
+    setLoadingBlogs(false);
+  };
+
   useEffect(() => {
     if (isAuthorized) {
       fetchProducts();
       fetchInquiries();
+      fetchBlogs();
     }
   }, [isAuthorized]);
 
@@ -212,6 +238,64 @@ export default function AdminDashboard() {
     }
   };
 
+  const handleBlogSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!blogFormData.image) {
+      alert("Please upload a cover image for the blog.");
+      return;
+    }
+
+    const payload = {
+       ...blogFormData,
+       slug: blogFormData.slug.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '')
+    };
+
+    let res;
+    if (editingBlogId) {
+      res = await fetch(`/api/blogs/${editingBlogId}`, {
+        method: 'PUT',
+        body: JSON.stringify(payload),
+      });
+    } else {
+      res = await fetch('/api/blogs', {
+        method: 'POST',
+        body: JSON.stringify(payload),
+      });
+    }
+
+    if (!res.ok) {
+      alert('Failed to save blog');
+      return;
+    }
+
+    setBlogFormData({ title: '', slug: '', excerpt: '', content: '', category: 'Journal', date: new Date().toISOString().split('T')[0], image: '' });
+    setEditingBlogId(null);
+    fetchBlogs();
+  };
+
+  const handleBlogImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setUploadingImage(true);
+      try {
+        const file = e.target.files[0];
+        const storageRef = ref(storage, `blogs/${Date.now()}-${file.name}`);
+        const snapshot = await uploadBytes(storageRef, file);
+        const url = await getDownloadURL(snapshot.ref);
+        setBlogFormData(prev => ({ ...prev, image: url }));
+      } catch (err) {
+        alert('Upload failed');
+      }
+      setUploadingImage(false);
+    }
+  };
+
+  const handleBlogDelete = async (id: string) => {
+    if (confirm('Delete this blog post?')) {
+      await fetch(`/api/blogs/${id}`, { method: 'DELETE' });
+      fetchBlogs();
+    }
+  };
+
   const filteredProducts = products.filter(p => 
     (p.id && p.id.toLowerCase().includes(searchTerm.toLowerCase())) ||
     (p.name && p.name.toLowerCase().includes(searchTerm.toLowerCase()))
@@ -234,6 +318,12 @@ export default function AdminDashboard() {
               className={`px-4 py-2 text-xs uppercase tracking-[0.2em] font-bold ${activeTab === 'inquiries' ? 'bg-accent text-black' : 'text-white/50 border border-white/20 hover:text-white'}`}
             >
               Client Inquiries
+            </button>
+            <button 
+              onClick={() => setActiveTab('blogs')}
+              className={`px-4 py-2 text-xs uppercase tracking-[0.2em] font-bold ${activeTab === 'blogs' ? 'bg-accent text-black' : 'text-white/50 border border-white/20 hover:text-white'}`}
+            >
+              Journal & Blogs
             </button>
           </div>
         </div>
@@ -452,6 +542,79 @@ export default function AdminDashboard() {
                  )}
                </div>
              )}
+            </div>
+        )}
+
+        {activeTab === 'blogs' && (
+           <div className="space-y-16">
+             {/* Add/Edit Blog Form */}
+             <div className="bg-[#111] border border-white/10 p-8">
+               <h2 className="text-2xl font-serif text-[#E8E0D0] mb-6">{editingBlogId ? 'Edit Journal Entry' : 'Post Journal Entry'}</h2>
+               <form onSubmit={handleBlogSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                 <div>
+                   <label className="text-xs uppercase tracking-widest text-white/50 block mb-2">Title *</label>
+                   <input required type="text" value={blogFormData.title} onChange={e => setBlogFormData({...blogFormData, title: e.target.value})} className="w-full bg-black border border-white/20 text-white p-3 outline-none focus:border-accent" />
+                 </div>
+                 <div>
+                   <label className="text-xs uppercase tracking-widest text-white/50 block mb-2">URL Slug *</label>
+                   <input required type="text" value={blogFormData.slug} onChange={e => setBlogFormData({...blogFormData, slug: e.target.value})} placeholder="e.g. art-of-bespoke" className="w-full bg-black border border-white/20 text-white p-3 outline-none focus:border-accent lowercase" />
+                 </div>
+                 <div>
+                   <label className="text-xs uppercase tracking-widest text-white/50 block mb-2">Category *</label>
+                   <input required type="text" value={blogFormData.category} onChange={e => setBlogFormData({...blogFormData, category: e.target.value})} className="w-full bg-black border border-white/20 text-white p-3 outline-none focus:border-accent" />
+                 </div>
+                 <div>
+                   <label className="text-xs uppercase tracking-widest text-white/50 block mb-2">Publish Date *</label>
+                   <input required type="date" value={blogFormData.date} onChange={e => setBlogFormData({...blogFormData, date: e.target.value})} className="w-full bg-black border border-white/20 text-white p-3 outline-none focus:border-accent [color-scheme:dark]" />
+                 </div>
+                 <div className="md:col-span-2">
+                   <label className="text-xs uppercase tracking-widest text-white/50 block mb-2">Short Excerpt *</label>
+                   <textarea required rows={2} value={blogFormData.excerpt} onChange={e => setBlogFormData({...blogFormData, excerpt: e.target.value})} className="w-full bg-black border border-white/20 text-white p-3 outline-none focus:border-accent resize-none" />
+                 </div>
+                 <div className="md:col-span-2">
+                   <label className="text-xs uppercase tracking-widest text-white/50 block mb-2">Full Content (HTML allowed) *</label>
+                   <textarea required rows={10} value={blogFormData.content} onChange={e => setBlogFormData({...blogFormData, content: e.target.value})} placeholder="<p>Write your article here...</p>" className="w-full bg-black border border-white/20 text-white p-3 outline-none focus:border-accent font-mono text-sm" />
+                 </div>
+                 <div className="md:col-span-2">
+                   <label className="text-xs uppercase tracking-widest text-white/50 block mb-2">Cover Image *</label>
+                   <input type="file" accept="image/*" onChange={handleBlogImageUpload} className="mb-4 block" />
+                   {uploadingImage && <p className="text-accent animate-pulse mb-4">Uploading Image...</p>}
+                   {blogFormData.image && <img src={blogFormData.image} alt="Cover Preview" className="h-40 object-cover border border-white/10" />}
+                 </div>
+                 <div className="md:col-span-2 flex justify-end gap-4 mt-4">
+                   {editingBlogId && (
+                     <button type="button" onClick={() => { setEditingBlogId(null); setBlogFormData({ title: '', slug: '', excerpt: '', content: '', category: 'Journal', date: new Date().toISOString().split('T')[0], image: '' }); }} className="px-6 py-3 border border-white/20 text-white">Cancel</button>
+                   )}
+                   <button type="submit" disabled={uploadingImage || !blogFormData.image} className="hero-btn-secondary">{editingBlogId ? 'Update Post' : 'Publish Post'}</button>
+                 </div>
+               </form>
+             </div>
+
+             {/* Existing Blogs List */}
+             <div>
+               <h2 className="text-2xl font-serif text-[#E8E0D0] border-b border-white/10 pb-4 mb-6">Published Entries</h2>
+               {loadingBlogs ? <p className="text-accent italic">Loading journals...</p> : (
+                 <div className="grid grid-cols-1 gap-4">
+                   {blogs.map(blog => (
+                     <div key={blog.id} className="bg-[#111] border border-white/5 p-4 flex flex-col md:flex-row gap-6 justify-between items-center hover:border-white/20">
+                       <div className="flex gap-6 items-center w-full">
+                         {blog.image && <img src={blog.image} className="w-24 h-16 object-cover bg-black" alt={blog.title} />}
+                         <div>
+                           <h3 className="text-white font-medium">{blog.title}</h3>
+                           <p className="text-xs text-white/50">{new Date(blog.date).toLocaleDateString()} • {blog.category}</p>
+                           <p className="text-[10px] text-accent mt-1 tracking-widest uppercase">Slug: /{blog.slug}</p>
+                         </div>
+                       </div>
+                       <div className="flex gap-4 w-full md:w-auto">
+                         <button onClick={() => { setEditingBlogId(blog.id); setBlogFormData(blog); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="text-xs uppercase tracking-widest text-[#E8E0D0] hover:text-white px-4 py-2 bg-white/5">Edit</button>
+                         <button onClick={() => handleBlogDelete(blog.id)} className="text-xs uppercase tracking-widest text-red-400 hover:text-red-300 px-4 py-2 bg-white/5">Delete</button>
+                       </div>
+                     </div>
+                   ))}
+                   {blogs.length === 0 && <p className="text-white/50 py-8 text-center bg-[#111] border border-white/5">No journal entries found.</p>}
+                 </div>
+               )}
+             </div>
            </div>
         )}
 

@@ -81,7 +81,7 @@ export function Testimonials() {
 
         <div className="mt-12 text-center">
           <a
-            href="https://www.google.com/search?q=MFKhan+International+Visakhapatnam+reviews"
+            href="https://www.google.com/search?sca_esv=c9874bb074d0c29e&sxsrf=ANbL-n6zmbMmYSYqcfa4jCS2SnhETyZ2uA:1777023005117&si=AL3DRZHrmvnFAVQPOO2Bzhf8AX9KZZ6raUI_dT7DG_z0kV2_x_K4xYLX8sT1-mZSIdy57WkOTHsGgjcdDzhiTXbNHyAP5NVCu0K-WcS6TZd83VBaSw5eKGpKbnH3pk8z_8OaYaegEbaeXT5jlssM-TUOHyq1M6nA_w%3D%3D&q=MFKhan+International+Reviews&sa=X&ved=2ahUKEwi19ejHloaUAxUYqZUCHaqACB8Q0bkNegQIQxAH&biw=1280&bih=678&dpr=1.5"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[10px] uppercase tracking-[0.3em] text-white/40 hover:text-accent transition-colors font-body border-b border-white/10 pb-1"

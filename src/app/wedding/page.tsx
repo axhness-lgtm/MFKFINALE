@@ -1,8 +1,14 @@
-
+import { Metadata } from 'next';
 import { FadeIn } from '@/components/animations/FadeIn';
 import Link from 'next/link';
 import Image from 'next/image';
 import { cn } from "@/lib/utils";
+
+export const metadata: Metadata = {
+  title: 'Wedding Collection | Best Sherwanis & Wedding Suits in Vizag',
+  description: 'Explore MFKhan’s exclusive Wedding Collection. From bespoke designer suits and sherwanis to traditional Pattu-Dhotis, we provide the ultimate wedding attire for grooms in Visakhapatnam.',
+  keywords: ['wedding collection vizag', 'groom sherwani visakhapatnam', 'wedding suits shop vizag', 'reception wear for men vizag', 'indo western wedding wear vizag'],
+};
 
 export default function WeddingPage() {
   return (

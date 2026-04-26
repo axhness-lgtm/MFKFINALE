@@ -83,20 +83,26 @@ export function Footer() {
             <div className="space-y-6">
               <div className="group cursor-default">
                 <p className="text-[10px] uppercase tracking-[0.2em] text-white/40 mb-3 font-mono">Location</p>
-                <address className="not-italic text-[10px] uppercase tracking-widest text-white/70 leading-relaxed font-light font-mono">
+                <address className="not-italic text-[10px] uppercase tracking-widest text-white/70 leading-relaxed font-light font-mono mb-3">
                   10-12-1, Jail Road, Rednam Gardens,<br />
                   Visakhapatnam, Andhra Pradesh, 530002
                 </address>
+                <div className="text-[10px] uppercase tracking-[0.2em] text-white/40 font-mono mt-1 mb-1">Timings</div>
+                <p className="text-[10px] uppercase tracking-widest text-white/70 font-mono">
+                  10AM - 9:30PM
+                  <br />
+                  <span className="text-accent italic text-[9px]">ALL YEAR LONG</span>
+                </p>
               </div>
 
               <div className="space-y-4">
                 <p className="text-[10px] uppercase tracking-[0.2em] text-white/40 mb-3 font-mono">Connect</p>
                 <div className="flex flex-col gap-4">
-                  <a href="tel:+919988393389" className="flex items-center gap-3 text-[10px] uppercase tracking-widest text-white/70 hover:text-accent transition-colors transition-all duration-300 group font-mono">
+                  <a href="tel:+919182167662" className="flex items-center gap-3 text-[10px] uppercase tracking-widest text-white/70 hover:text-accent transition-colors transition-all duration-300 group font-mono">
                     <Phone size={12} className="text-accent opacity-50 group-hover:opacity-100" />
-                    <span>+91 99883 93389</span>
+                    <span>+91 91821 67662</span>
                   </a>
-                  <a href="https://wa.me/919988393389" target="_blank" className="flex items-center gap-3 text-[10px] uppercase tracking-widest text-white/70 hover:text-accent transition-colors transition-all duration-300 group font-mono">
+                  <a href="https://wa.me/919182167662" target="_blank" className="flex items-center gap-3 text-[10px] uppercase tracking-widest text-white/70 hover:text-accent transition-colors transition-all duration-300 group font-mono">
                     <span>CONTACT US</span>
                   </a>
                 </div>
@@ -113,14 +119,19 @@ export function Footer() {
               <a href="https://facebook.com/mfkhaninternational" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-accent transition-colors" title="Facebook">
                 <Facebook size={16} />
               </a>
-              <a href="https://linkedin.com/company/mfkhaninternational" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-accent transition-colors" title="LinkedIn">
+              <a href="https://x.com/mfkhan_suits?s=11" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-accent transition-colors" title="X (Twitter)">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.008 4.15H5.078z"/>
                 </svg>
               </a>
-              <a href="https://pinterest.com/mfkhaninternational" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-accent transition-colors" title="Pinterest">
+              <a href="https://www.youtube.com/@Mfkhaninternational" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-accent transition-colors" title="YouTube">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12.017 0c-6.627 0-12 5.373-12 12 0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.261 7.929-7.261 4.162 0 7.398 2.967 7.398 6.93 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.631-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146 1.124.347 2.317.535 3.554.535 6.627 0 12-5.373 12-12 0-6.627-5.373-12-12-12z"/>
+                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+              </a>
+              <a href="https://www.threads.com/@mfkhaninternational" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-accent transition-colors" title="Threads">
+                <svg width="16" height="16" viewBox="0 0 192 192" fill="currentColor">
+                  <path d="M141.537 88.9883C140.71 88.5919 139.87 88.2104 139.019 87.8451C137.537 60.5382 122.616 44.905 97.5619 44.745C97.4484 44.7443 97.3355 44.7443 97.222 44.7443C82.2364 44.7443 69.7731 51.1409 62.102 62.7807L75.881 72.2328C81.6116 63.5383 90.6052 61.6848 97.2286 61.6848C97.3051 61.6848 97.3819 61.6848 97.4576 61.6855C105.707 61.7381 111.932 64.1366 115.961 68.814C118.893 72.2193 120.854 76.925 121.825 82.8638C114.511 81.6207 106.601 81.2385 98.145 81.7233C74.3247 83.0954 59.0111 96.9879 60.0396 116.292C60.5263 125.41 65.4399 133.891 75.3025 138.995C84.1112 143.553 95.2203 143.673 105.41 139.38C113.659 135.903 119.928 130.25 123.973 123.214C125.659 136.22 135.848 144.28 147.636 143.815C153.314 143.593 158.115 141.016 162.242 136.523L151.785 126.326C149.77 128.543 147.231 129.851 144.3 129.965C141.222 130.086 138.089 128.218 137.528 123.239V123.199V123.148C137.781 120.739 138.679 111.73 136.956 94.3942C138.459 92.5148 140.063 90.72 141.537 88.9883ZM98.4414 129.507C88.0005 130.095 77.1544 125.409 76.6196 115.372C76.2232 107.93 81.9158 99.626 99.0812 98.6368C101.047 98.5234 102.976 98.468 104.871 98.468C111.106 98.468 116.939 99.0737 122.242 100.233C120.264 124.935 108.662 128.946 98.4414 129.507Z"/>
                 </svg>
               </a>
               <a href="https://www.justdial.com/Visakhapatnam/M-F-Khan-Tailors-Near-Police-Mess-Rednam-Gardens/0891P891STD12502" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-accent transition-colors text-[9px] font-bold tracking-widest flex items-center gap-1 border border-white/10 px-2 py-1" title="JustDial">

@@ -61,6 +61,14 @@ export default function WeddingIndoWesternPage() {
             )}
           </div>
         )}
+
+        {/* Next Collection Link */}
+        <div className="mt-24 border-t border-white/5 pt-16 flex flex-col items-center">
+           <span className="text-white/40 uppercase tracking-[0.4em] text-[10px] mb-4">Crafting Excellence</span>
+           <Link href="/custom-tailoring" className="hero-btn-secondary">
+             Explore Custom Tailoring
+           </Link>
+        </div>
       </div>
     </div>
   );
