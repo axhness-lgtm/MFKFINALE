@@ -107,6 +107,9 @@ export function Header() {
 
   const allLinks = [...leftLinks, ...rightLinks];
 
+  // Hide header entirely on admin pages
+  if (pathname.startsWith('/admin')) return null;
+
   return (
     <>
       {/* Promotional Top Bar */}

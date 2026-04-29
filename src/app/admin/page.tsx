@@ -1,8 +1,5 @@
 "use client";
 import { useState, useEffect, useRef } from 'react';
-import { FadeIn } from '@/components/animations/FadeIn';
-import { storage } from '@/lib/firebase';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 export default function AdminDashboard() {
   const [products, setProducts] = useState<any[]>([]);
@@ -14,11 +11,7 @@ export default function AdminDashboard() {
 
   // Drag and drop state
   const [isDragging, setIsDragging] = useState(false);
-  const [uploadingImage, setUploadingImage] = useState(false);
-  
-  // Auth state
-  const [isAuthorized, setIsAuthorized] = useState(false);
-  const [passcode, setPasscode] = useState('');
+  const [uploadProgress, setUploadProgress] = useState<{ done: number; total: number } | null>(null);
   
   // Inquiries state
   const [inquiries, setInquiries] = useState<any[]>([]);
@@ -97,39 +90,11 @@ export default function AdminDashboard() {
   };
 
   useEffect(() => {
-    if (isAuthorized) {
-      fetchProducts();
-      fetchInquiries();
-      fetchBlogs();
-    }
-  }, [isAuthorized]);
+    fetchProducts();
+    fetchInquiries();
+    fetchBlogs();
+  }, []);
 
-  const handleLogin = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (passcode === 'mfkhan2026') {
-      setIsAuthorized(true);
-    } else {
-      alert("Invalid Access Code");
-    }
-  };
-
-  if (!isAuthorized) {
-    return (
-      <div className="min-h-screen pt-52 pb-24 bg-[#0a0a09] flex items-center justify-center">
-        <form onSubmit={handleLogin} className="bg-[#111] border border-white/10 p-12 text-center space-y-6 max-w-md w-full">
-          <h1 className="text-2xl font-serif text-[#E8E0D0]">Admin Access</h1>
-          <input 
-            type="password" 
-            placeholder="Enter Access Code" 
-            value={passcode}
-            onChange={(e) => setPasscode(e.target.value)}
-            className="w-full bg-black border border-white/20 text-white p-3 outline-none focus:border-accent text-center tracking-widest"
-          />
-          <button type="submit" className="hero-btn-secondary w-full">Enter Dashboard</button>
-        </form>
-      </div>
-    );
-  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -184,6 +149,15 @@ export default function AdminDashboard() {
     setFormData(prev => ({ ...prev, images: newImages }));
   };
 
+  // Move selected image to index 0 (makes it the thumbnail/cover)
+  const setAsCover = (index: number) => {
+    if (index === 0) return;
+    const newImages = [...formData.images];
+    const [selected] = newImages.splice(index, 1);
+    newImages.unshift(selected);
+    setFormData(prev => ({ ...prev, images: newImages }));
+  };
+
   // Drag and Drop Handlers
   const handleDragOver = (e: React.DragEvent) => {
     e.preventDefault();
@@ -210,30 +184,45 @@ export default function AdminDashboard() {
     }
   };
 
+  // Upload a single File to Cloudinary via the server-side API route
+  const uploadToCloudinary = async (file: File, folder = 'mfk-products'): Promise<string> => {
+    const form = new FormData();
+    form.append('file', file);
+    form.append('folder', folder);
+    const res = await fetch('/api/upload', { method: 'POST', body: form });
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.error || 'Upload failed');
+    }
+    const data = await res.json();
+    return data.url as string;
+  };
+
   const handleMultipleImagesUpload = async (fileList: FileList) => {
-    setUploadingImage(true);
-    const newUrls: string[] = [];
+    const validFiles = Array.from(fileList).filter(f => {
+      const ok = ['image/jpeg', 'image/png', 'image/webp'].includes(f.type);
+      if (!ok) alert(`"${f.name}" is not a valid format and was skipped.`);
+      return ok;
+    });
+    if (validFiles.length === 0) return;
+
+    setUploadProgress({ done: 0, total: validFiles.length });
 
     try {
-      for (let i = 0; i < fileList.length; i++) {
-        const file = fileList[i];
-        if (file.type !== 'image/jpeg' && file.type !== 'image/png' && file.type !== 'image/webp') {
-          alert(`File ${file.name} is not a valid format and was skipped.`);
-          continue;
-        }
+      // Upload all images in parallel — Cloudinary handles compression
+      const uploadOne = async (file: File): Promise<string> => {
+        const url = await uploadToCloudinary(file, 'mfk-products');
+        setUploadProgress(prev => prev ? { ...prev, done: prev.done + 1 } : prev);
+        return url;
+      };
 
-        const storageRef = ref(storage, `products/${Date.now()}-${file.name}`);
-        const snapshot = await uploadBytes(storageRef, file);
-        const downloadUrl = await getDownloadURL(snapshot.ref);
-        newUrls.push(downloadUrl);
-      }
-      
+      const newUrls = await Promise.all(validFiles.map(uploadOne));
       setFormData(prev => ({ ...prev, images: [...prev.images, ...newUrls] }));
     } catch (err) {
-      alert('Failed to upload image(s). Please try again.');
+      console.error(err);
+      alert('Failed to upload image(s). Please check your connection and try again.');
     } finally {
-      setUploadingImage(false);
-      // Reset input value so same files could be uploaded again if deleted then re-selected
+      setUploadProgress(null);
       if (fileInputRef.current) fileInputRef.current.value = '';
     }
   };
@@ -275,17 +264,15 @@ export default function AdminDashboard() {
 
   const handleBlogImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      setUploadingImage(true);
+      setUploadProgress({ done: 0, total: 1 });
       try {
-        const file = e.target.files[0];
-        const storageRef = ref(storage, `blogs/${Date.now()}-${file.name}`);
-        const snapshot = await uploadBytes(storageRef, file);
-        const url = await getDownloadURL(snapshot.ref);
+        const url = await uploadToCloudinary(e.target.files[0], 'mfk-blogs');
         setBlogFormData(prev => ({ ...prev, image: url }));
       } catch (err) {
-        alert('Upload failed');
+        alert('Upload failed. Please try again.');
+      } finally {
+        setUploadProgress(null);
       }
-      setUploadingImage(false);
     }
   };
 
@@ -302,42 +289,45 @@ export default function AdminDashboard() {
   );
 
   return (
-    <div className="min-h-screen pt-52 pb-24 bg-[#0a0a09]">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-6 border-b border-white/10 pb-6">
-          <h1 className="text-4xl font-serif text-[#E8E0D0]">Admin Dashboard</h1>
-          <div className="flex gap-4">
-            <button 
-              onClick={() => setActiveTab('inventory')}
-              className={`px-4 py-2 text-xs uppercase tracking-[0.2em] font-bold ${activeTab === 'inventory' ? 'bg-accent text-black' : 'text-white/50 border border-white/20 hover:text-white'}`}
-            >
-              Inventory Management
-            </button>
-            <button 
-              onClick={() => setActiveTab('inquiries')}
-              className={`px-4 py-2 text-xs uppercase tracking-[0.2em] font-bold ${activeTab === 'inquiries' ? 'bg-accent text-black' : 'text-white/50 border border-white/20 hover:text-white'}`}
-            >
-              Client Inquiries
-            </button>
-            <button 
-              onClick={() => setActiveTab('blogs')}
-              className={`px-4 py-2 text-xs uppercase tracking-[0.2em] font-bold ${activeTab === 'blogs' ? 'bg-accent text-black' : 'text-white/50 border border-white/20 hover:text-white'}`}
-            >
-              Journal & Blogs
-            </button>
-          </div>
-        </div>
+    <div className="pb-16">
+      {/* Tab switcher */}
+      <div className="flex flex-wrap gap-2 mb-8 border-b border-white/10 pb-6">
+        <button
+          onClick={() => setActiveTab('inventory')}
+          className={`px-5 py-2 text-xs uppercase tracking-[0.2em] font-bold transition-colors ${
+            activeTab === 'inventory' ? 'bg-accent text-black' : 'text-white/50 border border-white/20 hover:text-white hover:border-white/40'
+          }`}
+        >
+          Inventory
+        </button>
+        <button
+          onClick={() => setActiveTab('inquiries')}
+          className={`px-5 py-2 text-xs uppercase tracking-[0.2em] font-bold transition-colors ${
+            activeTab === 'inquiries' ? 'bg-accent text-black' : 'text-white/50 border border-white/20 hover:text-white hover:border-white/40'
+          }`}
+        >
+          Inquiries
+        </button>
+        <button
+          onClick={() => setActiveTab('blogs')}
+          className={`px-5 py-2 text-xs uppercase tracking-[0.2em] font-bold transition-colors ${
+            activeTab === 'blogs' ? 'bg-accent text-black' : 'text-white/50 border border-white/20 hover:text-white hover:border-white/40'
+          }`}
+        >
+          Journal &amp; Blogs
+        </button>
+      </div>
 
-        {activeTab === 'inventory' && (
-          <>
+      {activeTab === 'inventory' && (
+        <>
             {/* Product Form */}
-            <div className="bg-[#111] border border-white/10 p-8 mb-16">
-          <h2 className="text-2xl font-serif text-white mb-6">
-            {editingId ? 'Edit Piece' : 'Add New Piece'}
-          </h2>
-          <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <label className="text-xs uppercase tracking-widest text-white/50 block mb-2">Unique Style Code</label>
+            <div className="bg-[#111] border border-white/10 p-8 mb-10">
+              <h2 className="text-2xl font-serif text-white mb-6">
+                {editingId ? 'Edit Piece' : 'Add New Piece'}
+              </h2>
+              <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="text-xs uppercase tracking-widest text-white/50 block mb-2">Unique Style Code</label>
               <input 
                 type="text" 
                 value={formData.id} 
@@ -390,35 +380,73 @@ export default function AdminDashboard() {
                    accept="image/jpeg, image/png, image/webp" 
                    onChange={handleFileInput}
                 />
-                
-                {uploadingImage ? (
-                   <p className="text-accent animate-pulse">Processing Uploads...</p>
-                ) : (
+                                {uploadProgress ? (
+                   <div className="space-y-3">
+                     <p className="text-accent animate-pulse text-sm">Compressing & uploading...</p>
+                     <div className="w-full max-w-xs mx-auto bg-white/10 rounded-full h-1.5">
+                       <div
+                         className="bg-accent h-1.5 rounded-full transition-all duration-300"
+                         style={{ width: `${Math.round((uploadProgress.done / uploadProgress.total) * 100)}%` }}
+                       />
+                     </div>
+                     <p className="text-xs text-white/40 uppercase tracking-widest">
+                       {uploadProgress.done} / {uploadProgress.total} uploaded
+                     </p>
+                   </div>
+                 ) : (
                    <div className="space-y-3">
                      <div className="text-4xl text-white/20">📷</div>
                      <p className="text-white/70">Drag & Drop multiple images here or <span className="text-accent underline">Browse</span></p>
-                     <p className="text-xs text-white/40 uppercase tracking-widest">Supports JPG, PNG, WEBP</p>
+                     <p className="text-xs text-white/40 uppercase tracking-widest">Supports JPG, PNG, WEBP · Auto-optimized before upload</p>
                    </div>
-                )}
+                 )}
               </div>
               
-              {/* Image Preview Grid */}
+              {/* Thumbnail Picker Grid */}
               {formData.images.length > 0 && (
-                <div className="flex flex-wrap gap-4 mt-6">
-                  {formData.images.map((img, idx) => (
-                    <div key={idx} className="relative group border border-white/10 bg-black">
-                      <img src={img} alt={`Preview ${idx}`} className="h-32 w-24 object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
-                      <button 
-                        type="button"
-                        className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs opacity-0 group-hover:opacity-100 transition-opacity hover:bg-red-600"
-                        onClick={() => removeImage(idx)}
-                        title="Remove Image"
+                <div className="mt-5">
+                  <p className="text-[10px] uppercase tracking-widest text-white/40 mb-3">
+                    Click any image to set it as the <span className="text-accent">thumbnail cover</span>
+                  </p>
+                  <div className="flex flex-wrap gap-4">
+                    {formData.images.map((img, idx) => (
+                      <div
+                        key={idx}
+                        className={`relative group cursor-pointer border-2 transition-all duration-200 ${
+                          idx === 0
+                            ? 'border-accent shadow-[0_0_12px_rgba(180,145,60,0.4)]'
+                            : 'border-white/10 hover:border-white/40'
+                        }`}
+                        onClick={() => setAsCover(idx)}
+                        title={idx === 0 ? 'Current thumbnail' : 'Click to set as thumbnail'}
                       >
-                        ✕
-                      </button>
-                      {idx === 0 && <span className="absolute bottom-0 left-0 right-0 bg-accent text-black text-[9px] uppercase font-bold text-center py-1">Main Cover</span>}
-                    </div>
-                  ))}
+                        <img
+                          src={img}
+                          alt={`Image ${idx + 1}`}
+                          className="h-32 w-24 object-cover block"
+                        />
+                        {/* Remove button */}
+                        <button
+                          type="button"
+                          className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-[10px] opacity-0 group-hover:opacity-100 transition-opacity hover:bg-red-600 z-10"
+                          onClick={(e) => { e.stopPropagation(); removeImage(idx); }}
+                          title="Remove"
+                        >
+                          ✕
+                        </button>
+                        {/* Badge */}
+                        {idx === 0 ? (
+                          <span className="absolute bottom-0 left-0 right-0 bg-accent text-black text-[8px] uppercase font-bold text-center py-1 tracking-wider">
+                            ★ Cover
+                          </span>
+                        ) : (
+                          <span className="absolute bottom-0 left-0 right-0 bg-black/80 text-white/60 text-[8px] uppercase font-bold text-center py-1 tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
+                            Set as Cover
+                          </span>
+                        )}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
@@ -445,7 +473,7 @@ export default function AdminDashboard() {
               )}
               <button 
                 type="submit" 
-                disabled={uploadingImage || formData.images.length === 0} 
+                disabled={!!uploadProgress || formData.images.length === 0} 
                 className="hero-btn-secondary flex-1 md:flex-none disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {editingId ? 'Update Piece' : 'Upload Piece'}
@@ -578,14 +606,14 @@ export default function AdminDashboard() {
                  <div className="md:col-span-2">
                    <label className="text-xs uppercase tracking-widest text-white/50 block mb-2">Cover Image *</label>
                    <input type="file" accept="image/*" onChange={handleBlogImageUpload} className="mb-4 block" />
-                   {uploadingImage && <p className="text-accent animate-pulse mb-4">Uploading Image...</p>}
+                   {uploadProgress && <p className="text-accent animate-pulse mb-4">Uploading cover image...</p>}
                    {blogFormData.image && <img src={blogFormData.image} alt="Cover Preview" className="h-40 object-cover border border-white/10" />}
                  </div>
                  <div className="md:col-span-2 flex justify-end gap-4 mt-4">
                    {editingBlogId && (
                      <button type="button" onClick={() => { setEditingBlogId(null); setBlogFormData({ title: '', slug: '', excerpt: '', content: '', category: 'Journal', date: new Date().toISOString().split('T')[0], image: '' }); }} className="px-6 py-3 border border-white/20 text-white">Cancel</button>
                    )}
-                   <button type="submit" disabled={uploadingImage || !blogFormData.image} className="hero-btn-secondary">{editingBlogId ? 'Update Post' : 'Publish Post'}</button>
+                   <button type="submit" disabled={!!uploadProgress || !blogFormData.image} className="hero-btn-secondary">{editingBlogId ? 'Update Post' : 'Publish Post'}</button>
                  </div>
                </form>
              </div>
@@ -618,7 +646,6 @@ export default function AdminDashboard() {
            </div>
         )}
 
-      </div>
     </div>
   );
 }

@@ -4,13 +4,18 @@ import Link from 'next/link';
 import { Instagram, Facebook, Mail, MapPin, Phone, MessageCircle } from 'lucide-react';
 import { BrandLogo } from '../brand/BrandLogo';
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export function Footer() {
   const [year, setYear] = useState<number | null>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     setYear(new Date().getFullYear());
   }, []);
+
+  // Hide footer on admin pages
+  if (pathname.startsWith('/admin')) return null;
 
   return (
     <footer className="bg-[#000000] border-t border-white/5 pt-12 pb-10 px-6 md:px-12">
