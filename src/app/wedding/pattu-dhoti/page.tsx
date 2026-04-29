@@ -3,8 +3,9 @@ import { FadeIn } from '@/components/animations/FadeIn';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { generateProductSlug } from '@/lib/utils';
 
-export default function PattuDhotiPage() {
+export default function WeddingPattuDhotiPage() {
   const [items, setItems] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -21,13 +22,13 @@ export default function PattuDhotiPage() {
     <div className="min-h-screen pt-52 pb-24 bg-[#0a0a09] relative">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <FadeIn className="text-center space-y-6 mb-16 max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-serif font-light text-[#E8E0D0] uppercase tracking-widest">Pattu-Dhoti Collection</h1>
-          <p className="text-lg text-accent font-serif italic">Traditional Elegance Redefined.</p>
+          <h1 className="text-4xl md:text-5xl font-serif font-light text-[#E8E0D0] uppercase tracking-widest">Pattu Dhoti & Veshtis</h1>
+          <p className="text-lg text-accent font-serif italic">The soul of South Indian tradition.</p>
         </FadeIn>
 
         <FadeIn delay={100} className="border-t border-white/10 pt-8 mb-16 text-center max-w-3xl mx-auto">
           <p className="text-sm text-white/50 leading-relaxed font-light tracking-wide" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-            Pure silk, authentic gold zari borders, and meticulous hand-weaving. Our Pattu-Dhoti collection brings the majesty of South Indian tradition to your special day.
+            Pure silk veshtis with gold zari borders, paired with custom-tailored silk shirts.
           </p>
         </FadeIn>
 
@@ -40,7 +41,7 @@ export default function PattuDhotiPage() {
             {items.map((item, idx) => (
               <FadeIn key={item.id} delay={(idx % 4) * 100}>
                 <Link 
-                  href={`/collection/${item.id}?name=${encodeURIComponent(item.name || '')}&image=${encodeURIComponent(item.image || '')}&desc=${encodeURIComponent(item.desc || '')}`} 
+                  href={`/collection/${generateProductSlug(item.name || '', item.id)}`} 
                   className="flex flex-col group cursor-pointer"
                 >
                   <div className="relative w-full aspect-[3/4] overflow-hidden bg-[#111] mb-4">

@@ -7,6 +7,7 @@ import { useWishlist } from '@/context/WishlistContext';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { usePathname } from 'next/navigation';
+import { generateProductSlug } from '@/lib/utils';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -284,7 +285,7 @@ export function Header() {
                           .map((product, idx) => (
                             <Link
                               key={`prod-${idx}`}
-                              href={`/collection/${product.id}`}
+                              href={`/collection/${generateProductSlug(product.name, product.id)}`}
                               onClick={() => {
                                 setIsSearchOpen(false);
                                 setSearchQuery("");

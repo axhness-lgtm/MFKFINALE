@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { ProductDetailsMain } from '@/components/sections/ProductDetailsMain';
+import { extractIdFromSlug, generateProductSlug } from '@/lib/utils';
 
 interface Props {
   params: { id: string };
@@ -7,7 +8,8 @@ interface Props {
 
 // Next.js dynamic metadata generation
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const id = params.id;
+  const slug = params.id;
+  const id = extractIdFromSlug(slug);
   
   try {
     // We fetch from the internal API during build/request
@@ -15,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     // so it's safer to use the base URL if available.
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'https://www.mfkhaninternational.com'}/api/products`);
     const products = await res.json();
-    const product = products.find((p: any) => p.id === id);
+    const product = products.find((p: any) => String(p.id) === id);
 
     if (!product) return { title: 'Product Not Found | MF Khan International' };
 
@@ -32,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         images: product.images?.[0] || product.image ? [product.images?.[0] || product.image] : [],
       },
       alternates: {
-        canonical: `https://www.mfkhaninternational.com/collection/${id}`,
+        canonical: `https://www.mfkhaninternational.com/collection/${generateProductSlug(product.name, id)}`,
       },
     };
   } catch (error) {

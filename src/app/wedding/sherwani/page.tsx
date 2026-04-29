@@ -3,6 +3,7 @@ import { FadeIn } from '@/components/animations/FadeIn';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { generateProductSlug } from '@/lib/utils';
 
 export default function WeddingSherwaniPage() {
   const [items, setItems] = useState<any[]>([]);
@@ -40,7 +41,7 @@ export default function WeddingSherwaniPage() {
             {items.map((item, idx) => (
               <FadeIn key={item.id} delay={(idx % 4) * 100}>
                 <Link 
-                  href={`/collection/${item.id}?name=${encodeURIComponent(item.name)}&image=${encodeURIComponent(item.image)}&desc=${encodeURIComponent(item.desc)}`} 
+                  href={`/collection/${generateProductSlug(item.name, item.id)}`} 
                   className="flex flex-col group cursor-pointer"
                 >
                   <div className="relative w-full aspect-[3/4] overflow-hidden bg-[#111] mb-4">

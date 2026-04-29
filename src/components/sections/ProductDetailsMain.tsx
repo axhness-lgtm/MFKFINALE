@@ -7,12 +7,13 @@ import { FadeIn } from '@/components/animations/FadeIn';
 import { useWishlist } from '@/context/WishlistContext';
 import { Heart } from 'lucide-react';
 import { WishlistButton } from '@/components/ui/WishlistButton';
+import { extractIdFromSlug, generateProductSlug } from '@/lib/utils';
 
 interface ProductDetailsMainProps {
   id: string;
 }
 
-export function ProductDetailsMain({ id }: ProductDetailsMainProps) {
+export function ProductDetailsMain({ id: slugOrId }: ProductDetailsMainProps) {
   const [product, setProduct] = useState<any>(null);
   const [relatedProducts, setRelatedProducts] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -20,12 +21,14 @@ export function ProductDetailsMain({ id }: ProductDetailsMainProps) {
   const { toggleItem, isInWishlist } = useWishlist();
 
   useEffect(() => {
-    if (!id) return;
+    if (!slugOrId) return;
+    
+    const id = extractIdFromSlug(slugOrId);
 
     fetch('/api/products')
       .then(res => res.json())
       .then(data => {
-        const found = data.find((p: any) => p.id === id);
+        const found = data.find((p: any) => String(p.id) === id);
         if (found) {
           setProduct(found);
           const firstImage = (found.images && found.images.length > 0) ? found.images[0] : found.image;
@@ -86,7 +89,7 @@ export function ProductDetailsMain({ id }: ProductDetailsMainProps) {
             },
             "offers": {
               "@type": "Offer",
-              "url": `https://www.mfkhaninternational.com/collection/${id}`,
+              "url": `https://www.mfkhaninternational.com/collection/${generateProductSlug(name, id)}`,
               "priceCurrency": "INR",
               "availability": "https://schema.org/InStock",
               "seller": {
@@ -219,7 +222,7 @@ export function ProductDetailsMain({ id }: ProductDetailsMainProps) {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-6xl mx-auto">
               {relatedProducts.map((rp, idx) => (
                 <FadeIn key={rp.id} delay={idx * 100}>
-                  <Link href={`/collection/${rp.id}`} className="group block focus:outline-none">
+                  <Link href={`/collection/${generateProductSlug(rp.name, rp.id)}`} className="group block focus:outline-none">
                     <div className="relative aspect-[3/4] bg-[#1a1a1a] overflow-hidden rounded-sm border border-white/5 mb-4">
                       {rp.image && (
                         <Image

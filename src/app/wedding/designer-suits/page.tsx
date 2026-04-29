@@ -3,6 +3,7 @@ import { FadeIn } from '@/components/animations/FadeIn';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { generateProductSlug } from '@/lib/utils';
 
 export default function WeddingDesignerSuitsPage() {
   const [items, setItems] = useState<any[]>([]);
@@ -27,7 +28,7 @@ export default function WeddingDesignerSuitsPage() {
 
         <FadeIn delay={100} className="border-t border-white/10 pt-8 mb-16 text-center max-w-3xl mx-auto">
           <p className="text-sm text-white/50 leading-relaxed font-light tracking-wide" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-            Super 150s wool, reinforced canvas structure, and a sharp tailored silhouette designed to elongate and elevate.
+            Super 150s wool, reinforced canvas structure, and a sharp tailored silhouette designed to elevate and elevate.
           </p>
         </FadeIn>
 
@@ -40,7 +41,7 @@ export default function WeddingDesignerSuitsPage() {
             {items.map((item, idx) => (
               <FadeIn key={item.id} delay={(idx % 4) * 100}>
                 <Link 
-                  href={`/collection/${item.id}?name=${encodeURIComponent(item.name)}&image=${encodeURIComponent(item.image)}&desc=${encodeURIComponent(item.desc)}`} 
+                  href={`/collection/${generateProductSlug(item.name, item.id)}`} 
                   className="flex flex-col group cursor-pointer"
                 >
                   <div className="relative w-full aspect-[3/4] overflow-hidden bg-[#111] mb-4">
