@@ -22,13 +22,13 @@ export default function WeddingSherwaniPage() {
     <div className="min-h-screen pt-52 pb-24 bg-[#0a0a09] relative">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <FadeIn className="text-center space-y-6 mb-16 max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-serif font-light text-[#E8E0D0] uppercase tracking-widest">Wedding Sherwanis</h1>
+          <h1 className="text-4xl md:text-5xl font-serif font-light text-[#E8E0D0] uppercase tracking-widest">WEDDING SHERWANIS IN VISAKHAPATNAM</h1>
           <p className="text-lg text-accent font-serif italic">The pinnacle of traditional elegance.</p>
         </FadeIn>
 
         <FadeIn delay={100} className="border-t border-white/10 pt-8 mb-16 text-center max-w-3xl mx-auto">
-          <p className="text-sm text-white/50 leading-relaxed font-light tracking-wide" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-            Heavy silks, velvet accents, structured shoulder lines, and intricate hand-embroidery.
+          <p className="text-sm md:text-base text-white/50 leading-relaxed font-light tracking-wide" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+            MFKhan International presents an exclusive wedding sherwani collection for Visakhapatnam grooms seeking traditional elegance with modern tailoring. Since 1940, our master craftsmen have created sherwanis in heavy silk, rich velvet, and intricate hand-embroidery for three generations of wedding ceremonies across Vizag. Each piece is tailored with structured shoulder lines and customizable embellishments at our 9,000 sq ft flagship showroom on Old Jail Road.
           </p>
         </FadeIn>
 

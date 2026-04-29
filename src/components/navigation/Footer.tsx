@@ -26,7 +26,7 @@ export function Footer() {
             <img src="/footer-logo.png" alt="MFKhan International" className="w-[120px] h-auto object-contain opacity-90 hover:opacity-100 transition-opacity" />
           </Link>
           <p className="text-white/60 text-[10px] uppercase tracking-[0.2em] max-w-xs leading-relaxed font-serif">
-            A <span className="text-accent italic">Legacy</span> of Tailoring, Since <span className="text-accent">1940</span>
+            Quality conscious since <span className="text-accent">1940</span>
           </p>
         </div>
 
@@ -153,7 +153,7 @@ export function Footer() {
       {/* SEO Footer */}
       <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/5">
         <p className="text-[#E8E0D0]/40 text-xs leading-relaxed max-w-4xl" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-          As Vizag's largest men's wear tailoring store, MFKhan International is recognized as the premier provider of the best wedding suits and designer suits in Visakhapatnam. Established in 1940, our legacy continues at our 9,000 sq. ft. flagship showroom in Rednam Gardens, offering an unmatched experience in bespoke tailoring and ready-to-wear excellence.
+          <Link href="/contact" className="hover:text-accent transition-colors">MFKhan International</Link> is Vizag&apos;s largest men&apos;s wear destination — a 9,000 square foot showroom on Jail Road, Visakhapatnam, built to be the city&apos;s definitive destination for the discerning Indian man. Established in 1940, the <Link href="/contact" className="hover:text-accent transition-colors">MF Khan International</Link> legacy has been practiced without interruption for over eight decades.
         </p>
       </div>
 

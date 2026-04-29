@@ -22,7 +22,7 @@ export default function FormalsPage() {
         <FadeIn className="grid grid-cols-2 lg:flex lg:flex-row w-full gap-2 md:gap-4 mb-32 h-auto lg:h-[70vh]">
           {[
             { title: 'Business Suits', href: '/formals/business-suits', desc: 'The authoritative uniform', image: '/images/formals-suit.jpg' },
-            { title: 'Blazers', href: '/formals/blazers', desc: 'Versatile structured elegance', image: '/images/formals-blazer.jpg' },
+            { title: 'Blazers', href: '/formals/blazers', desc: 'Versatile structured elegance', image: '/images/Bennevis_1691 copy.jpg' },
             { title: 'Shirts', href: '/formals/shirts', desc: 'The foundational standard', image: '/images/formals-shirt.jpg' }
           ].map((c, i) => (
               <Link key={c.title} href={c.href} className={cn(

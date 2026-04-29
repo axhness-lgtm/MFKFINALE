@@ -54,29 +54,17 @@ export function Hero() {
           <>
             <h2 className="mb-0" style={{ lineHeight: 1.05 }}>
               <FadeIn delay={0}>
-                <span className="block">
-                  <span
-                    style={{
-                      fontFamily: '"Spectral", serif',
-                      fontSize: 'clamp(42px, 6vw, 90px)',
-                      fontWeight: 'regular',
-                      letterSpacing: '-0.02em',
-                      color: '#E8E0D0',
-                    }}
-                  >
-                    {' '}
-                  </span>
-                  <span
-                    style={{
-                      fontFamily: '"Cormorant Garamond", serif',
-                      fontSize: 'clamp(48px, 7vw, 85px)',
-                      fontWeight: 100,
-                      letterSpacing: '-0.02em',
-                      color: '#E8E0D0',
-                    }}
-                  >
-                    Our Signature Craft
-                  </span>
+                <span 
+                  className="block whitespace-nowrap"
+                  style={{
+                    fontFamily: '"Cormorant Garamond", serif',
+                    fontSize: 'clamp(32px, 8vw, 85px)',
+                    fontWeight: 100,
+                    letterSpacing: '-0.02em',
+                    color: '#E8E0D0',
+                  }}
+                >
+                  Our Signature Craft
                 </span>
               </FadeIn>
 

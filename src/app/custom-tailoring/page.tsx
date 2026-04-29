@@ -4,6 +4,7 @@ import { FadeIn } from '@/components/animations/FadeIn';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const sections = [
   {
@@ -39,18 +40,6 @@ const sections = [
       { name: "Embroidery", image: "/images/handwork-lapel2.jpg", desc: "Intricate thread work", link: "/custom-tailoring/hand-work#embroidery" },
       { name: "Monograms", image: "/images/handwork-button.jpg", desc: "Your initials woven", link: "/custom-tailoring/hand-work#monograms" },
       { name: "Finishing", image: "/images/handwork-notch.jpg", desc: "Horn & pearl accents", link: "/custom-tailoring/hand-work#finishing" }
-    ]
-  },
-  {
-    title: "Guide / Process",
-    link: "/custom-tailoring/process",
-    caption: "A standard built over time",
-    desc: "Every garment at MFKhan International follows a disciplined process from initial consultation to final fitting. No detail is rushed.",
-    items: [
-      { name: "Consultation", image: "/images/process-consultation.jpg", desc: "Understanding the intent", link: "/custom-tailoring/process#consultation" },
-      { name: "Pattern Drafting", image: "/images/process-pattern.jpg", desc: "Individualized structure", link: "/custom-tailoring/process#pattern" },
-      { name: "Baste Fitting", image: "/images/process-fitting.jpg", desc: "First structural check", link: "/custom-tailoring/process#baste" },
-      { name: "Final Polish", image: "/images/process-finish.jpg", desc: "Ready for the occasion", link: "/custom-tailoring/process#finish" }
     ]
   }
 ];

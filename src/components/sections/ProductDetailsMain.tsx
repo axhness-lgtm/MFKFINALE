@@ -20,11 +20,11 @@ export function ProductDetailsMain({ id: slugOrId }: ProductDetailsMainProps) {
   const [activeImage, setActiveImage] = useState<string>('');
   const { toggleItem, isInWishlist } = useWishlist();
 
+  const id = extractIdFromSlug(slugOrId);
+
   useEffect(() => {
     if (!slugOrId) return;
     
-    const id = extractIdFromSlug(slugOrId);
-
     fetch('/api/products')
       .then(res => res.json())
       .then(data => {
@@ -46,7 +46,7 @@ export function ProductDetailsMain({ id: slugOrId }: ProductDetailsMainProps) {
         setLoading(false);
       })
       .catch(() => setLoading(false));
-  }, [id]);
+  }, [slugOrId]);
 
   if (loading) {
     return (

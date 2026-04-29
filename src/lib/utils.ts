@@ -12,15 +12,16 @@ export function cn(...inputs: ClassValue[]) {
  * Generates a URL-friendly slug from a product name and ID.
  * Example: ("New Piece", "1027") -> "new-piece-1027"
  */
-export function generateProductSlug(name: string, id: string): string {
-  if (!name) return id;
+export function generateProductSlug(name: any, id: any): string {
+  const safeId = String(id || '');
+  if (!name || typeof name !== 'string') return safeId;
   
   const slug = name
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-') // Replace non-alphanumeric characters with hyphens
     .replace(/(^-|-$)+/g, '');    // Remove leading/trailing hyphens
     
-  return `${slug}-${id}`;
+  return slug ? `${slug}-${safeId}` : safeId;
 }
 
 /**

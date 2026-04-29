@@ -113,18 +113,7 @@ export function Header() {
 
   return (
     <>
-      {/* Promotional Top Bar */}
-      <div className="fixed top-0 left-0 right-0 z-[60] bg-white text-black h-8 flex items-center justify-center overflow-hidden whitespace-nowrap px-4 select-none">
-        <div className="flex gap-12 animate-marquee text-[10px] uppercase tracking-[0.3em] font-bold">
-          <span>Free Worldwide Shipping on Luxury Tailoring</span>
-          <span>Crafting Excellence Since 1940</span>
-          <span>Uncompromising Quality in Every Stitch</span>
-          {/* Duplicate for seamless marquee if needed, or just static for now */}
-          <span className="hidden md:inline">Visit our 9,000 sq. ft. Flagship Showroom in Vizag</span>
-        </div>
-      </div>
-
-      <header className="fixed top-8 left-0 right-0 z-50 pointer-events-none pt-2 px-6 md:px-12">
+      <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none pt-6 px-6 md:px-12">
         <div
           className={cn(
             'mx-auto w-full transition-all duration-700 pointer-events-auto flex items-center justify-between',
@@ -175,7 +164,7 @@ export function Header() {
             <div
               className={cn(
                 "relative transition-all duration-700 group-hover:scale-105 rounded-full overflow-hidden border border-white/10 shadow-2xl flex items-center justify-center bg-black",
-                isScrolled ? "h-[50px] w-[50px] md:h-[80px] md:w-[80px]" : "h-[70px] w-[70px] md:h-[120px] md:w-[120px]"
+                isScrolled ? "h-[75px] w-[75px] md:h-[80px] md:w-[80px]" : "h-[105px] w-[105px] md:h-[120px] md:w-[120px]"
               )}
             >
               <video
@@ -373,7 +362,7 @@ export function Header() {
                 </div>
                 <div className="text-left">
                   <p className="text-[10px] uppercase tracking-[0.3em] text-white/40 font-bold mb-1">Welcome to</p>
-                  <p className="text-xs uppercase tracking-[0.2em] text-[#E8E0D0] font-bold">MF Khan</p>
+                  <span className="text-xs uppercase tracking-[0.2em] text-[#E8E0D0] font-bold group-hover:text-accent transition-colors">MF Khan International</span>
                 </div>
               </Link>
               <button

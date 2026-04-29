@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: 'Wedding Collection — Best Sherwanis & Designer Suits in Visakhapatnam | MF Khan International',
-  description: 'Explore MF Khan International\'s premier wedding collection in Vizag. From luxury sherwanis to designer wedding suits, experience 80 years of sartorial excellence since 1940.',
+  description: 'Since 1940, MF Khan has dressed three generations of Visakhapatnam grooms. Today, MFKhan International houses the city\'s most extensive ceremonial wardrobe in our 9,000 square foot flagship — from ready-to-wear to fine custom tailoring in international fabrics.',
   keywords: ['wedding collection vizag', 'groom sherwani visakhapatnam', 'wedding suits shop vizag', 'reception wear for men vizag', 'indo western wedding wear vizag'],
 };
 
@@ -16,17 +16,19 @@ export default function WeddingPage() {
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <FadeIn className="text-center space-y-6 mb-24">
           <h1 className="text-5xl md:text-7xl font-serif font-italic text-[#E8E0D0]">Discover your <span className="text-accent">Dream Wedding</span> Collection</h1>
-          <p className="text-xl text-white/70 tracking-wide font-light max-w-2xl mx-auto" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>Articles designed for Weddings, Receptions & Ceremonies.</p>
+          <p className="text-xl text-white/70 tracking-wide font-light max-w-2xl mx-auto leading-relaxed" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+            Since 1940, MF Khan has dressed three generations of Visakhapatnam grooms. Today, MFKhan International houses the city&apos;s most extensive ceremonial wardrobe in our 9,000 square foot flagship — from ready-to-wear to fine custom tailoring in international fabrics. Select from our curated collections below, or commission a garment built to your exact specifications in our atelier.
+          </p>
         </FadeIn>
 
 
         <FadeIn className="grid grid-cols-2 lg:flex lg:flex-row w-full gap-2 md:gap-3 mb-32 h-auto lg:h-[75vh]">
           {[
-            { title: 'Designer Suits', href: '/wedding/designer-suits', desc: 'Modern wedding suits', image: '/images/fabric-linen.jpg' },
-            { title: 'Indo-Western', href: '/wedding/indo-western', desc: 'Fusion garments', image: '/images/fabric-silk.jpg' },
-            { title: 'Sherwani', href: '/wedding/sherwani', desc: 'Traditional wedding wear', image: '/images/fabric-velvet.jpg' },
+            { title: 'Designer Suits', href: '/wedding/designer-suits', desc: 'Modern wedding suits', image: '/images/Arkive17june-1377 copy.jpg' },
+            { title: 'Indo-Western', href: '/wedding/indo-western', desc: 'Fusion garments', image: '/images/207 01.jpg' },
+            { title: 'Sherwani', href: '/wedding/sherwani', desc: 'Traditional wedding wear', image: '/images/sherwani-collections.jpg' },
             { title: 'Pattu-Dhoti', href: '/wedding/pattu-dhoti', desc: 'Traditional South Indian wear', image: '/images/pattu-dhoti-2.png' },
-            { title: 'Designer Shirts', href: '/wedding/designer-shirts', desc: 'Supporting pieces', image: '/images/wedding-designer-shirt.jpg' }
+            { title: 'Designer Shirts', href: '/wedding/designer-shirts', desc: 'Supporting pieces', image: '/images/Arkive17june-2328 copy.jpg' }
           ].map((c, i) => (
             <Link key={c.title} href={c.href} className={cn(
               "group relative border border-white/5 hover:border-accent/50 p-4 md:p-8 flex flex-col justify-end transition-all duration-[3000ms] ease-in-out bg-black/40 overflow-hidden aspect-[3/4.5] lg:aspect-auto lg:flex-1 lg:hover:flex-[2.5]",

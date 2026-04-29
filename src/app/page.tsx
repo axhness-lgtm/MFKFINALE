@@ -36,13 +36,13 @@ export default function Home() {
           <div className="max-w-4xl mx-auto text-center space-y-8 relative z-10">
             <FadeIn>
               <h2 className="text-2xl md:text-4xl text-[#E8E0D0] font-light leading-relaxed font-serif">
-                Since <span className="italic text-accent">1940</span>, the <Link href="/heritage" className="hover:text-accent transition-colors">MF Khan</Link> name has stood for one thing in Visakhapatnam — <span className="font-medium">uncompromising quality.</span>
+                Since <span className="italic text-accent">1940</span>, the <Link href="/contact" className="hover:text-accent transition-colors">MF Khan International</Link> name has stood for one thing in Visakhapatnam — <span className="font-medium">uncompromising quality.</span>
               </h2>
             </FadeIn>
             
             <FadeIn delay={100}>
               <p className="text-white/60 text-sm md:text-base leading-loose max-w-3xl mx-auto font-light" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-                <span className="text-white/90">MFKhan International</span> — The 9,000 square foot showroom on Jail Road, Visakhapatnam, built to be the city's definitive destination for the discerning Indian man.
+                <span className="text-white/90">MFKhan International</span> is Vizag&apos;s largest men&apos;s wear destination — a 9,000 square foot showroom on Jail Road, Visakhapatnam, built to be the city&apos;s definitive destination for the discerning Indian man.
               </p>
             </FadeIn>
 
@@ -50,7 +50,7 @@ export default function Home() {
               <p className="text-white/60 text-sm md:text-base leading-loose max-w-3xl mx-auto font-light mb-8" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
                 Under one roof, every groom finds what his wedding demands from <Link href="/wedding/designer-suits" className="text-accent hover:underline">designer suits</Link>, hand-embroidered reception wear, <Link href="/wedding/sherwani" className="text-accent hover:underline">sherwanis</Link> to Indo-Western fusion wear, and an extensive international fabric library sourced from the world's finest mills. 
                 <br /><br />
-                Walk in and select from our collections, or commission a garment built to your exact measurements through our fine custom tailoring atelier. Where the <Link href="/heritage" className="text-accent hover:underline">MF Khan</Link> legacy has been practiced without interruption for over eight decades.
+                Walk in and select from our collections, or commission a garment built to your exact measurements through our fine custom tailoring atelier. Where the <Link href="/contact" className="text-accent hover:underline">MF Khan International</Link> legacy has been practiced without interruption for over eight decades.
               </p>
             </FadeIn>
             
@@ -145,7 +145,7 @@ export default function Home() {
                 className="text-[#E8E0D0]/60 leading-relaxed text-sm md:text-base tracking-wide"
                 style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 'regular' }}
               >
-                Every garment at <Link href="/" className="hover:text-accent transition-colors">MFKhan International</Link> is individually cut, constructed, and finished with the attention that eighty-five years of sartorial practice produces. Not one piece leaves our workroom without it.
+                Every garment at <Link href="/contact" className="hover:text-accent transition-colors">MFKhan International</Link> is individually cut, constructed, and finished with the attention that eighty-five years of sartorial practice produces. Not one piece leaves our workroom without it.
               </p>
             </FadeIn>
 
@@ -161,7 +161,7 @@ export default function Home() {
                 className="text-[#E8E0D0]/60 leading-relaxed text-sm md:text-base tracking-wide"
                 style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 'regular' }}
               >
-                Three generations of Visakhapatnam's families have chosen <Link href="/" className="hover:text-accent transition-colors">MFKhan International</Link> for their most important occasions. When a father brings his son to us, it is because his own father brought him first.
+                Three generations of Visakhapatnam's families have chosen <Link href="/contact" className="hover:text-accent transition-colors">MFKhan International</Link> for their most important occasions. When a father brings his son to us, it is because his own father brought him first.
               </p>
             </FadeIn>
 
@@ -177,7 +177,7 @@ export default function Home() {
                 className="text-[#E8E0D0]/60 leading-relaxed text-sm md:text-base tracking-wide"
                 style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 'regular' }}
               >
-                Every client at <Link href="/" className="hover:text-accent transition-colors">MFKhan International</Link> is guided through a one-on-one consultation — for fit, for occasion, for intent. M. Akbar Ali Khan personally oversees the experience our wedding clients receive.
+                Every client at <Link href="/contact" className="hover:text-accent transition-colors">MFKhan International</Link> is guided through a one-on-one consultation — for fit, for occasion, for intent. M. Akbar Ali Khan personally oversees the experience our wedding clients receive.
               </p>
             </FadeIn>
 

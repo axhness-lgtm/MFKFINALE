@@ -4,8 +4,8 @@
 
 @layer base {
   :root {
-    /* Light Chocolate & Cream Palette */
-    --background: 45 20% 97%; /* #FAF9F6 - Warm Cream */
+    /* Deep Wine & Gold Palette */
+    --background: 0 75% 5%; /* #1a0505 - Deep Wine */
     --foreground: 11 37% 19%; /* #3E2723 - Dark Chocolate */
     --card: 45 15% 95%;
     --card-foreground: 11 37% 19%;
@@ -44,9 +44,21 @@
   color: #c4ac5e !important;
 }
 
-/* Mass background override for #0d0606 request */
-.bg-\[\#0a0a09\] {
-  background-color: #0d0606 !important;
+/* Mass background override for Wine Color request */
+.bg-\[\#0a0a09\], .bg-\[\#080505\], .bg-\[\#050505\], .bg-\[\#080808\], .bg-\[\#111\], .bg-black, .bg-\[\#0d0606\], .bg-\[\#050505\] {
+  background-color: #1a0505 !important;
+}
+
+.from-\[\#050505\], .from-\[\#080808\], .from-black {
+  --tw-gradient-from: #1a0505 !important;
+}
+
+.to-\[\#0a0a09\], .to-\[\#111\], .to-black {
+  --tw-gradient-to: #1a0505 !important;
+}
+
+.bg-background {
+  background-color: #1a0505 !important;
 }
 
 /* Mass typography override for Cormorant Garamond & Spectral */

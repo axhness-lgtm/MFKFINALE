@@ -29,7 +29,7 @@ export function CollectionsPreview() {
                 fill
                 className="object-cover transition-transform duration-1000 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-black/40 md:group-hover:bg-black/20 transition-colors duration-700" />
+              <div className="absolute inset-0 bg-black/20 md:bg-black/40 md:group-hover:bg-black/20 transition-colors duration-700" />
               <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[#0a0a09] via-transparent to-transparent" />
 
               <div className="absolute inset-0 p-4 md:p-6 flex flex-col justify-end items-center text-center">
@@ -72,7 +72,7 @@ export function CollectionsPreview() {
           >
             <div className="absolute inset-0 rounded-t-[100px] overflow-hidden border border-accent/40 shadow-[0_0_15px_rgba(196,172,94,0.1)] group-hover:border-accent transition-colors duration-500">
               <Image
-                src="/images/indo-western.jpg"
+                src="/images/202 01.jpg"
                 alt="Indo Western"
                 fill
                 className="object-cover transition-transform duration-1000 group-hover:scale-110"
@@ -96,7 +96,7 @@ export function CollectionsPreview() {
           >
             <div className="absolute inset-0 rounded-t-[100px] overflow-hidden border border-accent/40 shadow-[0_0_15px_rgba(196,172,94,0.1)] group-hover:border-accent transition-colors duration-500">
               <Image
-                src="/images/collections-custom-tailoring.jpg"
+                src="/images/Arkive17june-2371 copy.jpg"
                 alt="Custom Tailoring"
                 fill
                 className="object-cover transition-transform duration-1000 group-hover:scale-110"

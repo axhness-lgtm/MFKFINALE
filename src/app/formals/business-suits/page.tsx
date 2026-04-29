@@ -22,13 +22,13 @@ export default function BusinessSuitsPage() {
     <div className="min-h-screen pt-52 pb-24 bg-[#0a0a09] relative">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <FadeIn className="text-center space-y-6 mb-16 max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-serif font-light text-[#E8E0D0] uppercase tracking-widest">Formal Business Suits</h1>
-          <p className="text-lg text-accent font-serif italic">Command respect in every boardroom.</p>
+          <h1 className="text-4xl md:text-5xl font-serif font-light text-[#E8E0D0] uppercase tracking-widest">Formal Men&apos;s Suits</h1>
+          <p className="text-lg text-accent font-serif italic">Command respect in every ballroom.</p>
         </FadeIn>
 
         <FadeIn delay={100} className="border-t border-white/10 pt-8 mb-16 text-center max-w-3xl mx-auto">
-          <p className="text-sm text-white/50 leading-relaxed font-light tracking-wide" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-            Tailored precision for the modern professional.
+          <p className="text-sm md:text-base text-white/50 leading-relaxed font-light tracking-wide" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+            MFKhan International has been tailoring formal men&apos;s suits in Visakhapatnam since 1940. Our suiting collection offers half-canvas and full-canvas construction options for the precise drape and structure you need — whether for corporate, formal events, or special occasions. Browse our collection online and build your wardrobe with three generations of Vizag tailoring expertise.
           </p>
         </FadeIn>
 

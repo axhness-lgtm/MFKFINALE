@@ -27,8 +27,8 @@ export default function WeddingPattuDhotiPage() {
         </FadeIn>
 
         <FadeIn delay={100} className="border-t border-white/10 pt-8 mb-16 text-center max-w-3xl mx-auto">
-          <p className="text-sm text-white/50 leading-relaxed font-light tracking-wide" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-            Pure silk veshtis with gold zari borders, paired with custom-tailored silk shirts.
+          <p className="text-sm md:text-base text-white/50 leading-relaxed font-light tracking-wide" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+            MFKhan International presents an exclusive pattu-pancha and pattu-dhoti collection in Visakhapatnam, crafted from pure silk with authentic gold zari borders and meticulous hand-weaving. Since 1940, we have dressed three generations across Vizag in traditional South Indian ceremonial wear for weddings, festivals, and special occasions. Browse our handwoven silk collection online or visit our 9,000 sq ft flagship showroom on Old Jail Road.
           </p>
         </FadeIn>
 

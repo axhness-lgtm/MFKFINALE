@@ -27,8 +27,8 @@ export default function WeddingDesignerSuitsPage() {
         </FadeIn>
 
         <FadeIn delay={100} className="border-t border-white/10 pt-8 mb-16 text-center max-w-3xl mx-auto">
-          <p className="text-sm text-white/50 leading-relaxed font-light tracking-wide" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-            Super 150s wool, reinforced canvas structure, and a sharp tailored silhouette designed to elevate and elevate.
+          <p className="text-sm md:text-base text-white/50 leading-relaxed font-light tracking-wide" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
+            MFKhan International has been crafting wedding designer suits in Visakhapatnam since 1940, dressing three generations of grooms across Vizag&apos;s finest families. Our 9,000 sq ft flagship showroom on Jail Road houses an exclusive collection of designs and finer wool suiting, tailored to contemporary silhouettes with traditional craftsmanship.
           </p>
         </FadeIn>
 
