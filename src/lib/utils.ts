@@ -1,3 +1,13 @@
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+/**
+ * Standard utility for merging Tailwind CSS classes.
+ */
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+
 /**
  * Generates a URL-friendly slug from a product name and ID.
  * Example: ("New Piece", "1027") -> "new-piece-1027"

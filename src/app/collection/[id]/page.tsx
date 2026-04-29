@@ -8,7 +8,7 @@ interface Props {
 
 // Next.js dynamic metadata generation
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const slug = params.id;
+  const { id: slug } = await params;
   const id = extractIdFromSlug(slug);
   
   try {
@@ -42,6 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default function ProductPage({ params }: Props) {
-  return <ProductDetailsMain id={params.id} />;
+export default async function ProductPage({ params }: Props) {
+  const { id } = await params;
+  return <ProductDetailsMain id={id} />;
 }
