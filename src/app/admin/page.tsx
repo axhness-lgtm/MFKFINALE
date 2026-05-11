@@ -29,7 +29,7 @@ export default function AdminDashboard() {
     content: '',
     category: 'Journal',
     date: new Date().toISOString().split('T')[0],
-    image: ''
+    images: [] as string[]
   });
   
   const [formData, setFormData] = useState({
@@ -200,8 +200,8 @@ export default function AdminDashboard() {
 
   const handleMultipleImagesUpload = async (fileList: FileList) => {
     const validFiles = Array.from(fileList).filter(f => {
-      const ok = ['image/jpeg', 'image/png', 'image/webp'].includes(f.type);
-      if (!ok) alert(`"${f.name}" is not a valid format and was skipped.`);
+      const ok = f.type.startsWith('image/') || f.type.startsWith('video/');
+      if (!ok) alert(`"${f.name}" is not a valid media format and was skipped.`);
       return ok;
     });
     if (validFiles.length === 0) return;
@@ -229,8 +229,8 @@ export default function AdminDashboard() {
 
   const handleBlogSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!blogFormData.image) {
-      alert("Please upload a cover image for the blog.");
+    if (blogFormData.images.length === 0) {
+      alert("Please upload at least 1 image for the blog.");
       return;
     }
 
@@ -257,24 +257,37 @@ export default function AdminDashboard() {
       return;
     }
 
-    setBlogFormData({ title: '', slug: '', excerpt: '', content: '', category: 'Journal', date: new Date().toISOString().split('T')[0], image: '' });
+    setBlogFormData({ title: '', slug: '', excerpt: '', content: '', category: 'Journal', date: new Date().toISOString().split('T')[0], images: [] });
     setEditingBlogId(null);
     fetchBlogs();
   };
 
-  const handleBlogImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setUploadProgress({ done: 0, total: 1 });
+  const handleBlogMultipleImagesUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files.length > 0) {
+      const validFiles = Array.from(e.target.files).filter(f => f.type.startsWith('image/'));
+      if (blogFormData.images.length + validFiles.length > 2) {
+        alert("You can only upload a maximum of 2 images for a blog post.");
+        return;
+      }
+      setUploadProgress({ done: 0, total: validFiles.length });
       try {
-        const url = await uploadToCloudinary(e.target.files[0], 'mfk-blogs');
-        setBlogFormData(prev => ({ ...prev, image: url }));
+        const newUrls = await Promise.all(validFiles.map(f => uploadToCloudinary(f, 'mfk-blogs')));
+        setBlogFormData(prev => ({ ...prev, images: [...prev.images, ...newUrls] }));
       } catch (err) {
         alert('Upload failed. Please try again.');
       } finally {
         setUploadProgress(null);
+        e.target.value = '';
       }
     }
   };
+
+  const removeBlogImage = (index: number) => {
+    const newImages = [...blogFormData.images];
+    newImages.splice(index, 1);
+    setBlogFormData(prev => ({ ...prev, images: newImages }));
+  };
+
 
   const handleBlogDelete = async (id: string) => {
     if (confirm('Delete this blog post?')) {
@@ -363,7 +376,7 @@ export default function AdminDashboard() {
 
             {/* DRAG AND DROP MULTIPLE IMAGES UPLOAD */}
             <div className="md:col-span-2">
-              <label className="text-xs uppercase tracking-widest text-white/50 block mb-2">Gallery Images (Up to 4 recommended) *</label>
+              <label className="text-xs uppercase tracking-widest text-white/50 block mb-2">Gallery Media (Up to 4 recommended) *</label>
               
               <div 
                 className={`w-full border-2 border-dashed p-10 text-center cursor-pointer transition-colors ${isDragging ? 'border-accent bg-accent/5' : 'border-white/20 hover:border-white/50 bg-black'}`}
@@ -377,7 +390,7 @@ export default function AdminDashboard() {
                    multiple
                    ref={fileInputRef} 
                    className="hidden" 
-                   accept="image/jpeg, image/png, image/webp" 
+                   accept="image/*, video/*" 
                    onChange={handleFileInput}
                 />
                                 {uploadProgress ? (
@@ -396,8 +409,8 @@ export default function AdminDashboard() {
                  ) : (
                    <div className="space-y-3">
                      <div className="text-4xl text-white/20">📷</div>
-                     <p className="text-white/70">Drag & Drop multiple images here or <span className="text-accent underline">Browse</span></p>
-                     <p className="text-xs text-white/40 uppercase tracking-widest">Supports JPG, PNG, WEBP · Auto-optimized before upload</p>
+                     <p className="text-white/70">Drag & Drop multiple images or videos here or <span className="text-accent underline">Browse</span></p>
+                     <p className="text-xs text-white/40 uppercase tracking-widest">Supports JPG, PNG, WEBP, MP4, MOV · Auto-optimized before upload</p>
                    </div>
                  )}
               </div>
@@ -420,11 +433,23 @@ export default function AdminDashboard() {
                         onClick={() => setAsCover(idx)}
                         title={idx === 0 ? 'Current thumbnail' : 'Click to set as thumbnail'}
                       >
-                        <img
-                          src={img}
-                          alt={`Image ${idx + 1}`}
-                          className="h-32 w-24 object-cover block"
-                        />
+                        {img.match(/\\.(mp4|mov|webm)$/i) || img.includes('/video/upload/') ? (
+                          <video
+                            src={img}
+                            className="h-32 w-24 object-cover block bg-black/50"
+                            muted
+                            loop
+                            playsInline
+                            onMouseEnter={(e) => e.currentTarget.play()}
+                            onMouseLeave={(e) => e.currentTarget.pause()}
+                          />
+                        ) : (
+                          <img
+                            src={img}
+                            alt={`Image ${idx + 1}`}
+                            className="h-32 w-24 object-cover block"
+                          />
+                        )}
                         {/* Remove button */}
                         <button
                           type="button"
@@ -510,7 +535,11 @@ export default function AdminDashboard() {
                 return (
                 <div key={product.id ? `prod-${product.id}-${idx}` : `prod-idx-${idx}`} className="bg-[#111] border border-white/5 p-4 flex flex-col md:flex-row items-center gap-6 justify-between hover:border-white/20 transition-colors">
                   <div className="flex items-center gap-6 w-full md:w-auto">
-                    <img src={previewImg} className="w-16 h-20 object-cover bg-black" alt={product.name} />
+                    {previewImg.match(/\\.(mp4|mov|webm)$/i) || previewImg.includes('/video/upload/') ? (
+                      <video src={previewImg} className="w-16 h-20 object-cover bg-black" muted loop playsInline onMouseEnter={(e) => e.currentTarget.play()} onMouseLeave={(e) => e.currentTarget.pause()} />
+                    ) : (
+                      <img src={previewImg} className="w-16 h-20 object-cover bg-black" alt={product.name} />
+                    )}
                     <div>
                       <h3 className="text-white font-medium">{product.name}</h3>
                       <p className="text-xs text-white/50">{categories.find(c => c.id === product.categoryId)?.label}</p>
@@ -604,17 +633,25 @@ export default function AdminDashboard() {
                    <textarea required rows={10} value={blogFormData.content} onChange={e => setBlogFormData({...blogFormData, content: e.target.value})} placeholder="<p>Write your article here...</p>" className="w-full bg-black border border-white/20 text-white p-3 outline-none focus:border-accent font-mono text-sm" />
                  </div>
                  <div className="md:col-span-2">
-                   <label className="text-xs uppercase tracking-widest text-white/50 block mb-2">Cover Image *</label>
-                   <input type="file" accept="image/*" onChange={handleBlogImageUpload} className="mb-4 block" />
-                   {uploadProgress && <p className="text-accent animate-pulse mb-4">Uploading cover image...</p>}
-                   {blogFormData.image && <img src={blogFormData.image} alt="Cover Preview" className="h-40 object-cover border border-white/10" />}
-                 </div>
-                 <div className="md:col-span-2 flex justify-end gap-4 mt-4">
-                   {editingBlogId && (
-                     <button type="button" onClick={() => { setEditingBlogId(null); setBlogFormData({ title: '', slug: '', excerpt: '', content: '', category: 'Journal', date: new Date().toISOString().split('T')[0], image: '' }); }} className="px-6 py-3 border border-white/20 text-white">Cancel</button>
-                   )}
-                   <button type="submit" disabled={!!uploadProgress || !blogFormData.image} className="hero-btn-secondary">{editingBlogId ? 'Update Post' : 'Publish Post'}</button>
-                 </div>
+                    <label className="text-xs uppercase tracking-widest text-white/50 block mb-2">Images (Max 2, 1:1 Square Auto-crop) *</label>
+                    <input type="file" multiple accept="image/*" onChange={handleBlogMultipleImagesUpload} disabled={blogFormData.images.length >= 2} className="mb-4 block text-sm" />
+                    {uploadProgress && <p className="text-accent animate-pulse mb-4">Uploading images...</p>}
+                    <div className="flex gap-4 flex-wrap">
+                      {blogFormData.images.map((img, idx) => (
+                        <div key={idx} className="relative group">
+                          <img src={img} alt={`Blog Image ${idx + 1}`} className="w-32 h-32 object-cover border border-white/10" />
+                          <button type="button" onClick={() => removeBlogImage(idx)} className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center text-[10px] opacity-0 group-hover:opacity-100 transition-opacity z-10">✕</button>
+                          {idx === 0 && <span className="absolute bottom-0 left-0 right-0 bg-accent text-black text-[8px] uppercase font-bold text-center py-1">Cover</span>}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="md:col-span-2 flex justify-end gap-4 mt-4">
+                    {editingBlogId && (
+                      <button type="button" onClick={() => { setEditingBlogId(null); setBlogFormData({ title: '', slug: '', excerpt: '', content: '', category: 'Journal', date: new Date().toISOString().split('T')[0], images: [] }); }} className="px-6 py-3 border border-white/20 text-white">Cancel</button>
+                    )}
+                    <button type="submit" disabled={!!uploadProgress || blogFormData.images.length === 0} className="hero-btn-secondary">{editingBlogId ? 'Update Post' : 'Publish Post'}</button>
+                  </div>
                </form>
              </div>
 
@@ -626,7 +663,9 @@ export default function AdminDashboard() {
                    {blogs.map(blog => (
                      <div key={blog.id} className="bg-[#111] border border-white/5 p-4 flex flex-col md:flex-row gap-6 justify-between items-center hover:border-white/20">
                        <div className="flex gap-6 items-center w-full">
-                         {blog.image && <img src={blog.image} className="w-24 h-16 object-cover bg-black" alt={blog.title} />}
+                         {((blog.images && blog.images.length > 0) || blog.image) && (
+                            <img src={blog.images ? blog.images[0] : blog.image} className="w-16 h-16 object-cover bg-black" alt={blog.title} />
+                          )}
                          <div>
                            <h3 className="text-white font-medium">{blog.title}</h3>
                            <p className="text-xs text-white/50">{new Date(blog.date).toLocaleDateString()} • {blog.category}</p>
@@ -634,7 +673,11 @@ export default function AdminDashboard() {
                          </div>
                        </div>
                        <div className="flex gap-4 w-full md:w-auto">
-                         <button onClick={() => { setEditingBlogId(blog.id); setBlogFormData(blog); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="text-xs uppercase tracking-widest text-[#E8E0D0] hover:text-white px-4 py-2 bg-white/5">Edit</button>
+                         <button onClick={() => { 
+                            setEditingBlogId(blog.id); 
+                            setBlogFormData({ ...blog, images: blog.images ? blog.images : (blog.image ? [blog.image] : []) }); 
+                            window.scrollTo({ top: 0, behavior: 'smooth' }); 
+                          }} className="text-xs uppercase tracking-widest text-[#E8E0D0] hover:text-white px-4 py-2 bg-white/5">Edit</button>
                          <button onClick={() => handleBlogDelete(blog.id)} className="text-xs uppercase tracking-widest text-red-400 hover:text-red-300 px-4 py-2 bg-white/5">Delete</button>
                        </div>
                      </div>

@@ -56,7 +56,7 @@ export function HeritageMain() {
                   </h1>
                   <div className="w-px h-12 md:h-16 bg-gradient-to-b from-accent/0 via-accent/40 to-accent/0 mx-auto mb-8 md:mb-10" />
                   <p className="text-[#E8E0D0]/80 text-sm md:text-lg font-light max-w-2xl leading-relaxed mx-auto italic px-4" style={{ fontFamily: '"Cormorant Garamond", serif' }}>
-                    From a 100-rupee beginning in Kakinada to a flagship at Rednam Gardens, MF Khan (<Link href="https://maps.app.goo.gl/CvW6fPhqtD71xzRN8" target="_blank" rel="noopener noreferrer" className="text-accent transition-colors hover:text-white underline decoration-accent/20 hover:decoration-accent underline-offset-4">International</Link>) remains a name that stands for consistency, precision, and trust. Today, clients visit MFKhan International not just for clothing, but for complete wedding styling.
+                    From a 100-rupee beginning in Kakinada to a flagship at Rednam Gardens, MF Khan remains a name that stands for consistency, precision, and trust. Today, clients visit <span className="text-accent font-bold">MF Khan International</span> not just for clothing, but for complete wedding styling.
                   </p>
                 </div>
               </div>
@@ -161,7 +161,7 @@ export function HeritageMain() {
                   </FadeIn>
                   <FadeIn delay={200}>
                     <p className="pl-5 border-l border-accent/30 italic text-white/90">
-                      Even today, grooms across Vizag rely on <Link href="/contact" className="text-accent underline decoration-accent/30 hover:decoration-accent underline-offset-4">MF Khan International</Link> for their wedding attire, from tailored <Link href="/wedding/designer-suits" className="text-white hover:text-accent transition-colors">suits</Link> to traditional <Link href="/wedding/sherwani" className="text-white hover:text-accent transition-colors">sherwanis</Link>.
+                      Even today, grooms across Vizag rely on <span className="text-accent font-bold">MFK International</span> for their wedding attire, from tailored <Link href="/wedding/designer-suits" className="text-white hover:text-accent transition-colors">suits</Link> to traditional <Link href="/wedding/sherwani" className="text-white hover:text-accent transition-colors">sherwanis</Link>.
                     </p>
                   </FadeIn>
                   <FadeIn delay={300}>
@@ -177,13 +177,13 @@ export function HeritageMain() {
             <div className="pt-24 pb-8 text-center max-w-2xl mx-auto">
               <FadeIn>
                 <div className="mb-10 flex justify-center">
-                  <Image src="/images/archive/vintage-logo.png" alt="MF Khan 1940 Vintage Logo" width={280} height={100} className="object-contain" />
+                  <Image src="/images/finallogo2use.png" alt="MF Khan Logo" width={280} height={100} className="object-contain" />
                 </div>
                 <h3 className="text-2xl md:text-3xl text-white font-light mb-6" style={{ fontFamily: '"Cormorant Garamond", serif' }}>The Name That Became a Standard</h3>
               </FadeIn>
               <FadeIn delay={100}>
                 <p className="text-[#E8E0D0]/80 font-light leading-relaxed text-base md:text-lg" style={{ fontFamily: '"Spectral", serif' }}>
-                  By the time MF Khan's son, Mohammed Ahmed Ali Khan, assumed the next chapter of the house, <Link href="/contact" className="text-accent">MF Khan</Link> had become something that transcends branding: a shorthand for a standard. Clients in Visakhapatnam did not say they were going to buy a suit. They said they were going to <Link href="/contact" className="text-accent">MF Khan International</Link>.
+                  By the time MF Khan's son, Mohammed Ahmed Ali Khan, assumed the next chapter of the house, <Link href="/contact" className="text-accent">MF Khan</Link> had become something that transcends branding: a shorthand for a standard. Clients in Visakhapatnam did not say they were going to buy a suit. They said they were going to <span className="text-accent font-bold">MF Khan International</span>.
                 </p>
                 <p className="text-white/50 text-xs uppercase tracking-widest mt-8 font-sans">
                   That compression of a man's name into a city's reference point for quality is the truest measure of what he built.
@@ -223,7 +223,7 @@ export function HeritageMain() {
                   When Mohammed Ahmed Ali Khan assumed leadership of the house his father built, there was no formal ceremony. The transition was marked instead by what remained unchanged: <span className="text-accent italic">the standard.</span>
                 </p>
                 <p className="mt-8 text-center text-white/70 max-w-3xl mx-auto">
-                  What did change — and what defines his contribution to the <Link href="/contact" className="text-white hover:text-accent transition">MF Khan International</Link> legacy — was scale, sourcing, and institutional presence. He applied his father's founding philosophy to a world where luxury had gone global.
+                  What did change — and what defines his contribution to the <span className="text-accent font-bold">MF Khan International</span> legacy — was scale, sourcing, and institutional presence. He applied his father's founding philosophy to a world where luxury had gone global.
                 </p>
               </FadeIn>
 
@@ -272,7 +272,7 @@ export function HeritageMain() {
                     <span className="text-xs text-accent tracking-widest uppercase border border-accent/20 px-3 py-1 rounded-sm mb-6 inline-block">03. The Flagship</span>
                     <h4 className="text-3xl md:text-5xl text-white font-serif mb-6">A House Worthy of the Name</h4>
                     <p className="text-[#E8E0D0]/80 text-base md:text-lg">
-                      The physical manifestation of his vision was the MFKHAN International flagship store at <Link href="/contact" className="text-accent hover:underline">Rednam Gardens</Link> — a 9,000-square-foot architectural destination instantly synonymous with premier luxury menswear.
+                      The physical manifestation of his vision was the <span className="text-accent font-bold">MF Khan International</span> flagship store at <Link href="/contact" className="text-accent hover:underline">Rednam Gardens</Link> — a 9,000-square-foot architectural destination instantly synonymous with premier luxury menswear.
                     </p>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -320,10 +320,10 @@ export function HeritageMain() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
               <FadeIn delay={100} className="space-y-6 text-[#E8E0D0]/80 font-light leading-relaxed text-base md:text-lg" style={{ fontFamily: '"Spectral", serif' }}>
                 <p>
-                  The third generation did not inherit <Link href="/contact" className="text-white hover:text-accent font-medium transition-colors">MF Khan International</Link> by succession plan. He entered it by choice. Mohammed Akbar Ali Khan stepped into the house his grandfather had founded — as a professional understanding that a legacy requires active stewardship.
+                  The third generation did not inherit <span className="text-accent font-bold">MF Khan International</span> by succession plan. He entered it by choice. Mohammed Akbar Ali Khan stepped into the house his grandfather had founded — as a professional understanding that a legacy requires active stewardship.
                 </p>
                 <p>
-                  Under his leadership, <Link href="/contact" className="text-white hover:text-accent transition-colors">MF Khan International</Link> at <Link href="/contact" className="text-accent hover:underline">Rednam Gardens</Link> is the definitive destination for men&apos;s wedding wear in Visakhapatnam.
+                  Under his vision, the atelier grew into Visakhapatnam’s largest men’s wedding wear destination: a 9,000 sq ft flagship at Rednam Gardens, built not just for scale, but for the experience a discerning groom deserves.
                 </p>
               </FadeIn>
 
@@ -361,13 +361,13 @@ export function HeritageMain() {
           <div className="max-w-3xl mx-auto text-center space-y-12">
             <FadeIn>
               <div className="mb-10 flex justify-center">
-                <Image src="/images/archive/vintage-logo.png" alt="MF Khan 1940 Vintage Logo" width={220} height={80} className="object-contain opacity-90" />
+                <Image src="/images/finallogo2use.png" alt="MF Khan Logo" width={220} height={80} className="object-contain opacity-90" />
               </div>
               <h2 className="text-3xl md:text-5xl text-white font-light mb-8" style={{ fontFamily: '"Cormorant Garamond", serif' }}>1940 to Present</h2>
             </FadeIn>
             <FadeIn delay={100}>
               <p className="text-[#E8E0D0]/80 md:text-lg leading-relaxed font-light" style={{ fontFamily: '"Spectral", serif' }}>
-                From a 100-rupee beginning in Kakinada to a flagship at <Link href="/contact" className="text-white hover:text-accent underline decoration-white/20">Rednam Gardens</Link>, <Link href="/contact" className="text-accent">MF Khan</Link> remains a name that stands for consistency, precision, and trust. Today, clients visit MFKhan International not just for clothing, but for complete wedding styling.
+                From a 100-rupee beginning in Kakinada to a flagship at <Link href="/contact" className="text-white hover:text-accent underline decoration-white/20">Rednam Gardens</Link>, MF Khan remains a name that stands for consistency, precision, and trust. Today, clients visit <span className="text-accent font-bold">MF Khan International</span> not just for clothing, but for complete wedding styling.
               </p>
             </FadeIn>
 

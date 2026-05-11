@@ -23,16 +23,22 @@ export async function POST(request: Request) {
     const base64 = buffer.toString('base64');
     const dataUri = `data:${file.type};base64,${base64}`;
 
-    // Upload to Cloudinary — it handles compression, CDN, and WebP conversion
-    const result = await cloudinary.uploader.upload(dataUri, {
+    const isVideo = file.type.startsWith('video/');
+    const uploadOptions: any = {
       folder,
-      transformation: [
+      resource_type: 'auto',
+    };
+
+    if (!isVideo) {
+      uploadOptions.transformation = [
         { width: 1200, crop: 'limit' },   // max width 1200px
         { quality: 'auto:good' },          // auto quality optimisation
         { fetch_format: 'auto' },          // auto WebP/AVIF for browsers that support it
-      ],
-      resource_type: 'image',
-    });
+      ];
+    }
+
+    // Upload to Cloudinary
+    const result = await cloudinary.uploader.upload(dataUri, uploadOptions);
 
     return NextResponse.json({ url: result.secure_url });
   } catch (error: any) {

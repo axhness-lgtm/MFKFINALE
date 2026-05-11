@@ -111,8 +111,17 @@ export default function CustomTailoringPage() {
           ))}
         </div>
         
-        <FadeIn className="text-center mt-32 border-t border-white/5 pt-16">
-          <Link href="/contact" className="hero-btn-secondary">Begin Your Custom Process</Link>
+        <FadeIn className="text-center mt-32 border-t border-white/5 pt-16 mb-16">
+          <span className="text-accent text-[10px] uppercase tracking-[0.3em] font-bold block mb-4">Choose Your Path To The Perfect Garment</span>
+          <h2 className="text-3xl md:text-5xl font-serif text-[#E8E0D0] mb-12">Designer Collection or Custom Tailored</h2>
+          <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12">
+            <Link href="/wedding/designer-suits" className="text-[10px] md:text-xs tracking-[0.2em] uppercase font-bold text-white hover:text-accent transition-colors">
+              Explore Designer Collections
+            </Link>
+            <Link href="/contact" className="hero-btn-secondary">
+              Begin Your Custom Process
+            </Link>
+          </div>
         </FadeIn>
       </div>
     </div>

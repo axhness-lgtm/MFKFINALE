@@ -1,8 +1,6 @@
 "use client";
 
 import { useEffect, useState } from 'react';
-import { Header } from '@/components/navigation/Header';
-import { Footer } from '@/components/navigation/Footer';
 import { FadeIn } from '@/components/animations/FadeIn';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -22,9 +20,7 @@ export default function BlogPage() {
 
   return (
     <div className="bg-[#0d0606] min-h-screen">
-      <Header />
-      
-      <section className="pt-60 md:pt-72 pb-32 px-6 md:px-12 relative overflow-hidden">
+      <section className="pt-40 md:pt-48 pb-32 px-6 md:px-12 relative overflow-hidden">
         <div className="absolute top-0 inset-x-0 h-[500px] bg-gradient-to-b from-black/80 to-transparent pointer-events-none" />
         
         <div className="max-w-7xl mx-auto relative z-10">
@@ -47,10 +43,10 @@ export default function BlogPage() {
               {blogPosts.map((post, idx) => (
                 <FadeIn key={idx} delay={idx * 150}>
                   <Link href={`/blog/${post.slug}`} className="group block h-full flex flex-col">
-                    <div className="relative aspect-[4/5] overflow-hidden border border-white/5 bg-[#111] mb-8">
-                      {post.image ? (
+                    <div className="relative aspect-square overflow-hidden border border-white/5 bg-[#111] mb-8">
+                      {((post.images && post.images.length > 0) || post.image) ? (
                         <Image
-                          src={post.image}
+                          src={post.images ? post.images[0] : post.image}
                           alt={post.title}
                           fill
                           className="object-cover transition-transform duration-[2s] group-hover:scale-105 opacity-80 group-hover:opacity-100"
@@ -94,8 +90,6 @@ export default function BlogPage() {
           )}
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

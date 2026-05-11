@@ -20,9 +20,16 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
     const docToUpdate = querySnapshot.docs[0];
     const docRef = doc(db, 'products', docToUpdate.id);
     
-    await updateDoc(docRef, { ...body, updatedAt: new Date().toISOString() });
+    // Sync the `image` field with the first element of `images` to ensure thumbnail updates
+    const updatedData = { 
+      ...body, 
+      image: body.images && body.images.length > 0 ? body.images[0] : (body.image || ''),
+      updatedAt: new Date().toISOString() 
+    };
     
-    return NextResponse.json({ ...body, id, fid: docToUpdate.id });
+    await updateDoc(docRef, updatedData);
+    
+    return NextResponse.json({ ...updatedData, id, fid: docToUpdate.id });
   } catch (error: any) {
     console.error("PUT Products Error: ", error);
     return NextResponse.json({ error: 'Failed to update product in database' }, { status: 500 });

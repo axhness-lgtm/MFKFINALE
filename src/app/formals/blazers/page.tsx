@@ -38,7 +38,7 @@ export default function FormalsBlazersPage() {
         ) : (
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-4 md:gap-x-8 gap-y-12">
             {items.map((item, idx) => (
-              <FadeIn key={item.id} delay={(idx % 4) * 100}>
+              <FadeIn key={item.id ? `${item.id}-${idx}` : `blz-${idx}`} delay={(idx % 4) * 100}>
                 <Link 
                   href={`/collection/${item.id}?name=${encodeURIComponent(item.name)}&image=${encodeURIComponent(item.image)}&desc=${encodeURIComponent(item.desc)}`} 
                   className="flex flex-col group cursor-pointer"

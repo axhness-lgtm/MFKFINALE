@@ -39,7 +39,7 @@ export default function FormalShirtsPage() {
         ) : (
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-4 md:gap-x-8 gap-y-12">
             {items.map((item, idx) => (
-              <FadeIn key={item.id} delay={(idx % 4) * 100}>
+              <FadeIn key={item.id ? `${item.id}-${idx}` : `fs-${idx}`} delay={(idx % 4) * 100}>
                 <Link 
                   href={`/collection/${generateProductSlug(item.name, item.id)}`} 
                   className="flex flex-col group cursor-pointer"

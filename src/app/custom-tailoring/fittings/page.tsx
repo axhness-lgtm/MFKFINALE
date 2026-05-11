@@ -43,7 +43,7 @@ export default function CustomTailoringFittingsPage() {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/5 border border-white/5">
               {items.map((item, idx) => (
-                <FadeIn key={item.id} delay={idx * 100} className="bg-[#0a0a09] p-8 lg:p-16 flex flex-col group">
+                <FadeIn key={item.id ? `${item.id}-${idx}` : `fit-${idx}`} delay={idx * 100} className="bg-[#0a0a09] p-8 lg:p-16 flex flex-col group">
                   <Link 
                     href={`/collection/${item.id}?name=${encodeURIComponent(item.name)}&image=${encodeURIComponent(item.image)}&desc=${encodeURIComponent(item.desc)}`} 
                     className="flex flex-col h-full"

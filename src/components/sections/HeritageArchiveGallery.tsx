@@ -116,7 +116,7 @@ export function HeritageArchiveGallery() {
           </h2>
           <p className="text-[#E8E0D0]/60 max-w-2xl mx-auto font-light md:text-lg" style={{ fontFamily: '"Spectral", serif' }}>
             A curated visual history encompassing global sourcing expeditions, distinguished celebrity patrons, 
-            and the indelible legacy of the <Link href="/contact" className="text-accent hover:underline">MF Khan International</Link> family across generations.
+            and the indelible legacy of the <span className="text-accent font-bold">MF Khan International</span> family across generations.
           </p>
         </FadeIn>
 
@@ -157,15 +157,17 @@ export function HeritageArchiveGallery() {
                 />
                 
                 {/* Information Overlay */}
-                <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/100 via-black/80 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                   <p className="text-accent text-[9px] uppercase tracking-widest mb-1">
-                      {img.category === 'architect' && 'Legacy of the Architect'}
-                      {img.category === 'global' && 'Global Sourcing'}
-                      {img.category === 'patrons' && 'Notable Patrons'}
-                   </p>
-                   <h4 className="text-white text-sm font-serif mb-1">{img.title}</h4>
-                   <p className="text-white/60 text-[10px] italic">{img.description}</p>
-                </div>
+                {!(img.title === "Ahmed Ali Khan" || img.title === "International Sourcing" || img.title === "Notable Patron") && (
+                  <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/100 via-black/80 to-transparent translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                     <p className="text-accent text-[9px] uppercase tracking-widest mb-1">
+                        {img.category === 'architect' && 'Legacy of the Architect'}
+                        {img.category === 'global' && 'Global Sourcing'}
+                        {img.category === 'patrons' && 'Notable Patrons'}
+                     </p>
+                     <h4 className="text-white text-sm font-serif mb-1">{img.title}</h4>
+                     <p className="text-white/60 text-[10px] italic">{img.description}</p>
+                  </div>
+                )}
               </div>
             </FadeIn>
           ))}

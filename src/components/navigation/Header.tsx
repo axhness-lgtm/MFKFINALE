@@ -160,11 +160,14 @@ export function Header() {
           </div>
 
           {/* Center Logo Stack */}
-          <Link href="/" className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 flex flex-col items-center flex-shrink-0 group md:mx-12">
+          <Link href="/" className={cn(
+            "absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0 flex flex-col items-center flex-shrink-0 group md:mx-12 transition-all duration-700",
+            !isScrolled && "mt-6 md:mt-0"
+          )}>
             <div
               className={cn(
                 "relative transition-all duration-700 group-hover:scale-105 rounded-full overflow-hidden border border-white/10 shadow-2xl flex items-center justify-center bg-black",
-                isScrolled ? "h-[75px] w-[75px] md:h-[80px] md:w-[80px]" : "h-[105px] w-[105px] md:h-[120px] md:w-[120px]"
+                isScrolled ? "h-[95px] w-[95px] md:h-[80px] md:w-[80px]" : "h-[135px] w-[135px] md:h-[120px] md:w-[120px]"
               )}
             >
               <video

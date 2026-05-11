@@ -1,7 +1,7 @@
 "use client";
 
 import Link from 'next/link';
-import { Instagram, Facebook, Mail, MapPin, Phone, MessageCircle } from 'lucide-react';
+import { Instagram, Facebook, MapPin, Phone, Linkedin } from 'lucide-react';
 import { BrandLogo } from '../brand/BrandLogo';
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
@@ -74,10 +74,10 @@ export function Footer() {
             <div className="absolute inset-0 border-[0.5px] border-accent/10 pointer-events-none z-20"></div>
             <div className="absolute top-0 right-0 w-48 h-48 bg-white/[0.02] blur-3xl pointer-events-none"></div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none"></div>
-            <div className="absolute bottom-6 right-6 bg-black/60 group-hover:bg-accent group-hover:text-black text-white text-[9px] uppercase tracking-[0.2em] px-6 py-3 border border-accent/30 transition-all duration-500 backdrop-blur-md flex items-center gap-3 z-40">
+            <Link href="https://maps.app.goo.gl/CvW6fPhqtD71xzRN8" target="_blank" className="absolute bottom-6 right-6 bg-black/60 group-hover:bg-accent group-hover:text-black text-white text-[9px] uppercase tracking-[0.2em] px-6 py-3 border border-accent/30 transition-all duration-500 backdrop-blur-md flex items-center gap-3 z-40">
               <MapPin size={12} className="text-accent group-hover:text-black transition-colors" />
               Get Directions
-            </div>
+            </Link>
           </div>
         </div>
 
@@ -121,8 +121,16 @@ export function Footer() {
               <a href="https://instagram.com/mfkhaninternational" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-accent transition-colors" title="Instagram">
                 <Instagram size={16} />
               </a>
-              <a href="https://facebook.com/mfkhaninternational" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-accent transition-colors" title="Facebook">
+              <a href="https://www.facebook.com/saniaMfkhanInternational" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-accent transition-colors" title="Facebook">
                 <Facebook size={16} />
+              </a>
+              <a href="https://www.linkedin.com/company/mfkhan-international/?originalSubdomain=in" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-accent transition-colors" title="LinkedIn">
+                <Linkedin size={16} />
+              </a>
+              <a href="https://in.pinterest.com/mfkhaninternational/" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-accent transition-colors" title="Pinterest">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.951-7.252 4.168 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.367 18.633 0 12.017 0z"/>
+                </svg>
               </a>
               <a href="https://x.com/mfkhan_suits?s=11" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-accent transition-colors" title="X (Twitter)">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -142,7 +150,7 @@ export function Footer() {
               <a href="https://www.justdial.com/Visakhapatnam/M-F-Khan-Tailors-Near-Police-Mess-Rednam-Gardens/0891P891STD12502" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-accent transition-colors text-[9px] font-bold tracking-widest flex items-center gap-1 border border-white/10 px-2 py-1" title="JustDial">
                 JD
               </a>
-              <a href="https://g.co/kgs/xyz123" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-accent transition-colors text-[9px] font-bold tracking-widest flex items-center gap-1 border border-white/10 px-2 py-1" title="Google Business">
+              <a href="https://share.google/s9jqHFoARC3iieIYi" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-accent transition-colors text-[9px] font-bold tracking-widest flex items-center gap-1 border border-white/10 px-2 py-1" title="Google Business">
                 Google
               </a>
             </div>
@@ -153,7 +161,7 @@ export function Footer() {
       {/* SEO Footer */}
       <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/5">
         <p className="text-[#E8E0D0]/40 text-xs leading-relaxed max-w-4xl" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-          <Link href="/contact" className="hover:text-accent transition-colors">MFKhan International</Link> is Vizag&apos;s largest men&apos;s wear destination — a 9,000 square foot showroom on Jail Road, Visakhapatnam, built to be the city&apos;s definitive destination for the discerning Indian man. Established in 1940, the <Link href="/contact" className="hover:text-accent transition-colors">MF Khan International</Link> legacy has been practiced without interruption for over eight decades.
+          <Link href="/contact" className="hover:text-accent transition-colors">MFKhan International</Link> is Vizag&apos;s largest men&apos;s wedding wear destination — a 9,000 square foot showroom on Jail Road, Visakhapatnam, built to be the city&apos;s definitive destination for the discerning Indian man. Established in 1940, the <Link href="/contact" className="hover:text-accent transition-colors">MF Khan International</Link> legacy has been practiced without interruption for over eight decades.
         </p>
       </div>
 

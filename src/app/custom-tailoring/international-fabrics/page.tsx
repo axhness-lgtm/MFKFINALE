@@ -51,7 +51,7 @@ export default function CustomTailoringInternationalFabricsPage() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 lg:gap-12">
             {items.map((item, idx) => (
-              <FadeIn key={item.id} delay={idx * 50} className={idx % 5 === 2 ? 'lg:translate-y-12' : ''}>
+              <FadeIn key={item.id ? `${item.id}-${idx}` : `if-${idx}`} delay={idx * 50} className={idx % 5 === 2 ? 'lg:translate-y-12' : ''}>
                 <Link 
                   href={`/collection/${item.id}?name=${encodeURIComponent(item.name)}&image=${encodeURIComponent(item.image)}&desc=${encodeURIComponent(item.desc)}`} 
                   className="flex flex-col group relative"

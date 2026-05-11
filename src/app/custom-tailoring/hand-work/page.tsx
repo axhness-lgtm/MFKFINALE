@@ -41,7 +41,7 @@ export default function CustomTailoringHandWorkPage() {
         ) : (
           <div className="columns-1 md:columns-2 lg:columns-3 gap-12 space-y-12">
             {items.map((item, idx) => (
-              <FadeIn key={item.id} delay={idx * 50} className="break-inside-avoid">
+              <FadeIn key={item.id ? `${item.id}-${idx}` : `hw-${idx}`} delay={idx * 50} className="break-inside-avoid">
                 <Link 
                   href={`/collection/${item.id}?name=${encodeURIComponent(item.name)}&image=${encodeURIComponent(item.image)}&desc=${encodeURIComponent(item.desc)}`} 
                   className="flex flex-col group relative bg-white/[0.02] border border-white/5 p-4 hover:border-accent/40 transition-all duration-700 hover:shadow-[0_0_50px_rgba(232,224,208,0.05)]"

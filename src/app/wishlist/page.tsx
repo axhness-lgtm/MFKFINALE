@@ -22,8 +22,8 @@ export default function WishlistPage() {
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {items.map((item) => (
-              <div key={item.id} className="group relative aspect-[3/4] overflow-hidden border border-white/10 bg-black/40 block">
+            {items.map((item, idx) => (
+              <div key={item.id ? `${item.id}-${idx}` : `wl-${idx}`} className="group relative aspect-[3/4] overflow-hidden border border-white/10 bg-black/40 block">
                 <Image src={item.image} alt={item.title} fill className="object-cover transition-transform duration-[1500ms] group-hover:scale-105 opacity-80 group-hover:opacity-100" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
                 <WishlistButton item={item} />

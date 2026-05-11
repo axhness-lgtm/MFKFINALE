@@ -5,7 +5,6 @@ import { ProcessSteps } from '@/components/sections/ProcessSteps';
 import { Testimonials } from '@/components/sections/Testimonials';
 import { FinalCTA } from '@/components/sections/FinalCTA';
 import { FadeIn } from '@/components/animations/FadeIn';
-import { MobileQuickNav } from '@/components/sections/MobileQuickNav';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ExperienceSection } from '@/components/sections/ExperienceSection';
@@ -26,8 +25,6 @@ export default function Home() {
   return (
     <div className="flex flex-col bg-[#0a0a09]">
       <Hero />
-
-      <MobileQuickNav />
 
       {/* Section 2: Heritage Info */}
       <div className="px-4 md:px-8 py-8 bg-[#0a0a09]">

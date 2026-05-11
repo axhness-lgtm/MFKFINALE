@@ -1,5 +1,6 @@
 "use client";
 import { FadeIn } from '@/components/animations/FadeIn';
+import { ProductThumbnail } from '@/components/ui/ProductThumbnail';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
@@ -39,13 +40,13 @@ export default function WeddingIndoWesternPage() {
         ) : (
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-4 md:gap-x-8 gap-y-12">
             {items.map((item, idx) => (
-              <FadeIn key={item.id} delay={(idx % 4) * 100}>
+              <FadeIn key={item.id ? `${item.id}-${idx}` : `iw-${idx}`} delay={(idx % 4) * 100}>
                 <Link 
                   href={`/collection/${generateProductSlug(item.name, item.id)}`} 
                   className="flex flex-col group cursor-pointer"
                 >
                   <div className="relative w-full aspect-[3/4] overflow-hidden bg-[#111] mb-4">
-                    <Image src={item.image} alt={item.name} fill className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
+                    <ProductThumbnail item={item} className="opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" />
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                       <span className="text-white border border-white/50 bg-black/40 backdrop-blur-sm px-6 py-2 text-xs uppercase tracking-[0.2em]">View Details</span>
                     </div>
