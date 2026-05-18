@@ -36,7 +36,7 @@ export default function Home() {
                 Since <span className="italic text-accent">1940</span>, the <Link href="/contact" className="hover:text-accent transition-colors">MF Khan International</Link> name has stood for one thing in Visakhapatnam — <span className="font-medium">uncompromising quality.</span>
               </h2>
             </FadeIn>
-            
+
             <FadeIn delay={100}>
               <p className="text-white/60 text-sm md:text-base leading-loose max-w-3xl mx-auto font-light" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
                 <span className="text-white/90">MFKhan International</span> is Vizag&apos;s largest men&apos;s wear destination — a 9,000 square foot showroom on Jail Road, Visakhapatnam, built to be the city&apos;s definitive destination for the discerning Indian man.
@@ -45,12 +45,12 @@ export default function Home() {
 
             <FadeIn delay={200}>
               <p className="text-white/60 text-sm md:text-base leading-loose max-w-3xl mx-auto font-light mb-8" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
-                Under one roof, every groom finds what his wedding demands from <Link href="/wedding/designer-suits" className="text-accent hover:underline">designer suits</Link>, hand-embroidered reception wear, <Link href="/wedding/sherwani" className="text-accent hover:underline">sherwanis</Link> to Indo-Western fusion wear, and an extensive international fabric library sourced from the world's finest mills. 
+                Under one roof, every groom finds what his wedding demands from <Link href="/wedding/designer-suits" className="text-accent hover:underline">designer suits</Link>, hand-embroidered reception wear, <Link href="/wedding/sherwani" className="text-accent hover:underline">sherwanis</Link> to Indo-Western fusion wear, and an extensive international fabric library sourced from the world's finest mills.
                 <br /><br />
                 Walk in and select from our collections, or commission a garment built to your exact measurements through our fine custom tailoring atelier. Where the <Link href="/contact" className="text-accent hover:underline">MF Khan International</Link> legacy has been practiced without interruption for over eight decades.
               </p>
             </FadeIn>
-            
+
             <FadeIn delay={300}>
               <Link href="/heritage" className="hero-btn-secondary inline-flex mt-4">
                 Explore Our Legacy
@@ -68,12 +68,12 @@ export default function Home() {
       <section className="py-24 px-6 md:px-12 bg-[#0d0606] border-t border-white/5">
         <div className="max-w-[1400px] mx-auto space-y-12">
           <FadeIn className="text-center space-y-4">
-             <span className="gold-text uppercase tracking-[0.4em] text-[10px]" style={{ fontFamily: '"Spectral", serif' }}>Behind The Scenes</span>
-             <h2 className="text-3xl md:text-5xl text-white font-light font-serif">
-               Inside the Atelier
-             </h2>
+            <span className="gold-text uppercase tracking-[0.4em] text-[10px]" style={{ fontFamily: '"Spectral", serif' }}>Behind The Scenes</span>
+            <h2 className="text-3xl md:text-5xl text-white font-light font-serif">
+              Inside the Atelier
+            </h2>
           </FadeIn>
-          
+
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {[1, 2, 3, 4].map((num) => (
               <FadeIn key={num} delay={num * 150} className="relative aspect-[9/16] overflow-hidden group cursor-pointer border border-white/5 rounded-sm hover:border-accent/40 transition-colors bg-black">
@@ -82,23 +82,23 @@ export default function Home() {
                   Instagram embeds physically cannot autoplay due to browser cross-origin policies.
                   These now expect local .mp4 files.
                 */}
-                <video 
-                  autoPlay 
-                  loop 
-                  muted 
-                  playsInline 
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
                   className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-500 transform group-hover:scale-105 ease-out"
                 >
                   <source src={`/videos/reel-${num}.mp4`} type="video/mp4" />
                 </video>
-                
+
                 {/* Visual Overlay */}
                 <div className="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex justify-between items-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <span className="text-white text-xs font-bold uppercase tracking-widest">
                     Inside The Atelier
                   </span>
                   <div className="w-8 h-8 rounded-full bg-accent/20 flex flex-col items-center justify-center backdrop-blur-md">
-                     <svg className="w-3 h-3 text-accent" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    <svg className="w-3 h-3 text-accent" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
                   </div>
                 </div>
               </FadeIn>

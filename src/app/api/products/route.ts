@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import { db } from '@/lib/firebase';
-import { collection, getDocs, setDoc, doc, query, where, Timestamp } from 'firebase/firestore';
+import fs from 'fs';
+import path from 'path';
 
 const categoryPrefixes: Record<string, string> = {
   'wedding/designer-suits': '10',
@@ -16,31 +16,44 @@ const categoryPrefixes: Record<string, string> = {
   'custom-tailoring/hand-work': '32'
 };
 
+const dataFilePath = path.join(process.cwd(), 'data', 'products.json');
+
+function getLocalProducts() {
+  try {
+    const fileContent = fs.readFileSync(dataFilePath, 'utf-8');
+    const data = JSON.parse(fileContent);
+    return data.products || [];
+  } catch (error) {
+    console.error("Error reading local products:", error);
+    return [];
+  }
+}
+
+function saveLocalProducts(products: any[]) {
+  try {
+    fs.writeFileSync(dataFilePath, JSON.stringify({ products }, null, 2), 'utf-8');
+    return true;
+  } catch (error) {
+    console.error("Error writing local products:", error);
+    return false;
+  }
+}
+
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
     const category = searchParams.get('category');
     
-    let productsRef = collection(db, 'products');
-    let q;
+    let products = getLocalProducts();
     
     if (category) {
-      q = query(productsRef, where("categoryId", "==", category));
-    } else {
-      q = query(productsRef);
+      products = products.filter((p: any) => p.categoryId === category);
     }
-    
-    const querySnapshot = await getDocs(q);
-    const products: any[] = [];
-    
-    querySnapshot.forEach((doc) => {
-      products.push({ ...doc.data(), fid: doc.id });
-    });
     
     return NextResponse.json(products);
   } catch (error: any) {
     console.error("GET Products Error: ", error);
-    return NextResponse.json({ error: 'Failed to fetch products from database' }, { status: 500 });
+    return NextResponse.json({ error: 'Failed to fetch products from local data' }, { status: 500 });
   }
 }
 
@@ -48,12 +61,7 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
     
-    // Get all existing products to check IDs and generate a new one
-    const querySnapshot = await getDocs(collection(db, 'products'));
-    const products: any[] = [];
-    querySnapshot.forEach((doc) => {
-      products.push(doc.data());
-    });
+    const products = getLocalProducts();
     
     let proposedId = body.id;
 
@@ -89,15 +97,16 @@ export async function POST(request: Request) {
       createdAt: new Date().toISOString()
     };
     
-    // Create new document in 'products' collection using the custom ID or a generated string 
-    // We'll use the unique ID string as the document ID for simplicity, or just let Firebase generate one
-    // Let's use auto-generated doc ID and store `id` inside it as property
-    const newDocRef = doc(collection(db, 'products')); 
-    await setDoc(newDocRef, newProduct);
+    products.push(newProduct);
+    const saved = saveLocalProducts(products);
     
-    return NextResponse.json({ ...newProduct, fid: newDocRef.id }, { status: 201 });
+    if (!saved) {
+      throw new Error("Failed to save to local file");
+    }
+    
+    return NextResponse.json({ ...newProduct, fid: newProduct.id }, { status: 201 });
   } catch (error: any) {
     console.error("POST Products Error: ", error);
-    return NextResponse.json({ error: 'Failed to add product to database' }, { status: 500 });
+    return NextResponse.json({ error: 'Failed to add product to local data' }, { status: 500 });
   }
 }

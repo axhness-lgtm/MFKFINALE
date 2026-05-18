@@ -8,14 +8,14 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://www.mfkhaninternational.com'),
   applicationName: 'MF Khan International',
   title: {
-    default: 'Best Wedding Suits & Bespoke Tailoring in Visakhapatnam | MF Khan International',
+    default: 'Best Wedding Suits & Tailoring in Visakhapatnam | MF Khan International',
     template: '%s | MF Khan International'
   },
   description: 'MF Khan International: Vizag\'s premier destination for luxury wedding suits, designer sherwanis, and bespoke tailoring. Experience 85 years of quality conscious heritage since 1940.',
   keywords: [
-    'mf khan', 'mf khan vizag', 'mf khan visakhapatnam', 'wedding suits in vizag', 
+    'mf khan', 'mf khan vizag', 'mf khan visakhapatnam', 'wedding suits in vizag',
     'best wedding suits visakhapatnam', 'designer suits vizag', 'bespoke tailoring vizag',
-    'largest tailoring store visakhapatnam', 'MFKhan International', 'men\'s wedding wear vizag', 
+    'largest tailoring store visakhapatnam', 'MFKhan International', 'men\'s wedding wear vizag',
     'ceremonial wear visakhapatnam', 'custom sherwani vizag', 'tuxedo rental vizag',
     'raymond tailoring vizag', 'siyaram tailoring vizag', 'luxury fabrics vizag'
   ],
@@ -26,8 +26,8 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/footer-logo.png',
-    apple: '/footer-logo.png',
+    icon: '/finalfav.png',
+    apple: '/finalfav.png',
   },
   openGraph: {
     title: 'MF Khan International | Luxury Menswear Heritage Since 1940',
@@ -92,37 +92,37 @@ export default function RootLayout({
                 "@type": "ClothingStore",
                 "name": "MFKhan International",
                 "image": "https://www.mfkhaninternational.com/icon.png",
-              "url": "https://www.mfkhaninternational.com",
-              "telephone": "+91 91821 67662",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "10-12-1, Jail Road, Rednam Gardens",
-                "addressLocality": "Visakhapatnam",
-                "addressRegion": "AP",
-                "postalCode": "530002",
-                "addressCountry": "IN"
-              },
-              "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": 17.7208,
-                "longitude": 83.3039
-              },
-              "description": "Vizag's largest men's wear tailoring destination and proud descendant of the MFKhan Lineage. Best providers for Wedding Suits and Designer Suits in Visakhapatnam since 1940.",
-              "brand": {
-                "@type": "Brand",
-                "name": "MF Khan International"
-              },
-              "foundingDate": "1940",
-              "founder": {
-                "@type": "Person",
-                "name": "Mohammed Faizulla Khan"
-              },
-              "parentOrganization": {
-                "@type": "Organization",
-                "name": "MF Khan"
-              },
-              "knowsAbout": ["Wedding wear", "Ceremonial tailoring", "Luxury menswear", "Bespoke tailoring"]
-            }])
+                "url": "https://www.mfkhaninternational.com",
+                "telephone": "+91 91821 67662",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "10-12-1, Jail Road, Rednam Gardens",
+                  "addressLocality": "Visakhapatnam",
+                  "addressRegion": "AP",
+                  "postalCode": "530002",
+                  "addressCountry": "IN"
+                },
+                "geo": {
+                  "@type": "GeoCoordinates",
+                  "latitude": 17.7208,
+                  "longitude": 83.3039
+                },
+                "description": "Vizag's largest men's wear tailoring destination and proud descendant of the MFKhan Lineage. Best providers for Wedding Suits and Designer Suits in Visakhapatnam since 1940.",
+                "brand": {
+                  "@type": "Brand",
+                  "name": "MF Khan International"
+                },
+                "foundingDate": "1940",
+                "founder": {
+                  "@type": "Person",
+                  "name": "Mohammed Faizulla Khan"
+                },
+                "parentOrganization": {
+                  "@type": "Organization",
+                  "name": "MF Khan"
+                },
+                "knowsAbout": ["Wedding wear", "Ceremonial tailoring", "Luxury menswear", "Bespoke tailoring"]
+              }])
           }}
         />
       </head>
